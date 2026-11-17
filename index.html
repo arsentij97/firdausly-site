@@ -47,8 +47,8 @@ window.FIRDAUS = {
   telegramUrl: 'https://t.me/firdaus_support', // 17.11: канала нет — карточки и ссылки сняты со всех страниц; завели канал → вернуть карточки
   telegramName: '@firdaus_support',
   /* Почта поддержки и партнёров — переадресация Porkbun на почту команды. */
-  email: 'support@firdaus.life',
-  partnersEmail: 'partners@firdaus.life',
+  email: 'support@firdausly.com',
+  partnersEmail: 'partners@firdausly.com',
   /* Своя схема приложения — mobile/app.json, "scheme". */
   scheme: 'firdaus://',
   /* Метка кампании App Store (App Store Connect → Аналитика приложений →
@@ -355,9 +355,9 @@ window.FIRDAUS = {
   function mailFallback(C, T, d) {
     var mail = $('a.btn', d);
     mail.textContent = T.mail;
-    mail.href = 'mailto:' + (C.email || 'support@firdaus.life') + '?subject=' + encodeURIComponent(T.subj) + '&body=' + encodeURIComponent(T.body);
+    mail.href = 'mailto:' + (C.email || 'support@firdausly.com') + '?subject=' + encodeURIComponent(T.subj) + '&body=' + encodeURIComponent(T.body);
     var alt = $('.alt', d);
-    var addr = C.email || 'support@firdaus.life';
+    var addr = C.email || 'support@firdausly.com';
     mail.addEventListener('click', function () {
       /* почта на телефоне может быть не настроена — адрес сразу в буфер и на экран */
       if (navigator.clipboard) navigator.clipboard.writeText(addr).catch(function () {});
@@ -750,7 +750,7 @@ window.FIRDAUS = {
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Organization","@id":"https://firdausly.com/#org","name":"Firdausly","url":"https://firdausly.com/","logo":"https://firdausly.com/assets/logo-512.jpg","email":"support@firdaus.life","sameAs":["https://www.instagram.com/firdaus.social","https://www.tiktok.com/@firdaus.app"]},
+{"@type":"Organization","@id":"https://firdausly.com/#org","name":"Firdausly","url":"https://firdausly.com/","logo":"https://firdausly.com/assets/logo-512.jpg","email":"support@firdausly.com","sameAs":["https://www.instagram.com/firdaus.social","https://www.tiktok.com/@firdaus.app"]},
 {"@type":"WebSite","@id":"https://firdausly.com/#site","name":"Firdausly","url":"https://firdausly.com/","inLanguage":["ru","en"],"publisher":{"@id":"https://firdausly.com/#org"}},
 {"@type":"MobileApplication","@id":"https://firdausly.com/#app","name":"Firdausly","alternateName":"Firdausly: время намаза и кибла","operatingSystem":"iOS 17.0 или новее","applicationCategory":"LifestyleApplication","inLanguage":["ru","en"],"url":"https://firdausly.com/","image":"https://firdausly.com/assets/logo-512.jpg","publisher":{"@id":"https://firdausly.com/#org"},"description":"Соцсеть для мусульман, которая приводит к намазу: время намаза по городу, кибла, Коран и зикры, круг своих, лента Уммы с автопереводом, короткие ролики Reminders с паузой на намаз, сообщения со стикерами, Фокус.","featureList":"Время намаза по городу; Кибла: компас и карта; Напоминание о намазе; Отметка намаза; Коран с переводом; Зикры и азкары; Тахаджуд; Круг своих: видно, кто прочитал намаз; Позвать на намаз; Открытка-напоминание; Умма: лента с автопереводом; Reminders: короткие ролики с паузой на намаз; Сообщения, стикеры и Моменты; Фокус: блокировка приложений на время намаза; Защита сестёр и вали","offers":[{"@type":"Offer","name":"Бесплатно","price":"0","priceCurrency":"KZT"},{"@type":"Offer","name":"Firdausly Plus, месяц","price":"3790","priceCurrency":"KZT"},{"@type":"Offer","name":"Firdausly Plus, год","price":"22990","priceCurrency":"KZT"},{"@type":"Offer","name":"Firdausly Premium, месяц","price":"5390","priceCurrency":"KZT"},{"@type":"Offer","name":"Firdausly Premium, год","price":"32990","priceCurrency":"KZT"}]},
 {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Firdausly","item":"https://firdausly.com/"}]},

@@ -42,8 +42,8 @@ window.FIRDAUS = {
   telegramUrl: 'https://t.me/firdaus_support', // 17.11: канала нет — карточки и ссылки сняты со всех страниц; завели канал → вернуть карточки
   telegramName: '@firdaus_support',
   /* Почта поддержки и партнёров — переадресация Porkbun на почту команды. */
-  email: 'support@firdaus.life',
-  partnersEmail: 'partners@firdaus.life',
+  email: 'support@firdausly.com',
+  partnersEmail: 'partners@firdausly.com',
   /* Своя схема приложения — mobile/app.json, "scheme". */
   scheme: 'firdaus://',
   /* Метка кампании App Store (App Store Connect → Аналитика приложений →
@@ -258,7 +258,7 @@ window.FIRDAUS = {
   </ol>
 
   <h2 id="who">1. Who is responsible</h2>
-  <p>The data controller is the developer of Firdausly, an individual based in Kazakhstan. The name is shown as “Seller” on the Firdausly page in the App Store. You can reach us by email at <a href="mailto:support@firdaus.life" data-link="email"><span data-text="email">support@firdaus.life</span></a>.</p>
+  <p>The data controller is the developer of Firdausly, an individual based in Kazakhstan. The name is shown as “Seller” on the Firdausly page in the App Store. You can reach us by email at <a href="mailto:support@firdausly.com" data-link="email"><span data-text="email">support@firdausly.com</span></a>.</p>
 
   <h2 id="phone">2. What stays on your phone</h2>
   <p>We never receive any of this — not on the server, not in analytics, not in crash reports.</p>
@@ -299,17 +299,17 @@ window.FIRDAUS = {
 </tbody>
 </table>
 
-  <p id="waitlist"><strong>Website waitlist.</strong> Before the app is out, you can leave your email or Telegram username on firdausly.com to hear about the launch. No account is needed. We keep only that contact, the page language and where you came from (a link tag, such as an ad’s, or the page address) — in the same Supabase database, closed to outsiders. Why: to tell you once that Firdausly is on the App Store. No newsletters, no ads, and we don’t share the contact with anyone. We delete all waitlist contacts 30 days after launch. To remove yours sooner, write to <a href="mailto:support@firdaus.life" data-link="email"><span data-text="email">support@firdaus.life</span></a>.</p>
+  <p id="waitlist"><strong>Website waitlist.</strong> Before the app is out, you can leave your email or Telegram username on firdausly.com to hear about the launch. No account is needed. We keep only that contact, the page language and where you came from (a link tag, such as an ad’s, or the page address) — in the same Supabase database, closed to outsiders. Why: to tell you once that Firdausly is on the App Store. No newsletters, no ads, and we don’t share the contact with anyone. We delete all waitlist contacts 30 days after launch. To remove yours sooner, write to <a href="mailto:support@firdausly.com" data-link="email"><span data-text="email">support@firdausly.com</span></a>.</p>
 
-  <p id="creators"><strong>Creator applications on the website.</strong> On firdausly.com/creators a creator can hold a place before launch, without an account. We keep what you wrote in the form: your name, your Instagram or TikTok handle, what you do and how to reach you. Along with the application we keep the page language and the tags of the link you came through: the invitation tag, campaign tags and the link address itself (in a personal invitation it may contain your name and handle). Why: to contact you and decide on the application. Where: in the Supabase database (EU), closed to outsiders. Who sees it: the Firdausly team; a copy of the application goes to the team’s private Telegram work chat. We pass it to no one else. We keep it until the application is decided and for 12 months after that; to delete it sooner, write to <a href="mailto:support@firdaus.life" data-link="email"><span data-text="email">support@firdaus.life</span></a>.</p>
+  <p id="creators"><strong>Creator applications on the website.</strong> On firdausly.com/creators a creator can hold a place before launch, without an account. We keep what you wrote in the form: your name, your Instagram or TikTok handle, what you do and how to reach you. Along with the application we keep the page language and the tags of the link you came through: the invitation tag, campaign tags and the link address itself (in a personal invitation it may contain your name and handle). Why: to contact you and decide on the application. Where: in the Supabase database (EU), closed to outsiders. Who sees it: the Firdausly team; a copy of the application goes to the team’s private Telegram work chat. We pass it to no one else. We keep it until the application is decided and for 12 months after that; to delete it sooner, write to <a href="mailto:support@firdausly.com" data-link="email"><span data-text="email">support@firdausly.com</span></a>.</p>
 
   <p id="site-visits"><strong>Visit counting on the creators page.</strong> To see which invitations work, the page records three steps: opened the page, started the form, made a story card. Each record carries the page language and address, the link tags (ref, utm), the chosen status, whether the invitation was personal, and a random tab number that lives only in that tab and is erased when it is closed. There is no name, handle or contact in it, and no cookies. The IP address is not written to the database: the server keeps it only in memory to limit how many applications come from one address. Separately, the whole website counts page views in PostHog (EU), also without cookies and without storing anything on your device.</p>
 
   <h3 id="messages">Your messages</h3>
   <ul>
     <li><strong>Who sees them.</strong> In the app — only the people in the chat: the database access rules do not hand a conversation to anyone else. The Firdausly team does not read your conversations.</li>
-    <li><strong>What is checked automatically.</strong> Photos and video messages in groups and channels: before the other members see them, the frames are checked for prohibited content (the check is done by OpenAI). Anything that fails is not shown.</li>
-    <li><strong>What is not checked.</strong> Message text — nowhere. In a private chat nothing is checked automatically: not text, photos, voice or video messages.</li>
+    <li><strong>What is checked automatically.</strong> In groups and channels — text, photos and video messages. In a private chat — only the text of the first message to someone who does not know you (does not follow you, is not among your close ones or family, and has not written to you yet). Before others see it, it is checked for prohibited content (the check is done by OpenAI, with the consent you gave when creating your profile or in the Umma rules). Anything that fails is not shown. If the check is unavailable for more than 10 minutes, the message is delivered and checked later; anything that then fails is removed for everyone.</li>
+    <li><strong>What is not checked.</strong> The rest of a private conversation and messages between people who know each other, and photos, voice and video messages in a private chat.</li>
     <li><strong>Reports.</strong> If someone in the chat reports a message, that message — its text and photo — is seen by a moderator in the team’s private work chat in order to decide. The rest of the conversation does not go there.</li>
     <li><strong>Notifications.</strong> A push about a personal message shows its first words; that text passes through the Expo and Apple notification services. The switch is “Show message text” in settings: without it only the name and “New message” arrive. The iPhone setting “Show Previews: Never” hides the text too.</li>
     <li><strong>Encryption.</strong> Messages travel over an encrypted connection and are stored on a server in the EU. There is no end-to-end encryption: technically the data on the server is accessible to those who maintain it and may be disclosed on a lawful request (section 5).</li>
@@ -334,12 +334,12 @@ window.FIRDAUS = {
   <p>If a sister has invited a wali, he sees the requests from men who want to write to her: the author’s profile and his note. He does not see her chats, posts or prayers. Only she can remove her wali.</p>
 
   <h3 id="ban">If an account is banned</h3>
-  <p>For serious violations, such as getting around the rules that protect sisters, an account is banned for good. So that the violator cannot come back with a new account, with such a ban we keep an irreversible fingerprint (hash) of that account’s Apple or Google sign-in identifier — the identifier itself cannot be recovered from it. A new account with the same sign-in is banned at once. The fingerprint stays even after the account is deleted. We also plan to turn on a device flag through Apple DeviceCheck: Apple stores a single yes-or-no flag for our app on each iPhone, and we do not receive any device identifier. This flag is not active yet; when we turn it on, we will update this page. If you think an account was banned by mistake, write to support@firdaus.life.</p>
+  <p>For serious violations, such as getting around the rules that protect sisters, an account is banned for good. So that the violator cannot come back with a new account, with such a ban we keep an irreversible fingerprint (hash) of that account’s Apple or Google sign-in identifier — the identifier itself cannot be recovered from it. A new account with the same sign-in is banned at once. The fingerprint stays even after the account is deleted. We also plan to turn on a device flag through Apple DeviceCheck: Apple stores a single yes-or-no flag for our app on each iPhone, and we do not receive any device identifier. This flag is not active yet; when we turn it on, we will update this page. If you think an account was banned by mistake, write to support@firdausly.com.</p>
 
   <h2 id="why">4. Why we need it</h2>
   <ul>
     <li><strong>To make the app work</strong> — sign-in, loved ones, cards, chat, Umma, subscription. Without this data those features don’t exist.</li>
-    <li><strong>To keep Umma and Reminders clean</strong> — an automated check of posts, photos, videos, Moments, names and avatars before they are published (done by OpenAI; for posts and your profile, only with your consent in the app) and handling reports.</li>
+    <li><strong>To keep Umma and Reminders clean</strong> — an automated check of posts, photos, videos, Moments, names and avatars before they are published, and of group messages and a first message to a stranger (done by OpenAI; for posts and your profile, only with your consent in the app) and handling reports.</li>
     <li><strong>To fix what breaks</strong> — crash reports.</li>
     <li><strong>To understand what works</strong> — events without location or content: opened the app, finished onboarding, added a loved one. They are linked to your account (see section 5). Prayer marks and prayer checks are never sent to statistics.</li>
   </ul>
@@ -352,7 +352,7 @@ window.FIRDAUS = {
     <li><strong>Processing of your personal data</strong> — everything described in section 3, including your prayer marks. Prayer marks are information about your religious practice, which the law treats as a special category of data, so we ask about them separately.</li>
     <li><strong>Transfer of data to other countries.</strong> In the EU: database, files and sign-in — Supabase (Frankfurt, Germany), usage statistics — PostHog (EU), crash reports — Sentry (EU), Reminders videos — Bunny. In the USA: OpenAI — automated check of text, photos and video for prohibited content (plus speech transcription for videos and translation). OpenAI does not use this data to train its models. What each company receives is in <a href="#others">section 5</a>.</li>
   </ul>
-  <p>You can withdraw consent at any time: delete your account (Settings → “Delete account”) or write to <a href="mailto:support@firdaus.life" data-link="email"><span data-text="email">support@firdaus.life</span></a> and we will delete it for you. Without an account you keep everything that runs on the phone: prayer times, qibla, prayer marks on the device, the Quran, adhkar.</p>
+  <p>You can withdraw consent at any time: delete your account (Settings → “Delete account”) or write to <a href="mailto:support@firdausly.com" data-link="email"><span data-text="email">support@firdausly.com</span></a> and we will delete it for you. Without an account you keep everything that runs on the phone: prayer times, qibla, prayer marks on the device, the Quran, adhkar.</p>
 
   <h2 id="others">5. Who else receives data</h2>
   <p>Firdausly runs on services from other companies. Each one receives only what its part of the job needs.</p>
@@ -364,7 +364,7 @@ window.FIRDAUS = {
 <tr><td>Google</td><td data-l="What it does">Sign in with Google</td><td data-l="What it receives">What is needed to sign in, if you choose this method.</td></tr>
 <tr><td>RevenueCat</td><td data-l="What it does">Subscription records</td><td data-l="What it receives">A de-identified account identifier and purchase information from Apple.</td></tr>
 <tr><td>Expo</td><td data-l="What it does">Delivery of push notifications and app updates</td><td data-l="What it receives">Your device’s notification address and the notification text (the first words of a message only if “Show message text” is on).</td></tr>
-<tr><td>OpenAI</td><td data-l="What it does">Automated check for prohibited content, speech transcription for videos, translation. Servers in the USA</td><td data-l="What it receives">The text and photos of posts, replies and stories, Moments, your profile photo and cover, your name and bio line — before publication and only for the check; without your consent in the app (Umma rules, the name step, editing your profile) they are not sent and others cannot see them. Photos and frames of video messages in groups and channels. The frames, speech audio, caption and comments of Reminders videos. The text of public posts, replies and comments — for translation. Private chats are not sent there. This data is not used to train OpenAI’s models.</td></tr>
+<tr><td>OpenAI</td><td data-l="What it does">Automated check for prohibited content, speech transcription for videos, translation. Servers in the USA</td><td data-l="What it receives">The text and photos of posts, replies and stories, Moments, your profile photo and cover, your name and bio line — before publication and only for the check; without your consent in the app (Umma rules, the name step, editing your profile) they are not sent and others cannot see them. Text, photos and frames of video messages in groups and channels; in a private chat, only the text of the first message to someone who does not know you. The frames, speech audio, caption and comments of Reminders videos. The text of public posts, replies and comments — for translation. The rest of private conversations is not sent there. This data is not used to train OpenAI’s models.</td></tr>
 <tr><td>Bunny (bunny.net)</td><td data-l="What it does">Storage and delivery of Reminders videos</td><td data-l="What it receives">The video file and its cover. A viewer gets the video through a temporary link; Bunny’s server, like any website, sees the phone’s IP address.</td></tr>
 <tr><td>PostHog</td><td data-l="What it does">Usage statistics, servers in the EU</td><td data-l="What it receives">The events from section 4, an account identifier, phone model and iOS version. Location by IP is switched off. Never: prayer marks and checks, coordinates, city, prayer times, cycle calendar.</td></tr>
 <tr><td>Sentry</td><td data-l="What it does">Crash reports, servers in the EU</td><td data-l="What it receives">What broke and where in the code, phone model, iOS and app version. No name, email or content of your posts.</td></tr>
@@ -428,12 +428,12 @@ window.FIRDAUS = {
     <li>object to processing or ask us to restrict it;</li>
     <li>withdraw permissions in iPhone settings.</li>
   </ul>
-  <p>Write to <a href="mailto:support@firdaus.life" data-link="email"><span data-text="email">support@firdaus.life</span></a> — we reply within 30 days. If you believe we have violated your rights, you may contact the data protection authority in your country.</p>
+  <p>Write to <a href="mailto:support@firdausly.com" data-link="email"><span data-text="email">support@firdausly.com</span></a> — we reply within 30 days. If you believe we have violated your rights, you may contact the data protection authority in your country.</p>
 
   <h2 id="kids">10. Children</h2>
   <p><strong>Under 13,</strong> no account can be created. Only what runs on the phone works: prayer times, qibla, prayer marks on the device, the Quran, adhkar. We collect no personal data and analytics stay off.</p>
   <p><strong>From 13 to 15,</strong> Firdausly may be used only with the consent of a parent or legal guardian. This is confirmed with a separate checkbox at sign-in.</p>
-  <p>If you are a parent and see that a child under 13 has created an account, or a teenager is using one without your consent, write to <a href="mailto:support@firdaus.life" data-link="email"><span data-text="email">support@firdaus.life</span></a> and we will delete the account.</p>
+  <p>If you are a parent and see that a child under 13 has created an account, or a teenager is using one without your consent, write to <a href="mailto:support@firdausly.com" data-link="email"><span data-text="email">support@firdausly.com</span></a> and we will delete the account.</p>
 
   <h2 id="safe">11. How we protect data</h2>
   <ul>
@@ -448,7 +448,7 @@ window.FIRDAUS = {
   <p>When this policy changes, we update the date at the top of the page. We will warn you in the app ahead of any significant change.</p>
 
   <h2 id="contact">13. Contact</h2>
-  <p>Email: <a href="mailto:support@firdaus.life" data-link="email"><span data-text="email">support@firdaus.life</span></a></p>
+  <p>Email: <a href="mailto:support@firdausly.com" data-link="email"><span data-text="email">support@firdausly.com</span></a></p>
   <p>In the app: Settings → “Support”.</p>
 </main>
 <footer class="foot">

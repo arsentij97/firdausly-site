@@ -130,9 +130,9 @@
   function mailFallback(C, T, d) {
     var mail = $('a.btn', d);
     mail.textContent = T.mail;
-    mail.href = 'mailto:' + (C.email || 'support@firdaus.life') + '?subject=' + encodeURIComponent(T.subj) + '&body=' + encodeURIComponent(T.body);
+    mail.href = 'mailto:' + (C.email || 'support@firdausly.com') + '?subject=' + encodeURIComponent(T.subj) + '&body=' + encodeURIComponent(T.body);
     var alt = $('.alt', d);
-    var addr = C.email || 'support@firdaus.life';
+    var addr = C.email || 'support@firdausly.com';
     mail.addEventListener('click', function () {
       /* почта на телефоне может быть не настроена — адрес сразу в буфер и на экран */
       if (navigator.clipboard) navigator.clipboard.writeText(addr).catch(function () {});

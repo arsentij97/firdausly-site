@@ -46,8 +46,8 @@ window.FIRDAUS = {
   telegramUrl: 'https://t.me/firdaus_support', // 17.11: канала нет — карточки и ссылки сняты со всех страниц; завели канал → вернуть карточки
   telegramName: '@firdaus_support',
   /* Почта поддержки и партнёров — переадресация Porkbun на почту команды. */
-  email: 'support@firdaus.life',
-  partnersEmail: 'partners@firdaus.life',
+  email: 'support@firdausly.com',
+  partnersEmail: 'partners@firdausly.com',
   /* Своя схема приложения — mobile/app.json, "scheme". */
   scheme: 'firdaus://',
   /* Метка кампании App Store (App Store Connect → Аналитика приложений →
@@ -479,7 +479,7 @@ window.FIRDAUS = {
         var el = form.elements[k];
         return T.fields[k] + ': ' + (el && el.value.trim() ? el.value.trim() : '-');
       });
-      var to = (window.FIRDAUS && window.FIRDAUS.partnersEmail) || 'partners@firdaus.life';
+      var to = (window.FIRDAUS && window.FIRDAUS.partnersEmail) || 'partners@firdausly.com';
       location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(T.subj) + '&body=' + encodeURIComponent(lines.join('\n'));
       form.classList.add('sent');
     });
@@ -652,7 +652,7 @@ window.FIRDAUS = {
 <div>
 <p class="kicker reveal">Application</p>
 <h2 class="reveal" style="--i:1;margin-top:18px">Apply</h2>
-<p class="body reveal" style="--i:2;margin-top:20px">The form puts together an email in your mail app; all that’s left is to press Send. Mail didn’t open? Write to us at <a class="tlink" href="mailto:partners@firdaus.life" data-link="partners"><span data-text="partners">partners@firdaus.life</span></a>.</p>
+<p class="body reveal" style="--i:2;margin-top:20px">The form puts together an email in your mail app; all that’s left is to press Send. Mail didn’t open? Write to us at <a class="tlink" href="mailto:partners@firdausly.com" data-link="partners"><span data-text="partners">partners@firdausly.com</span></a>.</p>
 <p class="body reveal" style="--i:3;margin-top:16px">A partner dashboard with clicks, payments and payouts is on the way. For now the report comes by email.</p>
 </div>
 <form class="form reveal" id="apply-form" novalidate>

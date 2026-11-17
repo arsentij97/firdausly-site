@@ -69,7 +69,7 @@
       var el = form.elements[k];
       return T.fields[k] + ': ' + (el && el.value.trim() ? el.value.trim() : '-');
     });
-    var to = (window.FIRDAUS && window.FIRDAUS.partnersEmail) || 'partners@firdaus.life';
+    var to = (window.FIRDAUS && window.FIRDAUS.partnersEmail) || 'partners@firdausly.com';
     location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(T.subj) + '&body=' + encodeURIComponent(lines.join('\n'));
     form.classList.add('sent');
   });

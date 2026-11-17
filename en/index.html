@@ -47,8 +47,8 @@ window.FIRDAUS = {
   telegramUrl: 'https://t.me/firdaus_support', // 17.11: канала нет — карточки и ссылки сняты со всех страниц; завели канал → вернуть карточки
   telegramName: '@firdaus_support',
   /* Почта поддержки и партнёров — переадресация Porkbun на почту команды. */
-  email: 'support@firdaus.life',
-  partnersEmail: 'partners@firdaus.life',
+  email: 'support@firdausly.com',
+  partnersEmail: 'partners@firdausly.com',
   /* Своя схема приложения — mobile/app.json, "scheme". */
   scheme: 'firdaus://',
   /* Метка кампании App Store (App Store Connect → Аналитика приложений →
@@ -355,9 +355,9 @@ window.FIRDAUS = {
   function mailFallback(C, T, d) {
     var mail = $('a.btn', d);
     mail.textContent = T.mail;
-    mail.href = 'mailto:' + (C.email || 'support@firdaus.life') + '?subject=' + encodeURIComponent(T.subj) + '&body=' + encodeURIComponent(T.body);
+    mail.href = 'mailto:' + (C.email || 'support@firdausly.com') + '?subject=' + encodeURIComponent(T.subj) + '&body=' + encodeURIComponent(T.body);
     var alt = $('.alt', d);
-    var addr = C.email || 'support@firdaus.life';
+    var addr = C.email || 'support@firdausly.com';
     mail.addEventListener('click', function () {
       /* почта на телефоне может быть не настроена — адрес сразу в буфер и на экран */
       if (navigator.clipboard) navigator.clipboard.writeText(addr).catch(function () {});
@@ -750,7 +750,7 @@ window.FIRDAUS = {
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Organization","@id":"https://firdausly.com/#org","name":"Firdausly","url":"https://firdausly.com/","logo":"https://firdausly.com/assets/logo-512.jpg","email":"support@firdaus.life","sameAs":["https://www.instagram.com/firdaus.social","https://www.tiktok.com/@firdaus.app"]},
+{"@type":"Organization","@id":"https://firdausly.com/#org","name":"Firdausly","url":"https://firdausly.com/","logo":"https://firdausly.com/assets/logo-512.jpg","email":"support@firdausly.com","sameAs":["https://www.instagram.com/firdaus.social","https://www.tiktok.com/@firdaus.app"]},
 {"@type":"WebSite","@id":"https://firdausly.com/#site","name":"Firdausly","url":"https://firdausly.com/","inLanguage":["ru","en"],"publisher":{"@id":"https://firdausly.com/#org"}},
 {"@type":"MobileApplication","@id":"https://firdausly.com/#app","name":"Firdausly","alternateName":"Firdausly: Prayer Times & Qibla","operatingSystem":"iOS 17.0 or later","applicationCategory":"LifestyleApplication","inLanguage":["ru","en"],"url":"https://firdausly.com/en/","image":"https://firdausly.com/assets/logo-512.jpg","publisher":{"@id":"https://firdausly.com/#org"},"description":"A social network for Muslims that brings you to prayer: prayer times for your city, qibla, Quran and dhikr, a circle of your people, the Umma feed with auto-translation, short Reminders videos that pause for prayer, messages with stickers, and Focus.","featureList":"Prayer times for your city; Qibla: compass and map; Prayer reminder; Prayer check-ins; Quran with translation; Dhikr and adhkar; Tahajjud; Your circle: see who has prayed; Call to prayer together; Reminder cards; Umma: a feed with auto-translation; Reminders: short videos that pause for prayer; Messages, stickers and Moments; Focus: app lock at prayer time; Protection for sisters and wali","offers":[{"@type":"Offer","name":"Free","price":"0","priceCurrency":"USD"},{"@type":"Offer","name":"Firdausly Plus, monthly","price":"9.99","priceCurrency":"USD"},{"@type":"Offer","name":"Firdausly Plus, yearly","price":"59.99","priceCurrency":"USD"},{"@type":"Offer","name":"Firdausly Premium, monthly","price":"13.99","priceCurrency":"USD"},{"@type":"Offer","name":"Firdausly Premium, yearly","price":"84.99","priceCurrency":"USD"}]},
 {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Firdausly","item":"https://firdausly.com/en/"}]},
