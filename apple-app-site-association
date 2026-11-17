@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["C8V47JYG42.kz.arsen.firdaus"],
+        "components": [
+          { "/": "/r/*", "comment": "Reminders video" },
+          { "/": "/p/*", "comment": "Umma post (public only)" },
+          { "/": "/join/*", "comment": "Invitation to loved ones" },
+          { "/": "/together/*", "comment": "Invitation to pray together" },
+          { "/": "/creators/apply*", "comment": "Verification and Creator Program application" },
+          { "/": "/u/*", "comment": "Profile link" }
+        ]
+      }
+    ]
+  }
+}

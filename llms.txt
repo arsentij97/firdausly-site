@@ -1,0 +1,92 @@
+# Firdausly
+
+> Firdausly is an iPhone app for the five daily prayers (namaz/salah) where loved ones remind each other to pray. Prayer times by city, Qibla compass and map, prayer reminders, Quran with translations, adhkar and tasbih, tahajjud alarm, Focus (blocks distracting apps until you pray), Umma feed and messages. Russian and English. iOS 17 or later. Made in Kazakhstan.
+
+Tagline: "Firdausly — Remind your loved ones." Core idea from Quran 51:55: "And remind, for indeed, the reminder benefits the believers."
+
+## Pages
+
+- [Home (English)](https://firdausly.com/en/): what Firdausly does, free features, Firdausly Plus and Premium, FAQ
+- [Главная (русский)](https://firdausly.com/): время намаза, кибла, напоминания близким, подписки, частые вопросы
+- [Partner programme](https://firdausly.com/en/partners): 20% of every payment from the people a creator brings, monthly payouts
+- [Партнёрская программа](https://firdausly.com/partners): 20 % с каждой оплаты, выплата раз в месяц
+- [Support](https://firdausly.com/en/support): FAQ, contacts
+- [Privacy Policy](https://firdausly.com/en/privacy)
+- [Terms of Use](https://firdausly.com/en/terms)
+- [About Firdausly](https://firdausly.com/en/about): facts for citation — what it is, who makes it, prices, method
+- [О Firdausly](https://firdausly.com/about): факты о приложении
+- [Prayer times by city](https://firdausly.com/en/prayer-times/) · [Время намаза по городам](https://firdausly.com/namaz/)
+- [Ramadan 2027 suhoor and iftar by city](https://firdausly.com/en/ramadan/) · [Рамадан 2027 по городам](https://firdausly.com/ramadan/)
+- [Full facts for AI assistants](https://firdausly.com/llms-full.txt)
+
+## Key facts
+
+- Free forever: prayer times, Qibla (compass and map), prayer reminder, marking a prayer, Quran with one translation, simple tasbih counter.
+- Firdausly Plus (7-day free trial): full prayer history and streak, prayer check by camera, loved ones (reminder cards, praying together), Umma, messages, Moments, tahajjud alarm, Focus, adhkar, Quran goals, second translation, original Firdausly paintings. Kazakhstan: 3,790 KZT/month or 22,990 KZT/year. US: $9.99/month or $59.99/year.
+- Firdausly Premium: everything in Plus plus a golden crescent next to your name and priority support. Kazakhstan: 5,390 KZT/month or 32,990 KZT/year. US: $13.99/month or $84.99/year.
+- "If you can't pay": each month the team gives three months of Plus to 50 people who write a letter in the app.
+- Privacy: prayer-check photos, location and the cycle calendar never leave the phone. No ads, data is not sold.
+- Contact: support@firdaus.life; in-app: Settings → Support. Partners: partners@firdaus.life.
+
+<!-- gen:start -->
+## Prayer times by city (время намаза по городам)
+
+Free pages with today's times, the monthly timetable, Qibla and Ramadan 2027 suhoor/iftar for each city. Kazakhstan uses the DUMK method (checked against the official DUMK timetable within one minute).
+
+- Almaty (Алматы): https://firdausly.com/en/prayer-times/almaty · https://firdausly.com/namaz/almaty · Ramadan 2027: https://firdausly.com/en/ramadan/almaty
+- Astana (Астана): https://firdausly.com/en/prayer-times/astana · https://firdausly.com/namaz/astana · Ramadan 2027: https://firdausly.com/en/ramadan/astana
+- Shymkent (Шымкент): https://firdausly.com/en/prayer-times/shymkent · https://firdausly.com/namaz/shymkent · Ramadan 2027: https://firdausly.com/en/ramadan/shymkent
+- Aktobe (Актобе, Ақтөбе): https://firdausly.com/en/prayer-times/aktobe · https://firdausly.com/namaz/aktobe · Ramadan 2027: https://firdausly.com/en/ramadan/aktobe
+- Karaganda (Караганда, Қарағанды): https://firdausly.com/en/prayer-times/karaganda · https://firdausly.com/namaz/karaganda · Ramadan 2027: https://firdausly.com/en/ramadan/karaganda
+- Taraz (Тараз): https://firdausly.com/en/prayer-times/taraz · https://firdausly.com/namaz/taraz · Ramadan 2027: https://firdausly.com/en/ramadan/taraz
+- Oskemen (Усть-Каменогорск, Өскемен): https://firdausly.com/en/prayer-times/ust-kamenogorsk · https://firdausly.com/namaz/ust-kamenogorsk · Ramadan 2027: https://firdausly.com/en/ramadan/ust-kamenogorsk
+- Pavlodar (Павлодар): https://firdausly.com/en/prayer-times/pavlodar · https://firdausly.com/namaz/pavlodar · Ramadan 2027: https://firdausly.com/en/ramadan/pavlodar
+- Atyrau (Атырау): https://firdausly.com/en/prayer-times/atyrau · https://firdausly.com/namaz/atyrau · Ramadan 2027: https://firdausly.com/en/ramadan/atyrau
+- Semey (Семей): https://firdausly.com/en/prayer-times/semey · https://firdausly.com/namaz/semey · Ramadan 2027: https://firdausly.com/en/ramadan/semey
+- Kyzylorda (Кызылорда, Қызылорда): https://firdausly.com/en/prayer-times/kyzylorda · https://firdausly.com/namaz/kyzylorda · Ramadan 2027: https://firdausly.com/en/ramadan/kyzylorda
+- Kostanay (Костанай, Қостанай): https://firdausly.com/en/prayer-times/kostanay · https://firdausly.com/namaz/kostanay · Ramadan 2027: https://firdausly.com/en/ramadan/kostanay
+- Oral (Уральск, Орал): https://firdausly.com/en/prayer-times/uralsk · https://firdausly.com/namaz/uralsk · Ramadan 2027: https://firdausly.com/en/ramadan/uralsk
+- Petropavl (Петропавловск, Петропавл): https://firdausly.com/en/prayer-times/petropavlovsk · https://firdausly.com/namaz/petropavlovsk · Ramadan 2027: https://firdausly.com/en/ramadan/petropavlovsk
+- Aktau (Актау, Ақтау): https://firdausly.com/en/prayer-times/aktau · https://firdausly.com/namaz/aktau · Ramadan 2027: https://firdausly.com/en/ramadan/aktau
+- Turkistan (Туркестан, Түркістан): https://firdausly.com/en/prayer-times/turkestan · https://firdausly.com/namaz/turkestan · Ramadan 2027: https://firdausly.com/en/ramadan/turkestan
+- Kokshetau (Кокшетау, Көкшетау): https://firdausly.com/en/prayer-times/kokshetau · https://firdausly.com/namaz/kokshetau · Ramadan 2027: https://firdausly.com/en/ramadan/kokshetau
+- Taldykorgan (Талдыкорган, Талдықорған): https://firdausly.com/en/prayer-times/taldykorgan · https://firdausly.com/namaz/taldykorgan · Ramadan 2027: https://firdausly.com/en/ramadan/taldykorgan
+- Konaev (Конаев, Қонаев): https://firdausly.com/en/prayer-times/konaev · https://firdausly.com/namaz/konaev · Ramadan 2027: https://firdausly.com/en/ramadan/konaev
+- Zhezkazgan (Жезказган, Жезқазған): https://firdausly.com/en/prayer-times/zhezkazgan · https://firdausly.com/namaz/zhezkazgan · Ramadan 2027: https://firdausly.com/en/ramadan/zhezkazgan
+- Temirtau (Темиртау, Теміртау): https://firdausly.com/en/prayer-times/temirtau · https://firdausly.com/namaz/temirtau · Ramadan 2027: https://firdausly.com/en/ramadan/temirtau
+- Ekibastuz (Экибастуз, Екібастұз): https://firdausly.com/en/prayer-times/ekibastuz · https://firdausly.com/namaz/ekibastuz · Ramadan 2027: https://firdausly.com/en/ramadan/ekibastuz
+- Rudny (Рудный): https://firdausly.com/en/prayer-times/rudny · https://firdausly.com/namaz/rudny · Ramadan 2027: https://firdausly.com/en/ramadan/rudny
+- Zhanaozen (Жанаозен, Жаңаөзен): https://firdausly.com/en/prayer-times/zhanaozen · https://firdausly.com/namaz/zhanaozen · Ramadan 2027: https://firdausly.com/en/ramadan/zhanaozen
+- Kaskelen (Каскелен, Қаскелең): https://firdausly.com/en/prayer-times/kaskelen · https://firdausly.com/namaz/kaskelen · Ramadan 2027: https://firdausly.com/en/ramadan/kaskelen
+- Balkhash (Балхаш, Балқаш): https://firdausly.com/en/prayer-times/balkhash · https://firdausly.com/namaz/balkhash · Ramadan 2027: https://firdausly.com/en/ramadan/balkhash
+- Kentau (Кентау): https://firdausly.com/en/prayer-times/kentau · https://firdausly.com/namaz/kentau · Ramadan 2027: https://firdausly.com/en/ramadan/kentau
+- Kulsary (Кульсары, Құлсары): https://firdausly.com/en/prayer-times/kulsary · https://firdausly.com/namaz/kulsary · Ramadan 2027: https://firdausly.com/en/ramadan/kulsary
+- Satpayev (Сатпаев, Сәтбаев): https://firdausly.com/en/prayer-times/satpayev · https://firdausly.com/namaz/satpayev · Ramadan 2027: https://firdausly.com/en/ramadan/satpayev
+- Talgar (Талгар, Талғар): https://firdausly.com/en/prayer-times/talgar · https://firdausly.com/namaz/talgar · Ramadan 2027: https://firdausly.com/en/ramadan/talgar
+- Kosshy (Косшы, Қосшы): https://firdausly.com/en/prayer-times/kosshy · https://firdausly.com/namaz/kosshy · Ramadan 2027: https://firdausly.com/en/ramadan/kosshy
+- Ridder (Риддер): https://firdausly.com/en/prayer-times/ridder · https://firdausly.com/namaz/ridder · Ramadan 2027: https://firdausly.com/en/ramadan/ridder
+- Stepnogorsk (Степногорск): https://firdausly.com/en/prayer-times/stepnogorsk · https://firdausly.com/namaz/stepnogorsk · Ramadan 2027: https://firdausly.com/en/ramadan/stepnogorsk
+- Saryagash (Сарыагаш, Сарыағаш): https://firdausly.com/en/prayer-times/saryagash · https://firdausly.com/namaz/saryagash · Ramadan 2027: https://firdausly.com/en/ramadan/saryagash
+- Zharkent (Жаркент): https://firdausly.com/en/prayer-times/zharkent · https://firdausly.com/namaz/zharkent · Ramadan 2027: https://firdausly.com/en/ramadan/zharkent
+- Shchuchinsk (Щучинск): https://firdausly.com/en/prayer-times/shchuchinsk · https://firdausly.com/namaz/shchuchinsk · Ramadan 2027: https://firdausly.com/en/ramadan/shchuchinsk
+- Esik (Есик, Есік): https://firdausly.com/en/prayer-times/esik · https://firdausly.com/namaz/esik · Ramadan 2027: https://firdausly.com/en/ramadan/esik
+- Aksu (Аксу, Ақсу): https://firdausly.com/en/prayer-times/aksu · https://firdausly.com/namaz/aksu · Ramadan 2027: https://firdausly.com/en/ramadan/aksu
+- Shakhtinsk (Шахтинск): https://firdausly.com/en/prayer-times/shakhtinsk · https://firdausly.com/namaz/shakhtinsk · Ramadan 2027: https://firdausly.com/en/ramadan/shakhtinsk
+- Ayagoz (Аягоз, Аягөз): https://firdausly.com/en/prayer-times/ayagoz · https://firdausly.com/namaz/ayagoz · Ramadan 2027: https://firdausly.com/en/ramadan/ayagoz
+- Zhetysai (Жетысай, Жетісай): https://firdausly.com/en/prayer-times/zhetysai · https://firdausly.com/namaz/zhetysai · Ramadan 2027: https://firdausly.com/en/ramadan/zhetysai
+- Bishkek (Бишкек): https://firdausly.com/en/prayer-times/bishkek · https://firdausly.com/namaz/bishkek · Ramadan 2027: https://firdausly.com/en/ramadan/bishkek
+- Osh (Ош): https://firdausly.com/en/prayer-times/osh · https://firdausly.com/namaz/osh · Ramadan 2027: https://firdausly.com/en/ramadan/osh
+- Tashkent (Ташкент): https://firdausly.com/en/prayer-times/tashkent · https://firdausly.com/namaz/tashkent · Ramadan 2027: https://firdausly.com/en/ramadan/tashkent
+- Samarkand (Самарканд): https://firdausly.com/en/prayer-times/samarkand · https://firdausly.com/namaz/samarkand · Ramadan 2027: https://firdausly.com/en/ramadan/samarkand
+- Dushanbe (Душанбе): https://firdausly.com/en/prayer-times/dushanbe · https://firdausly.com/namaz/dushanbe · Ramadan 2027: https://firdausly.com/en/ramadan/dushanbe
+- Moscow (Москва): https://firdausly.com/en/prayer-times/moscow · https://firdausly.com/namaz/moscow · Ramadan 2027: https://firdausly.com/en/ramadan/moscow
+- Kazan (Казань): https://firdausly.com/en/prayer-times/kazan · https://firdausly.com/namaz/kazan · Ramadan 2027: https://firdausly.com/en/ramadan/kazan
+- Ufa (Уфа): https://firdausly.com/en/prayer-times/ufa · https://firdausly.com/namaz/ufa · Ramadan 2027: https://firdausly.com/en/ramadan/ufa
+- Makhachkala (Махачкала): https://firdausly.com/en/prayer-times/makhachkala · https://firdausly.com/namaz/makhachkala · Ramadan 2027: https://firdausly.com/en/ramadan/makhachkala
+- Grozny (Грозный): https://firdausly.com/en/prayer-times/grozny · https://firdausly.com/namaz/grozny · Ramadan 2027: https://firdausly.com/en/ramadan/grozny
+- Baku (Баку): https://firdausly.com/en/prayer-times/baku · https://firdausly.com/namaz/baku · Ramadan 2027: https://firdausly.com/en/ramadan/baku
+- Istanbul (Стамбул): https://firdausly.com/en/prayer-times/istanbul · https://firdausly.com/namaz/istanbul · Ramadan 2027: https://firdausly.com/en/ramadan/istanbul
+- Dubai (Дубай): https://firdausly.com/en/prayer-times/dubai · https://firdausly.com/namaz/dubai · Ramadan 2027: https://firdausly.com/en/ramadan/dubai
+- London (Лондон): https://firdausly.com/en/prayer-times/london · https://firdausly.com/namaz/london · Ramadan 2027: https://firdausly.com/en/ramadan/london
+- New York (Нью-Йорк): https://firdausly.com/en/prayer-times/new-york · https://firdausly.com/namaz/new-york · Ramadan 2027: https://firdausly.com/en/ramadan/new-york
+<!-- gen:end -->
