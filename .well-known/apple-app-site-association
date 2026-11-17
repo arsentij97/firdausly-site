@@ -7,6 +7,7 @@
           { "/": "/r/*", "comment": "Reminders video" },
           { "/": "/p/*", "comment": "Umma post (public only)" },
           { "/": "/join/*", "comment": "Invitation to loved ones" },
+          { "/": "/i/*", "comment": "Short invite link, 5-character code (build 66)" },
           { "/": "/together/*", "comment": "Invitation to pray together" },
           { "/": "/creators/apply*", "comment": "Verification and Creator Program application" },
           { "/": "/u/*", "comment": "Profile link" }
