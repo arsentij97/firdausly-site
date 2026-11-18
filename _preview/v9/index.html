@@ -416,6 +416,22 @@ figcaption b{display:block;color:var(--tx);font-size:16px;font-weight:600;margin
 @media (max-width:420px){.seg3 button{padding:0 13px;font-size:14px}}
 @media (min-width:981px){.hero-bg::after{background:linear-gradient(90deg,rgba(10,10,10,.78) 0%,rgba(10,10,10,.42) 38%,rgba(10,10,10,0) 66%,rgba(10,10,10,.15)),linear-gradient(180deg,rgba(10,10,10,.4),transparent 22%,transparent 80%,var(--bg))}.hero-bg img{object-position:55% 18%;filter:brightness(1.05) saturate(1.1)}}
 @media (min-width:981px){.duo .d-side figcaption{position:absolute;right:0;top:100%;width:260px;text-align:right;margin-top:12px}.duo .d-main figcaption{text-align:left;margin-left:0}}
+
+/* круг 2 v9: телефоны рядом, без перекрытия; крупнее текст */
+.lead{font-size:clamp(18px,1.45vw,21px)}
+.plusnote{font-size:15px}
+figcaption{font-size:15px}
+@media (min-width:981px){
+  .duo{display:flex;align-items:flex-end;gap:28px;padding-right:0}
+  .duo .d-side{position:static}
+  .duo .d-side figcaption{position:static;width:auto;text-align:center}
+  .duo .d-main figcaption{text-align:center}
+}
+@media (max-width:980px){.duo .d-side{display:none}}
+.pair{display:flex;align-items:flex-end;gap:24px;padding-right:0}
+.pair .back{position:relative;box-shadow:0 0 0 1.5px rgba(255,255,255,.16),0 0 0 6px #141412,0 0 0 7px rgba(255,255,255,.14),0 40px 80px -20px rgba(0,0,0,1)}
+@media (max-width:520px){.pair{gap:12px;padding-right:0}.pair .dev:not(.back){--pw:58vw}.pair .back{--pw:31vw}}
+@media (min-width:981px){.hero-bg img{filter:blur(3px) brightness(.85) saturate(1.1);transform:scale(1.03)}}
 </style>
 </head>
 <body>
@@ -442,7 +458,7 @@ figcaption b{display:block;color:var(--tx);font-size:16px;font-weight:600;margin
   <div class="wrap">
     <div class="hero-txt">
       <h1 class="h1" id="h1">Напоминайте своим <em class="s">близким</em> о&nbsp;намазе</h1>
-      <p class="lead">Видно, кто из своих уже прочитал. <b>Одно касание напомнит остальным.</b> Соцсеть, где самое важное уведомление дня приходит от брата.</p>
+      <p class="lead">Видно, кто из своих уже прочитал. <b>Одно касание напомнит остальным.</b> Соцсеть, где самое важное уведомление дня приходит от своих.</p>
       <div class="cta">
         <a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Скачать в App Store">Скоро в App Store</span></a>
         <a class="lnk" href="#blizkie">Как это работает<svg class="i"><use href="#p-arrow-right"/></svg></a>
@@ -475,13 +491,13 @@ figcaption b{display:block;color:var(--tx);font-size:16px;font-weight:600;margin
       <h2 class="h2" id="h-close">Один день вашей семьи на&nbsp;одном экране</h2>
       <p class="lead" style="margin-top:20px">Отметили намаз, и близкие видят отметку. Кто не успел, получит тихую открытку с аятом и одной кнопкой. Без упрёков и чужих глаз: это видят только ваши.</p>
       <div class="seg3" role="tablist" aria-label="Экраны близких" data-tabs="closeTabs">
-        <button role="tab" aria-selected="true" data-t="0">Кто прочитал</button><button role="tab" aria-selected="false" data-t="1">Открытка</button><button role="tab" aria-selected="false" data-t="2">Все прочитали</button>
+        <button role="tab" aria-selected="true" data-t="0">Кто прочитал</button><button role="tab" aria-selected="false" data-t="1">Открытка</button><button role="tab" aria-selected="false" data-t="2">Ответ близкого</button>
       </div>
       <p class="plusnote"><span class="pchip">Plus</span>Близкие и напоминания, 14 дней бесплатно. Принять приглашение и открыть открытку можно без подписки.</p>
       <div class="ayah"><svg class="i"><use href="#p-quotes"/></svg><p>«И напоминай, ибо напоминание приносит пользу верующим»<small>Коран, сура «Аз-Зарият», 51:55</small></p></div>
     </div>
     <div class="stack" id="closeTabs">
-      <div class="dev" style="--w:360px" data-slot="home-many" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/home-many.webp" srcset="media/home-many-s.webp 603w, media/home-many.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><div class="dev" style="--w:360px" data-slot="home-sheet" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/home-sheet.webp" srcset="media/home-sheet-s.webp 603w, media/home-sheet.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><div class="dev" style="--w:360px" data-slot="together" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/together.webp" srcset="media/together-s.webp 603w, media/together.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div>
+      <div class="dev" style="--w:360px" data-slot="home-many" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/home-many.webp" srcset="media/home-many-s.webp 603w, media/home-many.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><div class="dev" style="--w:360px" data-slot="home-sheet" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/home-sheet.webp" srcset="media/home-sheet-s.webp 603w, media/home-sheet.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><div class="dev" style="--w:360px" data-slot="zov" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/zov.webp" srcset="media/zov-s.webp 603w, media/zov.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -495,7 +511,7 @@ figcaption b{display:block;color:var(--tx);font-size:16px;font-weight:600;margin
       <p class="lead" style="margin-top:20px">Настоящий будильник iPhone: звонит даже в беззвучном режиме. Позовите своих, и утром вы встаёте вместе. Встал один, и остальные видят это сразу.</p>
       <p class="plusnote" style="margin-top:22px">Будильник на Фаджр бесплатно.&nbsp;<span class="pchip">Plus</span>общий будильник с близкими и звонок азаном, 14 дней бесплатно.</p>
     </div>
-    <div class="pair"><div class="dev" style="--w:330px" data-slot="fajr" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/fajr.webp" srcset="media/fajr-s.webp 603w, media/fajr.webp 1206w" sizes="330px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><div class="dev back" style="--w:260px" data-slot="adhan" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/adhan.webp" srcset="media/adhan-s.webp 603w, media/adhan.webp 1206w" sizes="260px" alt="Экран Firdausly" loading="lazy" decoding="async"></div></div>
+    <div class="pair"><div class="dev" style="--w:330px" data-slot="together" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/together.webp" srcset="media/together-s.webp 603w, media/together.webp 1206w" sizes="330px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><div class="dev back" style="--w:250px" data-slot="fajr" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/fajr.webp" srcset="media/fajr-s.webp 603w, media/fajr.webp 1206w" sizes="250px" alt="Экран Firdausly" loading="lazy" decoding="async"></div></div>
   </div>
 </section>
 
@@ -663,7 +679,7 @@ figcaption b{display:block;color:var(--tx);font-size:16px;font-weight:600;margin
         <h3>Firdausly Plus</h3>
         <div class="per" id="per"><button type="button" aria-pressed="false" data-p="m">Месяц</button><button type="button" aria-pressed="true" data-p="y">Год<em id="save">−49%</em></button></div>
         <div class="pp1"><span id="pAmt">22 990 ₸</span> <small id="pPer">в год · 1 916 ₸ в месяц</small><small class="alt" id="pAlt">или 3 790 ₸ помесячно</small></div>
-        <div class="trial"><svg class="i"><use href="#p-gift"/></svg><span><b>14 дней бесплатно.</b> Пришли по приглашению друга: Plus в подарок по его коду. Отменить можно в любой момент в настройках Apple ID.</span></div>
+        <div class="trial"><svg class="i"><use href="#p-gift"/></svg><span><b>14 дней бесплатно.</b> По коду друга ещё 7 дней Plus. Отменить можно в любой момент в настройках Apple ID.</span></div>
         <ul>
           <li><svg><use href="#p-check"/></svg>Близкие и напоминания</li>
           <li><svg><use href="#p-check"/></svg>Фаджр вместе</li>
@@ -678,7 +694,7 @@ figcaption b{display:block;color:var(--tx);font-size:16px;font-weight:600;margin
       </div>
       <figure class="plan-shot"><div class="dev" style="--w:300px" data-slot="paywall" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/paywall.webp" srcset="media/paywall-s.webp 603w, media/paywall.webp 1206w" sizes="300px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><figcaption>Экран оплаты в приложении</figcaption></figure>
     </div>
-    <p class="prem">Есть и <b>Premium</b>: всё из Plus, золотой полумесяц у имени, номер сторонника с истоков и стикеры «Гази».</p>
+    <p class="prem">Есть и <b>Premium</b> для тех, кто поддерживает Firdausly с первых дней: всё из Plus, золотой полумесяц у имени и особые стикеры.</p>
     <p class="note" style="margin-top:8px" id="fine">Цены для Казахстана. В другой стране App Store покажет цену в вашей валюте до оплаты.</p>
   </div>
 </section>
@@ -701,9 +717,9 @@ figcaption b{display:block;color:var(--tx);font-size:16px;font-weight:600;margin
   <div class="wrap faq">
     <h2 class="h2" id="h-faq" style="margin-bottom:24px">Вопросы</h2>
     <details><summary>Когда выйдет Firdausly?<svg class="i"><use href="#p-plus"/></svg></summary><p>Скоро в App Store для iPhone с iOS 17 и новее. Кнопка «Скоро в App Store» уже ведёт на страницу приложения.</p></details>
-    <details><summary>Будет ли версия для Android?<svg class="i"><use href="#p-plus"/></svg></summary><p>Сначала iPhone. Android в планах; если вы на Android, оставьте контакт, и мы сообщим.</p></details>
+    <details><summary>Будет ли версия для Android?<svg class="i"><use href="#p-plus"/></svg></summary><p>Сначала iPhone. Android в планах; о выходе напишем в Instagram @firdaus.social.</p></details>
     <details><summary>Мои намазы видят все?<svg class="i"><use href="#p-plus"/></svg></summary><p>Нет. Отметки видят только ваши близкие, которых вы сами добавили.</p></details>
-    <details><summary>А если мои близкие ещё не в Firdausly?<svg class="i"><use href="#p-plus"/></svg></summary><p>Отправьте приглашение ссылкой. Открытка-напоминание и приглашение на совместный намаз откроются и без подписки, а по вашему приглашению близкий получит Plus в подарок.</p></details>
+    <details><summary>А если мои близкие ещё не в Firdausly?<svg class="i"><use href="#p-plus"/></svg></summary><p>Отправьте приглашение ссылкой. Открытка-напоминание и приглашение на совместный намаз откроются и без подписки, а по вашему коду близкий получит ещё 7 дней Plus к пробным 14.</p></details>
     <details><summary>Как считается время намаза?<svg class="i"><use href="#p-plus"/></svg></summary><p>В Казахстане по официальной таблице ДУМК, в Татарстане по ДУМ РТ, в Турции по Diyanet. В других странах по методу расчёта и мазхабу, которые вы выберете.</p></details>
     <details><summary>Фокус правда закроет Instagram?<svg class="i"><use href="#p-plus"/></svg></summary><p>Да, через «Экранное время» Apple. Что закрывать, выбираете только вы в окне Apple. Отметили намаз, и приложения открылись. Аварийный выход есть всегда.</p></details>
     <details><summary>В Reminders есть музыка?<svg class="i"><use href="#p-plus"/></svg></summary><p>Нет. Голос, слово и нашид без инструментов. Каждый ролик до показа проходит проверку кадров, речи и текста.</p></details>
