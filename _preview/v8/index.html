@@ -1,0 +1,1720 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Firdausly: напоминайте своим близким о намазе</title>
+<meta name="description" content="Firdausly: соцсеть, которая делает ближе к религии. Видно, кто из своих уже прочитал намаз, одно касание напомнит остальным. Фаджр вместе, Фокус, Reminders, Умма и Сцена.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="i/icon.webp">
+<link rel="preload" as="image" href="i/lions-1206.avif" type="image/avif" media="(min-width:701px)">
+<link rel="preload" as="image" href="i/lions-640.avif" type="image/avif" media="(max-width:700px)">
+<link rel="preload" as="font" href="f/inter-600.woff2" type="font/woff2" crossorigin>
+<meta property="og:title" content="Firdausly: напоминайте своим близким о намазе">
+<meta property="og:description" content="Соцсеть, которая делает ближе к религии. Скоро в App Store.">
+<style>@font-face{font-family:Fi;font-weight:200;font-display:swap;src:url(f/inter-200.woff2) format("woff2")}
+@font-face{font-family:Fi;font-weight:400;font-display:swap;src:url(f/inter-400.woff2) format("woff2")}
+@font-face{font-family:Fi;font-weight:600;font-display:swap;src:url(f/inter-600.woff2) format("woff2")}
+@font-face{font-family:Fi;font-weight:700;font-display:swap;src:url(f/inter-700.woff2) format("woff2")}
+@font-face{font-family:Fs;font-style:italic;font-weight:400;font-display:swap;src:url(f/spectral-i.woff2) format("woff2")}
+
+/* Токены: тёмная тема приложения (mobile/src/theme/tokens.ts). Сайт держит одну тему — ночную, как приложение по умолчанию. */
+:root{
+  color-scheme:dark;
+  --bg:#0A0A0A;--bg2:#0F0E0C;--card:#141311;--card2:#1B1A17;
+  --tx:#F5F3EE;--tx2:rgba(245,243,238,.68);--tx3:rgba(245,243,238,.46);
+  --ln:rgba(255,255,255,.09);--ln2:rgba(255,255,255,.16);
+  --gold:#D9B95C;--gold2:#E8CB78;--goldS:#2A2416;--fill:#F4EFE6;--fillHi:#FFFDF8;--ink:#14120E;
+  --ok:#7BC48A;
+  --r1:14px;--r2:22px;--r3:32px;
+  --w:1200px;--g:clamp(16px,4vw,40px);
+  --e:cubic-bezier(.16,1,.3,1);
+  --sans:Fi,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --serif:Fs,"Iowan Old Style",Georgia,serif;
+}
+:root[data-theme="dark"]{color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 17px/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,svg{display:block;max-width:100%}
+main{overflow-x:clip}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;padding-right:.04em}
+svg.i{width:1em;height:1em;fill:currentColor;flex:none}
+.wrap{width:min(var(--w),100% - 2*var(--g));margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
+
+/* Типографика */
+.h1{font-size:clamp(42px,6.2vw,80px);font-weight:600;line-height:1.02;letter-spacing:-.04em}
+.h2{font-size:clamp(34px,4.6vw,60px);font-weight:600;line-height:1.04;letter-spacing:-.035em}
+.h3{font-size:clamp(22px,2.2vw,28px);font-weight:600;line-height:1.15;letter-spacing:-.02em}
+.lead{font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:var(--tx2);max-width:36em}
+.lead b{color:var(--tx);font-weight:600}
+.note{font-size:14px;color:var(--tx3);line-height:1.45}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--gold)}
+.tag svg{width:22px;height:22px}
+
+/* Кнопки: одна семья — пилюля */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap;transition:transform .2s var(--e),background .2s,box-shadow .3s}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px}
+.btn-p{background:var(--fill);color:var(--ink);box-shadow:0 10px 40px -10px rgba(232,203,120,.45),inset 0 1px 0 #fff}
+.btn-p:hover{background:var(--fillHi)}
+.btn-g{background:rgba(255,255,255,.07);color:var(--tx);box-shadow:inset 0 0 0 1px var(--ln2)}
+.btn-g:hover{background:rgba(255,255,255,.12)}
+
+/* Шапка */
+.top{position:fixed;inset:0 0 auto;z-index:50;height:64px;display:flex;align-items:center;transition:background .3s,box-shadow .3s}
+.top.on{background:rgba(10,10,10,.72);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:0 1px 0 var(--ln)}
+.top .wrap{display:flex;align-items:center;gap:28px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px;letter-spacing:-.02em;text-decoration:none}
+.logo img{width:30px;height:30px;border-radius:8px}
+.nav{display:flex;gap:26px;margin-left:auto;font-size:15px}
+.nav a{text-decoration:none;color:var(--tx2);transition:color .2s}
+.nav a:hover{color:var(--tx)}
+.top .btn{height:40px;padding:0 18px;font-size:15px}
+@media (max-width:900px){.nav{display:none}.top .btn{margin-left:auto}}
+
+/* ── ТЕЛЕФОН ── корпус и экран; всё внутри в единицах экрана iPhone (--u = 1 точка) */
+.ph{--pw:330px;width:var(--pw);aspect-ratio:402/874;position:relative;border-radius:calc(var(--pw)*.155);padding:calc(var(--pw)*.028);background:linear-gradient(145deg,#3a3936,#121211 40%,#2b2a27);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 50px 100px -30px rgba(0,0,0,.9),inset 0 0 0 1.5px rgba(255,255,255,.12);container-type:inline-size;flex:none}
+.scr{position:relative;width:100%;height:100%;border-radius:calc(var(--pw)*.13);overflow:hidden;background:#000;--u:calc(100cqw/412);font-size:calc(var(--u)*15)}
+.isl{position:absolute;top:calc(var(--u)*11);left:50%;translate:-50% 0;width:calc(var(--u)*124);height:calc(var(--u)*36);border-radius:99px;background:#000;z-index:9}
+.sb{position:absolute;top:0;left:0;right:0;height:calc(var(--u)*54);display:flex;justify-content:space-between;align-items:center;padding:calc(var(--u)*4) calc(var(--u)*34) 0 calc(var(--u)*40);font-weight:600;font-size:calc(var(--u)*16);z-index:8}
+.sb i{display:flex;gap:calc(var(--u)*6);align-items:center;font-style:normal}
+.sb i b{width:calc(var(--u)*26);height:calc(var(--u)*12);border-radius:calc(var(--u)*4);border:1.5px solid rgba(255,255,255,.5);position:relative}
+.sb i b::after{content:"";position:absolute;inset:1.5px;right:30%;border-radius:2px;background:#fff}
+.sb i s{width:calc(var(--u)*17);height:calc(var(--u)*11);background:linear-gradient(90deg,#fff 0 18%,transparent 18% 27%,#fff 27% 45%,transparent 45% 54%,#fff 54% 72%,transparent 72% 81%,#fff 81%);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.ind{position:absolute;bottom:calc(var(--u)*8);left:50%;translate:-50% 0;width:calc(var(--u)*140);height:calc(var(--u)*5);border-radius:9px;background:rgba(255,255,255,.7);z-index:9}
+
+/* стекло в телефоне (как Liquid Glass приложения; веб-приближение) */
+.gl{background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.05));backdrop-filter:blur(18px) saturate(170%);-webkit-backdrop-filter:blur(18px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 0 0 1px rgba(255,255,255,.1),0 8px 30px rgba(0,0,0,.3)}
+@media (prefers-reduced-transparency:reduce){.gl{background:rgba(40,38,34,.96);backdrop-filter:none;-webkit-backdrop-filter:none}}
+
+/* Панель вкладок приложения (новые значки, tabGlyphs.ts) */
+.tabs{position:absolute;left:calc(var(--u)*18);right:calc(var(--u)*18);bottom:calc(var(--u)*24);height:calc(var(--u)*62);border-radius:99px;display:flex;align-items:center;justify-content:space-around;padding:0 calc(var(--u)*6);z-index:7}
+.tabs span{display:flex;flex-direction:column;align-items:center;gap:calc(var(--u)*2);font-size:calc(var(--u)*10);font-weight:600;color:rgba(255,255,255,.62);flex:1;padding:calc(var(--u)*6) 0;border-radius:99px}
+.tabs span svg{width:calc(var(--u)*25);height:calc(var(--u)*25);fill:currentColor}
+.tabs span.on{color:#fff;background:rgba(255,255,255,.14)}
+
+/* ── 1. ПЕРВЫЙ ЭКРАН ── */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;padding:96px 0 64px;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;filter:saturate(1.05)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 75% 40%,rgba(10,10,10,.15),rgba(10,10,10,.82) 60%),linear-gradient(180deg,rgba(10,10,10,.55),rgba(10,10,10,0) 30%,rgba(10,10,10,.2) 70%,var(--bg))}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{margin:22px 0 22px}
+.hero .lead{color:rgba(245,243,238,.8);font-size:clamp(18px,1.6vw,21px)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.brandrow{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--tx2)}
+.brandrow img{width:44px;height:44px;border-radius:11px;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.brandrow b{display:block;color:var(--tx);font-size:17px;letter-spacing:-.01em}
+.stagebox{position:relative;display:flex;justify-content:center}
+.stagebox .ph{--pw:min(430px,78vw,calc((100dvh - 92px)*.455))}
+@media (min-width:901px){.stagebox .ph{rotate:-2.5deg}.stagebox .push{rotate:-2.5deg}}
+.hint{position:absolute;left:50%;bottom:-40px;translate:-50% 0;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--tx2);white-space:nowrap}
+.hint svg{width:18px;height:18px;color:var(--gold);animation:tap 2.4s var(--e) infinite}
+@keyframes tap{0%,60%,100%{transform:none}30%{transform:translateY(3px) scale(.92)}}
+
+/* экран «Намаз» */
+.home{position:absolute;inset:0;color:#fff}
+.home .art{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;transition:opacity .6s}
+.home::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.05) 30%,rgba(0,0,0,.1) 55%,rgba(0,0,0,.75));z-index:1}
+.home .in{position:absolute;inset:0;z-index:2;padding:calc(var(--u)*60) calc(var(--u)*18) 0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.hbar{width:100%;display:flex;justify-content:space-between;margin-bottom:calc(var(--u)*6)}
+.hbar span{width:calc(var(--u)*38);height:calc(var(--u)*38);border-radius:99px;display:grid;place-items:center}
+.hbar svg{width:calc(var(--u)*20);height:calc(var(--u)*20);fill:#fff}
+.city{font-size:calc(var(--u)*14);display:flex;align-items:center;gap:calc(var(--u)*5);font-weight:600}
+.city svg{width:calc(var(--u)*13);height:calc(var(--u)*13);fill:#fff}
+.hij{font-size:calc(var(--u)*12);opacity:.75;margin-top:calc(var(--u)*2)}
+.cdl{margin-top:calc(var(--u)*30);font-size:calc(var(--u)*12);letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.9}
+.cdn{font-weight:200;font-size:calc(var(--u)*66);letter-spacing:-.02em;line-height:1.05;font-variant-numeric:tabular-nums;text-shadow:0 2px 30px rgba(0,0,0,.4)}
+.cds{font-size:calc(var(--u)*13);opacity:.8}
+.times{margin-top:calc(var(--u)*22);display:flex;gap:calc(var(--u)*4);padding:calc(var(--u)*5);border-radius:calc(var(--u)*20)}
+.times div{width:calc(var(--u)*66);padding:calc(var(--u)*7) 0;border-radius:calc(var(--u)*15);font-size:calc(var(--u)*10);letter-spacing:.06em;text-transform:uppercase;font-weight:600;opacity:.8}
+.times div span{display:block;font-size:calc(var(--u)*16);letter-spacing:0;text-transform:none;margin-top:calc(var(--u)*2)}
+.times div.now{background:rgba(255,255,255,.18);opacity:1}
+.close{margin-top:auto;margin-bottom:calc(var(--u)*196);width:100%;text-align:left}
+.close h4{margin:0 0 calc(var(--u)*10) calc(var(--u)*4);font-size:calc(var(--u)*12);letter-spacing:.12em;text-transform:uppercase;font-weight:600;opacity:.9}
+.ppl{display:flex;justify-content:space-between}
+.pp{display:flex;flex-direction:column;align-items:center;gap:calc(var(--u)*5);font-size:calc(var(--u)*11);font-weight:600;width:calc(var(--u)*58);position:relative}
+.av{width:calc(var(--u)*52);height:calc(var(--u)*52);border-radius:99px;position:relative;box-shadow:0 0 0 calc(var(--u)*2) rgba(255,255,255,.25)}
+.av img{width:100%;height:100%;border-radius:99px;object-fit:cover}
+.pp.ok .av{box-shadow:0 0 0 calc(var(--u)*2.5) var(--gold)}
+.pp.ok .av::after,.pp.sent .av::after{content:"";position:absolute;right:calc(var(--u)*-3);bottom:calc(var(--u)*-3);width:calc(var(--u)*19);height:calc(var(--u)*19);border-radius:99px;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M232.49 80.49l-128 128a12 12 0 0 1-17 0l-56-56a12 12 0 1 1 17-17L96 183 215.51 63.51a12 12 0 0 1 17 17Z' fill='%2314120E'/%3E%3C/svg%3E") center/62% no-repeat;box-shadow:0 0 0 2px #000}
+.pp.sent .av{box-shadow:0 0 0 calc(var(--u)*2) rgba(255,255,255,.6)}
+.pp.sent .av::after{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M227.32 28.68a16 16 0 0 0-15.66-4.08L19.57 82.84a16 16 0 0 0-2.49 29.8L102 154l41.3 84.87A15.86 15.86 0 0 0 157.74 248q.69 0 1.38-.06a15.88 15.88 0 0 0 14-11.51l58.2-192.18a16 16 0 0 0-4-15.57' fill='%2314120E'/%3E%3C/svg%3E") center/56% no-repeat}
+.me .av{background:rgba(255,255,255,.12);display:grid;place-items:center}
+.me .av svg{width:calc(var(--u)*24);height:calc(var(--u)*24);fill:#fff}
+.crow{display:flex;justify-content:space-between;align-items:center;margin-top:calc(var(--u)*12);font-size:calc(var(--u)*12);opacity:.95}
+.remind{height:calc(var(--u)*36);padding:0 calc(var(--u)*14);border-radius:99px;background:var(--fill);color:var(--ink);font-weight:600;font-size:calc(var(--u)*13);display:inline-flex;align-items:center;gap:calc(var(--u)*6);box-shadow:0 0 0 0 rgba(232,203,120,.6);animation:pulse 2.6s infinite}
+.remind svg{width:calc(var(--u)*15);height:calc(var(--u)*15);fill:var(--ink)}
+.remind.done{animation:none;background:rgba(255,255,255,.18);color:#fff}
+.remind.done svg{fill:#fff}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,203,120,.55)}70%{box-shadow:0 0 0 calc(var(--u)*12) rgba(232,203,120,0)}100%{box-shadow:0 0 0 0 rgba(232,203,120,0)}}
+.hold{position:absolute;left:calc(var(--u)*18);right:calc(var(--u)*18);bottom:calc(var(--u)*100);height:calc(var(--u)*60);border-radius:99px;display:flex;align-items:center;gap:calc(var(--u)*12);padding:0 calc(var(--u)*10);z-index:6;color:#fff;touch-action:none;user-select:none;-webkit-user-select:none}
+.hold .rg{width:calc(var(--u)*40);height:calc(var(--u)*40);flex:none;position:relative}
+.hold .rg svg{width:100%;height:100%;rotate:-90deg}
+.hold .rg circle{fill:none;stroke-width:3}
+.hold .rg .t{stroke:rgba(255,255,255,.25)}
+.hold .rg .p{stroke:var(--gold);stroke-dasharray:113;stroke-dashoffset:113;stroke-linecap:round}
+.hold b{display:block;font-size:calc(var(--u)*16)}
+.hold small{display:block;font-size:calc(var(--u)*11);opacity:.7}
+.hold.ok{background:rgba(217,185,92,.28)}
+/* уведомление «у Юсуфа на телефоне» */
+.push{position:absolute;z-index:20;width:min(330px,86vw);left:calc(50% - 20px);top:20%;translate:-6% 0;border-radius:22px;padding:12px 14px;display:grid;grid-template-columns:38px 1fr;gap:4px 12px;font-size:14px;line-height:1.35;opacity:0;transform:translateY(-14px) scale(.96);pointer-events:none;transition:opacity .4s,transform .6s var(--e);background:rgba(36,34,30,.78)}
+.push.on{opacity:1;transform:none}
+.push img{width:38px;height:38px;border-radius:9px;grid-row:span 2}
+.push .ph1{display:flex;justify-content:space-between;color:var(--tx3);font-size:12px}
+.push .ph1 b{color:var(--tx);font-weight:600;font-size:13px}
+.push p{color:var(--tx)}
+.push-cap{position:absolute;top:-24px;left:4px;font-size:12px;color:var(--tx2);display:flex;align-items:center;gap:6px}
+.push-cap img{width:16px;height:16px;border-radius:99px;grid-row:auto}
+.toastp{position:absolute;left:50%;top:calc(var(--u)*60);translate:-50% 0;z-index:10;padding:calc(var(--u)*9) calc(var(--u)*14);border-radius:99px;font-size:calc(var(--u)*12);font-weight:600;white-space:nowrap;opacity:0;transform:translateY(-8px);transition:.4s var(--e);display:flex;gap:calc(var(--u)*6);align-items:center}
+.toastp svg{width:calc(var(--u)*14);height:calc(var(--u)*14);fill:var(--gold)}
+.toastp.on{opacity:1;transform:none}
+@media (max-width:900px){
+  .hero{padding:88px 0 80px;min-height:auto}
+  .hero .wrap{grid-template-columns:1fr;gap:56px}
+  .hero-txt{text-align:left}
+  .push{left:50%;translate:-50% 0;top:-6px}
+  .push-cap{top:-22px}
+}
+
+/* ── 2. ПРОБЛЕМА ── манифест и буря уведомлений */
+.sec{padding:clamp(88px,12vw,160px) 0;position:relative}
+.storm{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.storm .h2{max-width:11em}
+.nstack{position:relative;height:470px;max-width:520px;width:100%;justify-self:center}
+.nt{position:absolute;left:0;right:0;border-radius:22px;padding:14px 16px;display:grid;grid-template-columns:40px 1fr;column-gap:12px;background:rgba(38,37,35,.94);box-shadow:0 10px 30px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.06);font-size:15px;line-height:1.35;transition:transform .7s var(--e),opacity .6s,filter .6s}
+.nt i{grid-row:span 2;width:36px;height:36px;border-radius:9px;display:grid;place-items:center}
+.nt i svg{width:20px;height:20px;fill:#fff}
+.nt b{font-size:13px;display:flex;justify-content:space-between;font-weight:600}
+.nt b small{font-weight:400;color:var(--tx3)}
+.nt p{color:var(--tx2)}
+.nt.gold{background:linear-gradient(135deg,rgba(66,54,24,.96),rgba(34,30,22,.96));box-shadow:0 20px 60px -10px rgba(217,185,92,.35),inset 0 0 0 1px rgba(217,185,92,.45)}
+.nt.gold p{color:var(--tx)}
+.nt.gold i{background:none}
+.nt.gold i img{width:36px;height:36px;border-radius:9px}
+.replay{margin-top:28px}
+@media (max-width:900px){.storm{grid-template-columns:1fr;gap:40px}.nstack{height:400px}}
+
+/* ── 3. БЛИЗКИЕ ── день от Фаджра до Иши */
+.day{margin-top:56px;border-radius:var(--r3);background:radial-gradient(120% 140% at 0% 0%,#1d1a12,#0f0e0c 60%);box-shadow:inset 0 0 0 1px var(--ln);padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,4vw,56px);align-items:center;overflow:hidden}
+.pr-nm{font-size:clamp(40px,6vw,76px);font-weight:600;letter-spacing:-.04em;line-height:1}
+.pr-nm small{display:block;font-size:15px;letter-spacing:0;font-weight:400;color:var(--tx3);margin-top:10px}
+.dslider{margin-top:36px;position:relative}
+.dslider input{width:100%;appearance:none;-webkit-appearance:none;background:transparent;height:44px;margin:0;cursor:grab}
+.dslider input::-webkit-slider-runnable-track{height:4px;border-radius:9px;background:linear-gradient(90deg,var(--gold) var(--p,0%),rgba(255,255,255,.14) var(--p,0%))}
+.dslider input::-moz-range-track{height:4px;border-radius:9px;background:rgba(255,255,255,.14)}
+.dslider input::-moz-range-progress{height:4px;background:var(--gold);border-radius:9px}
+.dslider input::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:99px;background:var(--fill);margin-top:-13px;box-shadow:0 4px 16px rgba(0,0,0,.5),0 0 0 6px rgba(217,185,92,.18)}
+.dslider input::-moz-range-thumb{width:30px;height:30px;border:0;border-radius:99px;background:var(--fill)}
+.dmarks{display:flex;justify-content:space-between;font-size:13px;color:var(--tx3);margin-top:2px}
+.dmarks span.on{color:var(--gold);font-weight:600}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 12px}
+.pe{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:14px;font-weight:600;text-align:center}
+.pe .a{width:76px;height:76px;border-radius:99px;position:relative;transition:box-shadow .4s,filter .4s;box-shadow:0 0 0 2px rgba(255,255,255,.12);filter:saturate(.35) brightness(.7)}
+.pe .a img{width:100%;height:100%;border-radius:99px}
+.pe.ok .a{filter:none;box-shadow:0 0 0 3px var(--gold),0 10px 30px -6px rgba(217,185,92,.5)}
+.pe.ok .a::after{content:"";position:absolute;right:-2px;bottom:-2px;width:24px;height:24px;border-radius:99px;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M232.49 80.49l-128 128a12 12 0 0 1-17 0l-56-56a12 12 0 1 1 17-17L96 183 215.51 63.51a12 12 0 0 1 17 17Z' fill='%2314120E'/%3E%3C/svg%3E") center/60% no-repeat;box-shadow:0 0 0 3px #13110d}
+.pe small{font-size:12px;font-weight:400;color:var(--tx3);min-height:32px;display:flex;align-items:flex-start}
+.pe button{font-size:12px;font-weight:600;color:var(--ink);background:var(--fill);border-radius:99px;padding:0 12px;height:30px;min-width:44px}
+.pe.sent button{background:rgba(255,255,255,.1);color:var(--tx2)}
+.ayah{margin-top:56px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;max-width:780px}
+.ayah svg{width:36px;height:36px;color:var(--gold)}
+.ayah p{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.4vw,30px);line-height:1.3}
+.ayah small{display:block;font-family:var(--sans);font-style:normal;font-size:14px;color:var(--tx3);margin-top:10px}
+@media (max-width:900px){.day{grid-template-columns:1fr}.pe .a{width:64px;height:64px}}
+
+/* ── 4. ФАДЖР ── небо светлеет от движения пальца */
+.fajr{--d:0;position:relative;overflow:hidden;isolation:isolate}
+.fajr .sky{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#05060c 0%,#0b1020 45%,#141a2c 100%)}
+.fajr .sky::after{content:"";position:absolute;inset:0;opacity:var(--d);background:linear-gradient(180deg,#1b2440 0%,#4a4a6a 40%,#c27a4a 78%,#f1b86a 100%);transition:opacity .1s}
+.fajr .sky i{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 18%,#fff8 50%,transparent),radial-gradient(1px 1px at 32% 8%,#fff9 50%,transparent),radial-gradient(1.5px 1.5px at 58% 22%,#fffa 50%,transparent),radial-gradient(1px 1px at 76% 12%,#fff7 50%,transparent),radial-gradient(1px 1px at 88% 30%,#fff8 50%,transparent),radial-gradient(1px 1px at 22% 38%,#fff6 50%,transparent),radial-gradient(1px 1px at 46% 44%,#fff5 50%,transparent),radial-gradient(1.2px 1.2px at 68% 40%,#fff6 50%,transparent);opacity:calc(1 - var(--d))}
+.fajr .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.fajr .ph{--pw:min(330px,80vw);justify-self:center}
+.alarm{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding:calc(var(--u)*86) calc(var(--u)*22) 0;color:#fff;background:linear-gradient(180deg,rgba(10,12,24,.35),rgba(10,12,24,.85)),url(i/sujud-480.webp) center/cover}
+.alarm .al1{font-size:calc(var(--u)*14);font-weight:600;display:flex;gap:calc(var(--u)*6);align-items:center;opacity:.9}
+.alarm .al1 svg{width:calc(var(--u)*16);height:calc(var(--u)*16);fill:var(--gold)}
+.alarm .alt{font-size:calc(var(--u)*92);font-weight:200;letter-spacing:-.03em;line-height:1;margin-top:calc(var(--u)*10);font-variant-numeric:tabular-nums}
+.alarm .als{font-size:calc(var(--u)*15);opacity:.85}
+.alarm .who{margin-top:calc(var(--u)*28);display:flex;flex-direction:column;gap:calc(var(--u)*8);width:100%}
+.alarm .who div{display:flex;align-items:center;gap:calc(var(--u)*10);padding:calc(var(--u)*8) calc(var(--u)*12);border-radius:calc(var(--u)*18);font-size:calc(var(--u)*13);opacity:0;transform:translateY(8px);transition:.5s var(--e)}
+.alarm .who div.on{opacity:1;transform:none}
+.alarm .who img{width:calc(var(--u)*30);height:calc(var(--u)*30);border-radius:99px}
+.alarm .who b{font-weight:600}
+.alarm .who span{margin-left:auto;opacity:.7}
+.slide{position:absolute;left:calc(var(--u)*24);right:calc(var(--u)*24);bottom:calc(var(--u)*70);height:calc(var(--u)*68);border-radius:99px;touch-action:none;user-select:none;-webkit-user-select:none}
+.slide .k{position:absolute;left:calc(var(--u)*6);top:calc(var(--u)*6);width:calc(var(--u)*56);height:calc(var(--u)*56);border-radius:99px;background:var(--fill);display:grid;place-items:center;cursor:grab;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.slide .k svg{width:calc(var(--u)*24);height:calc(var(--u)*24);fill:var(--ink)}
+.slide span{position:absolute;inset:0;display:grid;place-items:center;font-size:calc(var(--u)*16);font-weight:600;padding-left:calc(var(--u)*40);color:rgba(255,255,255,.85)}
+.fajr .done-t{opacity:0;transition:opacity .6s;margin-top:20px}
+.fajr.up .done-t{opacity:1}
+@media (max-width:900px){.fajr .wrap{grid-template-columns:1fr}}
+
+/* ── 5. ФОКУС ── стена приложений */
+.focus{text-align:center}
+.focus .lead{margin-inline:auto}
+.apps{margin:56px auto 0;display:grid;grid-template-columns:repeat(4,96px);gap:28px 36px;justify-content:center;position:relative}
+.app{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:13px;color:var(--tx2);transition:filter .6s,opacity .6s,transform .6s var(--e)}
+.app i{width:96px;height:96px;border-radius:24px;display:grid;place-items:center;position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 12px 30px -10px rgba(0,0,0,.6)}
+.app i svg{width:52px;height:52px;fill:#fff}
+.app i::after{content:"";position:absolute;top:-8px;right:-8px;width:32px;height:32px;border-radius:99px;box-shadow:0 0 0 3px var(--bg),0 4px 12px rgba(0,0,0,.5);background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M208 40H48a16 16 0 0 0-16 16v58.77c0 89.61 75.82 119.34 91 124.39a15.53 15.53 0 0 0 10 0c15.2-5.05 91-34.78 91-124.39V56a16 16 0 0 0-16-16' fill='%2314120E'/%3E%3C/svg%3E") center/52% no-repeat;opacity:0;transform:scale(.4);transition:opacity .4s,transform .5s var(--e)}
+.focus.on .app i::after{opacity:1;transform:none}
+.focus.on .app i svg{opacity:.45}
+.focus.on .app i{filter:grayscale(1) brightness(.6)}
+.focus.on .app i::after{filter:none}
+.fctl{margin-top:48px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center}
+.sw{display:inline-flex;align-items:center;gap:14px;height:56px;padding:0 10px 0 22px;border-radius:99px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px var(--ln2);font-weight:600}
+.sw i{width:56px;height:34px;border-radius:99px;background:rgba(255,255,255,.18);position:relative;transition:background .3s}
+.sw i::after{content:"";position:absolute;top:3px;left:3px;width:28px;height:28px;border-radius:99px;background:#fff;transition:transform .35s var(--e);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.sw[aria-checked="true"] i{background:var(--ok)}
+.sw[aria-checked="true"] i::after{transform:translateX(22px)}
+.fhold{position:relative;height:56px;padding:0 26px;border-radius:99px;background:var(--fill);color:var(--ink);font-weight:600;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;transition:opacity .3s}
+.fhold::before{content:"";position:absolute;inset:0;background:var(--gold2);transform-origin:left;transform:scaleX(var(--h,0))}
+.fhold span{position:relative;display:flex;gap:8px;align-items:center}
+.fhold svg{width:20px;height:20px}
+.fhold[disabled]{opacity:.35;pointer-events:none}
+.fstate{margin-top:22px;min-height:24px;color:var(--tx2);font-size:15px}
+.fstate b{color:var(--gold)}
+@media (max-width:600px){.apps{grid-template-columns:repeat(4,64px);gap:20px 18px}.app i{width:64px;height:64px;border-radius:16px}.app i svg{width:34px;height:34px}.app{font-size:11px}}
+
+/* ── 6. REMINDERS ── настоящие ролики */
+.rem{overflow:hidden}
+.rem-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.rem-head .lead{max-width:30em}
+.rail{margin-top:48px;display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px max(var(--g),calc((100vw - var(--w))/2)) 24px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail::-webkit-scrollbar{display:none}
+.rl{flex:none;width:min(320px,72vw);aspect-ratio:9/16;border-radius:26px;overflow:hidden;position:relative;scroll-snap-align:center;background:#111 center/cover;transition:transform .5s var(--e),opacity .5s;transform:scale(.92);opacity:.55;box-shadow:inset 0 0 0 1px var(--ln)}
+.rl.on{transform:none;opacity:1;box-shadow:0 30px 80px -20px rgba(0,0,0,.9),inset 0 0 0 1px var(--ln2)}
+.rl video,.rl>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rl::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 20%,transparent 55%,rgba(0,0,0,.8));pointer-events:none}
+.rl .side{position:absolute;right:10px;bottom:84px;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:center;font-size:11px;font-weight:600}
+.rl .side span{display:flex;flex-direction:column;align-items:center;gap:2px}
+.rl .side svg{width:28px;height:28px;fill:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5))}
+.rl .side .liked svg{fill:#FF3B5C}
+.rl .cap{position:absolute;left:14px;right:56px;bottom:16px;z-index:2;font-size:13px;line-height:1.35}
+.rl .cap b{display:flex;align-items:center;gap:8px;font-size:14px;margin-bottom:6px}
+.rl .cap b img{width:28px;height:28px;border-radius:99px;border:1px solid rgba(255,255,255,.3)}
+.rl .cap b em{font-style:normal;font-size:12px;border:1px solid rgba(255,255,255,.5);border-radius:8px;padding:2px 8px;font-weight:600}
+.rl .cap p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:rgba(255,255,255,.92)}
+.rl .rtop{position:absolute;top:14px;left:0;right:0;z-index:2;display:flex;justify-content:center;gap:18px;font-size:14px;font-weight:600}
+.rl .rtop span:last-child{opacity:.6}
+.rl .snd{position:absolute;top:12px;right:12px;z-index:3;width:36px;height:36px;border-radius:99px;display:grid;place-items:center;background:rgba(0,0,0,.4)}
+.rl .snd svg{width:18px;height:18px;fill:#fff}
+.rl .heart{position:absolute;left:50%;top:45%;z-index:4;width:96px;height:96px;margin:-48px;fill:#FF3B5C;opacity:0;pointer-events:none}
+.rl .heart.go{animation:heart .9s var(--e)}
+@keyframes heart{0%{opacity:0;transform:scale(.4)}20%{opacity:1;transform:scale(1.1)}60%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.2) translateY(-30px)}}
+.rl .bar{position:absolute;left:0;right:0;bottom:0;height:2px;z-index:3;background:rgba(255,255,255,.18)}
+.rl .bar i{display:block;height:100%;width:0;background:#fff}
+.rl.wait{background:radial-gradient(120% 80% at 50% 30%,#2a2416,#0d0c0a);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px;gap:10px}
+.rl.wait::after{display:none}
+.rl.wait svg{width:40px;height:40px;fill:var(--gold)}
+.rl.wait b{font-size:22px;font-weight:600}
+.rl.wait p{color:var(--tx2);font-size:15px}
+.rl.wait .btn{height:44px;margin-top:10px;font-size:15px}
+.railnav{display:flex;gap:10px}
+.railnav button{width:48px;height:48px;border-radius:99px;display:grid;place-items:center;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px var(--ln2)}
+.railnav svg{width:20px;height:20px;fill:#fff}
+.rem-foot{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:8px;color:var(--tx2);font-size:15px}
+.rem-foot span{display:flex;gap:8px;align-items:center}
+.rem-foot svg{width:18px;height:18px;fill:var(--gold)}
+
+/* ── 7. УММА И СЦЕНА ── две карточки разной формы */
+.umma-g{margin-top:56px;display:grid;grid-template-columns:1fr 1.15fr;gap:20px}
+.cardx{border-radius:var(--r3);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);padding:clamp(22px,3vw,36px);position:relative;overflow:hidden}
+.cardx h3{margin-bottom:8px}
+.cardx>.note{margin-bottom:24px}
+.post{border-radius:var(--r2);background:#0c0c0b;box-shadow:inset 0 0 0 1px var(--ln);padding:18px}
+.post .pa{display:flex;gap:10px;align-items:center;font-size:15px}
+.post .pa img{width:40px;height:40px;border-radius:99px}
+.post .pa small{color:var(--tx3);font-size:13px}
+.post .pt{margin:14px 0;font-size:17px;line-height:1.45;min-height:5.8em;transition:opacity .25s}
+.post .pt.fade{opacity:0}
+.post .pf{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--tx3)}
+.tr{display:inline-flex;align-items:center;gap:6px;color:var(--gold);font-weight:600;font-size:14px;height:44px}
+.tr svg{width:18px;height:18px;fill:currentColor}
+.stage{background:radial-gradient(130% 100% at 100% 0%,#22304f,#101626 55%,#0c0f18);}
+.live{display:inline-flex;gap:6px;align-items:center;font-size:12px;font-weight:700;background:#E5484D;color:#fff;border-radius:6px;padding:3px 8px;letter-spacing:.04em}
+.live i{width:6px;height:6px;border-radius:9px;background:#fff;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.3}}
+.stage .st{margin:16px 0 6px;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.stage .spk{display:flex;gap:18px;margin:26px 0}
+.stage .spk div{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:13px;font-weight:600}
+.stage .spk img{width:64px;height:64px;border-radius:99px}
+.stage .spk div:first-child img{box-shadow:0 0 0 3px var(--gold);animation:talk 1.2s infinite alternate}
+@keyframes talk{to{box-shadow:0 0 0 6px rgba(217,185,92,.4)}}
+.stage .spk small{font-weight:400;color:var(--tx3);font-size:12px}
+.amin{display:flex;align-items:center;gap:14px}
+.amin button{height:52px;padding:0 22px;border-radius:99px;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);font-weight:600;display:flex;gap:8px;align-items:center}
+.amin button:active{transform:scale(.96)}
+.amin svg{width:20px;height:20px;fill:var(--gold)}
+.amin .n{font-variant-numeric:tabular-nums;color:var(--tx2);font-size:15px}
+.fly{position:absolute;pointer-events:none;width:26px;height:26px;fill:var(--gold);z-index:5;animation:fly 1.6s var(--e) forwards}
+@keyframes fly{0%{opacity:0;transform:translate(0,0) scale(.6)}15%{opacity:1}100%{opacity:0;transform:translate(var(--x),-220px) scale(1.2) rotate(var(--r))}}
+@media (max-width:900px){.umma-g{grid-template-columns:1fr}}
+
+/* ── 8. СООБЩЕНИЯ ── телефон + стопка Моментов */
+.msg .wrap{display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center}
+.msg-vis{display:flex;align-items:center;gap:0;position:relative;min-width:0}
+.msg .wrap>div{min-width:0}
+.msg .ph{--pw:min(310px,74vw);z-index:2}
+.msgs{position:absolute;inset:0;background:#000;color:#fff;padding:calc(var(--u)*62) calc(var(--u)*16) 0}
+.msgs h4{margin:calc(var(--u)*8) 0 calc(var(--u)*12);font-size:calc(var(--u)*30);font-weight:700;letter-spacing:-.02em}
+.msgs .srch{height:calc(var(--u)*38);border-radius:calc(var(--u)*12);background:rgba(255,255,255,.1);display:flex;align-items:center;gap:calc(var(--u)*6);padding:0 calc(var(--u)*10);font-size:calc(var(--u)*15);color:rgba(255,255,255,.5)}
+.msgs .srch svg{width:calc(var(--u)*16);height:calc(var(--u)*16);fill:currentColor}
+.notes{display:flex;gap:calc(var(--u)*10);margin:calc(var(--u)*14) 0 calc(var(--u)*10)}
+.notes div{display:flex;flex-direction:column;align-items:center;gap:calc(var(--u)*4);width:calc(var(--u)*80);font-size:calc(var(--u)*11);font-weight:600;position:relative;padding-top:calc(var(--u)*36)}
+.notes img{width:calc(var(--u)*60);height:calc(var(--u)*60);border-radius:99px}
+.notes q{position:absolute;top:0;left:50%;translate:-50% 0;width:calc(var(--u)*86);quotes:none;font-size:calc(var(--u)*10);font-weight:400;line-height:1.2;background:#262626;border-radius:calc(var(--u)*12);padding:calc(var(--u)*5) calc(var(--u)*6);text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chats div{display:flex;gap:calc(var(--u)*11);align-items:center;padding:calc(var(--u)*9) 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.chats img,.chats i{width:calc(var(--u)*50);height:calc(var(--u)*50);border-radius:99px;flex:none}
+.chats i{display:grid;place-items:center;background:var(--goldS);color:var(--gold);font-style:normal;font-weight:700;font-size:calc(var(--u)*18)}
+.chats b{display:block;font-size:calc(var(--u)*15)}
+.chats p{font-size:calc(var(--u)*13);color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(var(--u)*230)}
+.chats span{margin-left:auto;align-self:flex-start;font-size:calc(var(--u)*11);color:rgba(255,255,255,.4)}
+.moments{position:relative;width:250px;height:340px;margin-left:-40px;z-index:3;touch-action:pan-y}
+.mo{position:absolute;inset:0;border-radius:24px;overflow:hidden;box-shadow:0 24px 60px -12px rgba(0,0,0,.85),0 0 0 4px #f4efe6;background:#222 center/cover;transition:transform .5s var(--e),opacity .4s;cursor:grab;user-select:none;-webkit-user-select:none}
+.mo div{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 14px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:14px}
+.mo div b{display:flex;align-items:center;gap:8px}
+.mo div img{width:26px;height:26px;border-radius:99px}
+.mo div small{color:rgba(255,255,255,.7)}
+.mo-h{margin-top:16px;text-align:center;font-size:13px;color:var(--tx3);display:flex;gap:6px;justify-content:center;align-items:center}
+.mo-h svg{width:16px;height:16px;fill:var(--gold)}
+.checks{margin-top:32px;display:grid;gap:14px}
+.checks div{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--tx2)}
+.checks div b{color:var(--tx);font-weight:600}
+.checks svg{width:22px;height:22px;fill:var(--gold);margin-top:1px}
+@media (max-width:900px){.msg .wrap{grid-template-columns:1fr;gap:48px}.msg-vis{justify-content:flex-start}.msg-vis>div:last-child{position:absolute;right:0;bottom:24px;z-index:3}.moments{width:150px;height:210px;margin-left:0}.mo div{padding:30px 10px 10px;font-size:12px}}
+
+/* ── 9. СЁСТРАМ ── настройки, как в iOS */
+.sis{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.sis-vis{position:relative;border-radius:var(--r3);padding:clamp(20px,3vw,32px);background:radial-gradient(120% 120% at 100% 100%,#2b2232,#141218 60%);box-shadow:inset 0 0 0 1px var(--ln)}
+.grp{border-radius:18px;background:rgba(255,255,255,.06);overflow:hidden}
+.grp+.grp{margin-top:14px}
+.row{display:flex;align-items:center;gap:12px;padding:14px 16px;min-height:56px;font-size:15px}
+.row+.row{box-shadow:0 -1px 0 rgba(255,255,255,.07)}
+.row .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;flex:none}
+.row .ic svg{width:18px;height:18px;fill:#fff}
+.row small{display:block;color:var(--tx3);font-size:12px}
+.row .sw{margin-left:auto;height:auto;padding:0;background:none;box-shadow:none}
+.seg{display:flex;margin:0 16px 16px;padding:3px;border-radius:12px;background:rgba(255,255,255,.08)}
+.seg button{flex:1;height:36px;border-radius:9px;font-size:14px;font-weight:600;color:var(--tx2);transition:background .25s,color .25s}
+.seg button[aria-pressed="true"]{background:rgba(255,255,255,.18);color:#fff}
+.glab{padding:14px 16px 10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);font-weight:600}
+.req{margin-top:14px;border-radius:18px;padding:12px 14px;display:flex;gap:12px;align-items:center;font-size:14px;background:rgba(255,255,255,.06);transition:transform .7s var(--e),opacity .5s}
+.req img{width:36px;height:36px;border-radius:99px}
+.req b{font-weight:600}
+.req .to{margin-left:auto;font-size:12px;color:var(--gold);font-weight:600;white-space:nowrap}
+@media (max-width:900px){.sis{grid-template-columns:1fr;gap:40px}}
+
+/* ── 10. ВСЁ ДЛЯ НАМАЗА ── бенто */
+.bento{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-areas:"time time qibla tas" "time time adhan tas" "quran quran quran tas";gap:16px}
+.bx{border-radius:var(--r2);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);padding:24px;position:relative;overflow:hidden;min-height:200px;display:flex;flex-direction:column}
+.bx h3{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.bx .note{margin-top:6px}
+.bx .tg{font-size:12px;font-weight:600;color:var(--gold);margin-top:auto;padding-top:14px}
+.b-time{grid-area:time;background:linear-gradient(180deg,rgba(10,10,10,.25),rgba(10,10,10,.92)),url(i/gate-480.webp) center 20%/cover}
+.b-time select{appearance:none;-webkit-appearance:none;background:rgba(255,255,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M213.66 101.66l-80 80a8 8 0 0 1-11.32 0l-80-80a8 8 0 0 1 11.32-11.32L128 164.69l74.34-74.35a8 8 0 0 1 11.32 11.32' fill='%23fff'/%3E%3C/svg%3E") right 12px center/14px no-repeat;color:#fff;border:0;border-radius:99px;height:40px;padding:0 36px 0 16px;font:600 15px var(--sans);max-width:100%}
+.b-time select option{color:#000}
+.tl{margin-top:auto;display:grid;gap:2px}
+.tl div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.09);font-size:17px}
+.tl div:last-child{border:0}
+.tl div span{font-variant-numeric:tabular-nums;font-weight:600}
+.tl div.now{color:var(--gold)}
+.b-qibla{grid-area:qibla;align-items:flex-start}
+.comp{position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;border-radius:99px;box-shadow:inset 0 0 0 1px var(--ln2);background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.18) 0 1deg,transparent 1deg 15deg)}
+.comp i{position:absolute;left:50%;top:50%;width:4px;height:62px;margin:-62px 0 0 -2px;transform-origin:50% 100%;border-radius:4px;background:linear-gradient(var(--gold),rgba(217,185,92,.2));transition:transform 1.4s var(--e)}
+.comp b{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:99px;background:var(--gold)}
+.qdeg{font-size:34px;font-weight:200;margin-top:auto;font-variant-numeric:tabular-nums}
+.b-adhan{grid-area:adhan}
+.play{display:flex;align-items:center;gap:12px;margin-top:auto}
+.play button{width:48px;height:48px;border-radius:99px;background:var(--fill);display:grid;place-items:center;flex:none}
+.play button svg{width:20px;height:20px;fill:var(--ink)}
+.wave{display:flex;gap:3px;align-items:center;height:32px;flex:1}
+.wave i{flex:1;border-radius:3px;background:rgba(255,255,255,.25);height:calc(var(--h)*1%);transition:background .2s}
+.wave i.on{background:var(--gold)}
+.b-tas{grid-area:tas;align-items:center;text-align:center;cursor:pointer;user-select:none;-webkit-user-select:none;background:radial-gradient(100% 70% at 50% 60%,#1f1b11,var(--card))}
+.b-tas h3,.b-tas .note{align-self:stretch;text-align:left}
+.ring{position:relative;width:min(220px,100%);aspect-ratio:1;margin:auto}
+.ring svg{width:100%;height:100%;rotate:-90deg}
+.ring circle{fill:none;stroke-width:6}
+.ring .t{stroke:rgba(255,255,255,.1)}
+.ring .p{stroke:var(--gold);stroke-linecap:round;stroke-dasharray:440;stroke-dashoffset:440;transition:stroke-dashoffset .3s var(--e)}
+.ring div{position:absolute;inset:0;display:grid;place-content:center;gap:2px}
+.ring b{font-size:72px;font-weight:200;font-variant-numeric:tabular-nums;line-height:1}
+.ring small{font-size:13px;color:var(--tx2)}
+.b-tas .tap{font-size:13px;color:var(--tx3);display:flex;gap:6px;align-items:center}
+.b-tas .tap svg{width:16px;height:16px;fill:var(--gold)}
+.b-quran{grid-area:quran;background:linear-gradient(90deg,var(--card) 40%,rgba(20,19,17,.6)),url(i/c-mutawalli-480.webp) right center/auto 100% no-repeat}
+.ar{font-family:"Geeza Pro","Noto Naskh Arabic","Traditional Arabic","Segoe UI",serif;font-size:clamp(24px,2.6vw,32px);line-height:1.6;direction:rtl;text-align:right;margin-top:auto;padding-top:18px;max-width:22em;align-self:flex-start}
+.b-quran p.tr2{font-size:15px;color:var(--tx2);max-width:30em}
+.b-qada{grid-area:qada}
+.b-ver{grid-area:ver}
+.bx .big{font-size:52px;font-weight:200;line-height:1;margin-top:auto}
+.bx .bigi{width:44px;height:44px;fill:var(--gold);margin-top:auto}
+@media (max-width:1000px){.bento{grid-template-columns:1fr 1fr;grid-template-areas:"time time" "qibla adhan" "tas tas" "quran quran"}.b-time{min-height:420px}}
+@media (max-width:520px){.bx{padding:18px;min-height:180px}.comp{width:120px;height:120px}}
+
+/* ── 11. ЭКРАН БЛОКИРОВКИ ── */
+.lock{text-align:center}
+.lock .lead{margin-inline:auto}
+.lock-vis{margin-top:56px;display:grid;grid-template-columns:1fr auto 1fr;gap:40px;align-items:center}
+.lock .ph{--pw:min(390px,82vw)}
+.lsc{position:absolute;inset:0;background:url(i/road-860.webp) center/cover;color:#fff;display:flex;flex-direction:column;align-items:center;padding-top:calc(var(--u)*76);transition:padding .55s var(--e)}
+.scr.iso .lsc{padding-top:calc(var(--u)*176)}
+.la{position:absolute!important;left:calc(var(--u)*12);right:calc(var(--u)*12);bottom:calc(var(--u)*34);border-radius:calc(var(--u)*24);padding:calc(var(--u)*14) calc(var(--u)*16);background:rgba(20,18,14,.62);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);text-align:left;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.la .r1{display:flex;justify-content:space-between;align-items:center}
+.la .r1 span{display:flex;gap:calc(var(--u)*8);align-items:center;font-size:calc(var(--u)*13);font-weight:600}
+.la .r1 img{width:calc(var(--u)*26);height:calc(var(--u)*26);border-radius:calc(var(--u)*7)}
+.la .r1 b{font-size:calc(var(--u)*26);font-weight:300;color:var(--gold);font-variant-numeric:tabular-nums}
+.la .pg{height:calc(var(--u)*5);border-radius:9px;background:rgba(255,255,255,.15);margin-top:calc(var(--u)*10);overflow:hidden}
+.la .pg i{display:block;height:100%;background:var(--gold);width:40%}
+.la small{display:flex;justify-content:space-between;margin-top:calc(var(--u)*7);font-size:calc(var(--u)*11);opacity:.7}
+.lsc::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.25),transparent 40%,rgba(0,0,0,.4))}
+.lsc>*{position:relative}
+.ldate{font-size:calc(var(--u)*17);font-weight:600;opacity:.9}
+.lclock{font-size:calc(var(--u)*96);font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.wid{display:flex;gap:calc(var(--u)*10);margin-top:calc(var(--u)*12)}
+.wid div{border-radius:calc(var(--u)*20);padding:calc(var(--u)*10) calc(var(--u)*12);text-align:left;font-size:calc(var(--u)*12);background:rgba(255,255,255,.18);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.wid b{display:block;font-size:calc(var(--u)*22);font-weight:600;line-height:1.1}
+.wid .w2{display:grid;grid-template-columns:auto auto;gap:0 calc(var(--u)*12)}
+.wid .w2 span{opacity:.8}
+.isl.big{transition:width .55s var(--e),height .55s var(--e),border-radius .55s var(--e),top .55s var(--e);cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:0 calc(var(--u)*14);color:#fff;font-size:calc(var(--u)*13);font-weight:600;overflow:hidden}
+.isl.big .lt{display:flex;align-items:center;gap:calc(var(--u)*5)}
+.isl.big .lt svg{width:calc(var(--u)*16);height:calc(var(--u)*16);fill:var(--gold)}
+.isl.big .rt{color:var(--gold);font-variant-numeric:tabular-nums}
+.isl.big .ex{display:none}
+.isl.big.open{width:calc(var(--u)*380);height:calc(var(--u)*150);border-radius:calc(var(--u)*44);top:calc(var(--u)*10);display:block;padding:calc(var(--u)*18) calc(var(--u)*22)}
+.isl.big.open .cmp{display:none}
+.isl.big.open .ex{display:block;text-align:left}
+.ex .r1{display:flex;justify-content:space-between;align-items:flex-start}
+.ex .r1 small{display:block;font-size:calc(var(--u)*12);opacity:.6;font-weight:400}
+.ex .r1 b{font-size:calc(var(--u)*20)}
+.ex .r1 .cd{font-size:calc(var(--u)*30);font-weight:300;color:var(--gold);font-variant-numeric:tabular-nums}
+.ex .pg{height:calc(var(--u)*5);border-radius:9px;background:rgba(255,255,255,.15);margin-top:calc(var(--u)*14);overflow:hidden}
+.ex .pg i{display:block;height:100%;background:var(--gold);width:40%}
+.ex .r2{display:flex;justify-content:space-between;margin-top:calc(var(--u)*10);font-size:calc(var(--u)*11);opacity:.7;font-weight:400}
+.callout{text-align:left;max-width:280px}
+.callout:first-child{justify-self:end;text-align:right}
+.callout h3{font-size:22px;margin:10px 0 6px}
+.callout .note{font-size:16px;color:var(--tx2)}
+.callout .tag{font-size:13px}
+@media (max-width:900px){.lock-vis{grid-template-columns:1fr;gap:28px}.callout,.callout:first-child{justify-self:center;text-align:center}.lock-vis .ph{order:-1;justify-self:center}}
+
+/* ── 12. КАРТИНЫ ── раскрывающиеся полосы */
+.art-s{overflow:hidden}
+.acc{margin-top:56px;display:flex;gap:10px;height:min(600px,70vh)}
+.ac{flex:1;border-radius:var(--r2);overflow:hidden;position:relative;transition:flex .7s var(--e);cursor:pointer;min-width:0;background:#1a1712}
+.ac img{width:100%;height:100%;object-fit:cover}
+.ac::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.75));opacity:0;transition:opacity .5s}
+.ac span{position:absolute;left:20px;bottom:18px;z-index:2;font-size:20px;font-weight:600;opacity:0;transform:translateY(10px);transition:.5s var(--e);white-space:nowrap}
+.ac span small{display:block;font-size:13px;font-weight:400;color:var(--tx2)}
+.ac.on{flex:4.2}
+.ac.on::after,.ac.on span{opacity:1;transform:none}
+.classic{margin-top:28px;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:6px}
+.classic::-webkit-scrollbar{display:none}
+.classic img{height:120px;width:auto;aspect-ratio:auto;border-radius:12px;flex:none;opacity:.85}
+.art-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:22px;font-size:15px;color:var(--tx2)}
+@media (max-width:700px){.acc{height:auto;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}.acc::-webkit-scrollbar{display:none}.ac,.ac.on{flex:none;width:72vw;aspect-ratio:9/14;scroll-snap-align:center}.ac::after,.ac span{opacity:1;transform:none}}
+
+/* ── 13. АВТОРАМ ── */
+.auth{background:linear-gradient(180deg,var(--bg),#0e0d0a 20%,#0e0d0a 80%,var(--bg))}
+.auth .h2{max-width:15em}
+.auth .h2 span{color:var(--tx3)}
+.vs{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.feed{border-radius:var(--r3);height:420px;overflow:hidden;position:relative;box-shadow:inset 0 0 0 1px var(--ln);padding:0 22px}
+.feed h3{position:absolute;top:0;left:0;right:0;z-index:2;padding:20px 22px 30px;font-size:16px;background:linear-gradient(var(--card) 60%,transparent)}
+.feed::after{content:"";position:absolute;left:0;right:0;bottom:0;height:80px;background:linear-gradient(transparent,var(--card));z-index:2}
+.feed.them{background:var(--card)}
+.feed.us{background:radial-gradient(100% 80% at 50% 100%,#2a2416,var(--card))}
+.feed.us::after{display:none}
+.mq{display:flex;flex-direction:column;gap:10px;animation:mq 22s linear infinite;padding-top:64px}
+@keyframes mq{to{transform:translateY(-50%)}}
+.fi{border-radius:14px;padding:12px 14px;background:rgba(255,255,255,.05);font-size:15px;display:flex;gap:10px;align-items:center;color:var(--tx2)}
+.fi svg{width:20px;height:20px;fill:currentColor;opacity:.7}
+.fi.you{background:rgba(217,185,92,.14);color:var(--tx);box-shadow:inset 0 0 0 1px rgba(217,185,92,.4)}
+.fi.you svg{fill:var(--gold);opacity:1}
+.us-col{display:flex;flex-direction:column;gap:12px;padding-top:70px;height:100%}
+.us-col .fi{padding:16px}
+.us-col .fi.you{padding:26px 16px;font-size:17px}
+.perks{margin-top:64px;display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px}
+.pk{display:grid;grid-template-columns:44px 1fr;gap:4px 16px}
+.pk>svg{width:28px;height:28px;fill:var(--gold);grid-row:span 2;margin-top:2px}
+.pk b{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.pk p{color:var(--tx2);font-size:16px}
+.calc{margin-top:64px;border-radius:var(--r3);padding:clamp(22px,4vw,44px);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.calc label{font-size:15px;color:var(--tx2);display:flex;justify-content:space-between}
+.calc label b{color:var(--tx);font-size:22px;font-variant-numeric:tabular-nums}
+.calc .dslider{margin-top:10px}
+.calc .res{font-size:clamp(40px,5vw,64px);font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+.calc .res small{display:block;font-size:15px;font-weight:400;color:var(--tx2);letter-spacing:0;margin-top:10px}
+.calc .note{margin-top:14px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+@media (max-width:900px){.vs,.perks,.calc{grid-template-columns:1fr}.feed{height:360px}}
+
+/* ── 14. МЕЧЕТЯМ И ПРОЕКТАМ ── */
+.part{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.plist{display:grid;gap:4px;border-radius:var(--r3);overflow:hidden;background:var(--ln)}
+.pl{display:grid;grid-template-columns:52px 1fr;gap:4px 16px;padding:22px 24px;background:var(--bg2)}
+.pl i{grid-row:span 2;width:52px;height:52px;border-radius:14px;background:var(--goldS);display:grid;place-items:center}
+.pl i svg{width:26px;height:26px;fill:var(--gold)}
+.pl b{font-size:18px;font-weight:600}
+.pl p{color:var(--tx2);font-size:15px}
+@media (max-width:900px){.part{grid-template-columns:1fr;gap:40px}}
+
+/* ── 15. ЦЕНА ── */
+.price{text-align:center}
+.price .lead{margin-inline:auto}
+.plans{margin-top:56px;display:grid;grid-template-columns:.85fr 1.15fr;gap:20px;text-align:left;align-items:start}
+.plan{border-radius:var(--r3);padding:clamp(24px,3.4vw,40px);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);display:flex;flex-direction:column}
+.plan h3{font-size:22px}
+.plan .pp1{font-size:44px;font-weight:600;letter-spacing:-.03em;margin:14px 0 4px;font-variant-numeric:tabular-nums}
+.plan .pp1 small{display:block;font-size:16px;font-weight:400;color:var(--tx2);letter-spacing:0;margin-top:4px}
+.plan ul{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
+.plan li{display:flex;gap:10px;font-size:15px;color:var(--tx2);line-height:1.4}
+.plan li svg{width:18px;height:18px;fill:var(--gold);flex:none;margin-top:2px}
+.plan.plus{background:radial-gradient(120% 90% at 100% 0%,#2e2715,#15130f 60%);box-shadow:inset 0 0 0 1px rgba(217,185,92,.4),0 30px 80px -30px rgba(217,185,92,.25)}
+.plan.plus ul{grid-template-columns:1fr 1fr;column-gap:20px}
+.per{display:inline-flex;padding:3px;border-radius:99px;background:rgba(255,255,255,.08);margin-top:18px;align-self:flex-start}
+.per button{height:38px;padding:0 18px;border-radius:99px;font-size:14px;font-weight:600;color:var(--tx2)}
+.per button[aria-pressed="true"]{background:var(--fill);color:var(--ink)}
+.per button em{font-style:normal;color:var(--gold);margin-left:6px}
+.per button[aria-pressed="true"] em{color:#7a5a12}
+.trial{margin-top:22px;padding:14px 16px;border-radius:16px;background:rgba(217,185,92,.1);font-size:15px;display:flex;gap:10px;align-items:flex-start}
+.trial svg{width:20px;height:20px;fill:var(--gold);flex:none;margin-top:1px}
+.plan .btn{margin-top:auto;align-self:flex-start}
+.plan .spacer{flex:1;min-height:24px}
+.prem{margin-top:20px;color:var(--tx2);font-size:15px}
+.prem b{color:var(--gold)}
+@media (max-width:900px){.plans{grid-template-columns:1fr}.plan.plus{order:-1}}
+@media (max-width:520px){.plan.plus ul{grid-template-columns:1fr}}
+
+/* ── 16. ДОВЕРИЕ ── */
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:56px 64px;margin-top:56px}
+.tr3{display:grid;gap:12px}
+.tr3 svg{width:34px;height:34px;fill:var(--gold)}
+.tr3 b{font-size:clamp(22px,2.2vw,28px);font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.tr3 p{color:var(--tx2)}
+@media (max-width:800px){.trust{grid-template-columns:1fr;gap:40px}}
+
+/* ── ВОПРОСЫ ── */
+.faq{max-width:860px}
+.faq details{border-bottom:1px solid var(--ln)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font-size:clamp(18px,1.8vw,21px);font-weight:600;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{width:22px;height:22px;fill:var(--tx2);flex:none;transition:transform .3s var(--e);margin-top:2px}
+.faq details[open] summary svg{transform:rotate(45deg)}
+.faq details p{padding:0 0 24px;color:var(--tx2);max-width:44em}
+
+/* ── ФИНАЛ ── */
+.fin{position:relative;min-height:88vh;display:flex;align-items:center;text-align:center;overflow:hidden;isolation:isolate}
+.fin picture,.fin>img{position:absolute;inset:0;z-index:-1}
+.fin img{width:100%;height:100%;object-fit:cover;object-position:50% 78%}
+.fin::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(var(--bg),rgba(10,10,10,.45) 25%,rgba(10,10,10,.62) 60%,var(--bg)),radial-gradient(60% 50% at 50% 50%,rgba(10,10,10,.55),transparent)}
+.fin .h1{text-shadow:0 4px 40px rgba(0,0,0,.6)}
+.fin .h1{max-width:12em;margin-inline:auto}
+.fin .lead{margin:22px auto 0;color:rgba(245,243,238,.85)}
+.fin .cta{margin-top:36px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+
+/* ── ПОДВАЛ ── */
+.foot{padding:56px 0 48px;border-top:1px solid var(--ln);font-size:14px;color:var(--tx3)}
+.foot .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot nav{display:grid;gap:10px}
+.foot a{text-decoration:none;color:var(--tx2)}
+.foot a:hover{color:var(--tx)}
+@media (max-width:700px){.foot .wrap{grid-template-columns:1fr 1fr}.foot .wrap>div:first-child{grid-column:span 2}}
+
+/* ── ЛИСТ ОЖИДАНИЯ ── */
+dialog{border:0;padding:0;background:transparent;color:var(--tx);max-width:min(440px,calc(100vw - 32px));width:100%}
+dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.wl{border-radius:28px;background:#171614;box-shadow:inset 0 0 0 1px var(--ln2),0 40px 100px rgba(0,0,0,.6);padding:32px 28px 28px;position:relative}
+.wl img{width:56px;height:56px;border-radius:14px}
+.wl h2{font-size:26px;letter-spacing:-.02em;margin:18px 0 8px}
+.wl p{color:var(--tx2);font-size:15px}
+.wl label{display:block;font-size:14px;font-weight:600;margin:22px 0 8px}
+.wl input{width:100%;height:52px;border-radius:14px;border:1px solid var(--ln2);background:#0e0e0d;color:var(--tx);font:400 17px var(--sans);padding:0 16px}
+.wl input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.wl .btn{width:100%;margin-top:14px}
+.wl .m{min-height:22px;margin-top:12px;font-size:14px;color:var(--ok)}
+.wl .m.err{color:#FF8A8A}
+.wl .x{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:99px;display:grid;place-items:center}
+.wl .x svg{width:20px;height:20px;fill:var(--tx2)}
+dialog.done form{display:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .mq{animation:none}
+}
+
+/* ── второй круг ── */
+.lnk{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 6px;font-weight:600;text-decoration:none;color:var(--tx)}
+.lnk svg{width:18px;height:18px;transition:transform .3s var(--e)}
+.lnk:hover svg{transform:translateX(4px)}
+.h2.xl{font-size:clamp(46px,7.4vw,104px);line-height:1;letter-spacing:-.045em}
+.plusnote{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--tx2);margin-top:28px;line-height:1.45}
+.pchip{flex:none;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--ink);background:linear-gradient(135deg,#f3dc93,var(--gold));border-radius:99px;padding:3px 9px;margin-top:1px}
+.bigic{width:84px;height:84px;margin:0 auto;border-radius:24px;display:grid;place-items:center;background:linear-gradient(145deg,#2c2617,#16130c);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 20px 50px -16px rgba(217,185,92,.45)}
+.bigic svg{width:44px;height:44px;fill:var(--gold)}
+
+/* Близкие: картина меняет время суток вместе с ползунком */
+.close{overflow:hidden;isolation:isolate;padding-top:clamp(120px,14vw,190px)}
+.close-bg{position:absolute;inset:0;z-index:-1}
+.close-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:filter .9s var(--e);filter:brightness(.8) saturate(1.15)}
+.close-bg i{position:absolute;inset:0;background:linear-gradient(var(--bg),rgba(10,10,10,.35) 22%,rgba(10,10,10,.5) 60%,var(--bg)),linear-gradient(90deg,rgba(10,10,10,.75),rgba(10,10,10,.1) 70%)}
+.close[data-k="0"] .close-bg img{filter:brightness(.42) saturate(.7) hue-rotate(185deg)}
+.close[data-k="1"] .close-bg img{filter:brightness(.95) saturate(.95) contrast(1.05)}
+.close[data-k="2"] .close-bg img{filter:brightness(.8) saturate(1.2)}
+.close[data-k="3"] .close-bg img{filter:brightness(.62) saturate(1.45) hue-rotate(-14deg)}
+.close[data-k="4"] .close-bg img{filter:brightness(.28) saturate(.6) hue-rotate(205deg)}
+.close .day{background:rgba(12,11,9,.5);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 40px 100px -40px rgba(0,0,0,.8)}
+
+/* Умма: запись в заголовке, Сцена во всю ширину */
+.umma-top{display:grid;grid-template-columns:1fr 440px;gap:56px;align-items:center}
+.umma-top .post{padding:22px;background:var(--card);box-shadow:inset 0 0 0 1px var(--ln2),0 30px 80px -30px rgba(0,0,0,.9);border-radius:var(--r2)}
+.stage{position:relative;overflow:hidden;margin-top:64px;padding:clamp(56px,7vw,96px) 0;background:radial-gradient(80% 120% at 85% 20%,#2b3d66,#121a2e 55%,#0b0e17)}
+.stage::before{content:"";position:absolute;inset:0;background-image:radial-gradient(1px 1px at 10% 20%,#fff6 50%,transparent),radial-gradient(1px 1px at 30% 70%,#fff4 50%,transparent),radial-gradient(1.5px 1.5px at 55% 15%,#fff6 50%,transparent),radial-gradient(1px 1px at 80% 60%,#fff5 50%,transparent),radial-gradient(1px 1px at 92% 25%,#fff6 50%,transparent)}
+.stage-in{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;position:relative}
+.stage .st{margin:18px 0 14px;font-size:clamp(30px,3.6vw,48px)}
+.stage .amin{margin-top:30px}
+.stage .spk{display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;margin:0}
+.stage .spk div{gap:10px;font-size:15px}
+.stage .spk img{width:clamp(76px,9vw,112px);height:clamp(76px,9vw,112px)}
+.stage .spk div:first-child img{animation:none}
+.stage .spk .host img{box-shadow:0 0 0 3px var(--gold);animation:talk 1.2s infinite alternate}
+.stage .spk small{font-size:13px}
+@media (max-width:900px){.umma-top{grid-template-columns:1fr;gap:32px}.stage-in{grid-template-columns:1fr;gap:40px}}
+
+/* Основа: строка «и ещё» */
+.also{margin-top:22px;color:var(--tx2);font-size:15px;max-width:60em}
+.also b{color:var(--tx)}
+
+/* Авторам */
+.perks{grid-template-columns:repeat(3,1fr);gap:40px}
+.pk{display:block}
+.pk b{display:block;font-size:22px;margin-bottom:8px}
+.money{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;border-radius:var(--r3);overflow:hidden;background:rgba(217,185,92,.22)}
+.money div{background:#14110b;padding:28px 26px}
+.money b{display:block;font-size:clamp(40px,4.6vw,60px);font-weight:600;letter-spacing:-.03em;color:var(--gold);line-height:1;margin-bottom:12px}
+.money span{color:var(--tx2);font-size:15px}
+@media (max-width:900px){.perks,.money{grid-template-columns:1fr}}
+
+/* Партнёрам: шаги */
+.steps{list-style:none;counter-reset:st;margin:36px 0 0;padding:0;display:grid;gap:16px}
+.steps li{counter-increment:st;display:grid;grid-template-columns:36px 1fr;gap:12px;color:var(--tx2);font-size:15px;align-items:baseline}
+.steps li::before{content:counter(st);width:30px;height:30px;border-radius:99px;display:grid;place-items:center;font-weight:700;font-size:14px;color:var(--gold);box-shadow:inset 0 0 0 1px rgba(217,185,92,.5)}
+.steps b{color:var(--tx)}
+
+/* Доверие одной полосой */
+.trust-s .h1{max-width:14em}
+.trust{grid-template-columns:repeat(2,1fr);gap:28px 64px}
+.trust p{font-size:clamp(18px,1.7vw,21px);color:var(--tx2);line-height:1.45;padding-top:22px;border-top:1px solid var(--ln)}
+.trust b{color:var(--tx)}
+
+/* Плавающая панель вкладок: сайт листается, как приложение */
+.dock{position:fixed;z-index:40;left:50%;bottom:max(16px,env(safe-area-inset-bottom));translate:-50% 130%;opacity:0;display:flex;gap:2px;padding:6px;border-radius:99px;transition:translate .5s var(--e),opacity .4s;background:linear-gradient(135deg,rgba(60,56,48,.55),rgba(24,22,18,.6))}
+.dock.on{translate:-50% 0;opacity:1}
+.dock a{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:74px;padding:7px 10px 6px;border-radius:99px;font-size:11px;font-weight:600;color:rgba(255,255,255,.66);text-decoration:none;transition:background .3s,color .3s}
+.dock svg{width:24px;height:24px;fill:currentColor}
+.dock svg.f{position:absolute;top:7px;opacity:0}
+.dock a.on{color:#fff;background:rgba(255,255,255,.16)}
+.dock a.on svg{opacity:0}
+.dock a.on svg.f{opacity:1}
+@media (max-width:520px){.dock{left:12px;right:12px;translate:0 130%;justify-content:space-between}.dock.on{translate:0 0}.dock a{min-width:0;flex:1;padding:7px 2px 6px;font-size:10px}}
+
+/* ── правки после снимков второго круга ── */
+.steps li{display:block;position:relative;padding-left:46px;min-height:30px;padding-top:4px}
+.steps li::before{position:absolute;left:0;top:0}
+.close-bg i{background:linear-gradient(var(--bg),rgba(10,10,10,.12) 22%,rgba(10,10,10,.3) 62%,var(--bg)),linear-gradient(90deg,rgba(10,10,10,.6),rgba(10,10,10,0) 70%)}
+.fin{min-height:100vh;align-items:flex-start;padding-top:clamp(96px,16vh,170px)}
+.fin img{object-position:50% 92%}
+.fin::before{background:linear-gradient(var(--bg) 0%,rgba(10,10,10,.72) 30%,rgba(10,10,10,.15) 62%,rgba(10,10,10,.35) 88%,var(--bg))}
+.stage .amin button{background:var(--fill);color:var(--ink);box-shadow:0 10px 40px -10px rgba(232,203,120,.5)}
+.stage .amin button svg{fill:#7a5a12}
+.hero .wrap{grid-template-columns:minmax(0,1fr) auto}
+.hero .h1{font-size:clamp(40px,4.7vw,68px)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+
+/* ── третий круг ── */
+.push{position:absolute;z-index:12;left:calc(var(--u)*10);right:calc(var(--u)*10);top:calc(var(--u)*56);width:auto;translate:none;border-radius:calc(var(--u)*24);padding:calc(var(--u)*12) calc(var(--u)*14);grid-template-columns:calc(var(--u)*38) 1fr;gap:calc(var(--u)*3) calc(var(--u)*10);font-size:calc(var(--u)*14);background:rgba(44,42,38,.94);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:0 12px 40px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.08);transform:translateY(calc(var(--u)*-30)) scale(.94)}
+.push img{width:calc(var(--u)*38);height:calc(var(--u)*38);border-radius:calc(var(--u)*9)}
+.push .ph1{font-size:calc(var(--u)*12)}
+.push .ph1 b{font-size:calc(var(--u)*13)}
+.dim{position:absolute;inset:0;z-index:11;background:rgba(0,0,0,.45);opacity:0;transition:opacity .4s;pointer-events:none}
+.dim.on{opacity:1}
+.pcap{position:absolute;top:-34px;left:50%;translate:-50% 0;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:5px 12px 5px 6px;border-radius:99px;background:rgba(30,28,24,.85);box-shadow:inset 0 0 0 1px rgba(217,185,92,.4);opacity:0;transition:opacity .4s;white-space:nowrap;z-index:3}
+.pcap img{width:22px;height:22px;border-radius:99px}
+.pcap.on{opacity:1}
+@media (max-width:900px){.pcap{top:-36px}}
+.close .day{background:rgba(20,18,15,.36);backdrop-filter:blur(24px) saturate(140%);-webkit-backdrop-filter:blur(24px) saturate(140%)}
+.close[data-k="1"] .close-bg img{filter:brightness(1.05) saturate(1) contrast(1.05)}
+.close[data-k="2"] .close-bg img{filter:brightness(.95) saturate(1.25)}
+.close[data-k="3"] .close-bg img{filter:brightness(.75) saturate(1.5) hue-rotate(-14deg)}
+.close[data-k="0"] .close-bg img{filter:brightness(.5) saturate(.75) hue-rotate(185deg)}
+.close[data-k="4"] .close-bg img{filter:brightness(.34) saturate(.6) hue-rotate(205deg)}
+.b-quran{background:radial-gradient(90% 120% at 100% 50%,#231e12,var(--card) 70%)}
+.ring b{font-size:clamp(80px,9vw,112px)}
+.ring .t{stroke:rgba(217,185,92,.18)}
+.also{font-size:16px}
+.callout h3{font-size:24px}
+.callout .note{font-size:17px}
+.callout .tag{font-size:15px}
+.lock .ph{--pw:min(420px,82vw)}
+.plan .pp1 small.alt{margin-top:2px;color:var(--tx3);font-size:14px}
+.fin::before{background:linear-gradient(180deg,var(--bg) 0%,rgba(10,10,10,.82) 22%,rgba(10,10,10,.45) 45%,rgba(10,10,10,.05) 64%,rgba(10,10,10,.3) 88%,var(--bg))}
+.fin-d{margin-top:18px;font-size:15px;font-weight:600;color:var(--gold)}
+@media (max-width:600px){.nt{font-size:14px}}
+/* панель вкладок: только на телефоне и только на разделах с функциями */
+@media (min-width:901px){.dock{display:none}}
+
+.pcap{display:none}
+@media (max-width:700px){.trust{grid-template-columns:1fr;gap:22px}}
+@media (min-width:901px){
+  .fin{text-align:left;align-items:center;padding-top:0}
+  .fin picture{left:44%}
+  .fin img{object-position:50% 72%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 38%);mask-image:linear-gradient(90deg,transparent,#000 38%)}
+  .fin::before{background:linear-gradient(180deg,var(--bg),transparent 18%,transparent 82%,var(--bg))}
+  .fin .h1{margin-inline:0;max-width:9.5em}
+  .fin .lead{margin-left:0}
+  .fin .cta{justify-content:flex-start}
+}
+
+/* ── правки третьего круга ── */
+.plusnote{display:block}
+.plusnote .pchip{display:inline-block;margin-right:8px;vertical-align:1px}
+.focus .plusnote{text-align:center}
+.nt:not(.gold) p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (min-width:901px){.fin .lead{max-width:21em}}
+.sis-vis{max-width:540px;width:100%;justify-self:center}
+.sis-vis .row{font-size:16px;min-height:62px}
+.sis-vis .row small{font-size:13px}
+.sis-vis .glab{font-size:13px}
+.sis-vis .seg button{font-size:15px;height:40px}
+.sis-vis .req{font-size:15px;padding:14px 16px}
+.flow{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;font-size:15px;color:var(--tx2)}
+.flow svg{width:16px;height:16px;fill:var(--gold)}
+.flow span:first-child{color:var(--tx);font-weight:600}
+
+.flow{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:10px;font-size:17px;color:var(--tx)}
+.flow li{display:flex;align-items:center;gap:14px;font-weight:600}
+.flow li i{width:34px;height:34px;flex:none;border-radius:99px;display:grid;place-items:center;font-style:normal;font-weight:700;color:var(--ink);background:linear-gradient(135deg,#f3dc93,var(--gold))}
+.tapme{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:3;font-style:normal;font-size:13px;font-weight:600;padding:8px 12px;border-radius:99px;background:rgba(20,18,15,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(217,185,92,.5);writing-mode:vertical-rl;animation:tap 2.4s var(--e) infinite}
+.ac.on .tapme{display:none}
+@media (max-width:700px){.tapme{writing-mode:horizontal-tb}}
+
+.tapme{writing-mode:horizontal-tb;top:auto;bottom:70px;translate:-50% 0;animation:none}
+.ac.on .tapme{display:block}
+.lock{overflow:hidden;isolation:isolate}
+.lock::before{content:"";position:absolute;inset:-60px;z-index:-1;background:url(i/road-480.webp) center/cover;filter:blur(60px) brightness(.35) saturate(1.2)}
+.lock::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(var(--bg),transparent 18%,transparent 82%,var(--bg))}
+.bx h3{font-size:18px}
+.bx .note{font-size:14px;color:var(--tx2)}
+</style>
+<script src="/assets/adhan-4.4.4.min.js" defer></script>
+<script src="/assets/namaz.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="p-alarm-fill" viewBox="0 0 256 256"><path  d="m61.66 37.66l-32 32a8 8 0 0 1-11.32-11.32l32-32a8 8 0 0 1 11.32 11.32m176 20.68l-32-32a8 8 0 0 0-11.32 11.32l32 32a8 8 0 0 0 11.32-11.32M224 136a96 96 0 1 1-96-96a96.11 96.11 0 0 1 96 96m-32 0a8 8 0 0 0-8-8h-48V80a8 8 0 0 0-16 0v56a8 8 0 0 0 8 8h56a8 8 0 0 0 8-8"/></symbol><symbol id="p-apple-logo" viewBox="0 0 256 256"><path  d="M223.3 169.59a8.07 8.07 0 0 0-2.8-3.4C203.53 154.53 200 134.64 200 120c0-17.67 13.47-33.06 21.5-40.67a8 8 0 0 0 0-11.62C208.82 55.74 187.82 48 168 48a72.2 72.2 0 0 0-40 12.13a71.56 71.56 0 0 0-90.71 9.09A74.63 74.63 0 0 0 16 123.4a127.06 127.06 0 0 0 40.14 89.73A39.8 39.8 0 0 0 83.59 224h87.68a39.84 39.84 0 0 0 29.12-12.57a125 125 0 0 0 17.82-24.6c7.02-12.83 6.12-14.83 5.09-17.24m-34.63 30.94a23.76 23.76 0 0 1-17.4 7.47H83.59a23.82 23.82 0 0 1-16.44-6.51A111.14 111.14 0 0 1 32 123a58.5 58.5 0 0 1 16.65-42.53A54.8 54.8 0 0 1 88 64h.78A55.45 55.45 0 0 1 123 76.28a8 8 0 0 0 10 0A55.44 55.44 0 0 1 168 64a70.64 70.64 0 0 1 36 10.35c-13 14.52-20 30.47-20 45.65c0 23.77 7.64 42.73 22.18 55.3a105.8 105.8 0 0 1-17.51 25.23M128.23 30A40 40 0 0 1 167 0h1a8 8 0 0 1 0 16h-1a24 24 0 0 0-23.24 18a8 8 0 1 1-15.5-4Z"/></symbol><symbol id="p-arrow-right" viewBox="0 0 256 256"><path  d="m221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32"/></symbol><symbol id="p-bell-ringing-fill" viewBox="0 0 256 256"><path  d="M224 71.1a8 8 0 0 1-10.78-3.42a94.13 94.13 0 0 0-33.46-36.91a8 8 0 1 1 8.54-13.54a111.46 111.46 0 0 1 39.12 43.09A8 8 0 0 1 224 71.1M35.71 72a8 8 0 0 0 7.1-4.32a94.13 94.13 0 0 1 33.46-36.91a8 8 0 1 0-8.54-13.54a111.46 111.46 0 0 0-39.12 43.09A8 8 0 0 0 35.71 72m186.1 103.94A16 16 0 0 1 208 200h-40.8a40 40 0 0 1-78.4 0H48a16 16 0 0 1-13.79-24.06C43.22 160.39 48 138.28 48 112a80 80 0 0 1 160 0c0 26.27 4.78 48.38 13.81 63.94M150.62 200h-45.24a24 24 0 0 0 45.24 0"/></symbol><symbol id="p-broadcast" viewBox="0 0 256 256"><path  d="M128 88a40 40 0 1 0 40 40a40 40 0 0 0-40-40m0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24m73.71 7.14a80 80 0 0 1-14.08 22.2a8 8 0 0 1-11.92-10.67a63.95 63.95 0 0 0 0-85.33a8 8 0 1 1 11.92-10.67a80.08 80.08 0 0 1 14.08 84.47M69 103.09a64 64 0 0 0 11.26 67.58a8 8 0 0 1-11.92 10.67a79.93 79.93 0 0 1 0-106.67a8 8 0 1 1 11.95 10.67A63.8 63.8 0 0 0 69 103.09M248 128a119.58 119.58 0 0 1-34.29 84a8 8 0 1 1-11.42-11.2a103.9 103.9 0 0 0 0-145.56A8 8 0 1 1 213.71 44A119.58 119.58 0 0 1 248 128M53.71 200.78A8 8 0 1 1 42.29 212a119.87 119.87 0 0 1 0-168a8 8 0 1 1 11.42 11.2a103.9 103.9 0 0 0 0 145.56Z"/></symbol><symbol id="p-caret-left" viewBox="0 0 256 256"><path  d="M165.66 202.34a8 8 0 0 1-11.32 11.32l-80-80a8 8 0 0 1 0-11.32l80-80a8 8 0 0 1 11.32 11.32L91.31 128Z"/></symbol><symbol id="p-caret-right" viewBox="0 0 256 256"><path  d="m181.66 133.66l-80 80a8 8 0 0 1-11.32-11.32L164.69 128L90.34 53.66a8 8 0 0 1 11.32-11.32l80 80a8 8 0 0 1 0 11.32"/></symbol><symbol id="p-chat-circle-dots" viewBox="0 0 256 256"><path  d="M140 128a12 12 0 1 1-12-12a12 12 0 0 1 12 12m-56-12a12 12 0 1 0 12 12a12 12 0 0 0-12-12m88 0a12 12 0 1 0 12 12a12 12 0 0 0-12-12m60 12a104 104 0 0 1-152.88 91.82l-34.05 11.35a16 16 0 0 1-20.24-20.24l11.35-34.05A104 104 0 1 1 232 128m-16 0a88 88 0 1 0-164.19 44.06a8 8 0 0 1 .66 6.54L40 216l37.4-12.47a7.9 7.9 0 0 1 2.53-.42a8 8 0 0 1 4 1.08A88 88 0 0 0 216 128"/></symbol><symbol id="p-check" viewBox="0 0 256 256"><path  d="m229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69L218.34 66.34a8 8 0 0 1 11.32 11.32"/></symbol><symbol id="p-check-circle-fill" viewBox="0 0 256 256"><path  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"/></symbol><symbol id="p-clock-countdown" viewBox="0 0 256 256"><path  d="M232 136.66A104.12 104.12 0 1 1 119.34 24a8 8 0 0 1 1.32 16A88.12 88.12 0 1 0 216 135.34a8 8 0 0 1 16 1.32M120 72v56a8 8 0 0 0 8 8h56a8 8 0 0 0 0-16h-48V72a8 8 0 0 0-16 0m40-24a12 12 0 1 0-12-12a12 12 0 0 0 12 12m36 24a12 12 0 1 0-12-12a12 12 0 0 0 12 12m24 36a12 12 0 1 0-12-12a12 12 0 0 0 12 12"/></symbol><symbol id="p-coins" viewBox="0 0 256 256"><path  d="M184 89.57V84c0-25.08-37.83-44-88-44S8 58.92 8 84v40c0 20.89 26.25 37.49 64 42.46V172c0 25.08 37.83 44 88 44s88-18.92 88-44v-40c0-20.7-25.42-37.32-64-42.43M232 132c0 13.22-30.79 28-72 28c-3.73 0-7.43-.13-11.08-.37C170.49 151.77 184 139 184 124v-18.26c29.87 4.45 48 16.53 48 26.26M72 150.25v-23.79A184 184 0 0 0 96 128a184 184 0 0 0 24-1.54v23.79A163 163 0 0 1 96 152a163 163 0 0 1-24-1.75m96-40.32V124c0 8.39-12.41 17.4-32 22.87V123.5c12.91-3.13 23.84-7.79 32-13.57M96 56c41.21 0 72 14.78 72 28s-30.79 28-72 28s-72-14.78-72-28s30.79-28 72-28m-72 68v-14.07c8.16 5.78 19.09 10.44 32 13.57v23.37C36.41 141.4 24 132.39 24 124m64 48v-4.17c2.63.1 5.29.17 8 .17c3.88 0 7.67-.13 11.39-.35a122 122 0 0 0 12.61 3.76v23.46c-19.59-5.47-32-14.48-32-22.87m48 26.25V174.4a179.5 179.5 0 0 0 24 1.6a184 184 0 0 0 24-1.54v23.79a165.5 165.5 0 0 1-48 0m64-3.38V171.5c12.91-3.13 23.84-7.79 32-13.57V172c0 8.39-12.41 17.4-32 22.87"/></symbol><symbol id="p-envelope-simple" viewBox="0 0 256 256"><path  d="M224 48H32a8 8 0 0 0-8 8v136a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a8 8 0 0 0-8-8m-20.57 16L128 133.15L52.57 64ZM216 192H40V74.19l82.59 75.71a8 8 0 0 0 10.82 0L216 74.19z"/></symbol><symbol id="p-eye-slash" viewBox="0 0 256 256"><path  d="M53.92 34.62a8 8 0 1 0-11.84 10.76l19.24 21.17C25 88.84 9.38 123.2 8.69 124.76a8 8 0 0 0 0 6.5c.35.79 8.82 19.57 27.65 38.4C61.43 194.74 93.12 208 128 208a127.1 127.1 0 0 0 52.07-10.83l22 24.21a8 8 0 1 0 11.84-10.76Zm47.33 75.84l41.67 45.85a32 32 0 0 1-41.67-45.85M128 192c-30.78 0-57.67-11.19-79.93-33.25A133.2 133.2 0 0 1 25 128c4.69-8.79 19.66-33.39 47.35-49.38l18 19.75a48 48 0 0 0 63.66 70l14.73 16.2A112 112 0 0 1 128 192m6-95.43a8 8 0 0 1 3-15.72a48.16 48.16 0 0 1 38.77 42.64a8 8 0 0 1-7.22 8.71a6 6 0 0 1-.75 0a8 8 0 0 1-8-7.26A32.09 32.09 0 0 0 134 96.57m113.28 34.69c-.42.94-10.55 23.37-33.36 43.8a8 8 0 1 1-10.67-11.92a132.8 132.8 0 0 0 27.8-35.14a133.2 133.2 0 0 0-23.12-30.77C185.67 75.19 158.78 64 128 64a118.4 118.4 0 0 0-19.36 1.57A8 8 0 1 1 106 49.79A134 134 0 0 1 128 48c34.88 0 66.57 13.26 91.66 38.35c18.83 18.83 27.3 37.62 27.65 38.41a8 8 0 0 1 0 6.5Z"/></symbol><symbol id="p-film-strip" viewBox="0 0 256 256"><path  d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16M40 88h80v80H40Zm96-16V56h32v16Zm-16 0H88V56h32Zm0 112v16H88v-16Zm16 0h32v16h-32Zm0-16V88h80v80Zm80-96h-32V56h32ZM72 56v16H40V56ZM40 184h32v16H40Zm176 16h-32v-16h32z"/></symbol><symbol id="p-game-controller" viewBox="0 0 256 256"><path  d="M176 112h-24a8 8 0 0 1 0-16h24a8 8 0 0 1 0 16m-72-16h-8v-8a8 8 0 0 0-16 0v8h-8a8 8 0 0 0 0 16h8v8a8 8 0 0 0 16 0v-8h8a8 8 0 0 0 0-16m137.48 104.65a36 36 0 0 1-54.94 4.81c-.12-.12-.24-.24-.35-.37L146.48 160h-37l-39.67 45.09l-.35.37A36.08 36.08 0 0 1 44 216a36 36 0 0 1-35.44-42.25a.7.7 0 0 1 0-.14l16.37-84.09A59.88 59.88 0 0 1 83.89 40H172a60.08 60.08 0 0 1 59 49.25v.18l16.37 84.17a.7.7 0 0 1 0 .14a35.74 35.74 0 0 1-5.89 26.91M172 144a44 44 0 0 0 0-88H83.89a43.9 43.9 0 0 0-43.21 36.37v.13L24.3 176.59A20 20 0 0 0 58 194.3l41.92-47.59a8 8 0 0 1 6-2.71Zm59.7 32.59l-8.74-45A60 60 0 0 1 172 160h-4.2l30.2 34.31a20.09 20.09 0 0 0 17.46 5.39a20 20 0 0 0 16.23-23.11Z"/></symbol><symbol id="p-gift" viewBox="0 0 256 256"><path  d="M216 72h-35.08c.39-.33.79-.65 1.17-1A29.53 29.53 0 0 0 192 49.57A32.62 32.62 0 0 0 158.44 16A29.53 29.53 0 0 0 137 25.91a55 55 0 0 0-9 14.48a55 55 0 0 0-9-14.48A29.53 29.53 0 0 0 97.56 16A32.62 32.62 0 0 0 64 49.57A29.53 29.53 0 0 0 73.91 71c.38.33.78.65 1.17 1H40a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16v64a16 16 0 0 0 16 16h144a16 16 0 0 0 16-16v-64a16 16 0 0 0 16-16V88a16 16 0 0 0-16-16m-67-35.49a13.7 13.7 0 0 1 10-4.5h.49A16.62 16.62 0 0 1 176 49.08a13.7 13.7 0 0 1-4.5 10c-9.49 8.4-25.24 11.36-35 12.4c1.2-10.59 4.5-25.98 12.5-34.97m-64.09.36A16.63 16.63 0 0 1 96.59 32h.49a13.7 13.7 0 0 1 10 4.5c8.39 9.48 11.35 25.2 12.39 34.92c-9.72-1-25.44-4-34.92-12.39a13.7 13.7 0 0 1-4.5-10a16.6 16.6 0 0 1 4.82-12.16ZM40 88h80v32H40Zm16 48h64v64H56Zm144 64h-64v-64h64Zm16-80h-80V88h80z"/></symbol><symbol id="p-globe-hemisphere-east" viewBox="0 0 256 256"><path  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m0 16a87.5 87.5 0 0 1 48 14.28V74l-22.17 25.74l-31.47 4.26l-.31-.22l-19.67-12.86a16 16 0 0 0-22.51 4.18l-20.94 31.3a16 16 0 0 0-2.7 8.81L56 171.44l-3.27 2.15A88 88 0 0 1 128 40M62.29 186.47l2.52-1.65A16 16 0 0 0 72 171.53l.21-36.23L93.17 104a4 4 0 0 0 .32.22l19.67 12.87a15.94 15.94 0 0 0 11.35 2.77l31.49-4.27a16 16 0 0 0 10-5.41l22.17-25.76A16 16 0 0 0 192 74v-6.33A87.87 87.87 0 0 1 211.77 155l-16.14-14.76a16 16 0 0 0-16.93-3l-30.46 12.65a16.08 16.08 0 0 0-9.68 12.45l-2.39 16.19a16 16 0 0 0 11.77 17.81L169.4 202l2.36 2.37a87.88 87.88 0 0 1-109.47-17.9M185 195l-4.3-4.31a16 16 0 0 0-7.26-4.18L152 180.85l2.39-16.19L184.84 152L205 170.48A88.4 88.4 0 0 1 185 195"/></symbol><symbol id="p-hand-tap" viewBox="0 0 256 256"><path  d="M56 76a60 60 0 0 1 120 0a8 8 0 0 1-16 0a44 44 0 0 0-88 0a8 8 0 1 1-16 0m140 44a27.9 27.9 0 0 0-13.36 3.39A28 28 0 0 0 144 106.7V76a28 28 0 0 0-56 0v80l-3.82-6.13a28 28 0 0 0-48.41 28.17l29.32 50a8 8 0 1 0 13.8-8.04L49.6 170a12 12 0 1 1 20.78-12l.14.23l18.68 30A8 8 0 0 0 104 184V76a12 12 0 0 1 24 0v68a8 8 0 1 0 16 0v-12a12 12 0 0 1 24 0v20a8 8 0 0 0 16 0v-4a12 12 0 0 1 24 0v36c0 21.61-7.1 36.3-7.16 36.42a8 8 0 0 0 3.58 10.73a7.9 7.9 0 0 0 3.58.85a8 8 0 0 0 7.16-4.42c.37-.73 8.85-18 8.85-43.58v-36A28 28 0 0 0 196 120"/></symbol><symbol id="p-hand-waving" viewBox="0 0 256 256"><path  d="m220.17 100l-17.31-30a28 28 0 0 0-38.24-10.25a27.7 27.7 0 0 0-9 8.34L138.2 38a28 28 0 0 0-48.48 0a28 28 0 0 0-41.57 36l1.59 2.76A27.7 27.7 0 0 0 38 80.41a28 28 0 0 0-10.24 38.25l40 69.32a87.47 87.47 0 0 0 53.43 41a88.6 88.6 0 0 0 22.92 3a88 88 0 0 0 76.06-132Zm-6.66 62.64A72 72 0 0 1 81.62 180l-40-69.32a12 12 0 0 1 20.78-12L81.63 132a8 8 0 1 0 13.85-8L62 66a12 12 0 1 1 20.78-12L114 108a8 8 0 1 0 13.85-8l-24.28-42a12 12 0 1 1 20.78-12l33.42 57.9a48 48 0 0 0-5.54 60.6a8 8 0 0 0 13.24-9a32 32 0 0 1 7.31-43.5a8 8 0 0 0 2.13-10.4L168.23 90A12 12 0 1 1 189 78l17.31 30a71.56 71.56 0 0 1 7.2 54.62ZM184.25 31.71A8 8 0 0 1 194 26a59.62 59.62 0 0 1 36.53 28l.33.57a8 8 0 1 1-13.85 8l-.33-.57a43.67 43.67 0 0 0-26.8-20.5a8 8 0 0 1-5.63-9.79M80.89 237a8 8 0 0 1-11.23 1.33A119.6 119.6 0 0 1 40.06 204a8 8 0 0 1 13.86-8a103.7 103.7 0 0 0 25.64 29.72A8 8 0 0 1 80.89 237"/></symbol><symbol id="p-hands-praying" viewBox="0 0 256 256"><path  d="m235.32 180l-36.24-36.25l-36.46-120.29A21.76 21.76 0 0 0 128 12.93a21.76 21.76 0 0 0-34.62 10.53l-36.46 120.3L20.68 180a16 16 0 0 0 0 22.62l32.69 32.69a16 16 0 0 0 22.63 0L124.28 187a41 41 0 0 0 3.72-4.29a41 41 0 0 0 3.72 4.29L180 235.32a16 16 0 0 0 22.63 0l32.69-32.69a16 16 0 0 0 0-22.63M64.68 224L32 191.32l12.69-12.69l32.69 32.69ZM120 158.75a23.85 23.85 0 0 1-7 17L88.68 200L56 167.32l13.65-13.66a8 8 0 0 0 2-3.34l37-122.22A5.78 5.78 0 0 1 120 29.78Zm23 17a23.85 23.85 0 0 1-7-17v-129a5.78 5.78 0 0 1 11.31-1.68l37 122.22a8 8 0 0 0 2 3.34l14.49 14.49l-33.4 32ZM191.32 224l-12.56-12.57l33.39-32L224 191.32Z"/></symbol><symbol id="p-heart-fill" viewBox="0 0 256 256"><path  d="M240 102c0 70-103.79 126.66-108.21 129a8 8 0 0 1-7.58 0C119.79 228.66 16 172 16 102a62.07 62.07 0 0 1 62-62c20.65 0 38.73 8.88 50 23.89C139.27 48.88 157.35 40 178 40a62.07 62.07 0 0 1 62 62"/></symbol><symbol id="p-instagram-logo" viewBox="0 0 256 256"><path  d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48m0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32m48-136H80a56.06 56.06 0 0 0-56 56v96a56.06 56.06 0 0 0 56 56h96a56.06 56.06 0 0 0 56-56V80a56.06 56.06 0 0 0-56-56m40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12"/></symbol><symbol id="p-magnifying-glass" viewBox="0 0 256 256"><path  d="m229.66 218.34l-50.07-50.06a88.11 88.11 0 1 0-11.31 11.31l50.06 50.07a8 8 0 0 0 11.32-11.32M40 112a72 72 0 1 1 72 72a72.08 72.08 0 0 1-72-72"/></symbol><symbol id="p-megaphone" viewBox="0 0 256 256"><path  d="M248 120a48.05 48.05 0 0 0-48-48h-39.8c-2.91-.17-53.62-3.74-101.91-44.24A16 16 0 0 0 32 40v160a16 16 0 0 0 26.29 12.25c37.77-31.68 77-40.76 93.71-43.3v31.72a16 16 0 0 0 7.12 13.33l11 7.33A16 16 0 0 0 194.5 212l11.77-44.36A48.07 48.07 0 0 0 248 120M48 199.93V40c42.81 35.91 86.63 45 104 47.24v65.48c-17.35 2.28-61.16 11.35-104 47.21m131 8v.11l-11-7.33V168h21.6ZM200 152h-32V88h32a32 32 0 1 1 0 64"/></symbol><symbol id="p-moon-stars" viewBox="0 0 256 256"><path  d="M240 96a8 8 0 0 1-8 8h-16v16a8 8 0 0 1-16 0v-16h-16a8 8 0 0 1 0-16h16V72a8 8 0 0 1 16 0v16h16a8 8 0 0 1 8 8m-96-40h8v8a8 8 0 0 0 16 0v-8h8a8 8 0 0 0 0-16h-8v-8a8 8 0 0 0-16 0v8h-8a8 8 0 0 0 0 16m72.77 97a8 8 0 0 1 1.43 8A96 96 0 1 1 95.07 37.8a8 8 0 0 1 10.6 9.06a88.07 88.07 0 0 0 103.47 103.47a8 8 0 0 1 7.63 2.67m-19.39 14.88c-1.79.09-3.59.14-5.38.14A104.11 104.11 0 0 1 88 64c0-1.79 0-3.59.14-5.38a80 80 0 1 0 109.24 109.24Z"/></symbol><symbol id="p-mosque" viewBox="0 0 256 256"><path  d="M224 128a23.8 23.8 0 0 0-8 1.38V128c0-41.78-31.07-62.46-53.76-77.56C148.16 41.06 136 33 136 24a8 8 0 0 0-16 0c0 9-12.16 17.06-26.24 26.44C71.07 65.54 40 86.22 40 128v1.38A24 24 0 0 0 8 152v56a8 8 0 0 0 8 8h64a8 8 0 0 0 8-8v-32a8 8 0 0 1 16 0v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 1 16 0v32a8 8 0 0 0 8 8h64a8 8 0 0 0 8-8v-56a24 24 0 0 0-24-24M102.63 63.76c9.67-6.44 19-12.68 25.37-20c6.34 7.35 15.7 13.59 25.37 20c20 13.32 42.48 28.29 46.11 56.24h-143c3.67-27.95 26.12-42.92 46.15-56.24M24 152a8 8 0 0 1 16 0v48H24Zm136 0a24 24 0 0 0-24 24v24h-16v-24a24 24 0 0 0-48 0v24H56v-64h144v64h-16v-24a24 24 0 0 0-24-24m72 48h-16v-48a8 8 0 0 1 16 0Z"/></symbol><symbol id="p-music-notes" viewBox="0 0 256 256"><path  d="M212.92 17.69a8 8 0 0 0-6.86-1.45l-128 32A8 8 0 0 0 72 56v110.08A36 36 0 1 0 88 196v-85.75l112-28v51.83A36 36 0 1 0 216 164V24a8 8 0 0 0-3.08-6.31M52 216a20 20 0 1 1 20-20a20 20 0 0 1-20 20M88 93.75v-31.5l112-28v31.5ZM180 184a20 20 0 1 1 20-20a20 20 0 0 1-20 20"/></symbol><symbol id="p-navigation-arrow-fill" viewBox="0 0 256 256"><path  d="M248 121.58a15.76 15.76 0 0 1-11.29 15l-.2.06l-78 21.84l-21.84 78l-.06.2a15.77 15.77 0 0 1-15 11.29h-.3a15.77 15.77 0 0 1-15.07-10.67L41 61.41a1 1 0 0 1-.05-.16a16 16 0 0 1 20.3-20.35l.16.05l175.92 65.26A15.78 15.78 0 0 1 248 121.58"/></symbol><symbol id="p-paper-plane-tilt" viewBox="0 0 256 256"><path  d="M227.32 28.68a16 16 0 0 0-15.66-4.08h-.15L19.57 82.84a16 16 0 0 0-2.49 29.8L102 154l41.3 84.87a15.86 15.86 0 0 0 14.44 9.13q.69 0 1.38-.06a15.88 15.88 0 0 0 14-11.51l58.2-191.94v-.15a16 16 0 0 0-4-15.66m-69.49 203.17l-.05.14v-.07l-40.06-82.3l48-48a8 8 0 0 0-11.31-11.31l-48 48l-82.33-40.06h-.07h.14L216 40Z"/></symbol><symbol id="p-pause-fill" viewBox="0 0 256 256"><path  d="M216 48v160a16 16 0 0 1-16 16h-40a16 16 0 0 1-16-16V48a16 16 0 0 1 16-16h40a16 16 0 0 1 16 16M96 32H56a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h40a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16"/></symbol><symbol id="p-play-fill" viewBox="0 0 256 256"><path  d="M240 128a15.74 15.74 0 0 1-7.6 13.51L88.32 229.65a16 16 0 0 1-16.2.3A15.86 15.86 0 0 1 64 216.13V39.87a15.86 15.86 0 0 1 8.12-13.82a16 16 0 0 1 16.2.3l144.08 88.14A15.74 15.74 0 0 1 240 128"/></symbol><symbol id="p-plus" viewBox="0 0 256 256"><path  d="M224 128a8 8 0 0 1-8 8h-80v80a8 8 0 0 1-16 0v-80H40a8 8 0 0 1 0-16h80V40a8 8 0 0 1 16 0v80h80a8 8 0 0 1 8 8"/></symbol><symbol id="p-quotes" viewBox="0 0 256 256"><path  d="M100 56H40a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h60v8a32 32 0 0 1-32 32a8 8 0 0 0 0 16a48.05 48.05 0 0 0 48-48V72a16 16 0 0 0-16-16m0 80H40V72h60Zm116-80h-60a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h60v8a32 32 0 0 1-32 32a8 8 0 0 0 0 16a48.05 48.05 0 0 0 48-48V72a16 16 0 0 0-16-16m0 80h-60V72h60Z"/></symbol><symbol id="p-repeat" viewBox="0 0 256 256"><path  d="M24 128a72.08 72.08 0 0 1 72-72h108.69l-10.35-10.34a8 8 0 0 1 11.32-11.32l24 24a8 8 0 0 1 0 11.32l-24 24a8 8 0 0 1-11.32-11.32L204.69 72H96a56.06 56.06 0 0 0-56 56a8 8 0 0 1-16 0m200-8a8 8 0 0 0-8 8a56.06 56.06 0 0 1-56 56H51.31l10.35-10.34a8 8 0 0 0-11.32-11.32l-24 24a8 8 0 0 0 0 11.32l24 24a8 8 0 0 0 11.32-11.32L51.31 200H160a72.08 72.08 0 0 0 72-72a8 8 0 0 0-8-8"/></symbol><symbol id="p-seal-check" viewBox="0 0 256 256"><path  d="M225.86 102.82c-3.77-3.94-7.67-8-9.14-11.57c-1.36-3.27-1.44-8.69-1.52-13.94c-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52c-3.56-1.47-7.63-5.37-11.57-9.14C146.28 23.51 138.44 16 128 16s-18.27 7.51-25.18 14.14c-3.94 3.77-8 7.67-11.57 9.14c-3.25 1.36-8.69 1.44-13.94 1.52c-9.76.15-20.82.31-28.51 8s-7.8 18.75-8 28.51c-.08 5.25-.16 10.67-1.52 13.94c-1.47 3.56-5.37 7.63-9.14 11.57C23.51 109.72 16 117.56 16 128s7.51 18.27 14.14 25.18c3.77 3.94 7.67 8 9.14 11.57c1.36 3.27 1.44 8.69 1.52 13.94c.15 9.76.31 20.82 8 28.51s18.75 7.85 28.51 8c5.25.08 10.67.16 13.94 1.52c3.56 1.47 7.63 5.37 11.57 9.14c6.9 6.63 14.74 14.14 25.18 14.14s18.27-7.51 25.18-14.14c3.94-3.77 8-7.67 11.57-9.14c3.27-1.36 8.69-1.44 13.94-1.52c9.76-.15 20.82-.31 28.51-8s7.85-18.75 8-28.51c.08-5.25.16-10.67 1.52-13.94c1.47-3.56 5.37-7.63 9.14-11.57c6.63-6.9 14.14-14.74 14.14-25.18s-7.51-18.27-14.14-25.18m-11.55 39.29c-4.79 5-9.75 10.17-12.38 16.52c-2.52 6.1-2.63 13.07-2.73 19.82c-.1 7-.21 14.33-3.32 17.43s-10.39 3.22-17.43 3.32c-6.75.1-13.72.21-19.82 2.73c-6.35 2.63-11.52 7.59-16.52 12.38S132 224 128 224s-9.15-4.92-14.11-9.69s-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73c-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82c-2.63-6.35-7.59-11.52-12.38-16.52S32 132 32 128s4.92-9.15 9.69-14.11s9.75-10.17 12.38-16.52c2.52-6.1 2.63-13.07 2.73-19.82c.1-7 .21-14.33 3.32-17.43s10.39-3.22 17.43-3.32c6.75-.1 13.72-.21 19.82-2.73c6.35-2.63 11.52-7.59 16.52-12.38S124 32 128 32s9.15 4.92 14.11 9.69s10.17 9.75 16.52 12.38c6.1 2.52 13.07 2.63 19.82 2.73c7 .1 14.33.21 17.43 3.32s3.22 10.39 3.32 17.43c.1 6.75.21 13.72 2.73 19.82c2.63 6.35 7.59 11.52 12.38 16.52S224 124 224 128s-4.92 9.15-9.69 14.11m-40.65-43.77a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0"/></symbol><symbol id="p-shield-check-fill" viewBox="0 0 256 256"><path  d="M208 40H48a16 16 0 0 0-16 16v56c0 52.72 25.52 84.67 46.93 102.19c23.06 18.86 46 25.26 47 25.53a8 8 0 0 0 4.2 0c1-.27 23.91-6.67 47-25.53C198.48 196.67 224 164.72 224 112V56a16 16 0 0 0-16-16m-34.32 69.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32Z"/></symbol><symbol id="p-shopping-bag" viewBox="0 0 256 256"><path  d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16m0 160H40V56h176zM176 88a48 48 0 0 1-96 0a8 8 0 0 1 16 0a32 32 0 0 0 64 0a8 8 0 0 1 16 0"/></symbol><symbol id="p-sparkle" viewBox="0 0 256 256"><path  d="M197.58 129.06L146 110l-19-51.62a15.92 15.92 0 0 0-29.88 0L78 110l-51.62 19a15.92 15.92 0 0 0 0 29.88L78 178l19 51.62a15.92 15.92 0 0 0 29.88 0L146 178l51.62-19a15.92 15.92 0 0 0 0-29.88ZM137 164.22a8 8 0 0 0-4.74 4.74L112 223.85L91.78 169a8 8 0 0 0-4.78-4.78L32.15 144L87 123.78a8 8 0 0 0 4.78-4.78L112 64.15L132.22 119a8 8 0 0 0 4.74 4.74L191.85 144ZM144 40a8 8 0 0 1 8-8h16V16a8 8 0 0 1 16 0v16h16a8 8 0 0 1 0 16h-16v16a8 8 0 0 1-16 0V48h-16a8 8 0 0 1-8-8m104 48a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-16 0v-8h-8a8 8 0 0 1 0-16h8v-8a8 8 0 0 1 16 0v8h8a8 8 0 0 1 8 8"/></symbol><symbol id="p-speaker-high" viewBox="0 0 256 256"><path  d="M155.51 24.81a8 8 0 0 0-8.42.88L77.25 80H32a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h45.25l69.84 54.31A8 8 0 0 0 160 224V32a8 8 0 0 0-4.49-7.19M32 96h40v64H32Zm112 111.64l-56-43.55V91.91l56-43.55Zm54-106.08a40 40 0 0 1 0 52.88a8 8 0 0 1-12-10.58a24 24 0 0 0 0-31.72a8 8 0 0 1 12-10.58M248 128a79.9 79.9 0 0 1-20.37 53.34a8 8 0 0 1-11.92-10.67a64 64 0 0 0 0-85.33a8 8 0 1 1 11.92-10.67A79.83 79.83 0 0 1 248 128"/></symbol><symbol id="p-speaker-slash" viewBox="0 0 256 256"><path  d="M53.92 34.62a8 8 0 1 0-11.84 10.76L73.55 80H32a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h45.25l69.84 54.31A8 8 0 0 0 160 224v-48.91l42.08 46.29a8 8 0 1 0 11.84-10.76ZM32 96h40v64H32Zm112 111.64l-56-43.55v-68.2l56 61.6Zm42-63.77a24 24 0 0 0 0-31.72a8 8 0 1 1 12-10.57a40 40 0 0 1 0 52.88a8 8 0 0 1-12-10.59m-80.16-76a8 8 0 0 1 1.4-11.23l39.85-31A8 8 0 0 1 160 32v74.83a8 8 0 0 1-16 0V48.36l-26.94 21a8 8 0 0 1-11.22-1.45ZM248 128a79.9 79.9 0 0 1-20.37 53.34a8 8 0 0 1-11.92-10.67a64 64 0 0 0 0-85.33a8 8 0 1 1 11.92-10.67A79.83 79.83 0 0 1 248 128"/></symbol><symbol id="p-squares-four" viewBox="0 0 256 256"><path  d="M104 40H56a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16m0 64H56V56h48zm96-64h-48a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16m0 64h-48V56h48zm-96 32H56a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-48a16 16 0 0 0-16-16m0 64H56v-48h48zm96-64h-48a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-48a16 16 0 0 0-16-16m0 64h-48v-48h48z"/></symbol><symbol id="p-storefront" viewBox="0 0 256 256"><path  d="M232 96a8 8 0 0 0-.3-2.2l-14.35-50.2A16.07 16.07 0 0 0 202 32H54a16.07 16.07 0 0 0-15.35 11.6L24.31 93.8A8 8 0 0 0 24 96v16a40 40 0 0 0 16 32v72a8 8 0 0 0 8 8h160a8 8 0 0 0 8-8v-72a40 40 0 0 0 16-32zM54 48h148l11.42 40H42.61Zm50 56h48v8a24 24 0 0 1-48 0Zm-16 0v8a24 24 0 0 1-35.12 21.26a8 8 0 0 0-1.82-1.06A24 24 0 0 1 40 112v-8Zm112 104H56v-56.8a40.6 40.6 0 0 0 8 .8a40 40 0 0 0 32-16a40 40 0 0 0 64 0a40 40 0 0 0 32 16a40.6 40.6 0 0 0 8-.8Zm4.93-75.8a8 8 0 0 0-1.8 1.05A24 24 0 0 1 168 112v-8h48v8a24 24 0 0 1-11.07 20.2"/></symbol><symbol id="p-sun-horizon" viewBox="0 0 256 256"><path  d="M240 152h-40.45a74 74 0 0 0 .45-8a72 72 0 0 0-144 0a74 74 0 0 0 .45 8H16a8 8 0 0 0 0 16h224a8 8 0 0 0 0-16m-168-8a56 56 0 1 1 111.41 8H72.59a56 56 0 0 1-.59-8m144 56a8 8 0 0 1-8 8H48a8 8 0 0 1 0-16h160a8 8 0 0 1 8 8M72.84 43.58a8 8 0 0 1 14.32-7.16l8 16a8 8 0 0 1-14.32 7.16Zm-56 48.84a8 8 0 0 1 10.74-3.57l16 8a8 8 0 0 1-7.16 14.31l-16-8a8 8 0 0 1-3.58-10.74m192 15.16a8 8 0 0 1 3.58-10.73l16-8a8 8 0 1 1 7.16 14.31l-16 8a8 8 0 0 1-10.74-3.58m-48-55.16l8-16a8 8 0 0 1 14.32 7.16l-8 16a8 8 0 1 1-14.32-7.16"/></symbol><symbol id="p-tiktok-logo" viewBox="0 0 256 256"><path  d="M224 72a48.05 48.05 0 0 1-48-48a8 8 0 0 0-8-8h-40a8 8 0 0 0-8 8v132a20 20 0 1 1-28.57-18.08a8 8 0 0 0 4.57-7.23V88a8 8 0 0 0-9.4-7.88C50.91 86.48 24 119.1 24 156a76 76 0 0 0 152 0v-39.71A103.25 103.25 0 0 0 224 128a8 8 0 0 0 8-8V80a8 8 0 0 0-8-8m-8 39.64a87.2 87.2 0 0 1-43.33-16.15A8 8 0 0 0 160 102v54a60 60 0 0 1-120 0c0-25.9 16.64-49.13 40-57.6v27.67A36 36 0 1 0 136 156V32h24.5A64.14 64.14 0 0 0 216 87.5Z"/></symbol><symbol id="p-translate" viewBox="0 0 256 256"><path  d="m247.15 212.42l-56-112a8 8 0 0 0-14.31 0l-21.71 43.43A88 88 0 0 1 108 126.93A103.65 103.65 0 0 0 135.69 64H160a8 8 0 0 0 0-16h-56V32a8 8 0 0 0-16 0v16H32a8 8 0 0 0 0 16h87.63A87.76 87.76 0 0 1 96 116.35a87.7 87.7 0 0 1-19-31a8 8 0 1 0-15.08 5.34A103.6 103.6 0 0 0 84 127a87.55 87.55 0 0 1-52 17a8 8 0 0 0 0 16a103.46 103.46 0 0 0 64-22.08a104.2 104.2 0 0 0 51.44 21.31l-26.6 53.19a8 8 0 0 0 14.31 7.16L148.94 192h70.11l13.79 27.58A8 8 0 0 0 240 224a8 8 0 0 0 7.15-11.58M156.94 176L184 121.89L211.05 176Z"/></symbol><symbol id="p-user-circle" viewBox="0 0 256 256"><path  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24M74.08 197.5a64 64 0 0 1 107.84 0a87.83 87.83 0 0 1-107.84 0M96 120a32 32 0 1 1 32 32a32 32 0 0 1-32-32m97.76 66.41a79.66 79.66 0 0 0-36.06-28.75a48 48 0 1 0-59.4 0a79.66 79.66 0 0 0-36.06 28.75a88 88 0 1 1 131.52 0"/></symbol><symbol id="p-video-camera" viewBox="0 0 256 256"><path  d="M251.77 73a8 8 0 0 0-8.21.39L208 97.05V72a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16v-25l35.56 23.71A8 8 0 0 0 248 184a8 8 0 0 0 8-8V80a8 8 0 0 0-4.23-7M192 184H32V72h160zm48-22.95l-32-21.33v-23.44L240 95Z"/></symbol><symbol id="p-x" viewBox="0 0 256 256"><path  d="M205.66 194.34a8 8 0 0 1-11.32 11.32L128 139.31l-66.34 66.35a8 8 0 0 1-11.32-11.32L116.69 128L50.34 61.66a8 8 0 0 1 11.32-11.32L128 116.69l66.34-66.35a8 8 0 0 1 11.32 11.32L139.31 128Z"/></symbol><symbol id="p-x-logo" viewBox="0 0 256 256"><path  d="m214.75 211.71l-62.6-98.38l61.77-67.95a8 8 0 0 0-11.84-10.76l-58.84 64.72l-40.49-63.63A8 8 0 0 0 96 32H48a8 8 0 0 0-6.75 12.3l62.6 98.37l-61.77 68a8 8 0 1 0 11.84 10.76l58.84-64.72l40.49 63.63A8 8 0 0 0 160 224h48a8 8 0 0 0 6.75-12.29M164.39 208L62.57 48h29l101.86 160Z"/></symbol><symbol id="p-youtube-logo" viewBox="0 0 256 256"><path  d="m164.44 121.34l-48-32A8 8 0 0 0 104 96v64a8 8 0 0 0 12.44 6.66l48-32a8 8 0 0 0 0-13.32M120 145.05V111l25.58 17Zm114.33-75.53a24 24 0 0 0-14.49-16.4C185.56 39.88 131 40 128 40s-57.56-.12-91.84 13.12a24 24 0 0 0-14.49 16.4C19.08 79.5 16 97.74 16 128s3.08 48.5 5.67 58.48a24 24 0 0 0 14.49 16.41C69 215.56 120.4 216 127.34 216h1.32c6.94 0 58.37-.44 91.18-13.11a24 24 0 0 0 14.49-16.41c2.59-10 5.67-28.22 5.67-58.48s-3.08-48.5-5.67-58.48m-15.49 113a8 8 0 0 1-4.77 5.49c-31.65 12.22-85.48 12-86 12H128c-.54 0-54.33.2-86-12a8 8 0 0 1-4.77-5.49C34.8 173.39 32 156.57 32 128s2.8-45.39 5.16-54.47A8 8 0 0 1 41.93 68c30.52-11.79 81.66-12 85.85-12h.27c.54 0 54.38-.18 86 12a8 8 0 0 1 4.77 5.49C221.2 82.61 224 99.43 224 128s-2.8 45.39-5.16 54.47Z"/></symbol><symbol id="r-comment" viewBox="0 0 256 256"><path d="M128 24a104 104 0 0 0-91.82 152.88l-11.35 34.05a16 16 0 0 0 20.24 20.24l34.05-11.35A104 104 0 1 0 128 24m0 192a87.87 87.87 0 0 1-44.06-11.81a8 8 0 0 0-6.54-.67L40 216l12.47-37.4a8 8 0 0 0-.66-6.54A88 88 0 1 1 128 216"/></symbol><symbol id="r-like" viewBox="0 0 256 256"><path d="M178 40c-20.65 0-38.73 8.88-50 23.89C116.73 48.88 98.65 40 78 40a62.07 62.07 0 0 0-62 62c0 70 103.79 126.66 108.21 129a8 8 0 0 0 7.58 0C136.21 228.66 240 172 240 102a62.07 62.07 0 0 0-62-62m-50 174.8c-18.26-10.64-96-59.11-96-112.8a46.06 46.06 0 0 1 46-46c19.45 0 35.78 10.36 42.6 27a8 8 0 0 0 14.8 0c6.82-16.67 23.15-27 42.6-27a46.06 46.06 0 0 1 46 46c0 53.61-77.76 102.15-96 112.8"/></symbol><symbol id="r-like-fill" viewBox="0 0 256 256"><path d="M240 102c0 70-103.79 126.66-108.21 129a8 8 0 0 1-7.58 0C119.79 228.66 16 172 16 102a62.07 62.07 0 0 1 62-62c20.65 0 38.73 8.88 50 23.89C139.27 48.88 157.35 40 178 40a62.07 62.07 0 0 1 62 62"/></symbol><symbol id="r-repost" viewBox="0 0 256 256"><path d="M24 128a72.08 72.08 0 0 1 72-72h108.69l-10.35-10.34a8 8 0 0 1 11.32-11.32l24 24a8 8 0 0 1 0 11.32l-24 24a8 8 0 0 1-11.32-11.32L204.69 72H96a56.06 56.06 0 0 0-56 56a8 8 0 0 1-16 0m200-8a8 8 0 0 0-8 8a56.06 56.06 0 0 1-56 56H51.31l10.35-10.34a8 8 0 0 0-11.32-11.32l-24 24a8 8 0 0 0 0 11.32l24 24a8 8 0 0 0 11.32-11.32L51.31 200H160a72.08 72.08 0 0 0 72-72a8 8 0 0 0-8-8"/></symbol><symbol id="r-save" viewBox="0 0 256 256"><path d="M184 32H72a16 16 0 0 0-16 16v176a8 8 0 0 0 12.24 6.78L128 193.43l59.77 37.35A8 8 0 0 0 200 224V48a16 16 0 0 0-16-16m0 177.57l-51.77-32.35a8 8 0 0 0-8.48 0L72 209.57V48h112Z"/></symbol><symbol id="r-share" viewBox="0 0 256 256"><path d="M227.32 28.68a16 16 0 0 0-15.66-4.08h-.15L19.57 82.84a16 16 0 0 0-2.49 29.8L102 154l41.3 84.87a15.86 15.86 0 0 0 14.44 9.13q.69 0 1.38-.06a15.88 15.88 0 0 0 14-11.51l58.2-191.94v-.15a16 16 0 0 0-4-15.66m-69.49 203.17l-.05.14v-.07l-40.06-82.3l48-48a8 8 0 0 0-11.31-11.31l-48 48l-82.33-40.06h-.07h.14L216 40Z"/></symbol><symbol id="t-focus" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.27,47,25.53a8,8,0,0,0,4.2,0c1-.26,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0Z"/></symbol><symbol id="t-focus-f" viewBox="0 0 256 256"><path d="M224,56v56c0,52.72-25.52,84.67-46.93,102.19-23.06,18.86-46,25.27-47,25.53a8,8,0,0,1-4.2,0c-1-.26-23.91-6.67-47-25.53C57.52,196.67,32,164.72,32,112V56A16,16,0,0,1,48,40H208A16,16,0,0,1,224,56Z"/></symbol><symbol id="t-messages" viewBox="-5.333333333333343 -5.333333333333343 266.6666666666667 266.6666666666667"><path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"/></symbol><symbol id="t-messages-f" viewBox="-5.333333333333343 -5.333333333333343 266.6666666666667 266.6666666666667"><path d="M231.4,44.34s0,.1,0,.15l-58.2,191.94a15.88,15.88,0,0,1-14,11.51q-.69.06-1.38.06a15.86,15.86,0,0,1-14.42-9.15L107,164.15a4,4,0,0,1,.77-4.58l57.92-57.92a8,8,0,0,0-11.31-11.31L96.43,148.26a4,4,0,0,1-4.58.77L17.08,112.64a16,16,0,0,1,2.49-29.8l191.94-58.2.15,0A16,16,0,0,1,231.4,44.34Z"/></symbol><symbol id="t-prayer" viewBox="0 0 256 256"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"/></symbol><symbol id="t-prayer-f" viewBox="0 0 256 256"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"/></symbol><symbol id="t-reminders" viewBox="-1.333333333333334 -1.333333333333334 26.666666666666668 26.666666666666668"><path d="M2 6.25C2 4.45 3.46 3 5.25 3h13.5C20.55 3 22 4.46 22 6.25v11.5c0 1.8-1.46 3.25-3.25 3.25H5.25A3.25 3.25 0 0 1 2 17.75V6.25ZM5.25 4.5c-.97 0-1.75.78-1.75 1.75v11.5c0 .97.78 1.75 1.75 1.75h13.5c.97 0 1.75-.78 1.75-1.75V6.25c0-.97-.78-1.75-1.75-1.75H5.25ZM9 9.25v5.5a1 1 0 0 0 1.48.88l5-2.75a1 1 0 0 0 0-1.76l-5-2.75A1 1 0 0 0 9 9.25Z"/></symbol><symbol id="t-reminders-f" viewBox="-1.333333333333334 -1.333333333333334 26.666666666666668 26.666666666666668"><path d="M5.25 3A3.25 3.25 0 0 0 2 6.25v11.5C2 19.55 3.46 21 5.25 21h13.5c1.8 0 3.25-1.46 3.25-3.25V6.25C22 4.45 20.54 3 18.75 3H5.25ZM9 9.25a1 1 0 0 1 1.48-.88l5 2.75a1 1 0 0 1 0 1.76l-5 2.75A1 1 0 0 1 9 14.75v-5.5Z"/></symbol><symbol id="t-umma" viewBox="-8.170212765957444 -8.170212765957444 272.3404255319149 272.3404255319149"><path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z"/></symbol><symbol id="t-umma-f" viewBox="-8.170212765957444 -8.170212765957444 272.3404255319149 272.3404255319149"><path d="M64.12,147.8a4,4,0,0,1-4,4.2H16a8,8,0,0,1-7.8-6.17,8.35,8.35,0,0,1,1.62-6.93A67.79,67.79,0,0,1,37,117.51a40,40,0,1,1,66.46-35.8,3.94,3.94,0,0,1-2.27,4.18A64.08,64.08,0,0,0,64,144C64,145.28,64,146.54,64.12,147.8Zm182-8.91A67.76,67.76,0,0,0,219,117.51a40,40,0,1,0-66.46-35.8,3.94,3.94,0,0,0,2.27,4.18A64.08,64.08,0,0,1,192,144c0,1.28,0,2.54-.12,3.8a4,4,0,0,0,4,4.2H240a8,8,0,0,0,7.8-6.17A8.33,8.33,0,0,0,246.17,138.89Zm-89,43.18a48,48,0,1,0-58.37,0A72.13,72.13,0,0,0,65.07,212,8,8,0,0,0,72,224H184a8,8,0,0,0,6.93-12A72.15,72.15,0,0,0,157.19,182.07Z"/></symbol></defs></svg>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#"><img src="i/icon.webp" alt="" width="30" height="30">Firdausly</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#blizkie">Как это работает</a>
+      <a href="#reminders">Reminders</a>
+      <a href="#authors">Авторам</a>
+      <a href="#partners">Партнёрам</a>
+      <a href="#price">Цена</a>
+    </nav>
+    <a class="btn btn-p" href="#" data-store><span data-sl="Скачать">Хочу первым</span></a>
+  </div>
+</header>
+
+<main>
+<!-- 1. ПЕРВЫЙ ЭКРАН -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-bg"><picture><source type="image/avif" srcset="i/lions-640.avif 640w, i/lions-1206.avif 1206w" sizes="100vw"><img src="i/lions-1206.webp" srcset="i/lions-640.webp 640w, i/lions-1206.webp 1206w" sizes="100vw" alt="" fetchpriority="high"></picture></div>
+  <div class="wrap">
+    <div class="hero-txt">
+      <h1 class="h1" id="h1">Напоминайте своим <em class="s">близким</em> о&nbsp;намазе</h1>
+      <p class="lead">Видно, кто из своих уже прочитал. <b>Одно касание напомнит остальным.</b> Соцсеть, где самое важное уведомление дня приходит от брата.</p>
+      <div class="cta">
+        <a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Скачать в App Store">Хочу первым</span></a>
+        <a class="lnk" href="#blizkie">Как это работает<svg class="i"><use href="#p-arrow-right"/></svg></a>
+      </div>
+    </div>
+    <div class="stagebox">
+      <div class="ph" id="heroPh">
+        <div class="scr">
+          <div class="isl"></div>
+          <div class="sb"><span id="clock">9:41</span><i><s></s><b></b></i></div>
+          <div class="home">
+            <picture><source type="image/avif" srcset="i/plus-480.avif 480w, i/plus-860.avif 860w" sizes="340px"><img class="art" id="homeArt" src="i/plus-480.webp" srcset="i/plus-480.webp 480w, i/plus-860.webp 860w" sizes="340px" alt=""></picture>
+            <div class="in">
+              <div class="hbar"><span class="gl"><svg><use href="#p-user-circle"/></svg></span><span class="gl"><svg><use href="#p-bell-ringing-fill"/></svg></span></div>
+              <div class="city"><svg><use href="#p-navigation-arrow-fill"/></svg><span id="cityName">Алматы</span><span id="cityDate"></span></div>
+              <div class="hij" id="hijri"></div>
+              <div class="cdl" id="cdLb">Аср закрывается через</div>
+              <div class="cdn" id="cdNum">01:12:38</div>
+              <div class="cds" id="cdSub">Магриб в 16:29</div>
+              <div class="times gl" id="times">
+                <div data-k="fajr">Фаджр<span>05:58</span></div><div data-k="dhuhr">Зухр<span>12:04</span></div><div data-k="asr">Аср<span>14:40</span></div><div data-k="maghrib">Магриб<span>16:27</span></div><div data-k="isha">Иша<span>18:00</span></div>
+              </div>
+              <div class="close gl" style="padding:calc(var(--u)*14);border-radius:calc(var(--u)*26)">
+                <h4>Близкие</h4>
+                <div class="ppl" id="ppl">
+                  <div class="pp me" data-me><div class="av"><svg><use href="#t-prayer-f"/></svg></div>Я</div>
+                  <div class="pp ok"><div class="av"><img src="i/s-mama.webp" alt=""></div>Мама</div>
+                  <div class="pp ok"><div class="av"><img src="i/s-ali.webp" alt=""></div>Али</div>
+                  <div class="pp" data-r><div class="av"><img src="i/s-brat.webp" alt=""></div>Юсуф</div>
+                  <div class="pp" data-r><div class="av"><img src="i/s-sestra2.webp" alt=""></div>Марьям</div>
+                </div>
+                <div class="crow"><span id="closeCount">Прочитали 2 из 4</span><button class="remind" id="remind" type="button"><svg><use href="#p-paper-plane-tilt"/></svg><span>Напомнить · 2</span></button></div>
+              </div>
+            </div>
+          </div>
+          <div class="hold gl" id="hold" role="button" tabindex="0" aria-label="Удерживайте, чтобы отметить намаз">
+            <div class="rg"><svg viewBox="0 0 40 40"><circle class="t" cx="20" cy="20" r="18"/><circle class="p" cx="20" cy="20" r="18"/></svg></div>
+            <div><b id="holdT">Прочитал Аср</b><small id="holdS">удерживайте</small></div>
+          </div>
+          <div class="tabs gl" aria-hidden="true">
+            <span class="on"><svg><use href="#t-prayer-f"/></svg>Намаз</span><span><svg><use href="#t-reminders"/></svg>Reminders</span><span><svg><use href="#t-umma"/></svg>Умма</span><span><svg><use href="#t-messages"/></svg>Сообщения</span><span><svg><use href="#t-focus"/></svg>Фокус</span>
+          </div>
+          <div class="toastp gl" id="toastp"></div>
+          <div class="dim" id="dim"></div>
+          <div class="push" id="push" aria-live="polite">
+            <img src="i/icon.webp" alt="">
+            <div class="ph1"><b>Firdausly</b><span>сейчас</span></div>
+            <p id="pushT">Брат напомнил: вас ждут на Аср. Мама и Али уже прочитали.</p>
+          </div>
+          <div class="ind"></div>
+        </div>
+      </div>
+      <div class="pcap" id="pcap"><img src="i/s-brat.webp" alt="">Так это видит Юсуф</div>
+      <div class="hint" id="hint"><svg class="i"><use href="#p-hand-tap"/></svg><span id="hintT">Одно касание, и брат уже знает</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ПРОБЛЕМА -->
+<section class="sec" aria-labelledby="h-storm">
+  <div class="wrap storm">
+    <div>
+      <h2 class="h2" id="h-storm">Телефон зовёт вас сотни раз в день. Ни разу не позвал к&nbsp;намазу.</h2>
+      <p class="lead" style="margin-top:24px">Лайки, распродажи, ролики, чаты. Каждое приложение борется за вашу минуту. Firdausly переворачивает соцсеть: <b>здесь зовут к намазу, и зовут свои.</b></p>
+      <button class="btn btn-g replay" id="replay" type="button"><svg class="i"><use href="#p-repeat"/></svg>Показать ещё раз</button>
+    </div>
+    <div class="nstack" id="nstack" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- 3. БЛИЗКИЕ -->
+<section class="sec close" id="blizkie" aria-labelledby="h-close" data-k="2">
+  <div class="close-bg" aria-hidden="true"><picture><source type="image/avif" srcset="i/gate-860.avif"><img src="i/gate-860.webp" alt="" loading="lazy"></picture><i></i></div>
+  <div class="wrap">
+    <h2 class="h2" id="h-close">Один день вашей семьи на&nbsp;одном экране</h2>
+    <p class="lead" style="margin-top:20px">Отметили намаз, и близкие видят золотую отметку. Кто не успел, получит тихую открытку с одной кнопкой «К намазу». Без упрёков и чужих глаз: это видят только ваши.</p>
+    <div class="day">
+      <div>
+        <div class="pr-nm" id="prNm">Аср<small id="prSub">Потяните день. Кто не успел, тому можно напомнить.</small></div>
+        <div class="dslider"><input type="range" id="dayR" min="0" max="4" step="1" value="2" aria-label="Намаз дня"></div>
+        <div class="dmarks" id="dmarks"><span>Фаджр</span><span>Зухр</span><span class="on">Аср</span><span>Магриб</span><span>Иша</span></div>
+        <p class="plusnote"><span class="pchip">Plus</span>Близкие и напоминания, 14 дней бесплатно. Принять приглашение и открыть открытку можно без подписки.</p>
+      </div>
+      <div class="people" id="people"></div>
+    </div>
+    <div class="ayah"><svg class="i"><use href="#p-quotes"/></svg><p>«И напоминай, ибо напоминание приносит пользу верующим»<small>Коран, сура «Аз-Зарият», 51:55</small></p></div>
+  </div>
+</section>
+
+<!-- 4. ФАДЖР -->
+<section class="sec fajr" id="fajr" aria-labelledby="h-fajr">
+  <div class="sky"><i></i></div>
+  <div class="wrap">
+    <div>
+      <h2 class="h2 xl" id="h-fajr">Будите друг друга на&nbsp;<em class="s">Фаджр</em></h2>
+      <p class="lead" style="margin-top:20px">Настоящий будильник iPhone: звонит даже в беззвучном режиме. Позовите своих, и утром вы встаёте вместе. Встал один, и остальные видят это сразу.</p>
+      <p class="plusnote" style="margin-top:22px">Будильник на Фаджр бесплатно.&nbsp;<span class="pchip">Plus</span>общий будильник с близкими и звонок азаном, 14 дней бесплатно.</p>
+      <p class="lead done-t"><b>Аллаху акбар. Утро началось с намаза.</b></p>
+    </div>
+    <div class="ph">
+      <div class="scr">
+        <div class="isl"></div>
+        <div class="sb"><span>5:38</span><i><s></s><b></b></i></div>
+        <div class="alarm">
+          <div class="al1"><svg><use href="#p-alarm-fill"/></svg>Фаджр вместе</div>
+          <div class="alt">05:38</div>
+          <div class="als" id="alS">Фаджр в 05:58 · вставайте</div>
+          <div class="who" id="who">
+            <div class="gl"><img src="i/s-ali.webp" alt=""><b>Али</b> уже встал<span>05:36</span></div>
+            <div class="gl"><img src="i/s-brat.webp" alt=""><b>Юсуф</b> делает омовение<span>05:39</span></div>
+            <div class="gl"><img src="i/s-papa.webp" alt=""><b>Папа</b> на коврике<span>05:41</span></div>
+          </div>
+        </div>
+        <div class="slide gl" id="slide"><span>Стоп</span><div class="k" role="slider" tabindex="0" aria-label="Потяните, чтобы выключить будильник" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><svg><use href="#p-sun-horizon"/></svg></div></div>
+        <div class="ind"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. ФОКУС -->
+<section class="sec focus" id="focus" aria-labelledby="h-focus">
+  <div class="wrap">
+    <div class="bigic"><svg><use href="#t-focus-f"/></svg></div>
+    <h2 class="h2" style="margin-top:22px" id="h-focus">Соцсети подождут, пока вы помолитесь</h2>
+    <p class="lead" style="margin-top:20px">Пришло время намаза, и Фокус закрывает Instagram, TikTok и всё, что вы выбрали. Отметили намаз, и всё открылось. Что закрывать, решаете только вы, аварийный выход есть всегда.</p>
+    <div class="apps" aria-hidden="true">
+      <div class="app"><i style="background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)"><svg><use href="#p-instagram-logo"/></svg></i>Instagram</div>
+      <div class="app"><i style="background:#111;box-shadow:inset 0 0 0 1px #333"><svg><use href="#p-tiktok-logo"/></svg></i>TikTok</div>
+      <div class="app"><i style="background:#f00"><svg><use href="#p-youtube-logo"/></svg></i>YouTube</div>
+      <div class="app"><i style="background:#000;box-shadow:inset 0 0 0 1px #333"><svg><use href="#p-x-logo"/></svg></i>X</div>
+      <div class="app"><i style="background:#3d6"><svg><use href="#p-film-strip"/></svg></i>Сериалы</div>
+      <div class="app"><i style="background:#6b5bff"><svg><use href="#p-game-controller"/></svg></i>Игры</div>
+      <div class="app"><i style="background:#ff7a00"><svg><use href="#p-storefront"/></svg></i>Покупки</div>
+      <div class="app"><i style="background:#2f80ed"><svg><use href="#p-globe-hemisphere-east"/></svg></i>Новости</div>
+    </div>
+    <div class="fctl">
+      <button class="sw" id="fsw" role="switch" aria-checked="false" type="button">Фокус на время намаза<i></i></button>
+      <button class="fhold" id="fhold" type="button" disabled><span><svg class="i"><use href="#p-hands-praying"/></svg>Удерживайте: прочитал Аср</span></button>
+    </div>
+    <p class="fstate" id="fstate" aria-live="polite">Включите Фокус: так выглядит телефон, когда приходит Аср.</p>
+    <p class="plusnote" style="justify-content:center;margin-top:18px"><span class="pchip">Plus</span>Работает через «Экранное время» Apple. 14 дней бесплатно.</p>
+  </div>
+</section>
+
+<!-- 6. REMINDERS -->
+<section class="sec rem" id="reminders" aria-labelledby="h-rem">
+  <div class="wrap">
+    <div class="rem-head">
+      <div>
+        <span class="tag"><svg class="i"><use href="#t-reminders-f"/></svg>Reminders</span>
+        <h2 class="h2" style="margin-top:14px" id="h-rem">Короткие видео только об&nbsp;исламе</h2>
+        <p class="lead" style="margin-top:20px">Аяты, хадисы, Мекка на закате. Без музыки и без пранков. Пришло время намаза, и лента сама встаёт на паузу. Смотреть может каждый, бесплатно.</p>
+      </div>
+      <div class="railnav"><button type="button" id="rPrev" aria-label="Предыдущий ролик"><svg><use href="#p-caret-left"/></svg></button><button type="button" id="rNext" aria-label="Следующий ролик"><svg><use href="#p-caret-right"/></svg></button></div>
+    </div>
+  </div>
+  <div class="rail" id="rail"></div>
+  <div class="wrap rem-foot"><span><svg class="i"><use href="#p-hand-tap"/></svg>Касание: звук · двойное касание: лайк</span><span><svg class="i"><use href="#p-seal-check"/></svg>Настоящие ролики @firdausly из приложения</span></div>
+</section>
+
+<!-- 7. УММА И СЦЕНА -->
+<section class="sec" id="umma" aria-labelledby="h-umma">
+  <div class="wrap">
+    <div class="umma-top">
+      <div>
+        <h2 class="h2" id="h-umma">Умма со всего мира на&nbsp;вашем языке</h2>
+        <p class="lead" style="margin-top:20px">Соцсеть, которая делает ближе к религии: лента и истории о том, что помогает держаться. Брат из Стамбула пишет по-турецки, а вы читаете по-русски. Нажмите «Показать перевод».</p>
+      </div>
+      <div class="post">
+        <div class="pa"><img src="i/s-drug2.webp" alt=""><div><b>Emre</b> <small>· Стамбул · 12 мин</small></div></div>
+        <p class="pt" id="pt" lang="tr">Sabah namazına kalkmak zor geliyordu. Kardeşimle birbirimizi uyandırmaya başladık. Üç haftadır kaçırmadık, elhamdülillah.</p>
+        <div class="pf"><button class="tr" id="trB" type="button"><svg><use href="#p-translate"/></svg><span>Показать перевод</span></button><span id="trF">турецкий</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="stage" id="stage">
+    <div class="wrap stage-in">
+      <div>
+        <span class="live"><i></i>В ЭФИРЕ</span>
+        <p class="st">Сцена: живые хутбы и разговоры с&nbsp;уммой</p>
+        <p class="lead" style="color:rgba(245,243,238,.72)">Заходите, слушайте, просите слово. Вести эфир могут только проверенные имамы, преподаватели и чтецы.</p>
+        <div class="amin"><button type="button" id="amin"><svg><use href="#p-moon-stars"/></svg>Амин</button><span class="n" id="aminN">Скажите «Амин» вместе со всеми</span></div>
+      </div>
+      <div class="spk">
+        <div class="host"><img src="i/s-dyadya.webp" alt="">Имам Билал<small>ведёт эфир</small></div>
+        <div><img src="i/s-ali.webp" alt="">Али<small>говорит</small></div>
+        <div><img src="i/s-drug3.webp" alt="">Ибрагим<small>просит слово</small></div>
+        <div><img src="i/s-sestra4.webp" alt="">Зейнаб<small>слушает</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. СООБЩЕНИЯ -->
+<section class="sec msg" id="msgs" aria-labelledby="h-msg">
+  <div class="wrap">
+    <div>
+      <h2 class="h2" id="h-msg">Общайтесь с близкими прямо в Firdausly</h2>
+      <p class="lead" style="margin-top:20px">Не нужно уходить туда, где лента снова затянет. Всё своё рядом с намазом.</p>
+      <div class="checks">
+        <div><svg class="i"><use href="#p-check-circle-fill"/></svg><span><b>Сообщения и голосовые.</b> Своим и группам: «Фаджр вовремя», семья, соседи по мечети.</span></div>
+        <div><svg class="i"><use href="#p-check-circle-fill"/></svg><span><b>Заметки.</b> Пара слов над аватаркой: «Дочитала Аль-Кахф».</span></div>
+        <div><svg class="i"><use href="#p-check-circle-fill"/></svg><span><b>Моменты.</b> Один снимок своим сразу после намаза.</span></div>
+        <div><svg class="i"><use href="#p-check-circle-fill"/></svg><span><b>Честно.</b> «В сети» и «прочитано» видны только взаимно.</span></div>
+      </div>
+    </div>
+    <div class="msg-vis">
+      <div class="ph">
+        <div class="scr">
+          <div class="isl"></div>
+          <div class="sb"><span>16:31</span><i><s></s><b></b></i></div>
+          <div class="msgs">
+            <h4>Сообщения</h4>
+            <div class="srch"><svg><use href="#p-magnifying-glass"/></svg>Поиск</div>
+            <div class="notes">
+              <div><q>Дочитала Аль-Кахф</q><img src="i/s-sestra1.webp" alt="">Амина</div>
+              <div><q>Кто на Фаджр в центральной?</q><img src="i/s-brat.webp" alt="">Юсуф</div>
+              <div><q>Сабр и шукр</q><img src="i/s-sestra3.webp" alt="">Марьям</div>
+            </div>
+            <div class="chats">
+              <div><i>Ф</i><div><b>Фаджр вовремя</b><p>Юсуф: завтра будим друг друга в 05:40</p></div><span>05:58</span></div>
+              <div><img src="i/s-mama.webp" alt=""><div><b>Мама</b><p>Голосовое сообщение · 0:14</p></div><span>15:02</span></div>
+              <div><img src="i/s-ali.webp" alt=""><div><b>Али</b><p>Момент после Асра</p></div><span>14:47</span></div>
+              <div><img src="i/s-papa.webp" alt=""><div><b>Папа</b><p>Сынок, в пятницу вместе на джуму</p></div><span>вчера</span></div>
+            </div>
+          </div>
+          <div class="tabs gl"><span><svg><use href="#t-prayer"/></svg>Намаз</span><span><svg><use href="#t-reminders"/></svg>Reminders</span><span><svg><use href="#t-umma"/></svg>Умма</span><span class="on"><svg><use href="#t-messages-f"/></svg>Сообщения</span><span><svg><use href="#t-focus"/></svg>Фокус</span></div>
+          <div class="ind"></div>
+        </div>
+      </div>
+      <div>
+        <div class="moments" id="moments" aria-label="Моменты: смахните, чтобы увидеть следующий"></div>
+        <div class="mo-h"><svg class="i"><use href="#p-hand-tap"/></svg>Смахните Момент</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. СЁСТРАМ -->
+<section class="sec" id="sisters" aria-labelledby="h-sis">
+  <div class="wrap sis">
+    <div class="sis-vis">
+      <div class="grp">
+        <div class="glab">Кто может мне писать</div>
+        <div class="seg" id="seg"><button type="button" aria-pressed="false">Все</button><button type="button" aria-pressed="true">Близкие</button><button type="button" aria-pressed="false">Никто</button></div>
+      </div>
+      <div class="grp">
+        <div class="row"><span class="ic" style="background:#3e7d58"><svg><use href="#p-shield-check-fill"/></svg></span><div>Вали видит запросы от мужчин<small>Вали: Папа</small></div><button class="sw" id="wali" role="switch" aria-checked="false" type="button" aria-label="Вали видит запросы от мужчин"><i></i></button></div>
+        <div class="row"><span class="ic" style="background:#8a5a9e"><svg><use href="#p-moon-stars"/></svg></span><div>Тихие дни<small>Отмечаются тихо, только на этом телефоне</small></div><button class="sw" role="switch" aria-checked="true" type="button" aria-label="Тихие дни"><i></i></button></div>
+        <div class="row"><span class="ic" style="background:#4a5f8a"><svg><use href="#p-eye-slash"/></svg></span><div>«В сети» и «прочитано»<small>Только взаимно</small></div><button class="sw" role="switch" aria-checked="true" type="button" aria-label="В сети и прочитано только взаимно"><i></i></button></div>
+      </div>
+      <div class="req" id="req"><img src="i/s-drug1.webp" alt=""><div><b>Тимур</b> хочет написать вам</div><span class="to" id="reqTo">запрос к вам</span></div>
+    </div>
+    <div>
+      <h2 class="h2 xl" id="h-sis">Сёстрам спокойно</h2>
+      <p class="lead" style="margin-top:20px">Вы решаете, кто может вам писать. Позовите вали, и он увидит запросы от мужчин. Дни, когда намаз не читают, отмечаются тихо и хранятся только на телефоне.</p>
+      <p class="note" style="margin-top:16px">Включите «Вали» на карточке: запрос от мужчины уйдёт отцу, а не вам.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10. ВСЁ ДЛЯ НАМАЗА -->
+<section class="sec" id="namaz" aria-labelledby="h-ess">
+  <div class="wrap">
+    <h2 class="h2" id="h-ess">Основа для намаза. Бесплатно и&nbsp;навсегда</h2>
+    <p class="lead" style="margin-top:20px">Всё, ради чего ставят приложение для намаза, у Firdausly бесплатно и без рекламы.</p>
+    <div class="bento">
+      <div class="bx b-time">
+        <h3>Время намаза по вашему городу</h3>
+        <p class="note" style="color:var(--tx2)">Казахстан по таблице ДУМК, Татарстан по ДУМ РТ, Турция по Diyanet. В других странах по вашему методу и мазхабу.</p>
+        <label class="sr" for="citySel">Город</label>
+        <select id="citySel" style="margin-top:16px;align-self:flex-start"></select>
+        <div class="tl" id="tl"></div>
+      </div>
+      <div class="bx b-qibla"><h3>Кибла</h3><p class="note">Компас и карта</p><div class="qdeg" id="qdeg">262°</div><div class="comp"><i id="needle"></i><b></b></div></div>
+      <div class="bx b-adhan"><h3>Азан любимого муэдзина</h3><p class="note">Пять азанов и звуки природы, свой на каждый намаз. Plus</p>
+        <div class="play"><button type="button" id="adhanB" aria-label="Послушать азан"><svg><use href="#p-play-fill"/></svg></button><div class="wave" id="wave"></div></div>
+        <audio id="adhanA" preload="none" src="v/adhan-oman.m4a"></audio>
+      </div>
+      <div class="bx b-tas" id="tas" role="button" tabindex="0" aria-label="Тасбих: нажмите, чтобы считать">
+        <h3>Тасбих</h3><p class="note">Нажимайте, чтобы считать</p>
+        <div class="ring"><svg viewBox="0 0 150 150"><circle class="t" cx="75" cy="75" r="70"/><circle class="p" id="tasP" cx="75" cy="75" r="70"/></svg><div><b id="tasN">0</b><small id="tasW">СубханАллах</small></div></div>
+        <span class="tap"><svg class="i"><use href="#p-hand-tap"/></svg>33 × 3</span>
+      </div>
+      <div class="bx b-quran"><h3>Коран с переводом</h3><p class="note">Русский и английский перевод работают без сети</p>
+        <p class="ar" lang="ar">وَذَكِّرْ فَإِنَّ الذِّكْرَىٰ تَنفَعُ الْمُؤْمِنِينَ</p>
+        <p class="tr2">И напоминай, ибо напоминание приносит пользу верующим. 51:55</p>
+      </div>
+    </div>
+    <p class="also"><b>И ещё бесплатно:</b> будильник на Фаджр, виджеты со временем намаза, када без упрёков и отметка камерой, чтобы отметка была честной. Снимок разбирается на самом iPhone и никуда не уходит.</p>
+  </div>
+</section>
+
+<!-- 11. ЭКРАН БЛОКИРОВКИ -->
+<section class="sec lock" id="lock" aria-labelledby="h-lock">
+  <div class="wrap">
+    <h2 class="h2" id="h-lock">Намаз виден весь день, даже не открывая приложение</h2>
+    <p class="lead" style="margin-top:20px">Виджеты на экране «Домой» и блокировки. Живой отсчёт в Dynamic Island, а в Рамадан до ифтара.</p>
+    <div class="lock-vis">
+      <div class="callout"><span class="tag"><svg class="i"><use href="#p-squares-four"/></svg>Бесплатно</span><h3>Виджеты со временем намаза</h3><p class="note">«Следующий намаз» и «Сегодня». Виды с картинами Firdausly с Plus.</p></div>
+      <div class="ph">
+        <div class="scr">
+          <div class="isl big" id="island" role="button" tabindex="0" aria-label="Раскрыть отсчёт">
+            <span class="lt cmp"><svg><use href="#t-prayer-f"/></svg><span id="iName">Аср</span></span><span class="rt cmp" id="iCd">1:12:38</span>
+            <div class="ex"><div class="r1"><div><small>закрывается через</small><b id="iName2">Аср</b></div><div class="cd" id="iCd2">1:12:38</div></div><div class="pg"><i id="iPg"></i></div><div class="r2"><span id="iFrom">14:40</span><span id="iTo">Магриб 16:27</span></div></div>
+          </div>
+          <div class="lsc">
+            <div class="ldate" id="ldate">Среда, 18 ноября</div>
+            <div class="lclock" id="lclock">15:28</div>
+            <div class="wid">
+              <div><span id="wN">Магриб</span><b id="wT">16:27</b><span id="wIn">через 59 мин</span></div>
+              <div class="w2" id="w2"></div>
+            </div>
+            <div class="la"><div class="r1"><span><img src="i/icon.webp" alt=""><span id="laN">Аср закрывается через</span></span><b id="laCd">1:12:38</b></div><div class="pg"><i id="laPg"></i></div><small><span id="laF">14:40</span><span id="laT">16:27</span></small></div>
+          </div>
+          <div class="ind"></div>
+        </div>
+      </div>
+      <div class="callout"><span class="tag"><svg class="i"><use href="#p-clock-countdown"/></svg>С Plus</span><h3>Отсчёт в Dynamic Island</h3><p class="note">Нажмите на остров в телефоне: так он раскрывается на iPhone.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. КАРТИНЫ -->
+<section class="sec art-s" aria-labelledby="h-art">
+  <div class="wrap">
+    <h2 class="h2" id="h-art">Красота, которую хочется открывать</h2>
+    <p class="lead" style="margin-top:20px">Авторские картины для главного экрана, чата и виджетов. Каждая о том, что помогает держаться: смелость, путь, суджуд, свои рядом.</p>
+    <div class="acc" id="acc"></div>
+    <div class="art-foot"><span>И восемь настоящих полотен XIX века: Самарканд, Каир, Стамбул, Нил.</span><span>Картины с Plus</span></div>
+    <div class="classic" id="classic"></div>
+  </div>
+</section>
+
+<!-- 13. АВТОРАМ -->
+<section class="sec auth" id="authors" aria-labelledby="h-auth">
+  <div class="wrap">
+    <span class="tag"><svg class="i"><use href="#p-video-camera"/></svg>Авторам</span>
+    <h2 class="h2" style="margin-top:14px" id="h-auth">В TikTok ваш аят стоит между пранком и танцем. <span>В Firdausly он стоит между азаном и намазом.</span></h2>
+    <div class="vs">
+      <div class="feed them"><h3>Их лента</h3><div class="mq" id="mq"></div></div>
+      <div class="feed us"><h3>Лента Firdausly</h3>
+        <div class="us-col">
+          <div class="fi"><svg><use href="#p-speaker-high"/></svg>Азан Магриба через 5 минут</div>
+          <div class="fi you"><svg><use href="#t-reminders-f"/></svg>Ваш ролик. Его досматривают</div>
+          <div class="fi"><svg><use href="#p-hands-praying"/></svg>Лента подождёт: время Магриба</div>
+          <div class="fi"><svg><use href="#p-check-circle-fill"/></svg>Зритель встал на намаз</div>
+        </div>
+      </div>
+    </div>
+    <div class="perks">
+      <div class="pk"><b>Без музыки у всех</b><p>Трендовый звук не толкает чужие ролики выше. Решает смысл и то, как досматривают.</p></div>
+      <div class="pk"><b>Алгоритм ищет своих</b><p>Сначала зрители вашего языка, потом шире, потом вся умма. Чтение Корана показываем всем.</p></div>
+      <div class="pk"><b>Сейчас лучшее время</b><p>Мы только запускаемся: авторов в Reminders пока немного, и сильный ролик видит вся лента. Первые три ролика нового автора получают прибавку показов.</p></div>
+    </div>
+    <div class="money">
+      <div><b>20%</b><span>с каждой оплаты людей, пришедших по вашему коду, пока они платят. От чистой выручки: после НДС, комиссии Apple и налога.</span></div>
+      <div><b>30 дней</b><span>Plus в подарок вашим людям по вашему коду.</span></div>
+      <div><b>0 ₸</b><span>за участие. Вам Premium бесплатно, пока работаем вместе. Без эксклюзива: Instagram и TikTok остаются с вами.</span></div>
+    </div>
+    <div class="calc">
+      <div>
+        <label for="flw">Подписчиков на всех площадках <b id="flwV">30 000</b></label>
+        <div class="dslider"><input type="range" id="flw" min="1000" max="500000" step="1000" value="30000"></div>
+        <p class="note">Пример, не обещание. Допустим, по одному рассказу Firdausly ставят 2% подписчиков, после месяца в подарок платят 10% из них, и каждый берёт Plus на месяц в Казахстане: 3 790 ₸, после НДС, комиссии Apple и налога 2 666 ₸, вам 20%, то есть 533 ₸.</p>
+      </div>
+      <div class="res"><span id="inc">31 980 ₸</span><small>в первый месяц после одного рассказа, и дальше каждый месяц, пока люди платят</small></div>
+    </div>
+    <div class="ctas"><a class="btn btn-p" href="/partners#apply">Стать автором</a><a class="lnk" href="/partners">Все условия и калькулятор<svg class="i"><use href="#p-arrow-right"/></svg></a></div>
+  </div>
+</section>
+
+<!-- 14. МЕЧЕТЯМ И ПРОЕКТАМ -->
+<section class="sec" id="partners" aria-labelledby="h-part">
+  <div class="wrap part">
+    <div>
+      <span class="tag"><svg class="i"><use href="#p-mosque"/></svg>Партнёрам</span>
+      <h2 class="h2" style="margin-top:14px" id="h-part">Мечетям, школам и исламским проектам</h2>
+      <p class="lead" style="margin-top:20px">Ваши хутбы и уроки там, где их ждут: у людей, которые держат намаз и зовут своих.</p>
+      <div class="ctas"><a class="btn btn-p" href="mailto:partners@firdausly.com?subject=%D0%9F%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D1%81%D1%82%D0%B2%D0%BE%20%D1%81%20Firdausly"><svg class="i"><use href="#p-envelope-simple"/></svg>Написать партнёрам</a></div>
+      <p class="note" style="margin-top:14px">partners@firdausly.com · отвечаем лично</p>
+      <ol class="flow"><li><i>1</i>Пишете нам</li><li><i>2</i>Знакомимся и проверяем аккаунт</li><li><i>3</i>Отметка, свой код и эфиры</li></ol>
+    </div>
+    <div class="plist">
+      <div class="pl"><i><svg><use href="#p-broadcast"/></svg></i><b>Хутба в прямом эфире на Сцене</b><p>Джума и уроки вживую для тех, кто не смог прийти. Ведут только проверенные аккаунты.</p></div>
+      <div class="pl"><i><svg><use href="#p-seal-check"/></svg></i><b>Отметка проверенного аккаунта</b><p>Людям видно, что это ваша мечеть или школа, а не однофамилец. Знак доверия не продаётся.</p></div>
+      <div class="pl"><i><svg><use href="#p-film-strip"/></svg></i><b>Уроки роликами в Reminders</b><p>Короткие напоминания от вашего имама в ленте, которую смотрят перед намазом.</p></div>
+      <div class="pl"><i><svg><use href="#p-gift"/></svg></i><b>Свой код для прихожан и учеников</b><p>Им месяц Plus в подарок, проекту 20% с их оплат: на содержание мечети, кружка, медресе.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15. ЦЕНА -->
+<section class="sec price" id="price" aria-labelledby="h-price">
+  <div class="wrap">
+    <h2 class="h2" id="h-price">Намаз бесплатно. Навсегда</h2>
+    <p class="lead" style="margin-top:20px">Всё, без чего не прочитать намаз вовремя, бесплатно. Plus для тех, кто держит намаз вместе со своими.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Бесплатно</h3>
+        <div class="pp1">0 ₸ <small>навсегда</small></div>
+        <ul>
+          <li><svg><use href="#p-check"/></svg>Время намаза, кибла, напоминания</li>
+          <li><svg><use href="#p-check"/></svg>Будильник на Фаджр, даже в беззвучном</li>
+          <li><svg><use href="#p-check"/></svg>Виджеты со временем намаза</li>
+          <li><svg><use href="#p-check"/></svg>Отметка намаза и када</li>
+          <li><svg><use href="#p-check"/></svg>Коран с переводом, тасбих</li>
+          <li><svg><use href="#p-check"/></svg>Reminders: смотреть, лайкать, отвечать</li>
+          <li><svg><use href="#p-check"/></svg>Открытки и приглашения от близких</li>
+        </ul>
+      </div>
+      <div class="plan plus">
+        <h3>Firdausly Plus</h3>
+        <div class="per" id="per"><button type="button" aria-pressed="false" data-p="m">Месяц</button><button type="button" aria-pressed="true" data-p="y">Год<em id="save">−49%</em></button></div>
+        <div class="pp1"><span id="pAmt">22 990 ₸</span> <small id="pPer">в год · 1 916 ₸ в месяц</small><small class="alt" id="pAlt">или 3 790 ₸ помесячно</small></div>
+        <div class="trial"><svg class="i"><use href="#p-gift"/></svg><span><b>14 дней бесплатно.</b> Пришли по приглашению друга: 21 день. Отменить можно в любой момент в настройках Apple ID.</span></div>
+        <ul>
+          <li><svg><use href="#p-check"/></svg>Близкие и напоминания</li>
+          <li><svg><use href="#p-check"/></svg>Фаджр вместе</li>
+          <li><svg><use href="#p-check"/></svg>Фокус на время намаза</li>
+          <li><svg><use href="#p-check"/></svg>Азан муэдзинов и звуки природы</li>
+          <li><svg><use href="#p-check"/></svg>Отсчёт в Dynamic Island</li>
+          <li><svg><use href="#p-check"/></svg>Умма, Сцена, сообщения, Моменты</li>
+          <li><svg><use href="#p-check"/></svg>Свои Reminders</li>
+          <li><svg><use href="#p-check"/></svg>Картины для фона и виджетов</li>
+          <li><svg><use href="#p-check"/></svg>Вся история намазов и зикров</li>
+          <li><svg><use href="#p-check"/></svg>Тахаджуд с будильником</li>
+        </ul>
+        <div class="spacer"></div>
+        <a class="btn btn-p" href="#" data-store><span data-sl="Попробовать 14 дней">Хочу первым</span></a>
+      </div>
+    </div>
+    <p class="prem">Есть и <b>Premium</b>: всё из Plus, золотой полумесяц у имени, номер сторонника с истоков и стикеры «Гази».</p>
+    <p class="note" style="margin-top:8px" id="fine">Цены для Казахстана. В другой стране App Store покажет цену в вашей валюте до оплаты.</p>
+  </div>
+</section>
+
+<!-- 16. ДОВЕРИЕ -->
+<section class="sec trust-s" aria-labelledby="h-trust" style="padding-top:40px">
+  <div class="wrap">
+    <h2 class="h1" id="h-trust">Рекламы нет. Ваши данные не&nbsp;продаём.</h2>
+    <div class="trust">
+      <p><b>Снимок отметки, координаты и тихие дни</b> не покидают телефон.</p>
+      <p><b>Записи, фото и имена</b> проверяются до показа. Пожаловаться и заблокировать можно отовсюду.</p>
+      <p><b>Ничто не поощряет пропуск намаза.</b> Пропустили: када и мягкая поддержка.</p>
+      <p><b>Сделано в Казахстане.</b> Время по официальным таблицам ДУМК, ДУМ РТ и Diyanet. Аккаунт удаляется в настройках вместе с данными.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ВОПРОСЫ -->
+<section class="sec" id="faq" aria-labelledby="h-faq" style="padding-top:40px">
+  <div class="wrap faq">
+    <h2 class="h2" id="h-faq" style="margin-bottom:24px">Вопросы</h2>
+    <details><summary>Когда выйдет Firdausly?<svg class="i"><use href="#p-plus"/></svg></summary><p>Скоро в App Store для iPhone с iOS 17 и новее. Оставьте почту или Telegram, и в день выхода мы напишем вам первыми.</p></details>
+    <details><summary>Будет ли версия для Android?<svg class="i"><use href="#p-plus"/></svg></summary><p>Сначала iPhone. Android в планах; если вы на Android, оставьте контакт, и мы сообщим.</p></details>
+    <details><summary>Мои намазы видят все?<svg class="i"><use href="#p-plus"/></svg></summary><p>Нет. Отметки видят только ваши близкие, которых вы сами добавили. Кому показывать, решаете вы.</p></details>
+    <details><summary>А если мои близкие ещё не в Firdausly?<svg class="i"><use href="#p-plus"/></svg></summary><p>Отправьте приглашение ссылкой. Открытка-напоминание и приглашение на совместный намаз откроются и без подписки, а по вашему приглашению пробный период Plus будет 21 день.</p></details>
+    <details><summary>Как считается время намаза?<svg class="i"><use href="#p-plus"/></svg></summary><p>В Казахстане по официальной таблице ДУМК, в Татарстане по ДУМ РТ, в Турции по Diyanet. В других странах по методу расчёта и мазхабу, которые вы выберете.</p></details>
+    <details><summary>Фокус правда закроет Instagram?<svg class="i"><use href="#p-plus"/></svg></summary><p>Да, через «Экранное время» Apple. Что закрывать, выбираете только вы в окне Apple. Отметили намаз, и приложения открылись. Аварийный выход есть всегда.</p></details>
+    <details><summary>В Reminders есть музыка?<svg class="i"><use href="#p-plus"/></svg></summary><p>Нет. Голос, слово и нашид без инструментов. Каждый ролик до показа проходит проверку кадров, речи и текста.</p></details>
+    <details><summary>Сколько стоит?<svg class="i"><use href="#p-plus"/></svg></summary><p>Основа бесплатна навсегда. Firdausly Plus в Казахстане 3 790 ₸ в месяц или 22 990 ₸ в год, первые 14 дней бесплатно. Подписка продлевается сама, если не отменить её за сутки до конца срока.</p></details>
+  </div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="fin" aria-labelledby="h-fin">
+  <picture><source type="image/avif" srcset="i/plus-480.avif 480w, i/plus-860.avif 860w" sizes="100vw"><img src="i/plus-860.webp" srcset="i/plus-480.webp 480w, i/plus-860.webp 860w" sizes="100vw" alt="" loading="lazy"></picture>
+  <div class="wrap">
+    <h2 class="h1" id="h-fin">Рамадан ближе, чем кажется. Соберите своих заранее.</h2>
+    <p class="fin-d" id="finD"></p>
+    <p class="lead">Будите друг друга на Фаджр, напоминайте о намазе, держитесь вместе. Начните с Firdausly.</p>
+    <div class="cta"><a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Скачать в App Store">Хочу первым</span></a></div>
+  </div>
+</section>
+</main>
+
+<nav class="dock gl" id="dock" aria-label="Разделы как вкладки приложения">
+  <a href="#blizkie" data-s="blizkie fajr namaz lock"><svg><use href="#t-prayer"/></svg><svg class="f"><use href="#t-prayer-f"/></svg>Намаз</a>
+  <a href="#reminders" data-s="reminders"><svg><use href="#t-reminders"/></svg><svg class="f"><use href="#t-reminders-f"/></svg>Reminders</a>
+  <a href="#umma" data-s="umma"><svg><use href="#t-umma"/></svg><svg class="f"><use href="#t-umma-f"/></svg>Умма</a>
+  <a href="#msgs" data-s="msgs sisters"><svg><use href="#t-messages"/></svg><svg class="f"><use href="#t-messages-f"/></svg>Сообщения</a>
+  <a href="#focus" data-s="focus"><svg><use href="#t-focus"/></svg><svg class="f"><use href="#t-focus-f"/></svg>Фокус</a>
+</nav>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="logo" href="#"><img src="i/icon.webp" alt="" width="30" height="30">Firdausly</a><p style="margin-top:14px;max-width:24em">Соцсеть, которая зовёт к намазу. Сделано в Казахстане.</p></div>
+    <nav aria-label="О проекте"><a href="/about">О Firdausly</a><a href="/partners">Партнёрская программа</a><a href="/namaz/">Время намаза по городам</a></nav>
+    <nav aria-label="Документы"><a href="/support">Поддержка</a><a href="/privacy">Конфиденциальность</a><a href="/terms">Условия</a><a href="mailto:support@firdausly.com">support@firdausly.com</a></nav>
+  </div>
+</footer>
+
+<dialog id="waitlist" aria-labelledby="wl-h">
+  <div class="wl">
+    <button class="x" type="button" data-close aria-label="Закрыть"><svg><use href="#p-x"/></svg></button>
+    <img src="i/icon.webp" alt="">
+    <h2 id="wl-h">Firdausly скоро в App Store</h2>
+    <p>Оставьте почту или Telegram. В день выхода пришлём ссылку на App Store, один раз и без рассылок.</p>
+    <form data-wlf novalidate>
+      <label for="wl-in">Почта или Telegram</label>
+      <input id="wl-in" name="contact" autocomplete="email" inputmode="email" placeholder="name@mail.ru или @username" aria-describedby="wl-m">
+      <button class="btn btn-p" type="submit" data-wlb>Напомнить в день выхода</button>
+    </form>
+    <p class="m" id="wl-m" data-wlm role="status"></p>
+  </div>
+</dialog>
+
+<script>document.addEventListener('DOMContentLoaded', () => {
+'use strict';
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const buzz = (n = 10) => { try { if (navigator.vibrate && navigator.userActivation && navigator.userActivation.hasBeenActive) navigator.vibrate(n); } catch (e) {} };
+const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+const use = (id, cls = '') => `<svg class="${cls}"><use href="#${id}"/></svg>`;
+const once = (el, fn, th = .35) => { if (!el) return; if (!('IntersectionObserver' in window)) return fn(); const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { io.disconnect(); fn(); } }), { threshold: th }); io.observe(el); };
+const pad = n => String(n).padStart(2, '0');
+const nf = n => Math.round(n).toLocaleString('ru-RU').replace(/ /g, ' ');
+
+/* ── шапка: стекло после первого экрана (наблюдатель, без scroll-слушателя) ── */
+(() => { const top = $('#top'), s = document.createElement('div'); s.style.cssText = 'position:absolute;top:0;height:80px;width:1px'; document.body.prepend(s);
+  new IntersectionObserver(([e]) => top.classList.toggle('on', !e.isIntersecting)).observe(s); })();
+
+/* ═════════ ВРЕМЯ НАМАЗА (site/assets/namaz.js — тот же расчёт, что в приложении) ═════════ */
+const CITIES = [["almaty","Алматы","KZ","Etc/GMT-5",43.2383,76.9455,null,"Казахстан"],["astana","Астана","KZ","Etc/GMT-5",51.1333,71.4333,null,"Казахстан"],["shymkent","Шымкент","KZ","Etc/GMT-5",42.368,69.6128,null,"Казахстан"],["aktobe","Актобе","KZ","Etc/GMT-5",50.3004,57.1546,null,"Казахстан"],["karaganda","Караганда","KZ","Etc/GMT-5",49.8064,73.0855,null,"Казахстан"],["taraz","Тараз","KZ","Etc/GMT-5",42.8833,71.3667,null,"Казахстан"],["ust-kamenogorsk","Усть-Каменогорск","KZ","Etc/GMT-5",49.9483,82.6278,null,"Казахстан"],["pavlodar","Павлодар","KZ","Etc/GMT-5",52.3156,76.9564,null,"Казахстан"],["atyrau","Атырау","KZ","Etc/GMT-5",47.1167,51.8833,null,"Казахстан"],["semey","Семей","KZ","Etc/GMT-5",50.405,80.2492,null,"Казахстан"],["kyzylorda","Кызылорда","KZ","Etc/GMT-5",44.8425,65.5026,null,"Казахстан"],["kostanay","Костанай","KZ","Etc/GMT-5",53.2193,63.6342,null,"Казахстан"],["uralsk","Уральск","KZ","Etc/GMT-5",51.204,51.3705,null,"Казахстан"],["petropavlovsk","Петропавловск","KZ","Etc/GMT-5",54.8622,69.1408,null,"Казахстан"],["aktau","Актау","KZ","Etc/GMT-5",43.6354,51.1691,null,"Казахстан"],["turkestan","Туркестан","KZ","Etc/GMT-5",43.302,68.269,null,"Казахстан"],["kokshetau","Кокшетау","KZ","Etc/GMT-5",53.2917,69.3917,null,"Казахстан"],["taldykorgan","Талдыкорган","KZ","Etc/GMT-5",45.0178,78.3821,null,"Казахстан"],["konaev","Конаев","KZ","Etc/GMT-5",43.8833,77.0833,null,"Казахстан"],["zhezkazgan","Жезказган","KZ","Etc/GMT-5",47.7997,67.7141,null,"Казахстан"],["temirtau","Темиртау","KZ","Etc/GMT-5",50.0588,72.9534,null,"Казахстан"],["ekibastuz","Экибастуз","KZ","Etc/GMT-5",51.7298,75.3266,null,"Казахстан"],["rudny","Рудный","KZ","Etc/GMT-5",52.9667,63.1167,null,"Казахстан"],["zhanaozen","Жанаозен","KZ","Etc/GMT-5",43.3433,52.8658,null,"Казахстан"],["kaskelen","Каскелен","KZ","Etc/GMT-5",43.2024,76.6223,null,"Казахстан"],["balkhash","Балхаш","KZ","Etc/GMT-5",46.8437,74.9773,null,"Казахстан"],["kentau","Кентау","KZ","Etc/GMT-5",43.5181,68.5047,null,"Казахстан"],["kulsary","Кульсары","KZ","Etc/GMT-5",46.9833,54.0167,null,"Казахстан"],["satpayev","Сатпаев","KZ","Etc/GMT-5",47.9008,67.533,null,"Казахстан"],["talgar","Талгар","KZ","Etc/GMT-5",43.3028,77.2397,null,"Казахстан"],["kosshy","Косшы","KZ","Etc/GMT-5",50.9703,71.3554,null,"Казахстан"],["ridder","Риддер","KZ","Etc/GMT-5",50.3389,83.5063,null,"Казахстан"],["stepnogorsk","Степногорск","KZ","Etc/GMT-5",52.3469,71.8817,null,"Казахстан"],["saryagash","Сарыагаш","KZ","Etc/GMT-5",41.4667,69.1667,null,"Казахстан"],["zharkent","Жаркент","KZ","Etc/GMT-5",44.1694,80.0038,null,"Казахстан"],["shchuchinsk","Щучинск","KZ","Etc/GMT-5",52.9421,70.2101,null,"Казахстан"],["esik","Есик","KZ","Etc/GMT-5",43.3652,77.4509,null,"Казахстан"],["aksu","Аксу","KZ","Etc/GMT-5",52.0379,76.9206,null,"Казахстан"],["shakhtinsk","Шахтинск","KZ","Etc/GMT-5",49.7059,72.5946,null,"Казахстан"],["ayagoz","Аягоз","KZ","Etc/GMT-5",47.9667,80.4333,null,"Казахстан"],["zhetysai","Жетысай","KZ","Etc/GMT-5",40.7753,68.3272,null,"Казахстан"],["bishkek","Бишкек","KG","Asia/Bishkek",42.8746,74.5698,null,"Кыргызстан"],["osh","Ош","KG","Asia/Bishkek",40.5283,72.7985,null,"Кыргызстан"],["tashkent","Ташкент","UZ","Asia/Tashkent",41.2995,69.2401,null,"Узбекистан"],["samarkand","Самарканд","UZ","Asia/Samarkand",39.6542,66.9597,null,"Узбекистан"],["dushanbe","Душанбе","TJ","Asia/Dushanbe",38.5598,68.787,null,"Таджикистан"],["moscow","Москва","RU","Europe/Moscow",55.7558,37.6173,null,"Россия"],["kazan","Казань","RU","Europe/Moscow",55.7963,49.1088,true,"Россия"],["ufa","Уфа","RU","Asia/Yekaterinburg",54.7388,55.9721,null,"Россия"],["makhachkala","Махачкала","RU","Europe/Moscow",42.9849,47.5047,null,"Россия"],["grozny","Грозный","RU","Europe/Moscow",43.3178,45.6949,null,"Россия"],["baku","Баку","AZ","Asia/Baku",40.4093,49.8671,null,"Азербайджан"],["istanbul","Стамбул","TR","Europe/Istanbul",41.0082,28.9784,null,"Турция"],["dubai","Дубай","AE","Asia/Dubai",25.2048,55.2708,null,"ОАЭ"],["london","Лондон","GB","Europe/London",51.5074,-0.1278,null,"Великобритания"],["new-york","Нью-Йорк","US","America/New_York",40.7128,-74.006,null,"США"]].map(([slug, ru, cc, tz, lat, lon, hanafi, country]) => ({ slug, ru, cc, tz, lat, lon, hanafi: hanafi === null ? undefined : hanafi, country }));
+const TZ = { 'Asia/Almaty': 'almaty', 'Asia/Qyzylorda': 'kyzylorda', 'Asia/Aqtobe': 'aktobe', 'Asia/Aqtau': 'aktau', 'Asia/Atyrau': 'atyrau', 'Asia/Oral': 'uralsk', 'Asia/Qostanay': 'kostanay', 'Asia/Bishkek': 'bishkek', 'Asia/Tashkent': 'tashkent', 'Asia/Samarkand': 'samarkand', 'Asia/Dushanbe': 'dushanbe', 'Europe/Moscow': 'moscow', 'Asia/Yekaterinburg': 'ufa', 'Asia/Baku': 'baku', 'Europe/Istanbul': 'istanbul', 'Asia/Dubai': 'dubai', 'Europe/London': 'london', 'America/New_York': 'new-york' };
+const NAMES = { fajr: 'Фаджр', sunrise: 'Восход', dhuhr: 'Зухр', asr: 'Аср', maghrib: 'Магриб', isha: 'Иша' };
+const ACC = { fajr: 'Фаджр', dhuhr: 'Зухр', asr: 'Аср', maghrib: 'Магриб', isha: 'Ишу' };
+const MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+const WD = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+const NZ = window.FirdausNamaz;
+const bySlug = s => CITIES.find(c => c.slug === s);
+let city = bySlug(store.get('v8city')) || (() => { let tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {} return bySlug(TZ[tz]) || bySlug('almaty') || CITIES[0]; })();
+function ymd(tz, add = 0) { const d = new Date(Date.now() + add * 864e5); return new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(d).split('-').map(Number); }
+const hm = d => (NZ ? NZ.hm(d, city.tz) : d.toTimeString().slice(0, 5));
+let P = null;
+function compute() {
+  if (!NZ || !city) return null;
+  const [y, m, d] = ymd(city.tz), t = NZ.day(city, y, m, d), [y2, m2, d2] = ymd(city.tz, 1), tm = NZ.day(city, y2, m2, d2), [y0, m0, d0] = ymd(city.tz, -1), ty = NZ.day(city, y0, m0, d0);
+  const now = Date.now(); let cur, start, end, next, nextAt;
+  if (now < t.fajr) { cur = 'isha'; start = ty.isha; end = t.fajr; next = 'fajr'; nextAt = t.fajr; }
+  else if (now < t.sunrise) { cur = 'fajr'; start = t.fajr; end = t.sunrise; next = 'dhuhr'; nextAt = t.dhuhr; }
+  else if (now < t.dhuhr) { cur = null; start = t.sunrise; end = t.dhuhr; next = 'dhuhr'; nextAt = t.dhuhr; }
+  else if (now < t.asr) { cur = 'dhuhr'; start = t.dhuhr; end = t.asr; next = 'asr'; nextAt = t.asr; }
+  else if (now < t.maghrib) { cur = 'asr'; start = t.asr; end = t.maghrib; next = 'maghrib'; nextAt = t.maghrib; }
+  else if (now < t.isha) { cur = 'maghrib'; start = t.maghrib; end = t.isha; next = 'isha'; nextAt = t.isha; }
+  else { cur = 'isha'; start = t.isha; end = tm.fajr; next = 'fajr'; nextAt = tm.fajr; }
+  return { t, tm, cur, start, end, next, nextAt, y, m, d, focus: cur || next };
+}
+const fmtLeft = ms => { const s = Math.max(0, Math.floor(ms / 1000)); return pad(Math.floor(s / 3600)) + ':' + pad(Math.floor(s / 60) % 60) + ':' + pad(s % 60); };
+const fmtIsl = ms => { const s = Math.max(0, Math.floor(ms / 1000)); const h = Math.floor(s / 3600); return (h ? h + ':' + pad(Math.floor(s / 60) % 60) : Math.floor(s / 60)) + ':' + pad(s % 60); };
+const inWords = ms => { const mm = Math.max(1, Math.round(ms / 60000)), h = Math.floor(mm / 60), r = mm % 60; return (h ? h + ' ч ' : '') + (r ? r + ' мин' : ''); };
+const K5 = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
+function render() {
+  P = compute();
+  if (!P) return;
+  $('#cityName').textContent = city.ru; $('#cityDate').textContent = ' · ' + P.d + ' ' + MONTHS[P.m - 1];
+  try { const hj = NZ.hijri('ru', P.y, P.m, P.d); if (hj) $('#hijri').textContent = hj; } catch (e) {}
+  $$('#times div').forEach(el => { const k = el.dataset.k; el.querySelector('span').textContent = hm(P.t[k]); el.classList.toggle('now', k === P.focus); });
+  $('#cdLb').textContent = P.cur ? NAMES[P.cur] + ' закрывается через' : 'До Зухра';
+  $('#cdSub').textContent = P.next === 'fajr' ? `Фаджр в ${hm(P.nextAt)}` : `${NAMES[P.next]} в ${hm(P.nextAt)}`;
+  if (!marked) { $('#holdT').textContent = 'Прочитал ' + ACC[P.focus]; }
+  $('#fhold span').lastChild.textContent = 'Удерживайте: прочитал ' + ACC[P.focus];
+  /* бенто: список времени */
+  $('#tl').innerHTML = K5.map(k => `<div class="${k === P.focus ? 'now' : ''}"><b>${NAMES[k]}</b><span>${hm(P.t[k])}</span></div>`).join('');
+  /* экран блокировки */
+  const nk = P.next, nAt = P.nextAt;
+  $('#wN').textContent = NAMES[nk]; $('#wT').textContent = hm(nAt);
+  $('#w2').innerHTML = K5.map(k => `<span>${NAMES[k]}</span><b style="font-size:inherit;display:inline">${hm(P.t[k])}</b>`).join('');
+  $('#iName').textContent = $('#iName2').textContent = NAMES[P.focus];
+  $('#laN').textContent = P.cur ? NAMES[P.cur] + ' закрывается через' : 'До Зухра'; $('#laF').textContent = hm(P.start); $('#laT').textContent = hm(P.end);
+  $('#iFrom').textContent = hm(P.start); $('#iTo').textContent = (P.cur ? NAMES[P.next] + ' ' : '') + hm(P.end);
+  /* кибла */
+  const toR = x => x * Math.PI / 180, la1 = toR(city.lat), la2 = toR(21.4225), dl = toR(39.8262 - city.lon);
+  const br = (Math.atan2(Math.sin(dl) * Math.cos(la2), Math.cos(la1) * Math.sin(la2) - Math.sin(la1) * Math.cos(la2) * Math.cos(dl)) * 180 / Math.PI + 360) % 360;
+  $('#qdeg').textContent = Math.round(br) + '°'; $('#needle').style.transform = `rotate(${br}deg)`;
+}
+function tick() {
+  const d = new Date(); $('#clock').textContent = d.getHours() + ':' + pad(d.getMinutes());
+  if (!P) return;
+  let ms = P.end - Date.now(); if (ms < 0) { render(); ms = P.end - Date.now(); }
+  $('#cdNum').textContent = fmtLeft(ms);
+  $('#iCd').textContent = $('#iCd2').textContent = fmtIsl(ms);
+  $('#iPg').style.width = $('#laPg').style.width = Math.min(100, Math.max(2, (Date.now() - P.start) / (P.end - P.start) * 100)) + '%';
+  $('#laCd').textContent = fmtIsl(ms);
+  $('#wIn').textContent = 'через ' + inWords(P.nextAt - Date.now());
+  const tzNow = new Date(new Date().toLocaleString('en-US', { timeZone: city.tz }));
+  $('#lclock').textContent = tzNow.getHours() + ':' + pad(tzNow.getMinutes());
+  $('#ldate').textContent = WD[tzNow.getDay()] + ', ' + tzNow.getDate() + ' ' + MONTHS[tzNow.getMonth()];
+}
+const sel = $('#citySel');
+const groups = {}; CITIES.forEach(c => (groups[c.country] = groups[c.country] || []).push(c));
+sel.innerHTML = Object.keys(groups).map(g => `<optgroup label="${g}">${groups[g].map(c => `<option value="${c.slug}"${c.slug === city.slug ? ' selected' : ''}>${c.ru}</option>`).join('')}</optgroup>`).join('');
+sel.addEventListener('change', () => { city = bySlug(sel.value); store.set('v8city', city.slug); render(); tick(); });
+let marked = false;
+render(); tick(); setInterval(tick, 1000);
+
+/* ═════════ 1. ПЕРВЫЙ ЭКРАН: «Напомнить» и «Прочитал» ═════════ */
+const toastp = $('#toastp'); let tT;
+const toast = h => { toastp.innerHTML = h; toastp.classList.add('on'); clearTimeout(tT); tT = setTimeout(() => toastp.classList.remove('on'), 2600); };
+const push = $('#push'), remind = $('#remind'), rs = $$('#ppl [data-r]');
+let playing = false, played = 0;
+function playRemind(auto) {
+  if (playing) return; playing = true; played++;
+  if (!auto) buzz(12);
+  rs.forEach((p, i) => setTimeout(() => p.classList.add('sent'), i * 140));
+  remind.classList.add('done'); remind.querySelector('span').textContent = 'Отправлено';
+  const k = P ? P.focus : 'asr', left = P ? inWords(P.end - Date.now()) : '1 ч 12 мин';
+  $('#pushT').textContent = P && P.cur ? `Брат напомнил: вас ждут на ${ACC[k]}. Осталось ${left}. Мама и Али уже прочитали.` : `Брат напомнил: скоро ${NAMES[k]}. Встанем вместе?`;
+  setTimeout(() => { push.classList.add('on'); $('#dim').classList.add('on'); $('#hintT').textContent = 'Так напоминание видит Юсуф'; $('#hint').style.opacity = 1; }, 350);
+  setTimeout(() => { rs[0].classList.remove('sent'); rs[0].classList.add('ok'); toast(use('p-check-circle-fill') + 'Юсуф прочитал ' + ACC[k]); $('#closeCount').textContent = 'Прочитали 3 из 4'; }, 4100);
+  setTimeout(() => { push.classList.remove('on'); $('#dim').classList.remove('on'); $('#hintT').textContent = 'Юсуф встал на намаз'; }, 3700);
+  setTimeout(() => { rs.forEach(p => p.classList.remove('sent', 'ok')); remind.classList.remove('done'); remind.querySelector('span').textContent = 'Напомнить · 2'; $('#closeCount').textContent = 'Прочитали 2 из 4'; $('#hintT').textContent = 'Нажмите «Напомнить» в телефоне сами'; playing = false; }, 8600);
+}
+remind.addEventListener('click', () => playRemind(false));
+if (!RM) setTimeout(() => { if (!played && scrollY < innerHeight * .5) playRemind(true); }, 1700);
+(() => {
+  const h = $('#hold'), p = h.querySelector('.p'); let raf, t0;
+  const stop = () => { cancelAnimationFrame(raf); if (!marked) p.style.strokeDashoffset = 113; };
+  const step = () => { const k = Math.min(1, (performance.now() - t0) / 900); p.style.strokeDashoffset = 113 * (1 - k); if (k < 1) raf = requestAnimationFrame(step); else done(); };
+  const done = () => { marked = true; buzz([10, 40, 18]); h.classList.add('ok'); $('#holdT').textContent = 'Отмечено · ' + NAMES[P ? P.focus : 'asr']; $('#holdS').textContent = 'близкие видят'; $('[data-me]').classList.add('ok'); toast(use('t-prayer-f') + 'Близкие увидят: вы прочитали'); };
+  const go = e => { if (marked) return; e.preventDefault(); t0 = performance.now(); raf = requestAnimationFrame(step); };
+  h.addEventListener('pointerdown', go); ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => h.addEventListener(ev, stop));
+  h.addEventListener('keydown', e => { if ((e.key === ' ' || e.key === 'Enter') && !e.repeat) go(e); }); h.addEventListener('keyup', stop);
+})();
+
+/* ═════════ 2. БУРЯ УВЕДОМЛЕНИЙ ═════════ */
+const NOTES = [
+  ['#e1306c', 'p-heart-fill', 'Соцсеть', 'Вашу историю посмотрели 48 человек'],
+  ['#ff7a00', 'p-storefront', 'Магазин', 'Скидки до 70%. Только сегодня до полуночи'],
+  ['#111', 'p-film-strip', 'Ролики', 'Вы пропустили 12 новых видео'],
+  ['#5865f2', 'p-game-controller', 'Игра', 'Ваша энергия восстановилась. Играть?'],
+  ['#2f80ed', 'p-globe-hemisphere-east', 'Новости', 'Скандал дня: все обсуждают это'],
+  ['#3d6', 'p-chat-circle-dots', 'Чат', '38 непрочитанных в «Работа и всё такое»'],
+  ['#e5484d', 'p-youtube-logo', 'Видео', 'Новая серия уже доступна'],
+];
+const ns = $('#nstack');
+function storm() {
+  ns.innerHTML = '';
+  const els = NOTES.map(([c, ic, a, t], i) => { const d = document.createElement('div'); d.className = 'nt'; d.innerHTML = `<i style="background:${c}">${use(ic)}</i><b>${a}<small>${i ? i * 3 + ' мин' : 'сейчас'}</small></b><p>${t}</p>`; d.style.opacity = 0; d.style.transform = 'translateY(-30px) scale(.95)'; ns.appendChild(d); return d; });
+  const g = document.createElement('div'); g.className = 'nt gold'; g.innerHTML = `<i><img src="i/s-brat.webp" alt=""></i><b>Юсуф · Firdausly<small>сейчас</small></b><p>Аср через 20 минут. Я уже прочитал, ты как? Встанем вместе.</p>`; g.style.opacity = 0; g.style.transform = 'translateY(40px) scale(.9)'; ns.appendChild(g);
+  const place = () => els.forEach((d, i) => { const j = els.length - 1 - i; d.style.top = 0; d.style.zIndex = 10 + i; d.style.opacity = j > 3 ? 0 : 1; d.style.transform = `translateY(${j * 66}px) scale(${1 - j * .03})`; });
+  if (RM) { place(); els.forEach(d => { d.style.opacity = .25; d.style.filter = 'blur(1px)'; }); g.style.cssText += ';opacity:1;transform:none;top:160px;z-index:40'; return; }
+  els.forEach((d, i) => setTimeout(() => { d.style.top = 0; d.style.zIndex = 10 + i; const shown = els.slice(0, i + 1); shown.forEach((x, k) => { const j = i - k; x.style.opacity = j > 3 ? 0 : 1 - j * .12; x.style.transform = `translateY(${j * (innerWidth < 600 ? 74 : 66)}px) scale(${1 - j * .03})`; }); }, 260 * i));
+  const T = 260 * els.length + 700;
+  setTimeout(() => els.forEach((d, i) => { d.style.opacity = i > 3 ? .14 : .1; d.style.filter = 'blur(3px) saturate(0)'; d.style.transform = `translateY(${250 + (els.length - i) * 20}px) scale(.86)`; }), T);
+  setTimeout(() => { g.style.top = '120px'; g.style.zIndex = 40; g.style.opacity = 1; g.style.transform = 'none'; buzz(15); }, T + 350);
+}
+once(ns, storm, .45);
+$('#replay').addEventListener('click', storm);
+
+/* ═════════ 3. БЛИЗКИЕ: день ═════════ */
+const PPL = [['Мама', 'mama'], ['Папа', 'papa'], ['Али', 'ali'], ['Юсуф', 'brat'], ['Марьям', 'sestra2'], ['Дядя Ахмад', 'dyadya']];
+const READ = [[0, 1, 2, 4], [0, 1, 2, 3, 4, 5], [0, 2, 4], [0, 1, 2, 3, 4, 5], [0, 1, 3]];
+const peopleEl = $('#people'), dayR = $('#dayR'), sentTo = new Set();
+function drawDay() {
+  const i = +dayR.value, k = K5[i], read = READ[i];
+  dayR.style.setProperty('--p', i * 25 + '%'); $('#blizkie').dataset.k = i;
+  $$('#dmarks span').forEach((s, j) => s.classList.toggle('on', j === i));
+  $('#prNm').firstChild.textContent = NAMES[k];
+  $('#prSub').textContent = `Прочитали ${read.length} из ${PPL.length}. ` + (read.length < PPL.length ? 'Кто не успел, тому можно напомнить.' : 'Все свои успели. Альхамдулиллях.');
+  peopleEl.innerHTML = PPL.map(([n, s], j) => { const ok = read.includes(j) || sentTo.has(i + ':' + j + ':ok'), sent = sentTo.has(i + ':' + j); return `<div class="pe${ok ? ' ok' : ''}${sent && !ok ? ' sent' : ''}"><div class="a"><img src="i/s-${s}.webp" alt="" loading="lazy"></div>${n}<small>${ok ? (sent ? 'прочитал после напоминания' : 'прочитал ' + hm(new Date((P ? +P.t[k] : Date.now()) + (j * 7 + 4) * 60000))) : sent ? 'открытка отправлена' : `<button type="button" data-j="${j}">Напомнить</button>`}</small></div>`; }).join('');
+}
+dayR.addEventListener('input', () => { drawDay(); buzz(6); });
+peopleEl.addEventListener('click', e => { const b = e.target.closest('button[data-j]'); if (!b) return; const i = +dayR.value, j = +b.dataset.j; sentTo.add(i + ':' + j); buzz(10); drawDay(); setTimeout(() => { sentTo.add(i + ':' + j + ':ok'); if (+dayR.value === i) drawDay(); }, 1800); });
+drawDay();
+once(dayR, () => { if (RM) return; let v = 0; dayR.value = 0; drawDay(); const s = setInterval(() => { v++; dayR.value = v; drawDay(); if (v >= 2) clearInterval(s); }, 650); }, .8);
+
+/* ═════════ 4. ФАДЖР: потянуть «Стоп» ═════════ */
+(() => {
+  const sec = $('#fajr'), sl = $('#slide'), k = sl.querySelector('.k'); let x0 = null, max = 0, cur = 0, fin = false;
+  const set = p => { cur = Math.max(0, Math.min(1, p)); k.style.transform = `translateX(${cur * max}px)`; sec.style.setProperty('--d', cur); k.setAttribute('aria-valuenow', Math.round(cur * 100)); };
+  const finish = () => { fin = true; set(1); buzz([12, 50, 12]); sec.classList.add('up'); sl.querySelector('span').textContent = 'Доброе утро'; $('#alS').textContent = 'Будильник выключен · вы встали'; $$('#who div').forEach((d, i) => setTimeout(() => d.classList.add('on'), 250 + i * 420)); };
+  k.addEventListener('pointerdown', e => { if (fin) return; max = sl.clientWidth - k.offsetWidth - 2 * k.offsetLeft; x0 = e.clientX - cur * max; k.setPointerCapture(e.pointerId); });
+  k.addEventListener('pointermove', e => { if (x0 === null) return; set((e.clientX - x0) / max); });
+  const up = () => { if (x0 === null) return; x0 = null; if (cur > .82) finish(); else { k.style.transition = 'transform .4s var(--e)'; set(0); setTimeout(() => k.style.transition = '', 400); } };
+  k.addEventListener('pointerup', up); k.addEventListener('pointercancel', up);
+  k.addEventListener('keydown', e => { if (fin) return; max = sl.clientWidth - k.offsetWidth - 2 * k.offsetLeft; if (e.key === 'ArrowRight') { set(cur + .2); if (cur > .82) finish(); } if (e.key === 'ArrowLeft') set(cur - .2); if (e.key === 'Enter' || e.key === ' ') finish(); });
+  if (P) $('#alS').textContent = 'Фаджр в ' + hm(P.next === 'fajr' ? P.nextAt : P.tm.fajr) + ' · вставайте';
+})();
+
+/* ═════════ 5. ФОКУС ═════════ */
+(() => {
+  const sec = $('#focus'), sw = $('#fsw'), fh = $('#fhold'), st = $('#fstate'); let raf, t0;
+  const on = v => { sec.classList.toggle('on', v); sw.setAttribute('aria-checked', v); fh.disabled = !v; buzz(8);
+    st.innerHTML = v ? `Закрыто. Идёт <b>${NAMES[P ? P.focus : 'asr']}</b>. Отметьте намаз, и всё откроется.` : 'Включите Фокус: так выглядит телефон, когда приходит время намаза.'; };
+  sw.addEventListener('click', () => on(sw.getAttribute('aria-checked') !== 'true'));
+  const stop = () => { cancelAnimationFrame(raf); fh.style.setProperty('--h', 0); };
+  const step = () => { const p = Math.min(1, (performance.now() - t0) / 1000); fh.style.setProperty('--h', p); if (p < 1) raf = requestAnimationFrame(step); else { stop(); on(false); buzz([10, 40, 20]); st.innerHTML = '<b>Намаз отмечен.</b> Приложения открылись. Пусть Аллах примет.'; } };
+  fh.addEventListener('pointerdown', e => { e.preventDefault(); t0 = performance.now(); raf = requestAnimationFrame(step); });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => fh.addEventListener(ev, stop));
+  fh.addEventListener('keydown', e => { if ((e.key === ' ' || e.key === 'Enter') && !e.repeat) { e.preventDefault(); t0 = performance.now(); raf = requestAnimationFrame(step); } }); fh.addEventListener('keyup', stop);
+  once(sec.querySelector('.apps'), () => { if (!RM) setTimeout(() => { if (sw.getAttribute('aria-checked') !== 'true') on(true); }, 900); }, .6);
+})();
+
+/* ═════════ 6. REMINDERS: настоящие ролики @firdausly ═════════ */
+const REELS = [{"id":"r12","cap":"Медина вечером. Люди идут на Магриб, птицы — домой. Хочется, чтобы и сердце так же знало дорогу."},{"id":"r2","cap":"وَالصُّبْحِ إِذَا تَنَفَّسَ “And by the dawn when it breathes.” — At-Takwir 81:18"},{"id":"r18","cap":"В суре «Милостивый» 31 раз звучит один вопрос: «Какую же из милостей вашего Господа вы считаете ложью?» Сегодня ответь на него благодарностью."},{"id":"r25","cap":"«За добро к каждому живому существу есть награда». Пророк ﷺ, аль-Бухари, 2363; Муслим, 2244"},{"id":"r4","cap":"«الصَّبْرُ مِفْتَاحُ الْفَرَجِ» Терпение — ключ к облегчению."},{"id":"r14","cap":"«الدُّنْيَا لَيْسَتْ وَطَنَكَ» Этот мир — не твой дом."},{"id":"r23","cap":"«Поистине, Аллах простирает Свою руку ночью, чтобы принять покаяние того, кто согрешил днём, и простирает руку днём, чтобы принять покаяние того, кто согрешил ночью, — пока солнце не взойдёт с запада». Пророк ﷺ, Муслим, 2759"},{"id":"r29","cap":"Тишина, горы и одна мысль: всё остальное поправимо."},{"id":"r24","cap":"Some views you never get used to 🤍 Keep making the dua to see it with your own eyes."}];
+(() => {
+  const rail = $('#rail'); let soundOn = false, active = null, inView = false;
+  const card = (r, i) => `<article class="rl" data-i="${i}" data-bg="v/${r.id}.webp" aria-label="Ролик ${i + 1}">
+    <div class="rtop"><span>Reminders</span><span>Подписки</span></div>
+    <button class="snd" type="button" aria-label="Звук">${use('p-speaker-slash')}</button>
+    <div class="side"><span class="lk">${use('r-like')}</span><span>${use('r-comment')}</span><span>${use('r-repost')}</span><span>${use('r-share')}</span><span>${use('r-save')}</span></div>
+    <div class="cap"><b><img src="i/icon.webp" alt="">firdausly<em>Подписаться</em></b><p>${r.cap}</p></div>
+    <svg class="heart"><use href="#r-like-fill"/></svg><div class="bar"><i></i></div></article>`;
+  const wait = `<article class="rl wait" data-i="w">${use('p-hands-praying')}<b>Время Магриба</b><p>Лента подождёт. Вернётесь после намаза, ролик будет здесь.</p><span class="btn btn-p">Отметить намаз</span></article>`;
+  rail.innerHTML = REELS.map((r, i) => card(r, i) + (i === 4 ? wait : '')).join('');
+  const cards = $$('.rl', rail);
+  once(rail, () => cards.forEach(c => { if (c.dataset.bg) c.style.backgroundImage = `url(${c.dataset.bg})`; }), 0);
+  const vid = c => { let v = c.querySelector('video'); if (!v && c.dataset.i !== 'w') { const r = REELS[+c.dataset.i]; v = document.createElement('video'); v.muted = !soundOn; v.loop = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.preload = 'auto'; v.poster = `v/${r.id}.webp`; v.src = `v/${r.id}.mp4`; c.prepend(v); const bar = c.querySelector('.bar i'); v.addEventListener('timeupdate', () => { if (v.duration) bar.style.width = (v.currentTime / v.duration * 100) + '%'; }); } return v; };
+  const activate = c => {
+    if (active === c) { return; } active = c;
+    cards.forEach(x => { x.classList.toggle('on', x === c); if (x !== c) { const v = x.querySelector('video'); if (v) { v.pause(); const far = Math.abs((+x.dataset.i || 0) - (+c.dataset.i || 0)) > 2; if (far) { v.removeAttribute('src'); v.load(); v.remove(); } } } });
+    if (inView && !RM) { const v = vid(c); if (v) { v.muted = !soundOn; v.play().catch(() => {}); } }
+  };
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) activate(e.target); }), { root: rail, rootMargin: '0px -49% 0px -49%', threshold: 0 });
+  cards.forEach(c => io.observe(c));
+  new IntersectionObserver(([e]) => { inView = e.isIntersecting; const v = active && active.querySelector('video'); if (!inView && v) v.pause(); else if (inView && active && !RM) { const vv = vid(active); vv && vv.play().catch(() => {}); } }, { threshold: .35 }).observe(rail);
+  let lastTap = 0;
+  rail.addEventListener('click', e => {
+    const c = e.target.closest('.rl'); if (!c || c.dataset.i === 'w') return;
+    if (c !== active) { c.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'nearest', inline: 'center' }); return; }
+    const now = Date.now();
+    if (now - lastTap < 300) { const h = c.querySelector('.heart'); h.classList.remove('go'); void h.getBoundingClientRect(); h.classList.add('go'); const lk = c.querySelector('.lk'); lk.classList.add('liked'); lk.innerHTML = use('r-like-fill'); buzz(12); lastTap = 0; return; }
+    lastTap = now;
+    setTimeout(() => { if (lastTap !== now) return; const v = vid(c); soundOn = !soundOn; $$('.rl .snd').forEach(b => b.innerHTML = use(soundOn ? 'p-speaker-high' : 'p-speaker-slash')); if (v) { v.muted = !soundOn; v.play().catch(() => {}); } }, 300);
+  });
+  const by = d => { const w = cards[0].offsetWidth + 18; rail.scrollBy({ left: d * w, behavior: RM ? 'auto' : 'smooth' }); };
+  $('#rPrev').addEventListener('click', () => by(-1)); $('#rNext').addEventListener('click', () => by(1));
+  /* стартуем со второго ролика, чтобы слева было видно, что лента листается */
+  requestAnimationFrame(() => { const off = c => c.offsetLeft - (rail.clientWidth - c.offsetWidth) / 2; const c = cards.find((x, i) => i >= 1 && off(x) >= 0) || cards[1]; rail.scrollLeft = off(c); });
+})();
+
+/* ═════════ 7. УММА: перевод и «Амин» ═════════ */
+(() => {
+  const pt = $('#pt'), b = $('#trB'); let tr = false;
+  const TXT = ['Sabah namazına kalkmak zor geliyordu. Kardeşimle birbirimizi uyandırmaya başladık. Üç haftadır kaçırmadık, elhamdülillah.', 'Вставать на Фаджр было тяжело. Мы с братом начали будить друг друга. Три недели не пропускаем, альхамдулиллях.'];
+  b.addEventListener('click', () => { tr = !tr; pt.classList.add('fade'); buzz(6); setTimeout(() => { pt.textContent = TXT[+tr]; pt.lang = tr ? 'ru' : 'tr'; pt.classList.remove('fade'); }, 220); b.querySelector('span').textContent = tr ? 'Показать оригинал' : 'Показать перевод'; $('#trF').textContent = tr ? 'переведено с турецкого' : 'турецкий'; });
+  const st = $('#stage'), a = $('#amin'); let n = 0;
+  a.addEventListener('click', e => {
+    n++; buzz(8); $('#aminN').textContent = n === 1 ? 'Вы сказали «Амин». Ведущий это видит' : `«Амин» × ${n}`;
+    if (RM) return;
+    const r = st.getBoundingClientRect(), br = a.getBoundingClientRect();
+    for (let i = 0; i < 5; i++) { const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); s.setAttribute('class', 'fly'); s.innerHTML = '<use href="#p-moon-stars"/>'; s.style.left = (br.left - r.left + br.width / 2 - 13 + (Math.random() * 40 - 20)) + 'px'; s.style.top = (br.top - r.top) + 'px'; s.style.setProperty('--x', (Math.random() * 120 - 60) + 'px'); s.style.setProperty('--r', (Math.random() * 60 - 30) + 'deg'); s.style.animationDelay = i * 90 + 'ms'; st.appendChild(s); setTimeout(() => s.remove(), 1900); }
+  });
+})();
+
+/* ═════════ 8. МОМЕНТЫ: смахнуть ═════════ */
+(() => {
+  const box = $('#moments');
+  const M = [['c-guremir', 'ali', 'Али', 'после Асра · Самарканд'], ['c-fountain', 'sestra1', 'Амина', 'после Зухра'], ['c-nile', 'papa', 'Папа', 'после Магриба'], ['c-samarkand', 'brat', 'Юсуф', 'после Фаджра']];
+  box.innerHTML = M.map(([img, s, n, t]) => `<div class="mo" style="background-image:url(i/${img}-480.webp)"><div><b><img src="i/s-${s}.webp" alt="">${n}</b><small>${t}</small></div></div>`).join('');
+  let cards = $$('.mo', box);
+  const lay = () => cards.forEach((c, i) => { c.style.zIndex = 10 - i; c.style.transform = `translate(${i * 10}px,${i * -8}px) rotate(${i * 3}deg) scale(${1 - i * .04})`; c.style.opacity = i > 2 ? 0 : 1; });
+  lay();
+  let x0 = null, dx = 0;
+  const top = () => cards[0];
+  box.addEventListener('pointerdown', e => { x0 = e.clientX; dx = 0; top().style.transition = 'none'; box.setPointerCapture(e.pointerId); });
+  box.addEventListener('pointermove', e => { if (x0 === null) return; dx = e.clientX - x0; top().style.transform = `translateX(${dx}px) rotate(${dx / 14}deg)`; });
+  const end = () => { if (x0 === null) return; x0 = null; const c = top(); c.style.transition = ''; if (Math.abs(dx) > 60 || Math.abs(dx) < 4) { c.style.transform = `translateX(${(dx < 0 ? -1 : 1) * 320}px) rotate(${dx < 0 ? -20 : 20}deg)`; c.style.opacity = 0; buzz(8); setTimeout(() => { cards.push(cards.shift()); lay(); }, 280); } else lay(); };
+  box.addEventListener('pointerup', end); box.addEventListener('pointercancel', end);
+})();
+
+/* ═════════ 9. СЁСТРАМ ═════════ */
+$('#seg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('#seg button').forEach(x => x.setAttribute('aria-pressed', x === b)); buzz(6); });
+$$('#sisters .sw').forEach(s => s.addEventListener('click', () => { const v = s.getAttribute('aria-checked') !== 'true'; s.setAttribute('aria-checked', v); buzz(6);
+  if (s.id === 'wali') { const r = $('#req'); r.style.transform = v ? 'translateX(14px) scale(.97)' : 'none'; $('#reqTo').innerHTML = v ? `<span style="display:inline-flex;gap:6px;align-items:center"><img src="i/s-papa.webp" alt="" style="width:22px;height:22px">ушёл к вали</span>` : 'запрос к вам'; } }));
+
+/* ═════════ 10. БЕНТО: азан и тасбих ═════════ */
+(() => {
+  const w = $('#wave'), a = $('#adhanA'), b = $('#adhanB');
+  const H = [30, 52, 40, 70, 46, 88, 60, 74, 96, 64, 80, 58, 90, 72, 50, 66, 84, 44, 62, 36, 48, 28];
+  w.innerHTML = H.map(h => `<i style="--h:${h}"></i>`).join('');
+  const bars = $$('i', w);
+  b.addEventListener('click', () => { if (a.paused) { a.play().catch(() => {}); b.innerHTML = use('p-pause-fill'); } else { a.pause(); b.innerHTML = use('p-play-fill'); } });
+  a.addEventListener('timeupdate', () => { const k = a.duration ? a.currentTime / a.duration : 0; bars.forEach((x, i) => x.classList.toggle('on', i / bars.length < k)); });
+  a.addEventListener('ended', () => { b.innerHTML = use('p-play-fill'); bars.forEach(x => x.classList.remove('on')); });
+  const t = $('#tas'), p = $('#tasP'), n = $('#tasN'), wd = $('#tasW'); let c = 0; const W = ['СубханАллах', 'Альхамдулиллях', 'Аллаху акбар'];
+  const hit = () => { c = (c + 1) % 100; const r = c % 33 || (c ? 33 : 0); n.textContent = r; p.style.strokeDashoffset = 440 * (1 - r / 33); wd.textContent = W[Math.min(2, Math.floor((c - 1) / 33))] || W[0]; buzz(r === 33 ? [20, 40, 20] : 6); };
+  t.addEventListener('click', hit); t.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); hit(); } });
+})();
+
+/* ═════════ 11. ОСТРОВ ═════════ */
+(() => { const i = $('#island'); const t = () => { i.classList.toggle('open'); i.parentElement.classList.toggle('iso', i.classList.contains('open')); buzz(8); }; i.addEventListener('click', t); i.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); t(); } });
+  once(i, () => { if (!RM) setTimeout(() => { if (!i.classList.contains('open')) t(); }, 700); }, .9); })();
+
+/* ═════════ 12. КАРТИНЫ ═════════ */
+(() => {
+  const A = [['lions', 'Львы', 'Смелость, которая не боится'], ['plus', 'Вместе', 'Свои идут рядом'], ['gate', 'Врата', 'Хайбар'], ['road', 'Путь', 'Дорога домой'], ['sujud', 'Суджуд', 'Ближе всего к Нему'], ['storm', 'Буря', 'Зульфикар']];
+  const acc = $('#acc');
+  acc.innerHTML = A.map(([k, n, s], i) => `<button class="ac${i === 1 ? ' on' : ''}${i === 1 ? ' first' : ''}" type="button" data-k="${k}" aria-label="Картина «${n}»"><picture><source type="image/avif" srcset="i/${k}-${k === 'lions' ? 640 : 860}.avif"><img src="i/${k}-${k === 'lions' ? 640 : 860}.webp" alt="" loading="lazy"></picture><span>${n}<small>${s}</small></span>${i === 1 ? '<em class="tapme">Нажмите на картину</em>' : ''}</button>`).join('');
+  const pick = b => { const t = $('.tapme', acc); if (t && b.dataset.k !== 'plus') t.remove(); $$('.ac', acc).forEach(x => x.classList.toggle('on', x === b)); const k = b.dataset.k, art = $('#homeArt'); art.removeAttribute('srcset'); art.parentElement.querySelector('source').srcset = `i/${k}-${k === 'lions' ? 640 : 480}.avif`; art.src = `i/${k}-${k === 'lions' ? 640 : 480}.webp`; buzz(6); };
+  acc.addEventListener('click', e => { const b = e.target.closest('.ac'); if (b) pick(b); });
+  if (matchMedia('(hover:hover)').matches) acc.addEventListener('mouseover', e => { const b = e.target.closest('.ac'); if (b && !b.classList.contains('on')) $$('.ac', acc).forEach(x => x.classList.toggle('on', x === b)); });
+  $('#classic').innerHTML = ['guremir', 'cairo', 'fountain', 'samarkand', 'nile', 'mutawalli', 'caravan', 'terrace'].map(k => `<img src="i/c-${k}-480.webp" alt="" loading="lazy" height="120">`).join('');
+})();
+
+/* ═════════ 13. АВТОРАМ ═════════ */
+(() => {
+  const F = [['p-hand-waving', 'Пранк в метро'], ['p-music-notes', 'Танец под трендовый звук'], ['p-shopping-bag', 'Распаковка за 7 секунд'], ['p-coins', 'Реклама ставок'], ['you', 'Ваш аят'], ['p-sparkle', 'Чужая свадьба'], ['p-megaphone', 'Скандал дня'], ['p-game-controller', 'Стрим до трёх ночи']];
+  const html = F.map(([i, t]) => i === 'you' ? `<div class="fi you">${use('t-reminders-f')}${t}</div>` : `<div class="fi">${use(i)}${t}</div>`).join('');
+  $('#mq').innerHTML = html + html;
+  const r = $('#flw'), v = $('#flwV'), out = $('#inc');
+  const upd = () => { const f = +r.value; v.textContent = nf(f); const pay = Math.round(Math.round(f * .02) * .1); out.textContent = nf(pay * 533) + ' ₸'; r.style.setProperty('--p', ((f - 1000) / 4990) + '%'); };
+  r.addEventListener('input', upd); upd();
+})();
+
+/* ═════════ ПАНЕЛЬ ВКЛАДОК ═════════ */
+(() => {
+  const dock = $('#dock'), links = $$('a', dock), hero = $('.hero'), fin = $('.fin'), foot = $('.foot');
+  const vis = new Map();
+  const io = new IntersectionObserver(es => { es.forEach(e => vis.set(e.target, e.isIntersecting)); dock.classList.toggle('on', !vis.get(hero) && !vis.get(fin) && !vis.get(foot) && !vis.get(stop)); }, { threshold: 0.02 });
+  const stop = $('#authors');
+  [hero, fin, foot].forEach(x => io.observe(x));
+  const io3 = new IntersectionObserver(([e]) => { vis.set(stop, e.boundingClientRect.top < innerHeight); dock.classList.toggle('on', !vis.get(hero) && !vis.get(stop)); }, { threshold: 0 }); io3.observe(stop);
+  const map = {}; links.forEach(a => a.dataset.s.split(' ').forEach(id => map[id] = a));
+  const io2 = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a === map[e.target.id])); }), { rootMargin: '-45% 0px -50% 0px' });
+  $$('main > section').forEach(el => io2.observe(el));
+  links.forEach(a => a.addEventListener('click', () => buzz(6)));
+})();
+
+/* ═════════ 15. ЦЕНА ═════════ */
+(() => {
+  const TIERS = { KZ: ['3 790 ₸', '22 990 ₸', '1 916 ₸', 3790, 22990], MID: ['$4.99', '$29.99', '$2.50', 4.99, 29.99], GULF: ['$12.99', '$79.99', '$6.67', 12.99, 79.99], WEST: ['$9.99', '$59.99', '$5.00', 9.99, 59.99], EUR: ['€9.99', '€59.99', '€5.00', 9.99, 59.99], GBP: ['£8.99', '£54.99', '£4.58', 8.99, 54.99] };
+  let tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  const byCc = { KZ: 'KZ', KG: 'MID', UZ: 'MID', TJ: 'MID', RU: 'MID', AZ: 'MID', TR: 'MID', AE: 'GULF', GB: 'GBP', US: 'WEST' };
+  const known = TZ[tz] && bySlug(TZ[tz]);
+  const tier = known ? (byCc[known.cc] || 'WEST') : /^Europe\//.test(tz) ? 'EUR' : /^Asia\/(Riyadh|Qatar|Kuwait|Bahrain|Muscat|Dubai)/.test(tz) ? 'GULF' : 'WEST';
+  const T = TIERS[tier];
+  $('#save').textContent = '−' + Math.round((1 - T[4] / (T[3] * 12)) * 100) + '%';
+  if (tier !== 'KZ') $('#fine').textContent = 'Цены для вашего региона. Точную цену в вашей валюте App Store покажет до оплаты.';
+  const show = y => { $('#pAmt').textContent = y ? T[1] : T[0]; $('#pPer').textContent = y ? `в год · ${T[2]} в месяц` : 'в месяц'; $('#pAlt').textContent = y ? `или ${T[0]} помесячно` : `или ${T[1]} за год, выгоднее`; };
+  $('#per').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('#per button').forEach(x => x.setAttribute('aria-pressed', x === b)); show(b.dataset.p === 'y'); buzz(6); });
+  show(true);
+})();
+
+/* ═════════ ФИНАЛ: дней до Рамадана ═════════ */
+(() => { const d = Math.ceil((Date.UTC(2027, 1, 8) - Date.now()) / 864e5); const el = $('#finD'); const pl = n => { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? 'день' : a >= 2 && a <= 4 && (b < 12 || b > 14) ? 'дня' : 'дней'; }; if (d > 1 && d < 200) el.textContent = `До Рамадана примерно ${d} ${pl(d)}`; else el.remove(); })();
+
+/* ═════════ ЛИСТ ОЖИДАНИЯ ═════════ */
+/* ВЫХОД В APP STORE: одна строка. false — кнопки ведут в лист ожидания, true — прямо в App Store. */
+const LAUNCHED = false, STORE = 'https://apps.apple.com/app/id6806738733';
+const SB = 'https://axpoadzhfvxzywotbvug.supabase.co', SBK = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF4cG9hZHpoZnZ4enl3b3RidnVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc4NzQxMzksImV4cCI6MjEwMzQ1MDEzOX0.9Fjf93Ev1a0Yybol90CjKhmC5gQZt6QiTKK-6Xj91T8';
+const dlg = $('#waitlist');
+if (LAUNCHED) {
+  $$('[data-store]').forEach(a => { a.href = STORE; a.rel = 'noopener'; });
+  $$('[data-sl]').forEach(e => e.textContent = e.dataset.sl); $$('[data-pre]').forEach(e => e.textContent = 'для iPhone · в App Store');
+} else if (dlg && dlg.showModal) {
+  const open = e => { e.preventDefault(); dlg.showModal(); if (matchMedia('(hover:hover)').matches) setTimeout(() => $('#wl-in').focus(), 60); };
+  $$('[data-store]').forEach(a => a.addEventListener('click', open));
+  dlg.addEventListener('click', e => { if (e.target.closest('[data-close]')) return dlg.close(); if (e.target !== dlg) return; const r = dlg.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dlg.close(); });
+  const f = $('[data-wlf]'), inp = $('#wl-in'), btn = $('[data-wlb]'), msg = $('[data-wlm]');
+  const say = (t, err) => { msg.textContent = t; msg.classList.toggle('err', !!err); inp.setAttribute('aria-invalid', err ? 'true' : 'false'); };
+  if (store.get('wl6')) { dlg.classList.add('done'); say('Вы уже в списке. Напишем в день выхода.'); }
+  f.addEventListener('submit', e => {
+    e.preventDefault(); let v = inp.value.trim();
+    if (!v) return say('Впишите почту или Telegram, например name@mail.ru или @username.', 1);
+    if (/^[A-Za-z0-9_]{5,32}$/.test(v)) v = '@' + v;
+    if (v.indexOf('@') < 0 && !/t(elegram)?\.me\//i.test(v)) return say('Не похоже на почту или Telegram. Проверьте, нет ли опечатки.', 1);
+    btn.disabled = true; btn.textContent = 'Записываем…'; say('');
+    fetch(SB + '/rest/v1/rpc/join_waitlist', { method: 'POST', headers: { apikey: SBK, Authorization: 'Bearer ' + SBK, 'Content-Type': 'application/json' }, body: JSON.stringify({ contact: v, lang: 'ru', source: location.pathname.slice(0, 120) }) })
+      .then(r => r.ok ? r.json() : { ok: false, reason: 'net' })
+      .then(r => {
+        if (r && r.ok) { store.set('wl6', '1'); dlg.classList.add('done'); say('Записали. Напишем в день выхода.'); }
+        else say(r && r.reason === 'format' ? 'Не похоже на почту или Telegram. Проверьте, нет ли опечатки.' : r && r.reason === 'busy' ? 'Сейчас записывается много людей. Попробуйте через минуту.' : 'Не получилось отправить. Проверьте интернет или напишите нам: support@firdausly.com', 1);
+      })
+      .catch(() => say('Не получилось отправить. Проверьте интернет или напишите нам: support@firdausly.com', 1))
+      .then(() => { btn.disabled = false; btn.textContent = 'Напомнить в день выхода'; });
+  });
+}
+});
+</script>
+</body>
+</html>
