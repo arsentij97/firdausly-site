@@ -1,0 +1,1738 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<title>Firdausly — намаз вовремя, вместе с близкими</title>
+<meta name="description" content="Firdausly — соцсеть, которая делает ближе к религии. Напоминайте своим близким о намазе, будите друг друга на Фаджр, смотрите Reminders, слушайте Сцену. Фокус закрывает соцсети, пока не прочитан намаз.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Firdausly">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Firdausly — напоминайте своим близким о намазе">
+<meta property="og:description" content="Соцсеть, которая делает ближе к религии: намаз вместе с близкими, Reminders, Умма, Сцена и Фокус.">
+<meta property="og:image" content="https://firdausly.com/assets/og/home-ru.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon-48.png">
+<link rel="preload" as="image" href="/_preview/v7/i/s-lions-1206.avif" type="image/avif" fetchpriority="high">
+<style>
+@font-face{font-family:InterV7;font-weight:200;font-display:swap;src:url(/_preview/v7/f/inter-200.woff2) format("woff2")}
+@font-face{font-family:InterV7;font-weight:400;font-display:swap;src:url(/_preview/v7/f/inter-400.woff2) format("woff2")}
+@font-face{font-family:InterV7;font-weight:600;font-display:swap;src:url(/_preview/v7/f/inter-600.woff2) format("woff2")}
+@font-face{font-family:InterV7;font-weight:700;font-display:swap;src:url(/_preview/v7/f/inter-700.woff2) format("woff2")}
+@font-face{font-family:SpectralV7;font-style:italic;font-weight:400;font-display:swap;src:url(/_preview/v7/f/spectral-i.woff2) format("woff2")}
+/* Токены — копия mobile/src/theme/tokens.ts, тёмная тема «Лунный свет» */
+:root{
+  --bg:#000;--tx:#F5F3EE;--mu:#9A968E;--fa:#6B6862;--ln:rgba(255,255,255,.12);--hair:rgba(255,255,255,.26);
+  --gold:#D9B95C;--moon:#F1E4BF;--ember:#FFF3CF;
+  --cream:#F4EFE6;--creamHi:#FFFDF8;--creamLo:#E9E1D2;--onc:#14110C;
+  --glass:rgba(22,21,20,.68);--gline:rgba(255,255,255,.12);--lens:rgba(255,255,255,.16);
+  --sf:#141312;--sf2:#1F1E1C;--box:#1B1A18;--sheet:#171614;
+  --like:#FF3B30;--live:#E5484D;--ok:#30D158;--dim:rgba(255,255,255,.66);--nav:rgba(255,255,255,.74);
+  --ui:-apple-system,BlinkMacSystemFont,"SF Pro Text",InterV7,"Segoe UI",system-ui,sans-serif;
+  --dp:-apple-system,BlinkMacSystemFont,"SF Pro Display",InterV7,"Segoe UI",system-ui,sans-serif;
+  --serif:SpectralV7,"New York",ui-serif,Georgia,serif;
+  --out:cubic-bezier(.32,.72,0,1);--soft:cubic-bezier(.16,1,.3,1);--spring:cubic-bezier(.34,1.42,.64,1);
+  --pw:168px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg);color:var(--tx);font-family:var(--ui);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-size-adjust:100%}
+body{margin:0;background:var(--bg);overflow-x:clip;font-size:16px;line-height:1.4}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+h1,h2,h3,p{margin:0}
+svg.i{width:24px;height:24px;fill:currentColor;flex:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--moon);font-size:1.07em}
+.tab{font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:12px}
+
+/* ───────── сцена: телефон посреди картины ───────── */
+.stage{position:relative;min-height:100vh;min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:clamp(32px,4.5vw,72px);padding:24px clamp(24px,4vw,64px);overflow:hidden;isolation:isolate}
+.amb{position:absolute;inset:-10%;z-index:-2;pointer-events:none}
+.amb i{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(56px) saturate(1.35);opacity:0;transition:opacity 1.1s ease;transform:scale(1.15)}
+.amb i.on{opacity:.62}
+.stage::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 42% 60% at 50% 50%,rgba(0,0,0,0) 0,rgba(0,0,0,.35) 60%,rgba(0,0,0,.82) 100%),linear-gradient(180deg,rgba(0,0,0,.3),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 70%,rgba(0,0,0,.6))}
+.dev{position:relative;width:calc(424px*var(--s,1));height:calc(896px*var(--s,1));justify-self:center}
+.frame{position:absolute;left:0;top:0;width:424px;height:896px;padding:11px;border-radius:66px;transform:scale(var(--s,1));transform-origin:0 0;background:#050505;
+  box-shadow:0 0 0 1.5px #3b3a38,0 0 0 3px #121212,inset 0 0 0 1px rgba(255,255,255,.08),0 60px 120px -20px rgba(0,0,0,.85),0 30px 60px -30px rgba(0,0,0,.9)}
+.frame::before,.frame::after{content:"";position:absolute;width:4px;border-radius:2px;background:linear-gradient(90deg,#2a2927,#4a4845)}
+.frame::before{left:-5px;top:180px;height:64px;box-shadow:0 84px 0 #3a3936}
+.frame::after{right:-5px;top:230px;height:96px}
+.island{position:absolute;left:50%;top:22px;width:124px;height:36px;margin-left:-62px;background:#000;border-radius:20px;z-index:60;pointer-events:none}
+.scr{position:relative;width:402px;height:874px;border-radius:55px;overflow:hidden;background:#000;isolation:isolate;--top:54px;--bot:22px;contain:layout paint}
+.sbar{position:absolute;left:0;right:0;top:0;height:54px;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:4px 34px 0 46px;font:600 17px/1 var(--dp);letter-spacing:-.2px;pointer-events:none}
+.sbar .r{display:flex;gap:6px;align-items:center}
+.sbar svg{height:12px;fill:#fff}
+.homeind{position:absolute;left:50%;bottom:8px;width:136px;height:5px;margin-left:-68px;border-radius:3px;background:rgba(255,255,255,.55);z-index:60;pointer-events:none}
+
+/* боковые панели */
+.side{position:relative;max-width:400px}
+.side-l{justify-self:end;width:100%;min-height:420px;display:flex;flex-direction:column;justify-content:center}
+.side-r{justify-self:start;width:100%;max-width:310px}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:40px}
+.brand img{width:44px;height:44px;border-radius:11px;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.brand b{font:700 19px/1.1 var(--dp);letter-spacing:-.3px;display:block}
+.brand span{font-size:13px;color:var(--mu)}
+.vals{position:relative;min-height:330px}
+.val{position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(10px);transition:opacity .45s var(--out),transform .6s var(--soft);pointer-events:none}
+.val.on{opacity:1;transform:none;pointer-events:auto}
+.val .ey{font:600 13px/1 var(--ui);letter-spacing:2.2px;text-transform:uppercase;color:var(--gold);display:flex;gap:10px;align-items:center}
+.val .ey em{font-style:normal;color:var(--fa)}
+.val h2{font:700 clamp(34px,3.1vw,46px)/1.06 var(--dp);letter-spacing:-1.2px;margin:18px 0 18px;text-wrap:balance}
+.val p{font-size:17px;line-height:1.5;color:var(--mu);max-width:24em;text-wrap:pretty}
+.val p b{color:var(--tx);font-weight:600}
+.hint{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:10px 16px 10px 12px;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px var(--gline);font-size:15px;color:var(--tx);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.hint svg{width:20px;height:20px;fill:var(--gold)}
+.keys{margin-top:36px;font-size:13px;color:var(--fa);display:flex;gap:8px;align-items:center}
+.keys kbd{font:600 12px/1 var(--ui);padding:5px 7px;border-radius:7px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--gline);color:var(--mu)}
+.cta{border-radius:28px;padding:26px 24px;background:rgba(20,19,18,.55);box-shadow:inset 0 0 0 1px var(--gline),0 30px 60px -30px rgba(0,0,0,.8);backdrop-filter:blur(30px) saturate(1.4);-webkit-backdrop-filter:blur(30px) saturate(1.4)}
+.cta .ic{width:52px;height:52px;border-radius:13px;margin-bottom:18px}
+.cta h3{font:700 22px/1.15 var(--dp);letter-spacing:-.4px}
+.cta p{font-size:15px;line-height:1.45;color:var(--mu);margin:8px 0 20px}
+.per{display:grid;margin-top:22px}
+.per p{grid-area:1/1;display:flex;gap:10px;font-size:14px;line-height:1.45;color:var(--mu);opacity:0;transform:translateY(6px);transition:opacity .4s,transform .5s var(--soft);pointer-events:none}
+.per p.on{opacity:1;transform:none;pointer-events:auto}
+.per b{color:var(--tx);font-weight:600}
+.per a{color:var(--moon);text-decoration:underline;text-underline-offset:3px}
+.per svg{width:18px;height:18px;fill:var(--gold);flex:none;margin-top:1px}
+.ios{font-size:13px;color:var(--fa);margin-top:14px;padding-top:14px;border-top:1px solid var(--ln)}
+.down{display:inline-flex;gap:6px;align-items:center;margin-top:22px;font-size:14px;color:var(--tx);opacity:.8}
+.down svg{width:16px;height:16px}
+
+/* кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 24px;border-radius:999px;font:600 17px/1 var(--ui);letter-spacing:-.2px;color:var(--onc);
+  background:linear-gradient(180deg,var(--creamHi),var(--creamLo));box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 10px 30px -8px rgba(217,185,92,.45);transition:transform .2s var(--out)}
+.btn:active{transform:scale(.97)}
+.btn.w{width:100%}
+.btn svg{width:18px;height:18px}
+
+/* ───────── экран телефона: общие части ───────── */
+.view{position:absolute;inset:0;display:none;background:#000;will-change:transform,opacity}
+.view.on{display:block}
+.hd{position:absolute;left:0;right:0;top:var(--top);height:44px;z-index:40;display:flex;align-items:center;padding:0 16px;gap:12px;pointer-events:none}
+.hd>*{pointer-events:auto}
+.hb{width:44px;height:44px;border-radius:22px;display:grid;place-items:center;flex:none;background:rgba(40,38,35,.62);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+.hb svg{width:22px;height:22px;fill:#fff}
+.logo svg{fill:var(--gold)}
+.store{margin-left:auto;height:36px;padding:0 14px 0 11px;border-radius:18px;display:inline-flex;gap:6px;align-items:center;font:600 14px/1 var(--ui);letter-spacing:-.1px;color:var(--onc);background:linear-gradient(180deg,var(--creamHi),var(--creamLo));box-shadow:inset 0 1px 0 #fff,0 6px 18px -6px rgba(0,0,0,.6)}
+.store svg{width:16px;height:16px;fill:var(--onc);margin-top:-2px}
+.vh{position:absolute;left:72px;right:calc(var(--pw) + 22px);top:var(--top);height:44px;display:flex;align-items:center;gap:8px;z-index:30}
+.vh h1{font:700 20px/1 var(--dp);letter-spacing:-.4px}
+.vh .sp{flex:1}
+.ttl{font:700 32px/1.1 var(--dp);letter-spacing:-.8px}
+
+/* нижняя панель — капсула стекла с линзой, как в приложении */
+.tabs{position:absolute;left:16px;right:16px;bottom:var(--bot);height:64px;z-index:45;border-radius:32px;display:flex;padding:6px;background:var(--glass);
+  box-shadow:inset 0 0 0 1px var(--gline),inset 0 1px 0 rgba(255,255,255,.08),0 18px 40px -12px rgba(0,0,0,.7);backdrop-filter:blur(28px) saturate(1.7);-webkit-backdrop-filter:blur(28px) saturate(1.7)}
+.lens{position:absolute;top:6px;bottom:6px;left:6px;width:calc((100% - 12px)/5);border-radius:26px;background:var(--lens);box-shadow:inset 0 1px 0 rgba(255,255,255,.14);pointer-events:none;transform-origin:center}
+.tabs button{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--nav);font:600 10px/1 var(--ui);letter-spacing:-.05px;border-radius:26px;transition:color .25s}
+.tabs button svg{width:26px;height:26px;fill:currentColor;transition:transform .35s var(--spring)}
+.tabs button .f{display:none}
+.tabs button[aria-selected="true"]{color:var(--gold)}
+.tabs button[aria-selected="true"] .o{display:none}
+.tabs button[aria-selected="true"] .f{display:block}
+.tabs button:active svg{transform:scale(.86)}
+
+/* подсказка-пузырь, как в приложении («Впервые здесь?») */
+.tip{position:absolute;left:16px;right:16px;bottom:calc(var(--bot) + 76px);z-index:46;display:flex;align-items:flex-start;gap:10px;padding:12px 10px 12px 16px;border-radius:16px;background:var(--cream);color:var(--onc);font:600 15px/1.3 var(--ui);letter-spacing:-.15px;box-shadow:0 14px 40px -10px rgba(0,0,0,.7);
+  opacity:0;transform:translateY(8px) scale(.96);transform-origin:var(--tx,50%) 100%;transition:opacity .3s,transform .45s var(--spring);pointer-events:none}
+.tip.on{opacity:1;transform:none;pointer-events:auto}
+.tip p{flex:1}
+.tip p small{display:block;font-weight:400;font-size:13px;color:#5d564b;margin-top:3px}
+.tip button{width:28px;height:28px;flex:none;display:grid;place-items:center;margin:-4px 0}
+.tip button svg{width:16px;height:16px;fill:var(--onc)}
+.tip::after{content:"";position:absolute;bottom:-7px;left:calc(var(--tx,50%) - 8px);width:16px;height:16px;background:var(--cream);border-radius:3px;transform:rotate(45deg)}
+
+.toast{position:absolute;left:16px;right:16px;margin:0 auto;width:fit-content;top:var(--top);z-index:56;transform:translateY(-16px) scale(.96);opacity:0;display:flex;align-items:center;gap:10px;min-height:44px;padding:10px 16px 10px 12px;border-radius:22px;background:rgba(30,29,27,.86);box-shadow:inset 0 0 0 1px var(--gline),0 14px 40px -10px rgba(0,0,0,.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);font:600 14px/1.3 var(--ui);transition:opacity .3s,transform .5s var(--spring);pointer-events:none}
+.toast.on{opacity:1;transform:none}
+.hd,.tabs{transition:opacity .3s,transform .5s var(--out)}
+.scr.over .hd{opacity:0;pointer-events:none}
+.scr.over .tabs{opacity:0;transform:translateY(calc(100% + 30px));pointer-events:none}
+.toast svg{width:20px;height:20px;fill:var(--gold)}
+.toast img{width:24px;height:24px;border-radius:12px}
+
+.av{width:52px;height:52px;border-radius:50%;object-fit:cover;background:#1a1916}
+.ring{position:relative;border-radius:50%;padding:3px;background:conic-gradient(from 200deg,#8a6d2a,#F1E4BF,#D9B95C,#8a6d2a)}
+.ring>img,.ring>span{border:2.5px solid #000}
+
+/* ───────── 1. НАМАЗ ───────── */
+.nz{background:#0a0a0a}
+.paint{position:absolute;inset:0;overflow:hidden}
+.paint img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1s ease}
+.paint::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.62) 0,rgba(10,10,10,.18) 22%,rgba(10,10,10,0) 38%,rgba(10,10,10,.05) 52%,rgba(10,10,10,.55) 72%,rgba(10,10,10,.92) 100%)}
+.nz-light{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;background:linear-gradient(0deg,rgba(255,232,180,.42),rgba(255,232,180,.16) 45%,rgba(255,232,180,0) 80%);transform:translateY(100%)}
+.nz-in{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;padding:calc(var(--top) + 54px) 0 calc(var(--bot) + 78px)}
+.city{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.city button{display:inline-flex;align-items:center;gap:6px;font:600 15px/1.2 var(--ui);min-height:30px}
+.city button svg{width:14px;height:14px;fill:#fff}
+.city button .q{font-weight:600;font-size:12px;padding:4px 8px 4px 9px;border-radius:999px;background:rgba(255,255,255,.16);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin-left:4px;display:inline-flex;gap:3px;align-items:center}
+.city button .q svg{width:10px;height:10px}
+.city small{font-size:13px;color:var(--dim)}
+.grow{flex:1 1 0;min-height:8px}
+.cd{text-align:center;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.cd .lb{font:600 13px/1 var(--ui);letter-spacing:2.2px;text-transform:uppercase}
+.cd .num{font:200 78px/88px var(--dp);letter-spacing:-2px;font-variant-numeric:tabular-nums;margin:6px 0 2px}
+.cd .sub{font-size:15px;color:var(--dim)}
+.times{display:flex;width:calc(100% - 32px);margin-top:22px;padding:4px;border-radius:22px;background:rgba(12,11,10,.34);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4)}
+.times div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 0 11px;border-radius:18px;position:relative}
+.times b{font:600 11px/1 var(--ui);letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.times span{font:600 17px/1 var(--dp);letter-spacing:-.2px;color:rgba(255,255,255,.86);font-variant-numeric:tabular-nums}
+.times .now{background:var(--lens);box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}
+.times .now b,.times .now span{color:#fff}
+.times .now::after{content:"";position:absolute;bottom:4px;width:4px;height:4px;border-radius:2px;background:#fff}
+.pager{width:100%;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 16px;scroll-padding:0 16px;scrollbar-width:none;margin-top:16px;cursor:grab;overscroll-behavior-x:contain}
+.pager::-webkit-scrollbar{display:none}
+.pager.drag{cursor:grabbing;scroll-snap-type:none}
+.card{flex:0 0 100%;scroll-snap-align:start;border-radius:24px;padding:16px;background:rgba(20,19,18,.5);box-shadow:inset 0 0 0 1px rgba(255,255,255,.13),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(26px) saturate(1.5);-webkit-backdrop-filter:blur(26px) saturate(1.5)}
+.card h3{font:700 17px/1.2 var(--dp);letter-spacing:-.25px;display:flex;align-items:center;gap:8px}
+.card h3 svg{width:18px;height:18px;fill:var(--gold)}
+.ppl{display:flex;justify-content:space-between;margin:14px 2px 12px}
+.pp{display:flex;flex-direction:column;align-items:center;gap:6px;width:56px;font:600 12px/1 var(--ui);color:var(--dim);position:relative}
+.pp .ph{width:48px;height:48px;border-radius:50%;padding:2px;position:relative;transition:box-shadow .4s}
+.pp .ph img,.pp .ph .me{width:44px;height:44px;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:#22201c}
+.pp .me svg{width:22px;height:22px;fill:var(--gold)}
+.pp[data-st="read"] .ph{box-shadow:0 0 0 2px var(--gold)}
+.pp[data-st="read"]{color:#fff}
+.pp[data-st="wait"] .ph img{filter:saturate(.55) brightness(.8)}
+.pp[data-st="wait"] .ph{box-shadow:0 0 0 1.5px rgba(255,255,255,.28)}
+.pp .ok{position:absolute;right:-2px;bottom:-2px;width:18px;height:18px;border-radius:9px;background:var(--gold);display:grid;place-items:center;box-shadow:0 0 0 2px #151412;transform:scale(0);transition:transform .45s var(--spring)}
+.pp .ok svg{width:11px;height:11px;fill:var(--onc)}
+.pp[data-st="read"] .ok{transform:scale(1)}
+.pp.ping .ph::after{content:"";position:absolute;inset:-2px;border-radius:50%;box-shadow:0 0 0 2px var(--gold);animation:ping 1.2s var(--out) 2}
+@keyframes ping{from{transform:scale(1);opacity:1}to{transform:scale(1.6);opacity:0}}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.crow span{font-size:13px;color:var(--dim)}
+.pill{height:36px;padding:0 14px;border-radius:18px;display:inline-flex;align-items:center;gap:6px;font:600 14px/1 var(--ui);color:var(--onc);background:linear-gradient(180deg,var(--creamHi),var(--creamLo));box-shadow:inset 0 1px 0 #fff;transition:transform .2s var(--out),opacity .3s;white-space:nowrap}
+.pill:active{transform:scale(.95)}
+.pill svg{width:16px;height:16px;fill:var(--onc)}
+.pill.done{background:rgba(255,255,255,.12);color:#fff;box-shadow:inset 0 0 0 1px var(--gline)}
+.pill.done svg{fill:var(--gold)}
+.rb2{position:absolute;left:16px;right:16px;top:calc(var(--top) + 52px);z-index:44;display:flex;align-items:center;gap:12px;padding:12px 10px 12px 14px;border-radius:20px;background:var(--cream);color:var(--onc);box-shadow:0 18px 40px -12px rgba(0,0,0,.7);font:600 15px/1.3 var(--ui);animation:dlg .6s var(--spring)}
+.rb2 .mc{width:36px;height:36px;border-radius:18px;flex:none;display:grid;place-items:center;background:#0F2D1B}
+.rb2 .mc svg{width:18px;height:18px;fill:var(--gold)}
+.rb2 p{flex:1}
+.rb2 small{display:block;font-weight:400;font-size:13px;color:#5d564b;margin-top:2px}
+.rb2 button{width:32px;height:32px;display:grid;place-items:center}
+.rb2 button svg{width:16px;height:16px;fill:var(--onc)}
+.plane{position:absolute;z-index:70;width:20px;height:20px;fill:var(--cream);pointer-events:none}
+.alarm{display:flex;align-items:center;justify-content:space-between;margin:10px 0 8px}
+.alarm .t{font:200 44px/1 var(--dp);letter-spacing:-1.4px;font-variant-numeric:tabular-nums}
+.alarm small{display:block;font-size:13px;color:var(--dim);margin-top:6px}
+.sw{width:51px;height:31px;border-radius:16px;background:rgba(120,120,128,.36);position:relative;flex:none;transition:background .3s}
+.sw::after{content:"";position:absolute;left:2px;top:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.3);transition:transform .35s var(--spring)}
+.sw[aria-checked="true"]{background:var(--gold)}
+.sw[aria-checked="true"]::after{transform:translateX(20px)}
+.wake{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--dim);margin-top:6px}
+.faces{display:flex}
+.faces img{width:26px;height:26px;border-radius:13px;border:2px solid #1b1a18;margin-right:-8px}
+.alarm-ic{animation:none}
+.ring-on .alarm-ic{animation:wig .6s ease 2}
+@keyframes wig{0%,100%{transform:rotate(0)}20%{transform:rotate(-14deg)}40%{transform:rotate(12deg)}60%{transform:rotate(-8deg)}80%{transform:rotate(5deg)}}
+.pdots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.pdots i{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.3);transition:width .35s var(--soft),background .3s}
+.pdots i.on{width:16px;background:#fff}
+.hold{position:relative;width:calc(100% - 32px);height:58px;margin-top:12px;border-radius:29px;display:flex;align-items:center;padding:0 10px;overflow:hidden;background:rgba(20,19,18,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(26px) saturate(1.5);-webkit-backdrop-filter:blur(26px) saturate(1.5);touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.hold .fillbar{position:absolute;inset:0;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,rgba(241,228,191,.18),rgba(241,228,191,.34))}
+.hold .lf{position:relative;width:38px;height:38px;flex:none}
+.hold svg.rg{width:38px;height:38px;transform:rotate(-90deg);display:block}
+.hold .dn{position:absolute;inset:0;border-radius:50%;background:var(--onc);display:grid;place-items:center;transform:scale(0);transition:transform .5s var(--spring)}
+.hold .dn svg{width:20px;height:20px;fill:var(--cream)}
+.hold.done .dn{transform:scale(1)}
+.hold .rg circle{fill:none;stroke-width:3}
+.hold .rg .bgc{stroke:rgba(255,255,255,.22)}
+.hold .rg .fgc{stroke:var(--gold);stroke-linecap:round;stroke-dasharray:100.5;stroke-dashoffset:100.5}
+.hold .lbl{position:relative;flex:1;text-align:center;line-height:1.15}
+.hold .lbl b{display:block;font:600 17px/1.2 var(--ui);letter-spacing:-.2px}
+.hold .lbl small{display:block;font-size:12px;color:var(--moon);letter-spacing:.1px;margin-top:2px}
+.hold .chk{position:relative;width:38px;height:38px;flex:none;display:grid;place-items:center}
+.hold .chk svg{width:22px;height:22px;fill:var(--dim)}
+.hold.done{background:linear-gradient(180deg,var(--creamHi),var(--creamLo));color:var(--onc);box-shadow:inset 0 1px 0 #fff,0 12px 40px -10px rgba(241,228,191,.45)}
+.hold.done .lbl small{color:#6b6255}
+.hold.done .rg .bgc{stroke:rgba(20,17,12,.15)}
+.hold.done .rg .fgc{stroke:var(--onc)}
+.hold.done .chk svg{fill:var(--onc)}
+.hold.shine::before{content:"";position:absolute;top:0;bottom:0;width:40%;left:-40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent);animation:shine 2.8s ease-in-out 1s infinite}
+@keyframes shine{0%{left:-40%}55%,100%{left:120%}}
+
+/* ───────── 2. REMINDERS ───────── */
+.rl{position:absolute;inset:0;touch-action:none;user-select:none;-webkit-user-select:none;overflow:hidden;cursor:grab}
+.rc{position:absolute;inset:0;overflow:hidden;background:#000;will-change:transform}
+.rc .bg{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;transform-origin:50% 40%}
+.rc.on .bg{animation:kb 16s ease-in-out infinite alternate}
+.rl.paused .rc .bg{animation-play-state:paused}
+@keyframes kb{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.14) translate3d(-2.5%,-3%,0)}}
+.rc::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.5) 0,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 48%,rgba(0,0,0,.35) 66%,rgba(0,0,0,.86) 100%)}
+.subs{position:absolute;left:20px;right:72px;top:46%;z-index:2;text-align:center;font:600 21px/1.3 var(--dp);letter-spacing:-.3px;pointer-events:none}
+.subs span{display:inline;padding:3px 10px;border-radius:8px;background:rgba(10,10,10,.62);-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:opacity .5s,transform .7s var(--soft);display:inline-block}
+.subs span.out{opacity:0;transform:translateY(-8px)}
+.rside{position:absolute;right:8px;bottom:calc(var(--bot) + 94px);z-index:3;display:flex;flex-direction:column;align-items:center;gap:14px}
+.rside button,.rside a{width:52px;display:flex;flex-direction:column;align-items:center;gap:3px;font:600 12px/1 var(--ui);text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.rside svg{width:30px;height:30px;fill:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.35));transition:transform .35s var(--spring)}
+.rside .lk[aria-pressed="true"] svg{fill:var(--like)}
+.rside .lk.pop svg{transform:scale(1.3)}
+.rside .sv[aria-pressed="true"] svg{fill:var(--gold)}
+.rinfo{position:absolute;left:16px;right:76px;bottom:calc(var(--bot) + 92px);z-index:3}
+.au{display:flex;align-items:center;gap:10px;font:700 15px/1 var(--ui)}
+.au img{width:34px;height:34px;border-radius:17px;box-shadow:0 0 0 1.5px rgba(255,255,255,.7)}
+.au .fol{height:30px;padding:0 12px;border-radius:15px;font:600 13px/1 var(--ui);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.85)}
+.au .fol[aria-pressed="true"]{box-shadow:none;background:rgba(255,255,255,.2)}
+.cap{font-size:15px;line-height:1.35;margin-top:10px;text-shadow:0 1px 6px rgba(0,0,0,.5);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.prog{position:absolute;left:0;right:0;bottom:calc(var(--bot) + 76px);height:2px;z-index:3;background:rgba(255,255,255,.22);opacity:0;transition:opacity .3s}
+.rc.on .prog{opacity:1}
+.prog i{display:block;height:100%;background:#fff;transform-origin:0 50%;transform:scaleX(0)}
+.rc.on .prog i{animation:prog 12s linear infinite}
+.rl.paused .prog i{animation-play-state:paused}
+@keyframes prog{to{transform:scaleX(1)}}
+.pz{position:absolute;left:50%;top:50%;z-index:6;width:84px;height:84px;margin:-42px;border-radius:42px;display:grid;place-items:center;background:rgba(0,0,0,.35);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;transform:scale(.7);transition:opacity .25s,transform .35s var(--spring);pointer-events:none}
+.pz svg{width:38px;height:38px;fill:#fff}
+.rl.paused .pz{opacity:1;transform:none}
+.burst{position:absolute;z-index:7;width:96px;height:96px;margin:-48px;fill:var(--like);pointer-events:none;filter:drop-shadow(0 6px 20px rgba(255,59,48,.5));animation:burst .9s var(--out) forwards}
+@keyframes burst{0%{transform:scale(.2) rotate(var(--r,0deg));opacity:0}18%{transform:scale(1.15) rotate(var(--r,0deg));opacity:1}36%{transform:scale(.95) rotate(var(--r,0deg))}70%{transform:scale(1) translateY(-10px) rotate(var(--r,0deg));opacity:1}100%{transform:scale(1.25) translateY(-90px) rotate(var(--r,0deg));opacity:0}}
+.rtop{position:absolute;left:72px;right:calc(var(--pw) + 22px);top:var(--top);height:44px;z-index:5;display:flex;align-items:center;gap:16px;font:700 16px/1 var(--ui);text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.rtop span{position:relative;padding:6px 0}
+.rtop span:first-child::after{content:"";position:absolute;left:50%;bottom:-2px;width:22px;height:2.5px;margin-left:-11px;border-radius:2px;background:#fff}
+.rtop span+span{color:rgba(255,255,255,.62)}
+.pause-card{background:#050505}
+.pause-card .bg{filter:blur(28px) brightness(.4) saturate(1.2)}
+.pause-in{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 40px 60px}
+.pause-in .moonc{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,rgba(217,185,92,.22),rgba(217,185,92,0) 70%);margin-bottom:18px}
+.pause-in .moonc svg{width:40px;height:40px;fill:var(--gold)}
+.pause-in .lb{font:600 13px/1 var(--ui);letter-spacing:2.2px;text-transform:uppercase;color:var(--gold)}
+.pause-in .t{font:200 64px/1 var(--dp);letter-spacing:-1.6px;margin:12px 0 14px;font-variant-numeric:tabular-nums}
+.pause-in p{font-size:16px;line-height:1.45;color:var(--dim);margin-bottom:26px;max-width:16em}
+.rl-arrows{position:absolute;right:8px;top:calc(var(--top) + 60px);z-index:6;display:none;flex-direction:column;gap:8px}
+
+/* ───────── 3. УММА ───────── */
+.feed{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;padding:calc(var(--top) + 56px) 0 calc(var(--bot) + 96px);scrollbar-width:none}
+.feed::-webkit-scrollbar{display:none}
+.um::after,.msgs::after{content:"";position:absolute;left:0;right:0;bottom:0;height:calc(var(--bot) + 90px);z-index:20;pointer-events:none;background:linear-gradient(0deg,rgba(0,0,0,.92),rgba(0,0,0,0))}
+.fade-top{position:absolute;left:0;right:0;top:0;height:calc(var(--top) + 64px);z-index:20;pointer-events:none;background:linear-gradient(180deg,#000 0,#000 55%,rgba(0,0,0,0))}
+.stories{display:flex;gap:14px;overflow-x:auto;padding:4px 16px 4px;scrollbar-width:none}
+.stories::-webkit-scrollbar{display:none}
+.st{display:flex;flex-direction:column;align-items:center;gap:6px;width:68px;flex:none;font:600 12px/1.15 var(--ui);text-align:center}
+.st .ring{width:66px;height:66px}
+.st .ring img,.st .ring .me{width:60px;height:60px;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:#1c1b18}
+.st .me svg{width:28px;height:28px;fill:var(--gold)}
+.st .plus{position:absolute;right:-1px;bottom:-1px;width:22px;height:22px;border-radius:11px;background:var(--cream);display:grid;place-items:center;box-shadow:0 0 0 2.5px #000}
+.st .plus svg{width:13px;height:13px;fill:var(--onc)}
+.st .noring{padding:3px;background:none;box-shadow:inset 0 0 0 1px var(--ln)}
+.live{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);display:inline-flex;gap:3px;align-items:center;padding:3px 6px;border-radius:6px;background:var(--live);font:700 9px/1 var(--ui);letter-spacing:.6px;box-shadow:0 0 0 2px #000;white-space:nowrap}
+.eq{display:inline-flex;gap:1.5px;align-items:flex-end;height:9px}
+.eq i{width:2px;background:#fff;border-radius:1px;animation:eq .9s ease-in-out infinite alternate}
+.eq i:nth-child(1){height:40%;animation-delay:-.3s}.eq i:nth-child(2){height:100%;animation-delay:-.6s}.eq i:nth-child(3){height:65%}
+@keyframes eq{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+.eq i{transform-origin:bottom}
+.sec{display:flex;align-items:baseline;gap:8px;padding:22px 16px 12px}
+.sec h2{font:700 20px/1 var(--dp);letter-spacing:-.4px}
+.sec span{font-size:13px;color:var(--mu);display:flex;align-items:center;gap:6px}
+.sec span i{width:6px;height:6px;border-radius:3px;background:var(--live);box-shadow:0 0 0 3px rgba(229,72,77,.25);animation:blink 1.6s ease infinite}
+@keyframes blink{50%{box-shadow:0 0 0 6px rgba(229,72,77,0)}}
+.shelf{display:flex;gap:12px;overflow-x:auto;padding:0 16px;scroll-snap-type:x mandatory;scroll-padding:0 16px;scrollbar-width:none}
+.shelf::-webkit-scrollbar{display:none}
+.sc{flex:0 0 calc(100% - 44px);scroll-snap-align:start;position:relative;border-radius:24px;padding:16px;overflow:hidden;min-height:196px;display:flex;flex-direction:column}
+.sc.night{background:linear-gradient(145deg,#2B3A68,#0B1022);color:#E6ECFF}
+.sc.desert{background:linear-gradient(145deg,#7A5122,#3A2410);color:#FFEFCF}
+.sc::before{content:"";position:absolute;right:-30%;top:-40%;width:90%;height:110%;border-radius:50%;background:radial-gradient(circle,rgba(196,210,255,.30),rgba(196,210,255,0) 65%);pointer-events:none}
+.sc.desert::before{background:radial-gradient(circle,rgba(255,214,140,.42),rgba(255,214,140,0) 65%)}
+.sc .top{display:flex;justify-content:space-between;align-items:center;position:relative}
+.onair{display:inline-flex;gap:6px;align-items:center;height:24px;padding:0 9px;border-radius:12px;background:var(--live);color:#fff;font:700 11px/1 var(--ui);letter-spacing:.8px}
+.lis{display:inline-flex;gap:5px;align-items:center;font:600 13px/1 var(--ui);opacity:.9}
+.lis svg{width:16px;height:16px;fill:currentColor}
+.sc .k{font:600 11px/1 var(--ui);letter-spacing:1.6px;text-transform:uppercase;opacity:.75;margin-top:16px;position:relative}
+.sc h3{font:700 20px/1.2 var(--dp);letter-spacing:-.4px;margin-top:6px;position:relative}
+.sc p{font-size:14px;line-height:1.35;opacity:.8;margin-top:6px;position:relative;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.sc .bot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;position:relative}
+.host{display:flex;align-items:center;gap:8px;font:600 14px/1 var(--ui)}
+.host .faces img{width:28px;height:28px;border-color:#18213f}
+.sc.desert .host .faces img{border-color:#4a2f14}
+.seg{display:flex;margin-top:18px;border-bottom:1px solid var(--ln)}
+.seg button{flex:1;height:46px;font:600 15px/1 var(--ui);color:var(--mu);position:relative}
+.seg button[aria-selected="true"]{color:#fff}
+.seg button[aria-selected="true"]::after{content:"";position:absolute;left:50%;bottom:-1px;width:56px;height:3px;margin-left:-28px;border-radius:2px;background:var(--gold)}
+.post{display:flex;gap:12px;padding:16px;border-bottom:1px solid var(--ln)}
+.post>img{width:40px;height:40px;border-radius:20px;object-fit:cover;flex:none}
+.pb{flex:1;min-width:0}
+.pn{display:flex;align-items:center;gap:5px;font-size:15px;color:var(--mu);white-space:nowrap;overflow:hidden}
+.pn b{font:700 16px/1.2 var(--ui);color:#fff;letter-spacing:-.2px}
+.pn svg{width:16px;height:16px;fill:var(--gold)}
+.pn .gl{width:13px;height:13px;fill:var(--mu)}
+.pt{font-size:16px;line-height:1.4;margin-top:3px;text-wrap:pretty}
+.tr{font-size:13px;color:var(--mu);margin-top:6px}
+.tr button{font-weight:600;color:var(--tx)}
+.pimg{margin-top:10px;border-radius:12px;overflow:hidden;aspect-ratio:4/3;box-shadow:inset 0 0 0 1px var(--ln)}
+.pimg img{width:100%;height:100%;object-fit:cover}
+.acts{display:flex;align-items:center;justify-content:space-between;margin-top:10px;color:var(--mu);max-width:330px}
+.acts button,.acts span{display:inline-flex;align-items:center;gap:5px;font:400 13px/1 var(--ui);min-height:32px}
+.acts svg{width:19px;height:19px;fill:currentColor}
+.acts .lk[aria-pressed="true"]{color:var(--like)}
+.acts .lk.pop svg{animation:pop .45s var(--spring)}
+@keyframes pop{40%{transform:scale(1.35)}}
+.liked{display:flex;align-items:center;gap:8px;margin-top:8px;font:600 13px/1 var(--ui);color:var(--mu)}
+.liked .faces img{width:18px;height:18px;border-width:1.5px;border-color:#000;margin-right:-6px}
+.amin{position:relative;overflow:hidden;height:36px;padding:0 14px;border-radius:18px;display:inline-flex;align-items:center;gap:7px;font:600 14px/1 var(--ui);background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--gline);margin-top:12px}
+.amin svg{width:16px;height:16px;fill:var(--gold)}
+.amin[aria-pressed="true"]{background:rgba(217,185,92,.16);box-shadow:inset 0 0 0 1px rgba(217,185,92,.55);color:var(--moon)}
+.rip{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(241,228,191,.55),rgba(217,185,92,0) 70%);transform:scale(0);animation:rip .8s var(--out) forwards;pointer-events:none}
+@keyframes rip{to{transform:scale(1);opacity:0}}
+/* Сцена — комната */
+.room{position:absolute;inset:0;z-index:48;background:#000;display:none;overflow:hidden}
+.room.on{display:block}
+.room-in{position:absolute;inset:0;padding:calc(var(--top) + 4px) 16px calc(var(--bot) + 16px);display:flex;flex-direction:column}
+.rh{display:flex;align-items:center;gap:8px;height:44px}
+.rh .sp{flex:1}
+.rh .exit{height:36px;padding:0 14px;border-radius:18px;font:600 14px/1 var(--ui);background:var(--glass);box-shadow:inset 0 0 0 1px var(--gline)}
+.room .sc{flex:none;min-height:0;margin-top:12px;box-shadow:0 20px 50px -20px rgba(43,58,104,.8)}
+.room .sc p{-webkit-line-clamp:2}
+.rlab{font:600 11px/1 var(--ui);letter-spacing:1.6px;text-transform:uppercase;color:var(--mu);margin:22px 0 14px}
+.spk{display:flex;justify-content:space-around}
+.sp1{display:flex;flex-direction:column;align-items:center;gap:6px;font:700 14px/1.1 var(--ui);text-align:center;width:96px}
+.sp1 small{display:block;font-weight:400;font-size:12px;color:var(--mu);margin-top:2px}
+.sp1 small.g{color:var(--gold)}
+.sp1 .ph{position:relative;width:78px;height:78px;border-radius:50%}
+.sp1 .ph img{width:78px;height:78px;border-radius:50%;object-fit:cover;position:relative;z-index:1;box-shadow:0 0 0 2px #000}
+.sp1 .ph::before,.sp1 .ph::after{content:"";position:absolute;inset:-5px;border-radius:50%;box-shadow:0 0 0 2.5px var(--gold);opacity:0}
+.sp1.talk .ph::before{opacity:1;animation:talk 1.1s ease-in-out infinite}
+.sp1.talk .ph::after{animation:talkw 1.6s var(--out) infinite}
+@keyframes talk{0%,100%{transform:scale(1)}30%{transform:scale(1.06)}60%{transform:scale(1.02)}}
+@keyframes talkw{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.35)}}
+.lsn{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 6px}
+.lsn div{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;color:var(--mu)}
+.lsn img{width:54px;height:54px;border-radius:50%;object-fit:cover}
+.rfoot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:14px;position:relative}
+.hand{display:flex;align-items:center;gap:10px;font:600 15px/1.15 var(--ui);text-align:left}
+.hand i{width:52px;height:52px;border-radius:26px;display:grid;place-items:center;background:var(--glass);box-shadow:inset 0 0 0 1px var(--gline)}
+.hand svg{width:24px;height:24px;fill:#fff}
+.hand small{display:block;font-weight:400;font-size:12px;color:var(--mu)}
+.hand[aria-pressed="true"] i{background:var(--cream)}
+.hand[aria-pressed="true"] svg{fill:var(--onc)}
+.aminbig{position:relative;height:52px;padding:0 20px;border-radius:26px;display:inline-flex;align-items:center;gap:8px;font:700 16px/1 var(--ui);background:rgba(30,29,27,.9);box-shadow:inset 0 0 0 1px rgba(217,185,92,.35),0 0 30px -6px rgba(217,185,92,.35);overflow:visible}
+.aminbig svg{width:20px;height:20px;fill:var(--gold)}
+.aminbig .n{color:var(--mu);font-weight:600}
+.spark{position:absolute;z-index:3;width:14px;height:14px;fill:var(--moon);pointer-events:none;animation:rise 1.6s var(--out) forwards}
+@keyframes rise{0%{transform:translate(0,0) scale(.4);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx),-220px) scale(1);opacity:0}}
+
+/* ───────── 4. СООБЩЕНИЯ ───────── */
+.msgs .feed{padding-top:calc(var(--top) + 52px)}
+.mt{display:flex;align-items:center;justify-content:space-between;padding:6px 16px 14px}
+.mt svg{width:26px;height:26px;fill:var(--gold)}
+.search{margin:0 16px;height:44px;border-radius:22px;background:var(--sf2);display:flex;align-items:center;gap:8px;padding:0 14px;color:var(--mu);font-size:16px}
+.search svg{width:18px;height:18px;fill:var(--mu)}
+.notes{display:flex;gap:10px;overflow-x:auto;padding:52px 16px 6px;scrollbar-width:none}
+.notes::-webkit-scrollbar{display:none}
+.nt{position:relative;flex:none;width:84px;display:flex;flex-direction:column;align-items:center;gap:7px;font:600 12px/1.1 var(--ui);color:var(--tx)}
+.nt .ph{position:relative;width:64px;height:64px}
+.nt .ph img,.nt .ph .me{width:64px;height:64px;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:#1c1b18}
+.nt .me svg{width:28px;height:28px;fill:var(--gold)}
+.nt.gold .ph img{box-shadow:0 0 0 2px #000,0 0 0 4px var(--gold)}
+.bub{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);width:92px;padding:7px 8px;border-radius:14px;background:#262421;font:600 11px/1.25 var(--ui);text-align:center;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.5);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bub::after{content:"";position:absolute}
+.bub.empty{color:var(--mu);font-weight:400}
+.bub.typing{color:#fff}
+.nt .plus{position:absolute;right:0;bottom:0;width:22px;height:22px;border-radius:11px;background:var(--cream);display:grid;place-items:center;box-shadow:0 0 0 2.5px #000}
+.nt .plus svg{width:13px;height:13px;fill:var(--onc)}
+.chips{display:flex;gap:8px;padding:14px 16px 6px;overflow-x:auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{height:36px;padding:0 14px;border-radius:18px;display:inline-flex;align-items:center;gap:7px;font:600 14px/1 var(--ui);box-shadow:inset 0 0 0 1px var(--ln);white-space:nowrap;flex:none}
+.chip svg{width:18px;height:18px;fill:#fff}
+.chip.on{background:var(--lens);box-shadow:none}
+.chip i{font-style:normal;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:#fff;color:#000;font:700 12px/20px var(--ui);text-align:center}
+.lbl2{font:600 11px/1 var(--ui);letter-spacing:1.6px;text-transform:uppercase;color:var(--mu);padding:16px 16px 6px}
+.row{display:flex;align-items:center;gap:12px;padding:10px 16px;width:100%;text-align:left;transition:background .2s}
+.row:active{background:rgba(255,255,255,.05)}
+.row>img,.row>.lt{width:54px;height:54px;border-radius:27px;object-fit:cover;flex:none}
+.lt{display:grid;place-items:center;background:#2a2416;color:var(--gold);font:700 20px/1 var(--dp)}
+.rb{flex:1;min-width:0;border-bottom:1px solid var(--ln);padding:6px 0 12px;margin-bottom:-10px}
+.rb b{display:block;font:700 16px/1.25 var(--ui);letter-spacing:-.2px}
+.rb span{display:block;font-size:14px;color:var(--mu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.rb span.new{color:#fff;font-weight:600}
+.rb span.new em{font-style:normal;color:var(--mu);font-weight:400}
+.rm{display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-size:13px;color:var(--mu);flex:none;align-self:flex-start;padding-top:8px}
+.rm i{width:9px;height:9px;border-radius:5px;background:var(--gold)}
+/* стопка Моментов у края */
+.pile{position:absolute;right:-22px;bottom:calc(var(--bot) + 92px);z-index:25;width:96px;height:118px;cursor:pointer}
+.pile .cd2{position:absolute;right:0;top:0;width:84px;height:108px;border-radius:14px;background-size:cover;background-position:center;box-shadow:0 10px 30px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.15);transition:transform .5s var(--spring)}
+.pile .cd2:nth-child(1){transform:rotate(-14deg) translate(-14px,4px)}
+.pile .cd2:nth-child(2){transform:rotate(-6deg) translate(-6px,0)}
+.pile .cd2:nth-child(3){transform:rotate(4deg)}
+.pile:hover .cd2:nth-child(1){transform:rotate(-20deg) translate(-24px,6px)}
+.pile:hover .cd2:nth-child(2){transform:rotate(-9deg) translate(-12px,0)}
+.pile .who{position:absolute;right:12px;top:8px;z-index:3;width:30px;height:30px;border-radius:15px;box-shadow:0 0 0 2px #fff}
+.pile .new3{position:absolute;left:-34px;top:20px;z-index:3;transform:rotate(-74deg);transform-origin:right center;font:700 11px/1 var(--ui);letter-spacing:1.4px;white-space:nowrap;display:flex;gap:6px;align-items:center}
+.pile .new3 i{width:7px;height:7px;border-radius:4px;background:var(--live)}
+.msgs.on .pile{animation:nudge 1.1s var(--soft) 1.2s 2}
+@keyframes nudge{0%,100%{transform:none}45%{transform:translateX(-12px) rotate(-4deg)}}
+.inst{position:absolute;inset:0;z-index:48;display:none;background:rgba(0,0,0,.6);backdrop-filter:blur(26px) saturate(1.2);-webkit-backdrop-filter:blur(26px) saturate(1.2)}
+.inst.on{display:block}
+.inst .x{position:absolute;right:16px;top:var(--top);z-index:5}
+.inst .ih{position:absolute;left:16px;top:var(--top);height:44px;display:flex;align-items:center;font:700 17px/1 var(--ui);gap:8px}
+.inst .ih small{font-weight:400;color:var(--mu);font-size:14px}
+.deck{position:absolute;left:50%;top:50%;width:280px;height:372px;margin:-200px 0 0 -140px}
+.ic2{position:absolute;inset:0;border-radius:22px;overflow:hidden;background:#111;box-shadow:0 30px 60px -10px rgba(0,0,0,.8),inset 0 0 0 1px rgba(255,255,255,.12);touch-action:none;cursor:grab;transition:transform .55s var(--spring),opacity .4s}
+.ic2 img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ic2 .cap2{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75));display:flex;align-items:center;gap:10px;font:700 15px/1.2 var(--ui)}
+.ic2 .cap2 img{width:32px;height:32px;border-radius:16px;box-shadow:0 0 0 1.5px #fff}
+.ic2 .cap2 small{display:block;font-weight:400;font-size:13px;color:var(--dim)}
+.ic2 .note{position:absolute;left:14px;top:14px;right:14px;font:600 15px/1.3 var(--ui);text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.ihint{position:absolute;left:0;right:0;bottom:calc(var(--bot) + 92px);text-align:center;font-size:14px;color:var(--mu)}
+.iend{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;font:700 22px/1.2 var(--dp)}
+.iend.on{display:flex}
+.iend small{display:block;font:400 15px/1.4 var(--ui);color:var(--mu);margin-top:6px}
+/* открытая переписка */
+.chat{position:absolute;inset:0;z-index:47;background:#000;display:none}
+.chat.on{display:block}
+.chat .ch{position:absolute;left:0;right:0;top:0;padding:calc(var(--top)) 16px 10px;display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:3;border-bottom:1px solid var(--ln)}
+.chat .ch img{width:38px;height:38px;border-radius:19px}
+.chat .ch b{display:block;font:700 16px/1.2 var(--ui)}
+.chat .ch small{font-size:13px;color:var(--gold)}
+.msgl{position:absolute;left:0;right:0;bottom:calc(var(--bot) + 64px);padding:0 12px;display:flex;flex-direction:column;gap:4px}
+.m{max-width:78%;padding:9px 13px;border-radius:20px;font-size:16px;line-height:1.35;opacity:0;transform:translateY(10px) scale(.96);transition:opacity .35s,transform .5s var(--spring)}
+.m.on{opacity:1;transform:none}
+.m.in{align-self:flex-start;background:#262421;border-bottom-left-radius:6px}
+.m.out{align-self:flex-end;background:#2c4f8f;border-bottom-right-radius:6px}
+.m small{font-size:11px;opacity:.6;margin-left:8px}
+.dayp{align-self:center;font:600 12px/1 var(--ui);color:var(--mu);padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.07);margin:6px 0 8px}
+.typing{align-self:flex-start;display:flex;gap:4px;padding:13px 14px;border-radius:20px;background:#262421;opacity:0;transition:opacity .3s}
+.typing.on{opacity:1}
+.typing i{width:7px;height:7px;border-radius:4px;background:var(--mu);animation:dot 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+.comp{position:absolute;left:12px;right:12px;bottom:var(--bot);height:52px;display:flex;align-items:center;gap:10px}
+.comp div{flex:1;height:44px;border-radius:22px;background:var(--sf2);display:flex;align-items:center;padding:0 16px;color:var(--mu)}
+.comp i{width:44px;height:44px;border-radius:22px;display:grid;place-items:center;background:var(--cream)}
+.comp svg{width:20px;height:20px;fill:var(--onc)}
+.req{position:absolute;left:12px;right:12px;bottom:calc(var(--bot) + 76px);z-index:46;border-radius:28px;padding:20px;background:var(--sheet);box-shadow:inset 0 0 0 1px var(--gline),0 30px 60px rgba(0,0,0,.7);transform:translateY(30px);opacity:0;pointer-events:none;transition:transform .5s var(--spring),opacity .3s}
+.req.on{transform:none;opacity:1;pointer-events:auto}
+.req .who2{display:flex;align-items:center;gap:12px;font:700 17px/1.2 var(--ui)}
+.req .who2 .lt{width:44px;height:44px;border-radius:22px;font-size:18px}
+.req .who2 small{display:block;font:400 13px/1.3 var(--ui);color:var(--mu)}
+.req .wali{display:flex;gap:10px;align-items:flex-start;margin:14px 0 16px;padding:12px;border-radius:16px;background:rgba(217,185,92,.08);box-shadow:inset 0 0 0 1px rgba(217,185,92,.25);font-size:14px;line-height:1.4;color:var(--moon)}
+.req .wali svg{width:20px;height:20px;fill:var(--gold);flex:none;margin-top:1px}
+.req .two{display:flex;gap:10px}
+.req .two button{flex:1;height:46px;border-radius:23px;font:600 15px/1 var(--ui);background:rgba(255,255,255,.1)}
+.req .two button.y{background:linear-gradient(180deg,var(--creamHi),var(--creamLo));color:var(--onc)}
+
+/* ───────── 5. ФОКУС ───────── */
+.fc{background:radial-gradient(ellipse 90% 45% at 50% 0,rgba(217,185,92,.16),rgba(217,185,92,.04) 55%,rgba(0,0,0,0) 100%),#000}
+.fc-in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding:calc(var(--top) + 60px) 16px calc(var(--bot) + 80px)}
+.emb{position:relative;width:96px;height:96px;border-radius:50%;display:grid;place-items:center;background:var(--cream);box-shadow:0 0 0 18px rgba(255,255,255,.035),0 0 0 40px rgba(255,255,255,.02),0 0 60px rgba(241,228,191,.25);transition:transform .6s var(--spring)}
+.emb svg{width:42px;height:42px;fill:var(--onc)}
+.fc.lock .emb{transform:scale(1.06)}
+.fc h2{font:700 30px/1.1 var(--dp);letter-spacing:-.7px;margin-top:30px;text-align:center}
+.fc .st2{font-size:15px;color:var(--mu);margin-top:8px;text-align:center;min-height:21px}
+.fc .st2 b{color:var(--tx);font-weight:600}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 10px;width:100%;margin-top:26px;padding:0 6px}
+.app{position:relative;display:flex;flex-direction:column;align-items:center;gap:7px;font:400 12px/1 var(--ui);color:var(--dim);transition:color .3s}
+.app .ico{position:relative;width:60px;height:60px;border-radius:15px;display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);overflow:hidden;transition:transform .5s var(--spring),filter .5s}
+.app .ico>svg{width:30px;height:30px;fill:#fff}
+.app .lk2{position:absolute;top:-6px;left:calc(50% + 18px);width:26px;height:26px;border-radius:13px;display:grid;place-items:center;background:var(--cream);box-shadow:0 0 0 2.5px #000,0 4px 10px rgba(0,0,0,.5);opacity:0;transform:scale(.3);transition:opacity .3s,transform .5s var(--spring)}
+.app .lk2 svg{width:14px;height:14px;fill:var(--onc)}
+.app.locked .ico{transform:scale(.9);filter:brightness(.55) saturate(.85)}
+.app.locked{color:var(--fa)}
+.app.locked .lk2{opacity:1;transform:none}
+.fbox{width:100%;margin-top:24px;border-radius:20px;background:var(--box);box-shadow:inset 0 0 0 1px var(--ln);padding:0 16px}
+.fbox div{display:flex;justify-content:space-between;align-items:center;height:46px;font-size:14px;color:var(--mu)}
+.fbox div+div{border-top:1px solid var(--ln)}
+.fbox b{color:var(--tx);font-weight:600;font-size:15px}
+@media (max-width:760px) and (max-height:700px){.fbox{display:none}}
+.slide{position:relative;width:100%;height:64px;margin-top:auto;border-radius:32px;background:var(--glass);box-shadow:inset 0 0 0 1px var(--gline);display:flex;align-items:center;justify-content:space-between;padding:0 20px 0 76px;font:600 15px/1 var(--ui);touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.slide .tt{position:absolute;left:0;right:0;text-align:center;padding-left:56px;font:200 26px/1 var(--dp);letter-spacing:-.6px;font-variant-numeric:tabular-nums;opacity:0;pointer-events:none}
+.slide .tt b{font-weight:200}
+.slide .go{position:absolute;left:0;right:0;text-align:center;color:transparent;background:linear-gradient(90deg,rgba(255,255,255,.35) 0,#fff 50%,rgba(255,255,255,.35) 100%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;animation:sweep 2.6s linear infinite;pointer-events:none;padding-left:56px}
+@keyframes sweep{from{background-position:200% 0}to{background-position:-0% 0}}
+.slide .az{display:flex;gap:6px;align-items:center;color:var(--gold);z-index:1}
+.slide .az svg{width:16px;height:16px;fill:var(--gold)}
+.thumb{position:absolute;left:6px;top:6px;width:52px;height:52px;border-radius:26px;display:grid;place-items:center;background:linear-gradient(180deg,var(--creamHi),var(--creamLo));box-shadow:0 6px 18px rgba(0,0,0,.5);cursor:grab;touch-action:none;z-index:2}
+.thumb svg{width:24px;height:24px;fill:var(--onc)}
+.shield{position:absolute;left:12px;right:12px;bottom:calc(var(--bot) + 76px);z-index:30;border-radius:28px;padding:22px 20px 20px;text-align:center;background:rgba(23,22,20,.92);box-shadow:inset 0 0 0 1px var(--gline),0 -20px 60px rgba(0,0,0,.7);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);transform:translateY(40px);opacity:0;pointer-events:none;transition:transform .6s var(--spring),opacity .35s}
+.fc.lock .shield{transform:none;opacity:1;pointer-events:auto}
+.shield .lb{font:600 13px/1 var(--ui);letter-spacing:2.2px;text-transform:uppercase;color:var(--gold)}
+.shield h3{font:700 24px/1.15 var(--dp);letter-spacing:-.5px;margin:10px 0 8px}
+.shield p{font-size:15px;line-height:1.4;color:var(--mu);margin-bottom:18px}
+
+/* заставка — та же, что у приложения (app.json: #0F2D1B и луна) */
+.splash{position:absolute;inset:0;z-index:80;background:#0F2D1B;display:grid;place-items:center;transition:opacity .45s ease,transform .7s var(--soft)}
+.splash img{width:150px;height:150px;filter:drop-shadow(0 0 36px rgba(217,185,92,.35))}
+.splash.out{opacity:0;transform:scale(1.12);pointer-events:none}
+/* лист города */
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:58;height:78%;border-radius:32px 32px 0 0;background:var(--sheet);box-shadow:0 -20px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.08);transform:translateY(105%);transition:transform .55s var(--out);display:flex;flex-direction:column}
+.sheet.on{transform:none}
+.scrim{position:absolute;inset:0;z-index:57;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .4s}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet .grab{width:36px;height:5px;border-radius:3px;background:rgba(255,255,255,.25);margin:8px auto 0}
+.sheet h3{font:700 20px/1 var(--dp);padding:18px 20px 12px;display:flex;justify-content:space-between;align-items:center}
+.sheet input{margin:0 16px;height:44px;border-radius:22px;border:0;background:var(--sf2);color:#fff;font:400 16px/1 var(--ui);padding:0 16px;outline:none}
+.sheet input:focus{box-shadow:0 0 0 2px rgba(217,185,92,.6)}
+.geo{display:flex;align-items:center;gap:10px;margin:10px 16px 4px;height:44px;padding:0 14px;border-radius:14px;font:600 15px/1 var(--ui);color:var(--gold);background:rgba(217,185,92,.08)}
+.geo svg{width:18px;height:18px;fill:var(--gold)}
+.clist{flex:1;overflow-y:auto;padding:4px 0 24px;overscroll-behavior:contain}
+.clist button{display:flex;justify-content:space-between;align-items:center;width:100%;height:48px;padding:0 20px;font-size:16px;text-align:left;border-bottom:1px solid var(--ln)}
+.clist button small{font-size:13px;color:var(--mu)}
+.clist button[aria-current="true"]{color:var(--gold)}
+
+/* ───────── ниже приложения ───────── */
+.below{position:relative;background:#000;padding:clamp(72px,10vw,128px) 0 0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(20px,4vw)}
+.kick{font:600 13px/1 var(--ui);letter-spacing:2.2px;text-transform:uppercase;color:var(--gold)}
+.below h2{font:700 clamp(32px,4.2vw,52px)/1.06 var(--dp);letter-spacing:-1.3px;margin:16px 0 14px;max-width:15em;text-wrap:balance}
+.lead{font-size:18px;line-height:1.5;color:var(--mu);max-width:34em}
+.peek{display:none}
+.pw{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,56px);margin-top:44px;padding:clamp(28px,4vw,48px);border-radius:36px;position:relative;overflow:hidden;isolation:isolate;
+  background:radial-gradient(ellipse 60% 70% at 18% 0,rgba(217,185,92,.20),rgba(217,185,92,0) 70%),linear-gradient(160deg,#143a24,#0F2D1B 45%,#0A1F13);box-shadow:inset 0 0 0 1px rgba(217,185,92,.22),0 40px 80px -40px rgba(0,0,0,.9)}
+.pw-moon{width:76px;height:76px;filter:drop-shadow(0 0 22px rgba(217,185,92,.35));margin:-6px 0 14px -6px}
+.pw h3{font:700 clamp(26px,2.6vw,34px)/1.12 var(--dp);letter-spacing:-.8px;max-width:13em;text-wrap:balance}
+.pw-sub{font-size:16px;color:rgba(245,243,238,.72);margin:10px 0 24px}
+.feat{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.feat li{display:flex;gap:14px;align-items:flex-start}
+.feat i,.glist i{width:38px;height:38px;border-radius:19px;flex:none;display:grid;place-items:center;background:rgba(217,185,92,.12);box-shadow:inset 0 0 0 1px rgba(217,185,92,.22)}
+.feat svg,.glist svg{width:18px;height:18px;fill:var(--gold)}
+.feat b,.glist b{display:block;font:600 16px/1.25 var(--ui);color:var(--tx)}
+.feat span{font-size:14px;line-height:1.4;color:rgba(245,243,238,.66)}
+.pw-r{display:flex;flex-direction:column;justify-content:center;gap:16px}
+.plans2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pl{position:relative;text-align:left;padding:18px 16px 16px;border-radius:22px;background:rgba(0,0,0,.22);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);transition:box-shadow .25s,background .25s,transform .2s var(--out)}
+.pl:active{transform:scale(.98)}
+.pl[aria-checked="true"]{background:rgba(217,185,92,.10);box-shadow:inset 0 0 0 1.5px var(--gold)}
+.pl b{display:block;font:700 17px/1 var(--ui)}
+.pl strong{display:block;font:700 22px/1 var(--dp);letter-spacing:-.4px;margin:12px 0 6px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pl small{font-size:13px;color:rgba(245,243,238,.62)}
+.pl .ck{position:absolute;right:14px;top:16px;width:24px;height:24px;border-radius:12px;display:grid;place-items:center;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.pl .ck svg{width:13px;height:13px;fill:var(--onc);opacity:0}
+.pl[aria-checked="true"] .ck{background:var(--gold);box-shadow:none}
+.pl[aria-checked="true"] .ck svg{opacity:1}
+.pl .save{position:absolute;left:12px;top:-11px;height:22px;padding:0 9px;border-radius:11px;display:inline-flex;align-items:center;background:var(--gold);color:var(--onc);font:700 11px/1 var(--ui);letter-spacing:.2px}
+.trial{font-size:13px;line-height:1.5;color:rgba(245,243,238,.6);text-align:center}
+.lists{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.glist{border-radius:28px;padding:22px 22px 10px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln)}
+.glist h3{font:600 13px/1 var(--ui);letter-spacing:1.6px;text-transform:uppercase;color:var(--mu);margin-bottom:6px}
+.glist ul{list-style:none;margin:0;padding:0}
+.glist li{display:flex;gap:14px;align-items:center;padding:12px 0;font-size:16px;line-height:1.35}
+.glist li+li{border-top:1px solid var(--ln)}
+.glist li span{font-size:14px;color:var(--mu)}
+.fine{font-size:13px;line-height:1.5;color:var(--fa);margin-top:22px;max-width:60em}
+.authors{position:relative;margin-top:clamp(72px,10vw,120px);border-radius:36px;overflow:hidden;min-height:380px;display:flex;align-items:flex-end;isolation:isolate}
+.authors>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 64%;z-index:-2}
+.authors::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.88) 0,rgba(0,0,0,.6) 45%,rgba(0,0,0,.1) 100%),linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,0) 50%)}
+.authors .in{padding:clamp(28px,4vw,52px);max-width:600px}
+.authors h2{margin-top:14px}
+.authors .lead{color:rgba(255,255,255,.78)}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.links a{height:48px;padding:0 20px;border-radius:24px;display:inline-flex;align-items:center;gap:8px;font:600 16px/1 var(--ui);background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.links a:first-child{background:linear-gradient(180deg,var(--creamHi),var(--creamLo));color:var(--onc);box-shadow:none}
+.links svg{width:16px;height:16px;fill:currentColor}
+footer{margin-top:clamp(72px,10vw,120px);border-top:1px solid var(--ln);padding:36px 0 calc(48px + env(safe-area-inset-bottom))}
+footer .wrap{display:flex;flex-wrap:wrap;gap:18px 32px;align-items:center;justify-content:space-between}
+footer .lg{display:flex;align-items:center;gap:10px;font:700 17px/1 var(--dp)}
+footer .lg img{width:30px;height:30px;border-radius:8px}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--mu)}
+footer nav a:hover{color:#fff}
+footer .disc{flex-basis:100%;font-size:13px;color:var(--fa);line-height:1.5}
+
+/* лист ожидания */
+dialog.wl{width:min(440px,calc(100vw - 32px));border:0;padding:32px 26px 24px;border-radius:32px;background:var(--sheet);color:var(--tx);box-shadow:inset 0 0 0 1px var(--gline),0 40px 100px rgba(0,0,0,.8)}
+dialog.wl::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+dialog.wl[open]{animation:dlg .5s var(--spring)}
+@keyframes dlg{from{opacity:0;transform:translateY(24px) scale(.97)}}
+.wl .x{position:absolute;right:14px;top:14px;width:36px;height:36px;border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.08)}
+.wl .x svg{width:16px;height:16px;fill:#fff}
+.wl .ic{width:60px;height:60px;border-radius:15px;margin-bottom:18px}
+.wl h2{font:700 26px/1.15 var(--dp);letter-spacing:-.6px}
+.wl .p{font-size:16px;line-height:1.45;color:var(--mu);margin:10px 0 20px}
+.wl input{width:100%;height:52px;border-radius:26px;border:0;background:var(--sf2);color:#fff;font:400 17px/1 var(--ui);padding:0 20px;outline:none;margin-bottom:10px}
+.wl input:focus{box-shadow:0 0 0 2px rgba(217,185,92,.6)}
+.wl input[aria-invalid="true"]{box-shadow:0 0 0 2px var(--live)}
+.wl .msg{min-height:20px;font-size:14px;line-height:1.4;color:var(--moon);margin-top:12px}
+.wl .msg.err{color:#ff8a80}
+.wl .n{font-size:12px;line-height:1.5;color:var(--fa);margin-top:10px}
+.wl .n a{text-decoration:underline}
+.wl.done form.f{display:none}
+
+/* ───────── ширины ───────── */
+@media (max-width:1180px){.side-r{display:none}.stage{grid-template-columns:minmax(0,1fr) auto}.side-l{max-width:380px}.cta-l{display:block!important}}
+@media (min-width:1181px){.cta-l{display:none}}
+@media (min-width:761px){.tip.mob{display:none}.hd .store{display:none}:root{--pw:0px}}
+@media (max-width:760px){
+  .stage{display:block;height:100vh;height:100svh;min-height:520px;padding:0}
+  .side,.amb,.stage::before{display:none}
+  .dev{position:absolute;inset:0;width:auto;height:auto;justify-self:auto}
+  .frame{position:absolute;inset:0;width:auto;height:auto;padding:0;transform:none;border-radius:0;box-shadow:none;background:none}
+  .frame::before,.frame::after,.island,.sbar,.homeind{display:none}
+  .scr{width:100%;height:100%;border-radius:0;--top:calc(env(safe-area-inset-top) + 8px);--bot:calc(env(safe-area-inset-bottom) + 14px)}
+  .pw,.lists{grid-template-columns:1fr}.pw{padding:28px 20px 24px;border-radius:32px}
+  .stage{height:calc(100vh - 36px);height:calc(100svh - 36px)}
+  .peek{display:flex;position:absolute;left:0;right:0;top:0;height:36px;align-items:center;justify-content:center;gap:6px;font:600 13px/1 var(--ui);color:var(--mu)}
+  .peek svg{width:14px;height:14px;fill:var(--mu)}
+  .below{padding-top:84px}
+  .authors{min-height:520px}
+  .authors::before{background:linear-gradient(0deg,rgba(0,0,0,.92) 0,rgba(0,0,0,.6) 50%,rgba(0,0,0,.1) 100%)}
+  dialog.wl{margin:auto auto 0;width:100%;max-width:100%;border-radius:32px 32px 0 0;padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+}
+@media (max-width:760px) and (max-height:720px){
+  .cd .num{font-size:64px;line-height:70px;letter-spacing:-1.6px}
+  .city small{display:none}
+  .times{margin-top:14px}
+  .emb{width:76px;height:76px;box-shadow:0 0 0 12px rgba(255,255,255,.035),0 0 40px rgba(241,228,191,.2)}
+  .emb svg{width:34px;height:34px}
+  .fc h2{margin-top:20px;font-size:26px}
+  .fc-in{padding-top:calc(var(--top) + 54px)}
+  .apps{margin-top:18px;gap:12px 10px}
+}
+@media (max-width:760px) and (max-height:700px){
+  .nz-in{padding-top:calc(var(--top) + 48px)}
+  .cd .num{font-size:58px;line-height:62px;letter-spacing:-1.4px;margin:4px 0 0}
+  .times{margin-top:12px}.times div{padding:8px 0 9px;gap:5px}
+  .pager{margin-top:10px}.card{padding:12px 14px}.ppl{margin:10px 0 8px}
+  .pp{font-size:11px;gap:4px}.pp .ph{width:42px;height:42px}.pp .ph img,.pp .ph .me{width:38px;height:38px}
+  .pdots{margin-top:6px}.hold{height:52px;margin-top:8px}
+}
+@media (max-width:760px) and (max-height:600px){
+  .cd .num{font-size:50px;line-height:54px}.cd .lb{font-size:11px}.cd .sub{font-size:13px}
+  .pp{font-size:0;gap:0}.pdots{display:none}.card h3{font-size:15px}.ppl{margin:8px 0 6px}
+}
+@media (max-width:374px){:root{--pw:44px}.store span{display:none}.store{padding:0;width:44px;height:44px;border-radius:22px;justify-content:center}.tabs button{font-size:9px}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-alarm-f" viewBox="0 0 256 256"><path d="M61.66,37.66l-32,32A8,8,0,0,1,18.34,58.34l32-32A8,8,0,0,1,61.66,37.66Zm176,20.68-32-32a8,8,0,0,0-11.32,11.32l32,32a8,8,0,0,0,11.32-11.32ZM224,136a96,96,0,1,1-96-96A96.11,96.11,0,0,1,224,136Zm-32,0a8,8,0,0,0-8-8H136V80a8,8,0,0,0-16,0v56a8,8,0,0,0,8,8h56A8,8,0,0,0,192,136Z"/></symbol><symbol id="i-apple-logo-f" viewBox="0 0 256 256"><path d="M128.23,30A40,40,0,0,1,167,0h1a8,8,0,0,1,0,16h-1a24,24,0,0,0-23.24,18,8,8,0,1,1-15.5-4ZM223.3,169.59a8.07,8.07,0,0,0-2.8-3.4C203.53,154.53,200,134.64,200,120c0-17.67,13.47-33.06,21.5-40.67a8,8,0,0,0,0-11.62C208.82,55.74,187.82,48,168,48a72.23,72.23,0,0,0-40,12.13,71.56,71.56,0,0,0-90.71,9.09A74.63,74.63,0,0,0,16,123.4a127,127,0,0,0,40.14,89.73A39.8,39.8,0,0,0,83.59,224h87.68a39.84,39.84,0,0,0,29.12-12.57,125,125,0,0,0,17.82-24.6C225.23,174,224.33,172,223.3,169.59Z"/></symbol><symbol id="i-arrow-down" viewBox="0 0 256 256"><path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="i-arrow-up-right" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></symbol><symbol id="i-bookmark-simple" viewBox="0 0 256 256"><path d="M184,32H72A16,16,0,0,0,56,48V224a8,8,0,0,0,12.24,6.78L128,193.43l59.77,37.35A8,8,0,0,0,200,224V48A16,16,0,0,0,184,32Zm0,177.57-51.77-32.35a8,8,0,0,0-8.48,0L72,209.57V48H184Z"/></symbol><symbol id="i-bookmark-simple-f" viewBox="0 0 256 256"><path d="M184,32H72A16,16,0,0,0,56,48V224a8,8,0,0,0,12.24,6.78L128,193.43l59.77,37.35A8,8,0,0,0,200,224V48A16,16,0,0,0,184,32Z"/></symbol><symbol id="i-broadcast-f" viewBox="0 0 256 256"><path d="M168,128a40,40,0,1,1-40-40A40,40,0,0,1,168,128Zm40,0a79.74,79.74,0,0,0-20.37-53.33,8,8,0,1,0-11.92,10.67,64,64,0,0,1,0,85.33,8,8,0,0,0,11.92,10.67A79.79,79.79,0,0,0,208,128ZM80.29,85.34A8,8,0,1,0,68.37,74.67a79.94,79.94,0,0,0,0,106.67,8,8,0,0,0,11.92-10.67,63.95,63.95,0,0,1,0-85.33Zm158.28-4A119.48,119.48,0,0,0,213.71,44a8,8,0,1,0-11.42,11.2,103.9,103.9,0,0,1,0,145.56A8,8,0,1,0,213.71,212,120.12,120.12,0,0,0,238.57,81.29ZM32.17,168.48A103.9,103.9,0,0,1,53.71,55.22,8,8,0,1,0,42.29,44a119.87,119.87,0,0,0,0,168,8,8,0,1,0,11.42-11.2A103.61,103.61,0,0,1,32.17,168.48Z"/></symbol><symbol id="i-camera-f" viewBox="0 0 256 256"><path d="M208,56H180.28L166.65,35.56A8,8,0,0,0,160,32H96a8,8,0,0,0-6.65,3.56L75.71,56H48A24,24,0,0,0,24,80V192a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V80A24,24,0,0,0,208,56Zm-44,76a36,36,0,1,1-36-36A36,36,0,0,1,164,132Z"/></symbol><symbol id="i-caret-down" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="i-caret-left" viewBox="0 0 256 256"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/></symbol><symbol id="i-caret-right" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></symbol><symbol id="i-chart-bar" viewBox="0 0 256 256"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"/></symbol><symbol id="i-chat-circle" viewBox="0 0 256 256"><path d="M128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></symbol><symbol id="i-chat-circle-f" viewBox="0 0 256 256"><path d="M232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Z"/></symbol><symbol id="i-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="i-check-circle" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></symbol><symbol id="i-check-circle-f" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="i-clock-f" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm56,112H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48a8,8,0,0,1,0,16Z"/></symbol><symbol id="i-dots-three" viewBox="0 0 256 256"><path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128Zm56-12a12,12,0,1,0,12,12A12,12,0,0,0,196,116ZM60,116a12,12,0,1,0,12,12A12,12,0,0,0,60,116Z"/></symbol><symbol id="i-envelope-simple-f" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-8,144H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></symbol><symbol id="i-film-strip-f" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM184,56h32V72H184ZM72,200H40V184H72ZM72,72H40V56H72Zm48,128H88V184h32Zm0-128H88V56h32Zm48,128H136V184h32Zm0-128H136V56h32Zm48,128H184V184h32v16Z"/></symbol><symbol id="i-game-controller-f" viewBox="0 0 256 256"><path d="M247.44,173.75a.68.68,0,0,0,0-.14L231.05,89.44c0-.06,0-.12,0-.18A60.08,60.08,0,0,0,172,40H83.89a59.88,59.88,0,0,0-59,49.52L8.58,173.61a.68.68,0,0,0,0,.14,36,36,0,0,0,60.9,31.71l.35-.37L109.52,160h37l39.71,45.09c.11.13.23.25.35.37A36.08,36.08,0,0,0,212,216a36,36,0,0,0,35.43-42.25ZM104,112H96v8a8,8,0,0,1-16,0v-8H72a8,8,0,0,1,0-16h8V88a8,8,0,0,1,16,0v8h8a8,8,0,0,1,0,16Zm40-8a8,8,0,0,1,8-8h24a8,8,0,0,1,0,16H152A8,8,0,0,1,144,104Zm84.37,87.47a19.84,19.84,0,0,1-12.9,8.23A20.09,20.09,0,0,1,198,194.31L167.8,160H172a60,60,0,0,0,51-28.38l8.74,45A19.82,19.82,0,0,1,228.37,191.47Z"/></symbol><symbol id="i-globe-simple" viewBox="0 0 256 256"><path d="M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm87.62,96H175.79C174,83.49,159.94,57.67,148.41,42.4A88.19,88.19,0,0,1,215.63,120ZM96.23,136h63.54c-2.31,41.61-22.23,67.11-31.77,77C118.45,203.1,98.54,177.6,96.23,136Zm0-16C98.54,78.39,118.46,52.89,128,43c9.55,9.93,29.46,35.43,31.77,77Zm11.36-77.6C96.06,57.67,82,83.49,80.21,120H40.37A88.19,88.19,0,0,1,107.59,42.4ZM40.37,136H80.21c1.82,36.51,15.85,62.33,27.38,77.6A88.19,88.19,0,0,1,40.37,136Zm108,77.6c11.53-15.27,25.56-41.09,27.38-77.6h39.84A88.19,88.19,0,0,1,148.41,213.6Z"/></symbol><symbol id="i-hand-heart-f" viewBox="0 0 256 256"><path d="M230.33,141.06a24.34,24.34,0,0,0-18.61-4.77C230.5,117.33,240,98.48,240,80c0-26.47-21.29-48-47.46-48A47.58,47.58,0,0,0,156,48.75,47.58,47.58,0,0,0,119.46,32C93.29,32,72,53.53,72,80c0,11,3.24,21.69,10.06,33a31.87,31.87,0,0,0-14.75,8.4L44.69,144H16A16,16,0,0,0,0,160v40a16,16,0,0,0,16,16H120a7.93,7.93,0,0,0,1.94-.24l64-16a6.94,6.94,0,0,0,1.19-.4L226,182.82l.44-.2a24.6,24.6,0,0,0,3.93-41.56Zm-10.9,27.15-38,16.18L119,200H56V155.31l22.63-22.62A15.86,15.86,0,0,1,89.94,128H140a12,12,0,0,1,0,24H112a8,8,0,0,0,0,16h32a8.32,8.32,0,0,0,1.79-.2l67-15.41.31-.08a8.6,8.6,0,0,1,6.3,15.9Z"/></symbol><symbol id="i-hand-tap" viewBox="0 0 256 256"><path d="M56,76a60,60,0,0,1,120,0,8,8,0,0,1-16,0,44,44,0,0,0-88,0,8,8,0,1,1-16,0Zm140,44a27.9,27.9,0,0,0-13.36,3.39A28,28,0,0,0,144,106.7V76a28,28,0,0,0-56,0v80l-3.82-6.13a28,28,0,0,0-48.41,28.17l29.32,50A8,8,0,1,0,78.89,220L49.6,170a12,12,0,1,1,20.78-12l.14.23,18.68,30A8,8,0,0,0,104,184V76a12,12,0,0,1,24,0v68a8,8,0,1,0,16,0V132a12,12,0,0,1,24,0v20a8,8,0,0,0,16,0v-4a12,12,0,0,1,24,0v36c0,21.61-7.1,36.3-7.16,36.42a8,8,0,0,0,3.58,10.73A7.9,7.9,0,0,0,208,232a8,8,0,0,0,7.16-4.42c.37-.73,8.85-18,8.85-43.58V148A28,28,0,0,0,196,120Z"/></symbol><symbol id="i-hand-waving" viewBox="0 0 256 256"><path d="M220.17,100,202.86,70a28,28,0,0,0-38.24-10.25,27.69,27.69,0,0,0-9,8.34L138.2,38a28,28,0,0,0-48.48,0A28,28,0,0,0,48.15,74l1.59,2.76A27.67,27.67,0,0,0,38,80.41a28,28,0,0,0-10.24,38.25l40,69.32a87.47,87.47,0,0,0,53.43,41,88.56,88.56,0,0,0,22.92,3,88,88,0,0,0,76.06-132Zm-6.66,62.64A72,72,0,0,1,81.62,180l-40-69.32a12,12,0,0,1,20.78-12L81.63,132a8,8,0,1,0,13.85-8L62,66A12,12,0,1,1,82.78,54L114,108a8,8,0,1,0,13.85-8L103.57,58h0a12,12,0,1,1,20.78-12l33.42,57.9a48,48,0,0,0-5.54,60.6,8,8,0,0,0,13.24-9A32,32,0,0,1,172.78,112a8,8,0,0,0,2.13-10.4L168.23,90A12,12,0,1,1,189,78l17.31,30A71.56,71.56,0,0,1,213.51,162.62ZM184.25,31.71A8,8,0,0,1,194,26a59.62,59.62,0,0,1,36.53,28l.33.57a8,8,0,1,1-13.85,8l-.33-.57a43.67,43.67,0,0,0-26.8-20.5A8,8,0,0,1,184.25,31.71ZM80.89,237a8,8,0,0,1-11.23,1.33A119.56,119.56,0,0,1,40.06,204a8,8,0,0,1,13.86-8,103.67,103.67,0,0,0,25.64,29.72A8,8,0,0,1,80.89,237Z"/></symbol><symbol id="i-headphones" viewBox="0 0 256 256"><path d="M201.89,54.66A103.43,103.43,0,0,0,128.79,24H128A104,104,0,0,0,24,128v56a24,24,0,0,0,24,24H64a24,24,0,0,0,24-24V144a24,24,0,0,0-24-24H40.36A88,88,0,0,1,128,40h.67a87.71,87.71,0,0,1,87,80H192a24,24,0,0,0-24,24v40a24,24,0,0,0,24,24h16a24,24,0,0,0,24-24V128A103.41,103.41,0,0,0,201.89,54.66ZM64,136a8,8,0,0,1,8,8v40a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V136Zm152,48a8,8,0,0,1-8,8H192a8,8,0,0,1-8-8V144a8,8,0,0,1,8-8h24Z"/></symbol><symbol id="i-headphones-f" viewBox="0 0 256 256"><path d="M232,128v56a24,24,0,0,1-24,24H192a24,24,0,0,1-24-24V144a24,24,0,0,1,24-24h23.65a87.71,87.71,0,0,0-87-80H128a88,88,0,0,0-87.64,80H64a24,24,0,0,1,24,24v40a24,24,0,0,1-24,24H48a24,24,0,0,1-24-24V128A104.11,104.11,0,0,1,201.89,54.66,103.41,103.41,0,0,1,232,128Z"/></symbol><symbol id="i-heart" viewBox="0 0 256 256"><path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"/></symbol><symbol id="i-heart-f" viewBox="0 0 256 256"><path d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"/></symbol><symbol id="i-image" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"/></symbol><symbol id="i-lock-simple-f" viewBox="0 0 256 256"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96Z"/></symbol><symbol id="i-magnifying-glass" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></symbol><symbol id="i-microphone-f" viewBox="0 0 256 256"><path d="M80,128V64a48,48,0,0,1,96,0v64a48,48,0,0,1-96,0Zm128,0a8,8,0,0,0-16,0,64,64,0,0,1-128,0,8,8,0,0,0-16,0,80.11,80.11,0,0,0,72,79.6V240a8,8,0,0,0,16,0V207.6A80.11,80.11,0,0,0,208,128Z"/></symbol><symbol id="i-moon-f" viewBox="0 0 256 256"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"/></symbol><symbol id="i-navigation-arrow-f" viewBox="0 0 256 256"><path d="M248,121.58a15.76,15.76,0,0,1-11.29,15l-.2.06-78,21.84-21.84,78-.06.2a15.77,15.77,0,0,1-15,11.29h-.3a15.77,15.77,0,0,1-15.07-10.67L41,61.41a1,1,0,0,1-.05-.16A16,16,0,0,1,61.25,40.9l.16.05,175.92,65.26A15.78,15.78,0,0,1,248,121.58Z"/></symbol><symbol id="i-newspaper-f" viewBox="0 0 256 256"><path d="M216,48H56A16,16,0,0,0,40,64V184a8,8,0,0,1-16,0V88A8,8,0,0,0,8,88v96.11A24,24,0,0,0,32,208H208a24,24,0,0,0,24-24V64A16,16,0,0,0,216,48ZM176,152H96a8,8,0,0,1,0-16h80a8,8,0,0,1,0,16Zm0-32H96a8,8,0,0,1,0-16h80a8,8,0,0,1,0,16Z"/></symbol><symbol id="i-paper-plane-tilt" viewBox="0 0 256 256"><path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"/></symbol><symbol id="i-paper-plane-tilt-f" viewBox="0 0 256 256"><path d="M231.4,44.34s0,.1,0,.15l-58.2,191.94a15.88,15.88,0,0,1-14,11.51q-.69.06-1.38.06a15.86,15.86,0,0,1-14.42-9.15L107,164.15a4,4,0,0,1,.77-4.58l57.92-57.92a8,8,0,0,0-11.31-11.31L96.43,148.26a4,4,0,0,1-4.58.77L17.08,112.64a16,16,0,0,1,2.49-29.8l191.94-58.2.15,0A16,16,0,0,1,231.4,44.34Z"/></symbol><symbol id="i-play-f" viewBox="0 0 256 256"><path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"/></symbol><symbol id="i-plus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></symbol><symbol id="i-repeat" viewBox="0 0 256 256"><path d="M24,128A72.08,72.08,0,0,1,96,56H204.69L194.34,45.66a8,8,0,0,1,11.32-11.32l24,24a8,8,0,0,1,0,11.32l-24,24a8,8,0,0,1-11.32-11.32L204.69,72H96a56.06,56.06,0,0,0-56,56,8,8,0,0,1-16,0Zm200-8a8,8,0,0,0-8,8,56.06,56.06,0,0,1-56,56H51.31l10.35-10.34a8,8,0,0,0-11.32-11.32l-24,24a8,8,0,0,0,0,11.32l24,24a8,8,0,0,0,11.32-11.32L51.31,200H160a72.08,72.08,0,0,0,72-72A8,8,0,0,0,224,120Z"/></symbol><symbol id="i-shield-check-f" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm-34.32,69.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="i-shopping-bag-f" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm-88,96A48.05,48.05,0,0,1,80,88a8,8,0,0,1,16,0,32,32,0,0,0,64,0,8,8,0,0,1,16,0A48.05,48.05,0,0,1,128,136Z"/></symbol><symbol id="i-sliders-horizontal" viewBox="0 0 256 256"><path d="M40,88H73a32,32,0,0,0,62,0h81a8,8,0,0,0,0-16H135a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16Zm64-24A16,16,0,1,1,88,80,16,16,0,0,1,104,64ZM216,168H199a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16h97a32,32,0,0,0,62,0h17a8,8,0,0,0,0-16Zm-48,24a16,16,0,1,1,16-16A16,16,0,0,1,168,192Z"/></symbol><symbol id="i-sparkle-f" viewBox="0 0 256 256"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"/></symbol><symbol id="i-users-three-f" viewBox="0 0 256 256"><path d="M64.12,147.8a4,4,0,0,1-4,4.2H16a8,8,0,0,1-7.8-6.17,8.35,8.35,0,0,1,1.62-6.93A67.79,67.79,0,0,1,37,117.51a40,40,0,1,1,66.46-35.8,3.94,3.94,0,0,1-2.27,4.18A64.08,64.08,0,0,0,64,144C64,145.28,64,146.54,64.12,147.8Zm182-8.91A67.76,67.76,0,0,0,219,117.51a40,40,0,1,0-66.46-35.8,3.94,3.94,0,0,0,2.27,4.18A64.08,64.08,0,0,1,192,144c0,1.28,0,2.54-.12,3.8a4,4,0,0,0,4,4.2H240a8,8,0,0,0,7.8-6.17A8.33,8.33,0,0,0,246.17,138.89Zm-89,43.18a48,48,0,1,0-58.37,0A72.13,72.13,0,0,0,65.07,212,8,8,0,0,0,72,224H184a8,8,0,0,0,6.93-12A72.15,72.15,0,0,0,157.19,182.07Z"/></symbol><symbol id="i-x" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></symbol><symbol id="t-focus" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.27,47,25.53a8,8,0,0,0,4.2,0c1-.26,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0Z"/></symbol><symbol id="t-focus-f" viewBox="0 0 256 256"><path d="M224,56v56c0,52.72-25.52,84.67-46.93,102.19-23.06,18.86-46,25.27-47,25.53a8,8,0,0,1-4.2,0c-1-.26-23.91-6.67-47-25.53C57.52,196.67,32,164.72,32,112V56A16,16,0,0,1,48,40H208A16,16,0,0,1,224,56Z"/></symbol><symbol id="t-messages" viewBox="-5.333333333333343 -5.333333333333343 266.6666666666667 266.6666666666667"><path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"/></symbol><symbol id="t-messages-f" viewBox="-5.333333333333343 -5.333333333333343 266.6666666666667 266.6666666666667"><path d="M231.4,44.34s0,.1,0,.15l-58.2,191.94a15.88,15.88,0,0,1-14,11.51q-.69.06-1.38.06a15.86,15.86,0,0,1-14.42-9.15L107,164.15a4,4,0,0,1,.77-4.58l57.92-57.92a8,8,0,0,0-11.31-11.31L96.43,148.26a4,4,0,0,1-4.58.77L17.08,112.64a16,16,0,0,1,2.49-29.8l191.94-58.2.15,0A16,16,0,0,1,231.4,44.34Z"/></symbol><symbol id="t-prayer" viewBox="0 0 256 256"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"/></symbol><symbol id="t-prayer-f" viewBox="0 0 256 256"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"/></symbol><symbol id="t-reminders" viewBox="-1.333333333333334 -1.333333333333334 26.666666666666668 26.666666666666668"><path d="M2 6.25C2 4.45 3.46 3 5.25 3h13.5C20.55 3 22 4.46 22 6.25v11.5c0 1.8-1.46 3.25-3.25 3.25H5.25A3.25 3.25 0 0 1 2 17.75V6.25ZM5.25 4.5c-.97 0-1.75.78-1.75 1.75v11.5c0 .97.78 1.75 1.75 1.75h13.5c.97 0 1.75-.78 1.75-1.75V6.25c0-.97-.78-1.75-1.75-1.75H5.25ZM9 9.25v5.5a1 1 0 0 0 1.48.88l5-2.75a1 1 0 0 0 0-1.76l-5-2.75A1 1 0 0 0 9 9.25Z"/></symbol><symbol id="t-reminders-f" viewBox="-1.333333333333334 -1.333333333333334 26.666666666666668 26.666666666666668"><path d="M5.25 3A3.25 3.25 0 0 0 2 6.25v11.5C2 19.55 3.46 21 5.25 21h13.5c1.8 0 3.25-1.46 3.25-3.25V6.25C22 4.45 20.54 3 18.75 3H5.25ZM9 9.25a1 1 0 0 1 1.48-.88l5 2.75a1 1 0 0 1 0 1.76l-5 2.75A1 1 0 0 1 9 14.75v-5.5Z"/></symbol><symbol id="t-umma" viewBox="-8.170212765957444 -8.170212765957444 272.3404255319149 272.3404255319149"><path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z"/></symbol><symbol id="t-umma-f" viewBox="-8.170212765957444 -8.170212765957444 272.3404255319149 272.3404255319149"><path d="M64.12,147.8a4,4,0,0,1-4,4.2H16a8,8,0,0,1-7.8-6.17,8.35,8.35,0,0,1,1.62-6.93A67.79,67.79,0,0,1,37,117.51a40,40,0,1,1,66.46-35.8,3.94,3.94,0,0,1-2.27,4.18A64.08,64.08,0,0,0,64,144C64,145.28,64,146.54,64.12,147.8Zm182-8.91A67.76,67.76,0,0,0,219,117.51a40,40,0,1,0-66.46-35.8,3.94,3.94,0,0,0,2.27,4.18A64.08,64.08,0,0,1,192,144c0,1.28,0,2.54-.12,3.8a4,4,0,0,0,4,4.2H240a8,8,0,0,0,7.8-6.17A8.33,8.33,0,0,0,246.17,138.89Zm-89,43.18a48,48,0,1,0-58.37,0A72.13,72.13,0,0,0,65.07,212,8,8,0,0,0,72,224H184a8,8,0,0,0,6.93-12A72.15,72.15,0,0,0,157.19,182.07Z"/></symbol></defs></svg>
+<main>
+<section class="stage" id="app" aria-label="Firdausly — приложение прямо на странице">
+  <div class="amb" aria-hidden="true"><i></i><i></i></div>
+
+  <aside class="side side-l">
+    <div class="brand"><img src="/_preview/v7/i/icon.webp" width="44" height="44" alt=""><div><b>Firdausly</b><span>для iPhone · скоро в App Store</span></div></div>
+    <div class="vals">
+      <div class="val on" data-for="namaz">
+        <div class="ey">Намаз</div>
+        <h2>Напоминайте своим <span class="it">близким</span></h2>
+        <p>Совершайте намазы вовремя и напоминайте братьям. Видно, кто из своих уже прочитал, — <b>одно касание напомнит остальным</b>. А «Фаджр вместе» будит вас одновременно.</p>
+        <div class="hint"><svg><use href="#i-hand-tap"/></svg>Удерживайте «Прочитал» внизу экрана</div>
+      </div>
+      <div class="val" data-for="reels">
+        <div class="ey">Reminders</div>
+        <h2>Короткие видео только об <span class="it">исламе</span></h2>
+        <p>Коран, сира, история, семья — каждый ролик проверяют до показа. <b>Ко времени намаза лента встаёт на паузу</b> и ждёт вас.</p>
+        <div class="hint"><svg><use href="#i-hand-tap"/></svg>Листайте вверх · двойное касание — лайк</div>
+      </div>
+      <div class="val" data-for="umma">
+        <div class="ey">Умма</div>
+        <h2>Соцсеть, которая делает ближе к <span class="it">религии</span></h2>
+        <p>Лента с автопереводом — умма со всего мира на вашем языке. <b>Сцена — живые хутбы и разговоры с уммой</b>: заходите и слушайте.</p>
+        <div class="hint"><svg><use href="#i-hand-tap"/></svg>Нажмите «Слушать» на Сцене</div>
+      </div>
+      <div class="val" data-for="msgs">
+        <div class="ey">Сообщения</div>
+        <h2>Общайтесь с <span class="it">близкими</span> прямо в Firdausly</h2>
+        <p>Заметки, Моменты после намаза и переписка. <b>Защита сестёр и функция Вали</b>: сестра решает, кто может ей писать, а вали видит запросы от мужчин.</p>
+        <div class="hint"><svg><use href="#i-hand-tap"/></svg>Откройте стопку Моментов справа</div>
+      </div>
+      <div class="val" data-for="focus">
+        <div class="ey">Фокус</div>
+        <h2>Закрывает соцсети, пока не совершён <span class="it">намаз</span></h2>
+        <p>В азан выбранные приложения закрываются сами. <b>Прочитали — всё открывается.</b> Без силы воли и без споров с собой.</p>
+        <div class="hint"><svg><use href="#i-hand-tap"/></svg>Перетащите ползунок к азану</div>
+      </div>
+    </div>
+    <div class="cta-l" style="display:none;margin-top:28px"><a class="btn" href="#join" data-store><svg><use href="#i-apple-logo-f"/></svg><span data-sl="Скачать в App Store">Хочу первым</span></a></div>
+    <p class="keys"><kbd>←</kbd><kbd>→</kbd> переключают экраны</p>
+  </aside>
+
+  <div class="dev" id="dev">
+    <div class="frame">
+      <div class="island" aria-hidden="true"></div>
+      <div class="scr" id="scr">
+        <div class="sbar" aria-hidden="true"><span id="clock">9:41</span><span class="r"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 2.6c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .8 10.4 10.4 0 0 0 .8 3.7L2 5c1.6-1.5 3.7-2.4 6-2.4Zm0 3.5c1.4 0 2.6.5 3.6 1.4l1.2-1.3A7 7 0 0 0 8 4.3a7 7 0 0 0-4.8 1.9l1.2 1.3c1-.9 2.2-1.4 3.6-1.4Zm0 3.4c.5 0 1 .2 1.3.5L8 11.4 6.7 10c.3-.3.8-.5 1.3-.5Z"/></svg><svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="23" height="11" rx="3.5" fill="none" stroke="#fff" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="24.5" y="4" width="1.6" height="4" rx=".8" opacity=".4"/></svg></span></div>
+
+        <!-- общее: логотип и кнопка магазина живут поверх всех экранов (общий элемент) -->
+        <div class="hd">
+          <a class="hb logo" href="#price" aria-label="Firdausly — о приложении"><svg><use href="#i-moon-f"/></svg></a>
+          <a class="store" href="#join" data-store><svg><use href="#i-apple-logo-f"/></svg><span data-sl="Скачать">Скоро в App Store</span></a>
+        </div>
+
+        <!-- 1. НАМАЗ -->
+        <div class="view nz on" data-view="namaz" role="tabpanel" aria-label="Намаз">
+          <div class="paint" id="paint">
+            <picture><source type="image/avif" srcset="/_preview/v7/i/s-lions-1206.avif"><img src="/_preview/v7/i/s-lions-1206.webp" alt="" width="1206" height="2144" fetchpriority="high" decoding="async"></picture>
+          </div>
+          <div class="nz-light" id="nzLight"></div>
+          <div class="vh"><span class="sp"></span><button class="hb" id="paintNext" aria-label="Сменить картину"><svg><use href="#i-image"/></svg></button></div>
+          <div class="nz-in">
+            <div class="city">
+              <button id="cityBtn" aria-haspopup="dialog"><svg><use href="#i-navigation-arrow-f"/></svg><span id="cityName">Алматы</span><span id="cityDate"> · 18 ноября</span><span class="q" id="cityQ">уточнить</span></button>
+              <small id="hijri">8 джумада уль-ахира 1448</small>
+            </div>
+            <div class="grow"></div>
+            <div class="cd" aria-live="off">
+              <div class="lb" id="cdLb">Иша закрывается через</div>
+              <div class="num" id="cdNum">02:27:33</div>
+              <div class="sub" id="cdSub">Фаджр в 05:58 · восход 07:30</div>
+            </div>
+            <div class="times" id="times">
+              <div data-k="fajr"><b>Фаджр</b><span>05:58</span></div>
+              <div data-k="dhuhr"><b>Зухр</b><span>12:04</span></div>
+              <div data-k="asr"><b>Аср</b><span>14:40</span></div>
+              <div data-k="maghrib"><b>Магриб</b><span>16:28</span></div>
+              <div data-k="isha" class="now"><b>Иша</b><span>18:00</span></div>
+            </div>
+            <div class="grow" style="flex-grow:.8"></div>
+            <div class="pager" id="pager">
+              <div class="card" id="close">
+                <h3>Напоминайте своим близким</h3>
+                <div class="ppl" id="ppl">
+                  <div class="pp" data-st="wait" data-me><div class="ph"><span class="me"><svg><use href="#i-moon-f"/></svg></span><i class="ok"><svg><use href="#i-check"/></svg></i></div>Я</div>
+                  <div class="pp" data-st="read"><div class="ph"><img src="/_preview/v7/i/a-lion.webp" alt=""><i class="ok"><svg><use href="#i-check"/></svg></i></div>Али</div>
+                  <div class="pp" data-st="wait" data-n="Рустам"><div class="ph"><img src="/_preview/v7/i/a-mountain.webp" alt=""><i class="ok"><svg><use href="#i-check"/></svg></i></div>Рустам</div>
+                  <div class="pp" data-st="read"><div class="ph"><img src="/_preview/v7/i/a-road.webp" alt=""><i class="ok"><svg><use href="#i-check"/></svg></i></div>Саид</div>
+                  <div class="pp" data-st="wait" data-n="Юсуф"><div class="ph"><img src="/_preview/v7/i/a-sail.webp" alt=""><i class="ok"><svg><use href="#i-check"/></svg></i></div>Юсуф</div>
+                </div>
+                <div class="crow"><span id="closeCount">Прочитали 2 из 5</span><button class="pill" id="remind"><svg><use href="#i-paper-plane-tilt-f"/></svg>Напомнить · 2</button></div>
+              </div>
+              <div class="card" id="fajr">
+                <h3><svg class="alarm-ic"><use href="#i-alarm-f"/></svg>Будите друг друга на Фаджр</h3>
+                <div class="alarm"><div><div class="t" id="alarmT">05:43</div><small id="alarmS">Фаджр в 05:58 · зазвонит и в беззвучном</small></div><button class="sw" id="fajrSw" role="switch" aria-checked="false" aria-label="Фаджр вместе"></button></div>
+                <div class="wake"><span class="faces"><img src="/_preview/v7/i/a-lion.webp" alt=""><img src="/_preview/v7/i/a-mountain.webp" alt=""><img src="/_preview/v7/i/a-road.webp" alt=""></span><span id="wakeTx">Али, Рустам и Саид ставят будильник</span></div>
+              </div>
+            </div>
+            <div class="pdots" id="pdots"><i class="on"></i><i></i></div>
+            <div class="hold shine" id="hold" role="button" tabindex="0" aria-label="Удерживайте, чтобы отметить намаз">
+              <span class="fillbar"></span>
+              <span class="lf"><svg class="rg" viewBox="0 0 38 38"><circle class="bgc" cx="19" cy="19" r="16"/><circle class="fgc" cx="19" cy="19" r="16"/></svg><span class="dn"><svg><use href="#i-check"/></svg></span></span>
+              <span class="lbl"><b id="holdB">Прочитал Ишу</b><small id="holdS">удерживайте</small></span>
+              <span class="chk"><svg><use href="#i-check-circle"/></svg></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. REMINDERS -->
+        <div class="view rv" data-view="reels" role="tabpanel" aria-label="Reminders">
+          <div class="rl" id="rl" tabindex="0" aria-label="Ролики: листайте вверх и вниз, двойное касание — лайк"></div>
+          <div class="rtop"><span>Reminders</span></div>
+          <div class="pz" aria-hidden="true"><svg><use href="#i-play-f"/></svg></div>
+        </div>
+
+        <!-- 3. УММА -->
+        <div class="view um" data-view="umma" role="tabpanel" aria-label="Умма">
+          <div class="fade-top"></div>
+          <div class="vh" style="z-index:21"><h1>Умма</h1></div>
+          <div class="feed" id="ufeed">
+            <div class="stories">
+              <div class="st"><div class="ring noring" style="position:relative"><span class="me"><svg><use href="#i-moon-f"/></svg></span><i class="plus"><svg><use href="#i-plus"/></svg></i></div>Твоя история</div>
+              <div class="st"><div class="ring" style="position:relative"><img src="/_preview/v7/i/a-sail.webp" alt=""><span class="live"><span class="eq"><i></i><i></i><i></i></span>ЭФИР</span></div>Юсуф</div>
+              <div class="st"><div class="ring" style="position:relative"><img src="/_preview/v7/i/a-river.webp" alt=""><span class="live"><span class="eq"><i></i><i></i><i></i></span>ЭФИР</span></div>Амина</div>
+              <div class="st"><div class="ring"><img src="/_preview/v7/i/a-lion.webp" alt=""></div>Али</div>
+              <div class="st"><div class="ring"><img src="/_preview/v7/i/a-rose.webp" alt=""></div>Марьям</div>
+              <div class="st"><div class="ring"><img src="/_preview/v7/i/a-palm.webp" alt=""></div>Билал</div>
+            </div>
+            <div class="sec"><h2>Сцена</h2><span><i></i>2 в эфире · 2 скоро</span></div>
+            <div class="shelf">
+              <div class="sc night" id="stageCard">
+                <div class="top"><span class="onair"><span class="eq"><i></i><i></i><i></i></span>В ЭФИРЕ</span><span class="lis"><svg><use href="#i-headphones"/></svg><span class="lnum">38</span></span></div>
+                <div class="k">Беседа</div>
+                <h3>Как не пропускать Фаджр зимой</h3>
+                <p>Будильник, ранний сон и брат, который позвонит. Делимся, что работает.</p>
+                <div class="bot"><span class="host"><span class="faces"><img src="/_preview/v7/i/a-sail.webp" alt=""><img src="/_preview/v7/i/a-well.webp" alt=""><img src="/_preview/v7/i/a-rose.webp" alt=""></span>Юсуф</span><button class="pill" id="listen"><svg><use href="#i-headphones-f"/></svg>Слушать</button></div>
+              </div>
+              <div class="sc desert">
+                <div class="top"><span class="onair"><span class="eq"><i></i><i></i><i></i></span>В ЭФИРЕ</span><span class="lis"><svg><use href="#i-headphones"/></svg>112</span></div>
+                <div class="k">Урок</div>
+                <h3>Сира: хиджра в Медину</h3>
+                <p>Вечерний урок по жизнеописанию Пророка ﷺ.</p>
+                <div class="bot"><span class="host"><span class="faces"><img src="/_preview/v7/i/a-key.webp" alt=""><img src="/_preview/v7/i/a-lamp.webp" alt=""></span>Ибрагим</span><span class="pill" style="background:rgba(255,255,255,.16);color:#FFEFCF;box-shadow:none"><svg style="fill:#FFEFCF"><use href="#i-headphones-f"/></svg>Слушать</span></div>
+              </div>
+            </div>
+            <div class="seg" role="tablist"><button role="tab" aria-selected="true">Для тебя</button><button role="tab" aria-selected="false">Подписки</button><button role="tab" aria-selected="false">Темы</button></div>
+            <article class="post"><img src="/_preview/v7/i/a-sail.webp" alt=""><div class="pb">
+              <div class="pn"><b>Юсуф</b><svg><use href="#i-moon-f"/></svg>@yusuf · 12 мин<svg class="gl"><use href="#i-globe-simple"/></svg></div>
+              <p class="pt">Третью неделю встаю на Фаджр с первого будильника. Секрет простой: лечь в одиннадцать.</p>
+              <div class="acts"><button class="lk" aria-pressed="true" aria-label="Нравится"><svg><use href="#i-heart-f"/></svg><span>37</span></button><span><svg><use href="#i-chat-circle"/></svg>4</span><span><svg><use href="#i-repeat"/></svg>2</span><span><svg><use href="#i-paper-plane-tilt"/></svg></span><span><svg><use href="#i-chart-bar"/></svg>412</span><span><svg><use href="#i-bookmark-simple"/></svg></span></div>
+              <div class="liked"><span class="faces"><img src="/_preview/v7/i/a-lion.webp" alt=""><img src="/_preview/v7/i/a-palm.webp" alt=""></span>Нравится Али и ещё 36</div>
+            </div></article>
+            <article class="post"><img src="/_preview/v7/i/a-crescent.webp" alt=""><div class="pb">
+              <div class="pn"><b>Omar</b>@omar.k · 35 мин<svg class="gl"><use href="#i-globe-simple"/></svg></div>
+              <p class="pt" id="omar">В этом месяце начал читать по две страницы Корана после каждого Фаджра. Маленькие шаги, но утро стало совсем другим.</p>
+              <p class="tr"><span id="omarL">Переведено с английского</span> · <button id="omarB">Показать оригинал</button></p>
+              <div class="acts"><button class="lk" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>64</span></button><span><svg><use href="#i-chat-circle"/></svg>7</span><span><svg><use href="#i-repeat"/></svg>3</span><span><svg><use href="#i-paper-plane-tilt"/></svg></span><span><svg><use href="#i-chart-bar"/></svg>1,1 тыс.</span><span><svg><use href="#i-bookmark-simple"/></svg></span></div>
+            </div></article>
+            <article class="post"><img src="/_preview/v7/i/a-river.webp" alt=""><div class="pb">
+              <div class="pn"><b>Амина</b>@amina.reads · 1 ч</div>
+              <p class="pt">Прошу дуа за маму — завтра утром у неё операция. Джазакумуллаху хайран 🤍</p>
+              <button class="amin" id="aminPost" aria-pressed="false"><svg><use href="#i-moon-f"/></svg>Амин · <span>128</span></button>
+            </div></article>
+            <article class="post"><img src="/_preview/v7/i/a-rose.webp" alt=""><div class="pb">
+              <div class="pn"><b>Марьям</b>@maryam · 2 ч</div>
+              <p class="pt">Двор старой мечети после дождя. Тихо так, что слышно воду.</p>
+              <div class="pimg"><img src="/_preview/v7/i/m-terrace-810.webp" alt="Двор старой мечети — классическая живопись" loading="lazy" decoding="async"></div>
+              <div class="acts"><button class="lk" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>219</span></button><span><svg><use href="#i-chat-circle"/></svg>12</span><span><svg><use href="#i-repeat"/></svg>9</span><span><svg><use href="#i-paper-plane-tilt"/></svg></span><span><svg><use href="#i-chart-bar"/></svg>3,4 тыс.</span><span><svg><use href="#i-bookmark-simple"/></svg></span></div>
+            </div></article>
+            <article class="post"><img src="/_preview/v7/i/a-palm.webp" alt=""><div class="pb">
+              <div class="pn"><b>Билал</b>@bilal · 3 ч</div>
+              <p class="pt">Кто в пятницу на Джуму в центральную? Пойдём вместе после работы.</p>
+              <div class="acts"><button class="lk" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>41</span></button><span><svg><use href="#i-chat-circle"/></svg>18</span><span><svg><use href="#i-repeat"/></svg>5</span><span><svg><use href="#i-paper-plane-tilt"/></svg></span><span><svg><use href="#i-chart-bar"/></svg>980</span><span><svg><use href="#i-bookmark-simple"/></svg></span></div>
+            </div></article>
+          </div>
+          <div class="room" id="room" role="dialog" aria-label="Сцена: эфир">
+            <div class="room-in">
+              <div class="rh"><button class="hb" id="roomX" aria-label="Свернуть"><svg><use href="#i-caret-down"/></svg></button><span class="sp"></span><span class="hb" aria-hidden="true"><svg><use href="#i-dots-three"/></svg></span><button class="exit" id="roomExit">Выйти</button></div>
+              <div class="sc night" id="roomCard">
+                <div class="top"><span class="onair"><span class="eq"><i></i><i></i><i></i></span>В ЭФИРЕ · <span id="roomMin">14 мин</span></span><span class="lis"><svg><use href="#i-users-three-f"/></svg><span class="lnum">39</span></span></div>
+                <div class="k">Беседа</div>
+                <h3>Как не пропускать Фаджр зимой</h3>
+                <p>Будильник, ранний сон и брат, который позвонит. Делимся, что работает.</p>
+              </div>
+              <div class="rlab">На сцене</div>
+              <div class="spk" id="spk">
+                <div class="sp1 talk"><div class="ph"><img src="/_preview/v7/i/a-sail.webp" alt=""></div><span>Юсуф<small class="g">Ведёт</small></span></div>
+                <div class="sp1"><div class="ph"><img src="/_preview/v7/i/a-well.webp" alt=""></div><span>Билал<small>Соведущий</small></span></div>
+                <div class="sp1"><div class="ph"><img src="/_preview/v7/i/a-rose.webp" alt=""></div><span>Марьям<small>Гость</small></span></div>
+              </div>
+              <div class="rlab">Слушают</div>
+              <div class="lsn">
+                <div><img src="/_preview/v7/i/a-key.webp" alt="">Ибрагим</div><div><img src="/_preview/v7/i/a-lion.webp" alt="">Али</div><div><img src="/_preview/v7/i/a-stars.webp" alt="">Хадижа</div><div><img src="/_preview/v7/i/a-ship.webp" alt="">Тимур</div>
+              </div>
+              <div class="rfoot">
+                <button class="hand" id="hand" aria-pressed="false"><i><svg><use href="#i-hand-waving"/></svg></i><span>Поднять руку<small>Попросить слово</small></span></button>
+                <button class="aminbig" id="aminBig"><svg><use href="#i-moon-f"/></svg>Амин <span class="n">· <span id="aminN">41</span></span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. СООБЩЕНИЯ -->
+        <div class="view msgs" data-view="msgs" role="tabpanel" aria-label="Сообщения">
+          <div class="fade-top"></div>
+          <div class="feed" id="mfeed">
+            <div class="mt"><h2 class="ttl">Сообщения</h2><svg><use href="#i-check-circle"/></svg></div>
+            <div class="search"><svg><use href="#i-magnifying-glass"/></svg>Поиск</div>
+            <div class="notes" id="notes">
+              <button class="nt" id="myNote"><span class="bub empty" id="myBub">Чем поделишься?</span><span class="ph"><span class="me"><svg><use href="#i-moon-f"/></svg></span><i class="plus"><svg><use href="#i-plus"/></svg></i></span>Твоя заметка</button>
+              <div class="nt gold"><span class="bub">Дочитала Аль-Кахф. Кто со мной?</span><span class="ph"><img src="/_preview/v7/i/a-river.webp" alt=""></span>Амина</div>
+              <div class="nt gold"><span class="bub">Кто на Фаджр в центральной?</span><span class="ph"><img src="/_preview/v7/i/a-sail.webp" alt=""></span>Юсуф</div>
+              <div class="nt"><span class="bub">Сабр и шукр 🤍</span><span class="ph"><img src="/_preview/v7/i/a-rose.webp" alt=""></span>Марьям</div>
+              <div class="nt"><span class="bub">Иду на Иша</span><span class="ph"><img src="/_preview/v7/i/a-lion.webp" alt=""></span>Али</div>
+            </div>
+            <div class="chips"><span class="chip" aria-hidden="true"><svg><use href="#i-sliders-horizontal"/></svg></span><span class="chip on">Основные <i>4</i></span><span class="chip">Группы</span><button class="chip" id="reqChip">Запросы <i>1</i></button></div>
+            <div class="lbl2">Приглашения</div>
+            <div class="row"><span class="lt">С</span><div class="rb"><b>Сёстры района</b><span>Хадижа зовёт тебя · 9 участников</span></div><div class="rm"><i></i></div></div>
+            <button class="row" data-chat="0"><span class="lt">Ф</span><div class="rb"><b>Фаджр вовремя</b><span class="new">3 новых сообщения <em>· 05:58</em></span></div><div class="rm"><i></i></div></button>
+            <button class="row" data-chat="1"><img src="/_preview/v7/i/a-river.webp" alt=""><div class="rb"><b>Амина</b><span class="new">2 новых сообщения <em>· 07:41</em></span></div><div class="rm"><i></i></div></button>
+            <button class="row" data-chat="2"><img src="/_preview/v7/i/a-sail.webp" alt=""><div class="rb"><b>Юсуф</b><span>Зовёт на Аср вместе — у входа в 14:35</span></div><div class="rm">вчера</div></button>
+            <button class="row" data-chat="3"><img src="/_preview/v7/i/a-lamp.webp" alt=""><div class="rb"><b>Мама</b><span>Не забудь шарф, на улице минус 12</span></div><div class="rm">вчера</div></button>
+            <button class="row" data-chat="4"><img src="/_preview/v7/i/a-lion.webp" alt=""><div class="rb"><b>Али</b><span>Стикер</span></div><div class="rm">пн</div></button>
+          </div>
+          <button class="pile" id="pile" aria-label="Моменты: 3 новых">
+            <span class="cd2" style="background-image:url(/_preview/v7/i/m-caravan-810.webp)"></span>
+            <span class="cd2" style="background-image:url(/_preview/v7/i/m-terrace-810.webp)"></span>
+            <span class="cd2" style="background-image:url(/_preview/v7/i/m-samarkand-810.webp)"></span>
+            <img class="who" src="/_preview/v7/i/a-rose.webp" alt="">
+            <span class="new3"><i></i>3 НОВЫХ</span>
+          </button>
+          <div class="inst" id="inst" role="dialog" aria-label="Моменты">
+            <div class="ih">Моменты <small>· исчезнут через 24 ч</small></div>
+            <button class="hb x" id="instX" aria-label="Закрыть"><svg><use href="#i-x"/></svg></button>
+            <div class="deck" id="deck"></div>
+            <div class="iend" id="iend"><span>Всё посмотрели<small>Ваш Момент — после следующего намаза</small></span><button class="pill" id="instDone">Готово</button></div>
+            <p class="ihint" id="ihint">Смахните Момент в сторону</p>
+          </div>
+          <div class="chat" id="chat" role="dialog" aria-label="Переписка">
+            <div class="ch"><button class="hb" id="chatX" aria-label="Назад"><svg><use href="#i-caret-left"/></svg></button><img id="chatAv" src="/_preview/v7/i/a-river.webp" alt=""><div><b id="chatN">Амина</b><small>в сети</small></div></div>
+            <div class="msgl" id="msgl"></div>
+            <div class="comp"><div>Сообщение</div><i><svg><use href="#i-microphone-f"/></svg></i></div>
+          </div>
+          <div class="req" id="req" role="dialog" aria-label="Запрос на переписку">
+            <div class="who2"><span class="lt">А</span><span>Ахмед хочет написать<small>Вы не знакомы · общих близких нет</small></span></div>
+            <div class="wali"><svg><use href="#i-shield-check-f"/></svg><span>Сестра сама решает, кто может ей писать. Ваш вали видит запросы от мужчин — переписку он не видит.</span></div>
+            <div class="two"><button id="reqNo">Отклонить</button><button class="y" id="reqYes">Спросить вали</button></div>
+          </div>
+        </div>
+
+        <!-- 5. ФОКУС -->
+        <div class="view fc" data-view="focus" role="tabpanel" aria-label="Фокус">
+          <div class="fc-in">
+            <div class="emb"><svg><use href="#i-shield-check-f"/></svg></div>
+            <h2 id="fcH">Фокус включён</h2>
+            <p class="st2" id="fcS">Закроет 8 приложений в <b>Магриб · 16:28</b></p>
+            <div class="apps" id="apps"></div>
+            <div class="fbox"><div><span>Ближайшее закрытие</span><b id="fbNext">Магриб · 16:28</b></div><div><span>Закрываем</span><b>8 приложений</b></div><div><span>Строгость</span><b>До намаза</b></div></div>
+            <div class="slide" id="slide"><span class="go" id="slGo">Перетащите к азану</span><span class="tt" id="slNow"><b>16:12</b></span><span class="sp" style="flex:1"></span><span class="az"><svg><use href="#i-moon-f"/></svg><span id="slAz">Магриб</span></span><span class="thumb" id="thumb" role="slider" tabindex="0" aria-label="Время до азана" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><svg><use href="#i-caret-right"/></svg></span></div>
+          </div>
+          <div class="shield" id="shield" role="dialog" aria-label="Фокус">
+            <div class="lb">Азан · <span id="shT">16:28</span></div>
+            <h3 id="shH">Сначала Магриб</h3>
+            <p>Firdausly закрыл 8 приложений до намаза. Прочитаете — всё откроется само.</p>
+            <button class="btn w" id="shOk"><svg><use href="#i-check"/></svg><span id="shB">Прочитал Магриб</span></button>
+          </div>
+        </div>
+
+        <div class="tip mob" id="tip" role="status"><p id="tipT">Это Firdausly прямо на сайте<small>Нажимайте вкладки внизу — всё живое</small></p><button id="tipX" aria-label="Скрыть подсказку"><svg><use href="#i-x"/></svg></button></div>
+        <nav class="tabs" id="tabs" role="tablist" aria-label="Разделы приложения">
+          <span class="lens" id="lens"></span>
+          <button role="tab" aria-selected="true" data-t="namaz" aria-controls="v-namaz"><svg class="o"><use href="#t-prayer"/></svg><svg class="f"><use href="#t-prayer-f"/></svg>Намаз</button>
+          <button role="tab" aria-selected="false" data-t="reels"><svg class="o"><use href="#t-reminders"/></svg><svg class="f"><use href="#t-reminders-f"/></svg>Reminders</button>
+          <button role="tab" aria-selected="false" data-t="umma"><svg class="o"><use href="#t-umma"/></svg><svg class="f"><use href="#t-umma-f"/></svg>Умма</button>
+          <button role="tab" aria-selected="false" data-t="msgs"><svg class="o"><use href="#t-messages"/></svg><svg class="f"><use href="#t-messages-f"/></svg>Сообщения</button>
+          <button role="tab" aria-selected="false" data-t="focus"><svg class="o"><use href="#t-focus"/></svg><svg class="f"><use href="#t-focus-f"/></svg>Фокус</button>
+        </nav>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        <div class="scrim" id="scrim"></div>
+        <div class="sheet" id="sheet" role="dialog" aria-label="Ваш город">
+          <span class="grab"></span>
+          <h3>Ваш город <button class="hb" id="sheetX" aria-label="Закрыть" style="width:36px;height:36px"><svg style="width:16px;height:16px"><use href="#i-x"/></svg></button></h3>
+          <input id="cityQ2" type="search" placeholder="Найти город" autocomplete="off" aria-label="Найти город">
+          <button class="geo" id="geo"><svg><use href="#i-navigation-arrow-f"/></svg>Определить по геопозиции</button>
+          <div class="clist" id="clist"></div>
+        </div>
+        <div class="splash" id="splash" aria-hidden="true"><img src="/_preview/v7/i/moon.webp" alt="" width="150" height="150"></div>
+        <span class="homeind" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <aside class="side side-r">
+    <div class="cta">
+      <img class="ic" src="/_preview/v7/i/icon.webp" width="52" height="52" alt="">
+      <h3 data-pre>Скоро в App Store</h3>
+      <p data-pre>Оставьте почту или Telegram — напишем один раз, в день выхода.</p>
+      <a class="btn w" href="#join" data-store><svg><use href="#i-apple-logo-f"/></svg><span data-sl="Скачать в App Store">Хочу первым</span></a>
+      <div class="per">
+        <p class="on" data-for="namaz"><svg><use href="#i-check-circle-f"/></svg><span><b>Бесплатно навсегда:</b> время намаза, кибла, напоминание и отметка, Коран и зикры.</span></p>
+        <p data-for="reels"><svg><use href="#i-check-circle-f"/></svg><span><b>Смотреть — бесплатно.</b> Выкладывать свои ролики — с Plus. <a href="/creators/">Авторам&nbsp;→</a></span></p>
+        <p data-for="umma"><svg><use href="#i-moon-f"/></svg><span><b>Умма и Сцена — с Plus.</b> Первые 14 дней бесплатно.</span></p>
+        <p data-for="msgs"><svg><use href="#i-shield-check-f"/></svg><span><b>Сестра сама решает,</b> кто может ей писать. Сообщения и Моменты — с Plus.</span></p>
+        <p data-for="focus"><svg><use href="#i-moon-f"/></svg><span><b>Фокус — с Plus.</b> Работает через Экранное время iPhone и закрывает только то, что выберете вы.</span></p>
+      </div>
+      <p class="ios">iPhone с iOS 17 и новее · русский и English</p>
+      <a class="down" href="#price">Цены и подробности <svg><use href="#i-arrow-down"/></svg></a>
+    </div>
+  </aside>
+</section>
+
+<section class="below" id="price" aria-labelledby="pr-h">
+  <a class="peek" href="#price">Цены и подробности<svg><use href="#i-caret-down"/></svg></a>
+  <div class="wrap">
+    <p class="kick">Цены</p>
+    <h2 id="pr-h">Намаз — бесплатно. Навсегда.</h2>
+    <p class="lead">Время, кибла, напоминание и отметка намаза ничего не стоят. Plus открывает то, что делает путь общим.</p>
+    <div class="pw">
+      <div class="pw-l">
+        <img class="pw-moon" src="/_preview/v7/i/moon.webp" width="76" height="76" alt="" loading="lazy">
+        <h3>Firdausly Plus — намаз <span class="it">вместе</span> с близкими</h3>
+        <p class="pw-sub">Всё, что помогает держать пять намазов каждый день.</p>
+        <ul class="feat">
+          <li><i><svg><use href="#i-users-three-f"/></svg></i><span><b>Вместе с близкими</b>Своя группа: видят намазы, напомнят, разбудят на Фаджр</span></li>
+          <li><i><svg><use href="#i-broadcast-f"/></svg></i><span><b>Умма и Сцена</b>Лента с автопереводом и живые эфиры</span></li>
+          <li><i><svg><use href="#i-paper-plane-tilt-f"/></svg></i><span><b>Сообщения и Моменты</b>Переписка с близкими и снимок после намаза</span></li>
+          <li><i><svg><use href="#i-shield-check-f"/></svg></i><span><b>Фокус</b>Закроет лишние приложения до намаза</span></li>
+          <li><i><svg><use href="#i-film-strip-f"/></svg></i><span><b>Свои Reminders</b>Выкладывайте ролики об исламе</span></li>
+        </ul>
+      </div>
+      <div class="pw-r">
+        <div class="plans2" role="radiogroup" aria-label="Срок подписки">
+          <button class="pl" role="radio" aria-checked="true" data-p="y"><span class="save" data-save>выгода 49 %</span><b>Год</b><strong data-py>22 990 ₸</strong><small data-pym>1 916 ₸ в месяц</small><i class="ck"><svg><use href="#i-check"/></svg></i></button>
+          <button class="pl" role="radio" aria-checked="false" data-p="m"><b>Месяц</b><strong data-pm>3 790 ₸</strong><small>каждый месяц</small><i class="ck"><svg><use href="#i-check"/></svg></i></button>
+        </div>
+        <a class="btn w" href="#join" data-store><span data-sl="Попробовать 14 дней бесплатно">Хочу первым</span></a>
+        <p class="trial">Первые 14 дней бесплатно, потом <span data-after>22 990 ₸ в год</span>. Подписка продлевается сама, отменить можно в любой момент в настройках Apple ID — не позже чем за сутки до конца срока.</p>
+      </div>
+    </div>
+    <div class="lists">
+      <div class="glist">
+        <h3>Бесплатно навсегда</h3>
+        <ul>
+          <li><i><svg><use href="#i-clock-f"/></svg></i>Время намаза по вашему городу и кибла</li>
+          <li><i><svg><use href="#i-check-circle-f"/></svg></i>Напоминание и отметка намаза</li>
+          <li><i><svg><use href="#i-moon-f"/></svg></i>Коран с переводом и зикры с подсчётом</li>
+          <li><i><svg><use href="#i-play-f"/></svg></i>Смотреть Reminders, лайкать и отвечать</li>
+          <li><i><svg><use href="#i-users-three-f"/></svg></i>Быть в группе близких, куда вас позвали</li>
+        </ul>
+      </div>
+      <div class="glist">
+        <h3>Ещё</h3>
+        <ul>
+          <li><i><svg><use href="#i-hand-heart-f"/></svg></i><span><b>Код друга</b>7 дней Plus сразу, потом ещё 14 дней пробы от Apple</span></li>
+          <li><i><svg><use href="#i-sparkle-f"/></svg></i><span><b>Premium</b>Всё из Plus и золотой полумесяц у имени — для тех, кто хочет поддержать. <span data-prem>5 390 ₸ в месяц или 32 990 ₸ в год</span></span></li>
+          <li><i><svg><use href="#i-envelope-simple-f"/></svg></i><span><b>Не можете платить — напишите</b>Каждый месяц десять человек получают от нас Plus на три месяца</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine" data-fine>Цены для Казахстана; в других странах App Store покажет цену в вашей валюте до оплаты. 14 дней бесплатно — у Plus, для новых подписчиков: если не отменить хотя бы за сутки до конца пробы, начнётся подписка по цене выбранного срока.</p>
+
+    <div class="authors" id="about">
+      <img src="/_preview/v7/i/s-plus-1206.webp" alt="" loading="lazy" decoding="async">
+      <div class="in">
+        <p class="kick">Авторам и партнёрам</p>
+        <h2>Ваши уроки — там, где их ждут</h2>
+        <p class="lead">Ведите Reminders и эфиры на Сцене, собирайте учеников со всего мира — лента сама переводит на их язык. Партнёры получают долю с подписок по своему коду.</p>
+        <div class="links"><a href="/creators/">Авторам <svg><use href="#i-arrow-up-right"/></svg></a><a href="/partners.html">Партнёрская программа</a></div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="wrap">
+      <span class="lg"><img src="/_preview/v7/i/icon.webp" width="30" height="30" alt="">Firdausly</span>
+      <nav aria-label="Документы"><a href="/about.html">О нас</a><a href="/namaz/">Время намаза</a><a href="/support.html">Поддержка</a><a href="/privacy.html">Конфиденциальность</a><a href="/terms.html">Условия</a><a href="/en/">English</a></nav>
+      <p class="disc">Экраны на странице — живые примеры интерфейса Firdausly; имена и числа в них условные. Время намаза считается по вашему городу тем же способом, что в приложении. Картины — классическая живопись и иллюстрации Firdausly.</p>
+    </div>
+  </footer>
+</section>
+</main>
+
+<dialog class="wl" id="waitlist" aria-labelledby="wl-h">
+  <form method="dialog"><button class="x" type="submit" aria-label="Закрыть"><svg><use href="#i-x"/></svg></button></form>
+  <img class="ic" src="/_preview/v7/i/icon.webp" width="60" height="60" alt="">
+  <h2 id="wl-h">Firdausly скоро в App Store</h2>
+  <p class="p">Готовим выход. Оставьте почту или Telegram — напишем один раз, в день, когда Firdausly появится в App Store.</p>
+  <form class="f" data-wlf novalidate>
+    <label class="sr" for="wl-in">Почта или Telegram</label>
+    <input id="wl-in" name="contact" type="text" inputmode="email" autocomplete="email" placeholder="name@mail.ru или @username" required>
+    <button class="btn w" type="submit" data-wlb>Напомнить в день выхода</button>
+  </form>
+  <p class="msg" data-wlm role="status" aria-live="polite"></p>
+  <p class="n">Только чтобы сообщить о запуске. Без рассылок. <a href="/privacy.html">Политика конфиденциальности</a></p>
+</dialog>
+
+<script src="/assets/adhan-4.4.4.min.js" defer></script>
+<script src="/assets/namaz.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+'use strict';
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MOB = matchMedia('(max-width: 760px)');
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const I = '/_preview/v7/i/';
+const buzz = (n = 10) => { try { if (navigator.vibrate && (!navigator.userActivation || navigator.userActivation.hasBeenActive)) navigator.vibrate(n); } catch (e) {} };
+const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+const icon = (id, cls = '') => `<svg class="${cls}"><use href="#${id}"/></svg>`;
+const scr = $('#scr');
+
+/* ── масштаб телефона на компьютере ── */
+const dev = $('#dev');
+function fit() {
+  if (MOB.matches) { dev.style.removeProperty('--s'); return; }
+  const h = window.innerHeight - 48, s = Math.min(1, Math.max(.62, h / 896));
+  dev.style.setProperty('--s', s.toFixed(4));
+}
+fit(); addEventListener('resize', fit); MOB.addEventListener('change', fit);
+const scale = () => (MOB.matches ? 1 : parseFloat(getComputedStyle(dev).getPropertyValue('--s')) || 1);
+
+/* ── часы в строке состояния ── */
+const clock = $('#clock');
+const tickClock = () => { const d = new Date(); clock.textContent = d.getHours() + ':' + String(d.getMinutes()).padStart(2, '0'); };
+tickClock(); setInterval(tickClock, 15000);
+
+/* ── открытое окно прячет шапку и панель, как в приложении ── */
+const over = on => scr.classList.toggle('over', !!on);
+/* ── тост ── */
+const toastEl = $('#toast'); let toastT;
+function toast(html) { toastEl.innerHTML = html; toastEl.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove('on'), 2800); }
+
+/* ═════════ ВРЕМЯ НАМАЗА ═════════ */
+const CITIES = [["almaty","Алматы","KZ","Etc/GMT-5",43.2383,76.9455,null,"Казахстан"],["astana","Астана","KZ","Etc/GMT-5",51.1333,71.4333,null,"Казахстан"],["shymkent","Шымкент","KZ","Etc/GMT-5",42.368,69.6128,null,"Казахстан"],["aktobe","Актобе","KZ","Etc/GMT-5",50.3004,57.1546,null,"Казахстан"],["karaganda","Караганда","KZ","Etc/GMT-5",49.8064,73.0855,null,"Казахстан"],["taraz","Тараз","KZ","Etc/GMT-5",42.8833,71.3667,null,"Казахстан"],["ust-kamenogorsk","Усть-Каменогорск","KZ","Etc/GMT-5",49.9483,82.6278,null,"Казахстан"],["pavlodar","Павлодар","KZ","Etc/GMT-5",52.3156,76.9564,null,"Казахстан"],["atyrau","Атырау","KZ","Etc/GMT-5",47.1167,51.8833,null,"Казахстан"],["semey","Семей","KZ","Etc/GMT-5",50.405,80.2492,null,"Казахстан"],["kyzylorda","Кызылорда","KZ","Etc/GMT-5",44.8425,65.5026,null,"Казахстан"],["kostanay","Костанай","KZ","Etc/GMT-5",53.2193,63.6342,null,"Казахстан"],["uralsk","Уральск","KZ","Etc/GMT-5",51.204,51.3705,null,"Казахстан"],["petropavlovsk","Петропавловск","KZ","Etc/GMT-5",54.8622,69.1408,null,"Казахстан"],["aktau","Актау","KZ","Etc/GMT-5",43.6354,51.1691,null,"Казахстан"],["turkestan","Туркестан","KZ","Etc/GMT-5",43.302,68.269,null,"Казахстан"],["kokshetau","Кокшетау","KZ","Etc/GMT-5",53.2917,69.3917,null,"Казахстан"],["taldykorgan","Талдыкорган","KZ","Etc/GMT-5",45.0178,78.3821,null,"Казахстан"],["konaev","Конаев","KZ","Etc/GMT-5",43.8833,77.0833,null,"Казахстан"],["zhezkazgan","Жезказган","KZ","Etc/GMT-5",47.7997,67.7141,null,"Казахстан"],["temirtau","Темиртау","KZ","Etc/GMT-5",50.0588,72.9534,null,"Казахстан"],["ekibastuz","Экибастуз","KZ","Etc/GMT-5",51.7298,75.3266,null,"Казахстан"],["rudny","Рудный","KZ","Etc/GMT-5",52.9667,63.1167,null,"Казахстан"],["zhanaozen","Жанаозен","KZ","Etc/GMT-5",43.3433,52.8658,null,"Казахстан"],["kaskelen","Каскелен","KZ","Etc/GMT-5",43.2024,76.6223,null,"Казахстан"],["balkhash","Балхаш","KZ","Etc/GMT-5",46.8437,74.9773,null,"Казахстан"],["kentau","Кентау","KZ","Etc/GMT-5",43.5181,68.5047,null,"Казахстан"],["kulsary","Кульсары","KZ","Etc/GMT-5",46.9833,54.0167,null,"Казахстан"],["satpayev","Сатпаев","KZ","Etc/GMT-5",47.9008,67.533,null,"Казахстан"],["talgar","Талгар","KZ","Etc/GMT-5",43.3028,77.2397,null,"Казахстан"],["kosshy","Косшы","KZ","Etc/GMT-5",50.9703,71.3554,null,"Казахстан"],["ridder","Риддер","KZ","Etc/GMT-5",50.3389,83.5063,null,"Казахстан"],["stepnogorsk","Степногорск","KZ","Etc/GMT-5",52.3469,71.8817,null,"Казахстан"],["saryagash","Сарыагаш","KZ","Etc/GMT-5",41.4667,69.1667,null,"Казахстан"],["zharkent","Жаркент","KZ","Etc/GMT-5",44.1694,80.0038,null,"Казахстан"],["shchuchinsk","Щучинск","KZ","Etc/GMT-5",52.9421,70.2101,null,"Казахстан"],["esik","Есик","KZ","Etc/GMT-5",43.3652,77.4509,null,"Казахстан"],["aksu","Аксу","KZ","Etc/GMT-5",52.0379,76.9206,null,"Казахстан"],["shakhtinsk","Шахтинск","KZ","Etc/GMT-5",49.7059,72.5946,null,"Казахстан"],["ayagoz","Аягоз","KZ","Etc/GMT-5",47.9667,80.4333,null,"Казахстан"],["zhetysai","Жетысай","KZ","Etc/GMT-5",40.7753,68.3272,null,"Казахстан"],["bishkek","Бишкек","KG","Asia/Bishkek",42.8746,74.5698,null,"Кыргызстан"],["osh","Ош","KG","Asia/Bishkek",40.5283,72.7985,null,"Кыргызстан"],["tashkent","Ташкент","UZ","Asia/Tashkent",41.2995,69.2401,null,"Узбекистан"],["samarkand","Самарканд","UZ","Asia/Samarkand",39.6542,66.9597,null,"Узбекистан"],["dushanbe","Душанбе","TJ","Asia/Dushanbe",38.5598,68.787,null,"Таджикистан"],["moscow","Москва","RU","Europe/Moscow",55.7558,37.6173,null,"Россия"],["kazan","Казань","RU","Europe/Moscow",55.7963,49.1088,true,"Россия"],["ufa","Уфа","RU","Asia/Yekaterinburg",54.7388,55.9721,null,"Россия"],["makhachkala","Махачкала","RU","Europe/Moscow",42.9849,47.5047,null,"Россия"],["grozny","Грозный","RU","Europe/Moscow",43.3178,45.6949,null,"Россия"],["baku","Баку","AZ","Asia/Baku",40.4093,49.8671,null,"Азербайджан"],["istanbul","Стамбул","TR","Europe/Istanbul",41.0082,28.9784,null,"Турция"],["dubai","Дубай","AE","Asia/Dubai",25.2048,55.2708,null,"ОАЭ"],["london","Лондон","GB","Europe/London",51.5074,-0.1278,null,"Великобритания"],["new-york","Нью-Йорк","US","America/New_York",40.7128,-74.006,null,"США"]].map(([slug, ru, cc, tz, lat, lon, hanafi, country]) => ({ slug, ru, cc, tz, lat, lon, hanafi: hanafi === null ? undefined : hanafi, country }));
+const TZ = { 'Asia/Almaty': 'almaty', 'Asia/Qyzylorda': 'kyzylorda', 'Asia/Aqtobe': 'aktobe', 'Asia/Aqtau': 'aktau', 'Asia/Atyrau': 'atyrau', 'Asia/Oral': 'uralsk', 'Asia/Qostanay': 'kostanay', 'Asia/Bishkek': 'bishkek', 'Asia/Tashkent': 'tashkent', 'Asia/Samarkand': 'samarkand', 'Asia/Dushanbe': 'dushanbe', 'Europe/Moscow': 'moscow', 'Asia/Yekaterinburg': 'ufa', 'Asia/Baku': 'baku', 'Europe/Istanbul': 'istanbul', 'Asia/Dubai': 'dubai', 'Europe/London': 'london', 'America/New_York': 'new-york', 'Europe/Volgograd': 'moscow', 'Europe/Simferopol': 'moscow' };
+const NAMES = { fajr: 'Фаджр', sunrise: 'Восход', dhuhr: 'Зухр', asr: 'Аср', maghrib: 'Магриб', isha: 'Иша' };
+const ACC = { fajr: 'Фаджр', dhuhr: 'Зухр', asr: 'Аср', maghrib: 'Магриб', isha: 'Ишу', jumua: 'Джуму' };
+const PREP = { fajr: 'Фаджре', dhuhr: 'Зухре', asr: 'Асре', maghrib: 'Магрибе', isha: 'Ише', jumua: 'Джуме' };
+let city, guessed = false;
+(function pick() {
+  const saved = store.get('v7city'), bySlug = s => CITIES.find(c => c.slug === s);
+  if (saved && bySlug(saved)) { city = bySlug(saved); return; }
+  guessed = true;
+  let tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  city = bySlug(TZ[tz]) || (() => { const off = -new Date().getTimezoneOffset(); const m = CITIES.find(c => tzOffset(c.tz) === off); return m || bySlug('almaty'); })();
+})();
+function tzOffset(tz) { try { const d = new Date(); const s = d.toLocaleString('en-US', { timeZone: tz, hour12: false }); const t = new Date(s); return Math.round((t - new Date(d.toLocaleString('en-US', { timeZone: 'UTC', hour12: false }))) / 60000); } catch (e) { return 99999; } }
+const NZ = window.FirdausNamaz;
+let P = null; /* {times, next, cur, ...} */
+function ymd(tz, add = 0) { const d = new Date(Date.now() + add * 864e5); const p = new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(d).split('-').map(Number); return p; }
+function hm(date) { return NZ ? NZ.hm(date, city.tz) : date.toTimeString().slice(0, 5); }
+function compute() {
+  if (!NZ) return null;
+  const [y, m, d] = ymd(city.tz), t = NZ.day(city, y, m, d), [y2, m2, d2] = ymd(city.tz, 1), tm = NZ.day(city, y2, m2, d2), [y0, m0, d0] = ymd(city.tz, -1), ty = NZ.day(city, y0, m0, d0);
+  const fri = new Date(Date.UTC(y, m - 1, d, 12)).getUTCDay() === 5;
+  const now = Date.now();
+  let cur, end, next, nextAt;
+  if (now < t.fajr) { cur = 'isha'; end = t.fajr; next = 'fajr'; nextAt = t.fajr; }
+  else if (now < t.sunrise) { cur = 'fajr'; end = t.sunrise; next = 'dhuhr'; nextAt = t.dhuhr; }
+  else if (now < t.dhuhr) { cur = null; end = t.dhuhr; next = 'dhuhr'; nextAt = t.dhuhr; }
+  else if (now < t.asr) { cur = 'dhuhr'; end = t.asr; next = 'asr'; nextAt = t.asr; }
+  else if (now < t.maghrib) { cur = 'asr'; end = t.maghrib; next = 'maghrib'; nextAt = t.maghrib; }
+  else if (now < t.isha) { cur = 'maghrib'; end = t.isha; next = 'isha'; nextAt = t.isha; }
+  else { cur = 'isha'; end = tm.fajr; next = 'fajr'; nextAt = tm.fajr; }
+  const nextFajr = now < t.fajr ? t.fajr : tm.fajr, sunriseAfter = now < t.sunrise ? t.sunrise : tm.sunrise;
+  const nm = k => (k === 'dhuhr' && fri ? 'Джума' : NAMES[k]);
+  const acc = k => (k === 'dhuhr' && fri ? ACC.jumua : ACC[k]);
+  /* Фокус и пауза Reminders — ближайший азан, кроме восхода */
+  return { t, tm, ty, fri, cur, end, next, nextAt, nextFajr, sunriseAfter, nm, acc, y, m, d };
+}
+const MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+function pad(n) { return String(n).padStart(2, '0'); }
+function renderPrayer() {
+  P = compute();
+  $('#cityName').textContent = city.ru;
+  $('#cityQ').hidden = !guessed;
+  if (!P) return;
+  $('#cityDate').textContent = ' · ' + P.d + ' ' + MONTHS[P.m - 1];
+  const hj = NZ.hijri('ru', P.y, P.m, P.d); if (hj) $('#hijri').textContent = hj;
+  $$('#times div').forEach(el => { const k = el.dataset.k; el.querySelector('span').textContent = hm(P.t[k]); el.querySelector('b').textContent = P.nm(k); el.classList.toggle('now', k === (P.cur || P.next)); });
+  $('#cdLb').textContent = P.cur ? P.nm(P.cur) + ' закрывается через' : 'До ' + (P.fri ? 'Джумы' : 'Зухра');
+  $('#cdSub').textContent = P.next === 'fajr' || P.cur === 'isha' ? `Фаджр в ${hm(P.nextFajr)} · восход ${hm(P.sunriseAfter)}` : `${P.nm(P.next)} в ${hm(P.nextAt)}`;
+  if (!markedFor || markedFor !== P.cur) { resetHold(); }
+  const fj = new Date(P.nextFajr.getTime() - 15 * 60000);
+  $('#alarmT').textContent = hm(fj); $('#alarmS').textContent = `Фаджр в ${hm(P.nextFajr)} · зазвонит и в беззвучном`;
+  const closeName = P.cur ? P.acc(P.cur) : null;
+  if (closeName) $('#closeCount').textContent = `Прочитали ${readCount()} из 5`; else $('#closeCount').textContent = `${P.nm(P.next)} в ${hm(P.nextAt)}`;
+  updateFocusTimes(); updatePause();
+}
+function tick() {
+  if (!P) return;
+  let ms = P.end - Date.now(); if (ms < 0) { renderPrayer(); ms = P.end - Date.now(); }
+  const s = Math.max(0, Math.floor(ms / 1000));
+  $('#cdNum').textContent = pad(Math.floor(s / 3600)) + ':' + pad(Math.floor(s / 60) % 60) + ':' + pad(s % 60);
+}
+
+/* ── лист города ── */
+const sheet = $('#sheet'), scrim = $('#scrim'), clist = $('#clist');
+function openSheet() { drawCities(''); sheet.classList.add('on'); scrim.classList.add('on'); setTimeout(() => { if (!MOB.matches) $('#cityQ2').focus(); }, 300); }
+function closeSheet() { sheet.classList.remove('on'); scrim.classList.remove('on'); }
+function drawCities(q) {
+  q = q.trim().toLowerCase();
+  clist.innerHTML = CITIES.filter(c => !q || c.ru.toLowerCase().includes(q) || c.slug.includes(q)).map(c => `<button data-s="${c.slug}"${c.slug === city.slug ? ' aria-current="true"' : ''}>${c.ru}<small>${c.country}</small></button>`).join('') || '<p style="padding:16px 20px;color:var(--mu)">Такого города пока нет — в приложении есть любой</p>';
+}
+function setCity(c, how) { city = c; guessed = false; store.set('v7city', c.slug); closeSheet(); renderPrayer(); tick(); toast(`${icon('i-navigation-arrow-f')}Время намаза — ${how || 'для города'} ${c.ru}`); }
+$('#cityBtn').addEventListener('click', openSheet);
+$('#sheetX').addEventListener('click', closeSheet); scrim.addEventListener('click', closeSheet);
+$('#cityQ2').addEventListener('input', e => drawCities(e.target.value));
+clist.addEventListener('click', e => { const b = e.target.closest('button[data-s]'); if (b) setCity(CITIES.find(c => c.slug === b.dataset.s)); });
+$('#geo').addEventListener('click', () => {
+  if (!navigator.geolocation) return toast('Браузер не делится геопозицией');
+  navigator.geolocation.getCurrentPosition(p => {
+    const { latitude: la, longitude: lo } = p.coords; let best = CITIES[0], bd = 1e9;
+    CITIES.forEach(c => { const d = (c.lat - la) ** 2 + ((c.lon - lo) * Math.cos(la * Math.PI / 180)) ** 2; if (d < bd) { bd = d; best = c; } });
+    setCity(best, 'ближайший город');
+  }, () => toast('Геопозиция недоступна — выберите город из списка'), { timeout: 8000 });
+});
+
+/* ═════════ ВКЛАДКИ ═════════ */
+const TABS = ['namaz', 'reels', 'umma', 'msgs', 'focus'];
+const views = Object.fromEntries($$('.view').map(v => [v.dataset.view, v]));
+const tabBtns = $$('#tabs button'), lens = $('#lens'), vals = $$('.val, .per p');
+const AMB = { umma: I + 's-gate-b.webp', msgs: I + 's-plus-b.webp', focus: I + 's-sujud-b.webp' };
+const ambs = $$('.amb i'); let ambI = 0, ambSrc = '';
+function ambient(src) { if (!src || src === ambSrc) return; ambSrc = src; const nx = ambs[ambI ^ 1]; nx.style.backgroundImage = `url(${src})`; nx.classList.add('on'); ambs[ambI].classList.remove('on'); ambI ^= 1; }
+let cur = 0;
+function lensTo(i, anim) {
+  const w = tabBtns[0].offsetWidth, x = tabBtns[i].offsetLeft - 6;
+  const from = lens._x ?? x; lens._x = x;
+  if (!anim || RM || from === x) { lens.style.transform = `translateX(${x}px)`; return; }
+  lens.animate([{ transform: `translateX(${from}px) scaleX(1)` }, { transform: `translateX(${(from + x) / 2}px) scaleX(${1 + Math.min(.55, Math.abs(x - from) / w * .22)}) scaleY(.92)`, offset: .45 }, { transform: `translateX(${x}px) scaleX(1)` }], { duration: 520, easing: 'cubic-bezier(.3,.9,.3,1)' });
+  lens.style.transform = `translateX(${x}px)`;
+}
+const tipEl = $('#tip'), tipT = $('#tipT');
+const TIPS = { reels: ['Reminders — короткие видео только об исламе', 'Листайте вверх · двойное касание — лайк'], umma: ['Соцсеть, которая делает ближе к религии', 'Нажмите «Слушать» — это Сцена, живые хутбы'], msgs: ['Общайтесь с близкими прямо в Firdausly', 'Стопка справа — Моменты после намаза'], focus: ['Фокус блокирует соцсети, пока не совершил намаз', 'Перетащите ползунок к азану'] };
+let tipSeen = {};
+function tip(id) {
+  const t = id === 'first' ? ['Это Firdausly прямо на сайте', 'Нажимайте вкладки внизу — всё живое'] : TIPS[id];
+  if (!t || tipSeen[id]) { tipEl.classList.remove('on'); return; }
+  tipSeen[id] = 1;
+  tipT.innerHTML = `${t[0]}<small>${t[1]}</small>`;
+  const b = tabBtns[id === 'first' ? 1 : TABS.indexOf(id)], r = b.getBoundingClientRect(), sr = scr.getBoundingClientRect(), s = scale();
+  tipEl.style.setProperty('--tx', ((r.left + r.width / 2 - sr.left) / s - 16) + 'px');
+  tipEl.classList.add('on'); clearTimeout(tipEl._t); tipEl._t = setTimeout(hideTip, 5200);
+}
+const hideTip = () => tipEl.classList.remove('on');
+$('#tipX').addEventListener('click', hideTip);
+const enter = {}, leave = {};
+function go(i, opt = {}) {
+  if (i === cur && !opt.force) return;
+  const prev = cur, a = views[TABS[prev]], b = views[TABS[i]], d = i > prev ? 1 : -1;
+  cur = i; hideTip();
+  tabBtns.forEach((t, k) => t.setAttribute('aria-selected', k === i));
+  vals.forEach(v => v.classList.toggle('on', v.dataset.for === TABS[i]));
+  lensTo(i, !opt.instant);
+  ambient(TABS[i] === 'namaz' ? paintAmb() : TABS[i] === 'reels' ? reelAmb() : AMB[TABS[i]]);
+  if (leave[TABS[prev]] && prev !== i) leave[TABS[prev]]();
+  if (prev !== i) {
+    b.classList.add('on');
+    if (RM || opt.instant) a.classList.remove('on');
+    else {
+      const blur = MOB.matches ? '' : 'blur(10px)';
+      a.style.zIndex = 1; b.style.zIndex = 2;
+      const o = a.animate([{ transform: 'none', opacity: 1, filter: 'blur(0)' }, { transform: `translateX(${-d * 14}%) scale(.92)`, opacity: 0, filter: blur || 'none' }], { duration: 420, easing: 'cubic-bezier(.32,.72,0,1)', fill: 'forwards' });
+      b.animate([{ transform: `translateX(${d * 26}%) scale(1.03)`, opacity: 0, filter: blur || 'none' }, { transform: 'none', opacity: 1, filter: 'blur(0)' }], { duration: 560, easing: 'cubic-bezier(.16,1,.3,1)' });
+      o.onfinish = () => { a.classList.remove('on'); o.cancel(); a.style.zIndex = b.style.zIndex = ''; };
+    }
+  }
+  if (enter[TABS[i]]) enter[TABS[i]]();
+  if (!opt.nohash) try { history.replaceState(null, '', i ? '#' + TABS[i] : location.pathname + location.search); } catch (e) {}
+  if (MOB.matches && !opt.instant) setTimeout(() => tip(TABS[i]), 700);
+  buzz(6);
+}
+tabBtns.forEach((b, i) => b.addEventListener('click', () => go(i)));
+addEventListener('keydown', e => {
+  if (e.target.closest('input,textarea,dialog') || e.altKey || e.metaKey || e.ctrlKey) return;
+  if (e.key === 'ArrowRight') { go(Math.min(4, cur + 1)); e.preventDefault(); }
+  else if (e.key === 'ArrowLeft') { go(Math.max(0, cur - 1)); e.preventDefault(); }
+  else if (/^[1-5]$/.test(e.key)) go(+e.key - 1);
+  else if (TABS[cur] === 'reels' && (e.key === 'ArrowDown' || e.key === 'ArrowUp') && document.activeElement && document.activeElement.closest('#scr')) { e.preventDefault(); reelGo(rIdx + (e.key === 'ArrowDown' ? 1 : -1)); }
+});
+addEventListener('resize', () => lensTo(cur, false));
+addEventListener('hashchange', () => { const i = TABS.indexOf(location.hash.slice(1)); go(i < 0 ? 0 : i, { nohash: true }); });
+
+/* ═════════ 1. НАМАЗ ═════════ */
+const PAINTS = [['lions', 'Лев и путник'], ['plus', 'Четверо братьев'], ['gate', 'Ворота'], ['road', 'Дорога'], ['sujud', 'Суджуд']];
+let pIdx = 0;
+const paint = $('#paint');
+const paintAmb = () => I + 's-' + PAINTS[pIdx][0] + '-b.webp';
+$('#paintNext').addEventListener('click', () => {
+  pIdx = (pIdx + 1) % PAINTS.length; const n = PAINTS[pIdx][0];
+  const pic = document.createElement('picture');
+  pic.innerHTML = `<source type="image/avif" srcset="${I}s-${n}-1206.avif"><img src="${I}s-${n}-1206.webp" alt="" width="1206" height="2144" style="opacity:0">`;
+  paint.appendChild(pic); const img = pic.querySelector('img');
+  const show = () => { requestAnimationFrame(() => { img.style.opacity = 1; }); setTimeout(() => { while (paint.children.length > 1) paint.firstElementChild.remove(); }, 1100); };
+  img.decode ? img.decode().then(show, show) : (img.onload = show);
+  ambient(paintAmb()); toast(`${icon('i-image')}Фон «${PAINTS[pIdx][1]}» — их в приложении больше`);
+});
+/* близкие */
+const ppl = $$('#ppl .pp');
+const readCount = () => ppl.filter(p => p.dataset.st === 'read').length;
+function updCount() { if (P && P.cur) $('#closeCount').textContent = `Прочитали ${readCount()} из 5`; }
+const remind = $('#remind');
+remind.addEventListener('click', () => {
+  if (remind.classList.contains('share')) return shareRemind();
+  if (remind.classList.contains('done')) return;
+  const waits = ppl.filter(p => p.dataset.st === 'wait' && p.dataset.n);
+  const s = scale(), sr = scr.getBoundingClientRect(), br = remind.getBoundingClientRect();
+  waits.forEach((p, k) => {
+    const pr = p.querySelector('.ph').getBoundingClientRect();
+    const pl = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); pl.setAttribute('class', 'plane'); pl.innerHTML = '<use href="#i-paper-plane-tilt-f"/>';
+    scr.appendChild(pl);
+    const x0 = (br.left - sr.left) / s + 16, y0 = (br.top - sr.top) / s + 8, x1 = (pr.left - sr.left) / s + 14, y1 = (pr.top - sr.top) / s + 10;
+    const an = pl.animate([{ transform: `translate(${x0}px,${y0}px) scale(.6) rotate(0)`, opacity: 0 }, { transform: `translate(${(x0 + x1) / 2}px,${Math.min(y0, y1) - 60}px) scale(1.1) rotate(-20deg)`, opacity: 1, offset: .5 }, { transform: `translate(${x1}px,${y1}px) scale(.5) rotate(-35deg)`, opacity: 0 }], { duration: RM ? 1 : 900 + k * 120, easing: 'cubic-bezier(.4,0,.2,1)' });
+    an.onfinish = () => { pl.remove(); p.classList.add('ping'); };
+  });
+  remind.classList.add('done'); remind.innerHTML = `${icon('i-check')}Напомнили`; buzz(12);
+  toast(`<img src="${I}a-mountain.webp" alt="">Рустам и Юсуф получили: «${P && P.cur ? P.nm(P.cur) + ' скоро закроется' : 'Пора на намаз'}»`);
+  setTimeout(() => { const r = ppl.find(p => p.dataset.n === 'Рустам'); r.classList.remove('ping'); r.dataset.st = 'read'; updCount(); toast(`<img src="${I}a-mountain.webp" alt="">Рустам прочитал ${P && P.cur ? P.acc(P.cur) : 'намаз'} · спасибо, что напомнили`); buzz([8, 60, 8]);
+    setTimeout(() => { remind.className = 'pill share'; remind.innerHTML = `${icon('i-paper-plane-tilt-f')}Напомнить другу`; remind.animate([{ transform: 'scale(.9)', opacity: .4 }, { transform: 'none', opacity: 1 }], { duration: 500, easing: 'cubic-bezier(.34,1.42,.64,1)' }); }, 1800);
+  }, 3600);
+});
+/* настоящее напоминание: ссылка открывает этот же экран у друга */
+function shareRemind() {
+  const k = P ? (P.cur || P.next) : 'isha', name = P ? P.nm(k) : 'Иша', at = P ? hm(k === P.cur ? P.end : P.nextAt) : '';
+  const url = location.origin + location.pathname + '?r=' + k + '&c=' + city.slug;
+  const text = P && k === P.cur ? `Напоминаю: ${name} до ${at} — успей 🤍` : `Напоминаю: ${name} в ${at} — не пропусти 🤍`;
+  buzz(8);
+  if (navigator.share) navigator.share({ text, url }).catch(() => {});
+  else if (navigator.clipboard) navigator.clipboard.writeText(text + ' ' + url).then(() => toast(`${icon('i-check-circle-f')}Ссылка скопирована — отправьте её другу`), () => toast('Скопируйте ссылку: ' + url));
+}
+/* листалка карточек: мышью тоже */
+const pager = $('#pager'), pd = $$('#pdots i');
+pager.addEventListener('scroll', () => { const i = Math.round(pager.scrollLeft / (pager.scrollWidth - pager.clientWidth || 1)); pd.forEach((d, k) => d.classList.toggle('on', k === i)); }, { passive: true });
+(function dragScroll(el) {
+  let on = false, x0 = 0, s0 = 0, moved = false;
+  el.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' || e.target.closest('button')) return; on = true; moved = false; x0 = e.clientX; s0 = el.scrollLeft; el.classList.add('drag'); el.setPointerCapture(e.pointerId); });
+  el.addEventListener('pointermove', e => { if (!on) return; const dx = (e.clientX - x0) / scale(); if (Math.abs(dx) > 3) moved = true; el.scrollLeft = s0 - dx; });
+  const up = () => { if (!on) return; on = false; el.classList.remove('drag'); const w = el.scrollWidth - el.clientWidth; el.scrollTo({ left: el.scrollLeft > w / 2 ? w : 0, behavior: RM ? 'auto' : 'smooth' }); };
+  el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+  el.addEventListener('click', e => { if (moved) { e.stopPropagation(); e.preventDefault(); } }, true);
+})(pager);
+const sw = $('#fajrSw');
+sw.addEventListener('click', () => {
+  const on = sw.getAttribute('aria-checked') !== 'true'; sw.setAttribute('aria-checked', on); buzz(8);
+  $('#fajr').classList.toggle('ring-on', on);
+  $('#wakeTx').textContent = on ? `Завтра в ${$('#alarmT').textContent} разбудим вас четверых` : 'Али, Рустам и Саид ставят будильник';
+  if (on) toast(`${icon('i-alarm-f')}Фаджр вместе: будильник на ${$('#alarmT').textContent}, и братья увидят, кто встал`);
+});
+/* удержание «Прочитал» */
+const hold = $('#hold'), fgc = $('.fgc', hold), fillbar = $('.fillbar', hold);
+let hT0 = 0, hRaf = 0, markedFor = null;
+const HOLD_MS = 1100, CIRC = 100.5;
+function resetHold() {
+  markedFor = null; hold.classList.remove('done'); hold.classList.add('shine');
+  fgc.style.strokeDashoffset = CIRC; fillbar.style.transform = 'scaleX(0)';
+  if (P) { if (P.cur) { $('#holdB').textContent = 'Прочитал ' + P.acc(P.cur); $('#holdS').textContent = 'удерживайте'; } else { $('#holdB').textContent = `${P.nm(P.next)} в ${hm(P.nextAt)}`; $('#holdS').textContent = 'удерживайте — напомню за 10 минут'; } }
+  const me = ppl[0]; if (me.dataset.st === 'read') { me.dataset.st = 'wait'; updCount(); }
+}
+function holdFrame(t) {
+  const k = Math.min(1, (t - hT0) / HOLD_MS);
+  fgc.style.strokeDashoffset = CIRC * (1 - k); fillbar.style.transform = `scaleX(${k})`;
+  if (k >= 1) return markDone();
+  hRaf = requestAnimationFrame(holdFrame);
+}
+function holdStart(e) {
+  if (hold.classList.contains('done')) return; if (e) e.preventDefault();
+  hold.classList.remove('shine'); hT0 = performance.now(); cancelAnimationFrame(hRaf); hRaf = requestAnimationFrame(holdFrame); buzz(5);
+}
+function holdEnd() {
+  if (hold.classList.contains('done') || !hT0) return; cancelAnimationFrame(hRaf); hT0 = 0;
+  fgc.animate([{ strokeDashoffset: fgc.style.strokeDashoffset }, { strokeDashoffset: CIRC }], { duration: 300, easing: 'ease-out' }); fgc.style.strokeDashoffset = CIRC;
+  fillbar.animate([{ transform: fillbar.style.transform }, { transform: 'scaleX(0)' }], { duration: 300, easing: 'ease-out' }); fillbar.style.transform = 'scaleX(0)';
+  if (!e_holdHinted) { e_holdHinted = 1; toast(`${icon('i-hand-tap')}Держите чуть дольше — как в приложении`); }
+}
+let e_holdHinted = 0;
+function markDone() {
+  hT0 = 0; hold.classList.add('done'); buzz([10, 40, 18]);
+  if (!P || P.cur) {
+    markedFor = P && P.cur; $('#holdB').textContent = (P ? P.nm(P.cur) : 'Намаз') + ' прочитан'; $('#holdS').textContent = 'близкие увидят · да примет Аллах';
+    ppl[0].dataset.st = 'read'; updCount();
+    const L = $('#nzLight'); if (!RM) L.animate([{ transform: 'translateY(100%)', opacity: 0 }, { transform: 'translateY(20%)', opacity: 1, offset: .35 }, { transform: 'translateY(-40%)', opacity: 0 }], { duration: 1900, easing: 'cubic-bezier(.25,.8,.25,1)' });
+  } else { markedFor = 'gap'; $('#holdB').textContent = 'Напомню за 10 минут'; $('#holdS').textContent = 'до ' + (P.fri ? 'Джумы' : 'Зухра'); }
+}
+hold.addEventListener('pointerdown', holdStart);
+hold.addEventListener('pointerup', holdEnd); hold.addEventListener('pointerleave', holdEnd); hold.addEventListener('pointercancel', holdEnd);
+hold.addEventListener('contextmenu', e => e.preventDefault());
+hold.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && !e.repeat) { e.preventDefault(); holdStart(); } });
+hold.addEventListener('keyup', e => { if (e.key === 'Enter' || e.key === ' ') holdEnd(); });
+hold.addEventListener('dblclick', () => { if (hold.classList.contains('done')) resetHold(); });
+
+/* ═════════ 2. REMINDERS ═════════ */
+const REELS = [
+  { img: 'guremir', av: 'lamp', who: 'samarkand.ilm', cap: 'Гур-Эмир на рассвете. Купол цвета неба — и минута о том, как его строили.', subs: ['Гур-Эмир, Самарканд', 'Купол цвета неба', 'Минута истории'], like: 1240, com: 36, rep: 18, sav: 210 },
+  { img: 'nile', av: 'sail', who: 'cairo.notes', cap: 'Нил перед Магрибом. Город замедляется, лодки тянутся к берегу.', subs: ['Нил перед Магрибом', 'Город замедляется', 'Скоро азан'], like: 3870, com: 112, rep: 64, sav: 590 },
+  { pause: true },
+  { img: 'fountain', av: 'well', who: 'istanbul.walks', cap: 'Шадырван — фонтан для омовения во дворе мечети. Почему он есть почти у каждой.', subs: ['Шадырван', 'Вода для омовения', 'Во дворе каждой мечети'], like: 2104, com: 58, rep: 31, sav: 402 },
+  { img: 'mutawalli', av: 'key', who: 'old.cairo', cap: 'Ворота Баб-Зувейла. Почти тысяча лет над старым Каиром.', subs: ['Баб-Зувейла', 'Каир, XI век', 'Тысяча лет над городом'], like: 960, com: 21, rep: 9, sav: 133 },
+];
+const fmtN = n => n >= 1000 ? (Math.round(n / 100) / 10).toString().replace('.', ',') + ' тыс.' : String(n);
+const rl = $('#rl');
+rl.innerHTML = REELS.map((r, i) => r.pause ? `<article class="rc pause-card" data-i="${i}"><img class="bg" src="${I}r-fountain-b.webp" alt=""><div class="pause-in"><span class="moonc"><svg><use href="#i-moon-f"/></svg></span><span class="lb">Лента на паузе</span><span class="t" id="pzT">16:28</span><p id="pzP">Наступает Магриб. Ролики подождут, пока вы читаете намаз.</p><button class="btn" id="pzOk"><svg><use href="#i-check"/></svg><span id="pzB">Прочитал Магриб</span></button></div></article>` :
+  `<article class="rc" data-i="${i}"><picture><source type="image/avif" srcset="${I}r-${r.img}.avif 720w, ${I}r-${r.img}-1080.avif 1080w" sizes="(max-width:760px) 100vw, 420px"><img class="bg" src="${I}r-${r.img}.webp" srcset="${I}r-${r.img}.webp 720w, ${I}r-${r.img}-1080.webp 1080w" sizes="(max-width:760px) 100vw, 420px" alt="" ${i > 1 ? 'loading="lazy"' : ''} decoding="async"></picture><div class="subs"><span>${r.subs[0]}</span></div>
+  <div class="rside"><button class="lk" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart-f"/></svg><span>${fmtN(r.like)}</span></button><button aria-label="Ответы"><svg><use href="#i-chat-circle"/></svg>${r.com}</button><button aria-label="Репост"><svg><use href="#i-repeat"/></svg>${r.rep}</button><button aria-label="Поделиться"><svg><use href="#i-paper-plane-tilt"/></svg></button><button class="sv" aria-pressed="false" aria-label="Сохранить"><svg><use href="#i-bookmark-simple-f"/></svg>${r.sav}</button></div>
+  <div class="rinfo"><div class="au"><img src="${I}a-${r.av}.webp" alt="">${r.who}<button class="fol" aria-pressed="false">Подписаться</button></div><p class="cap">${r.cap}</p></div>
+  <div class="prog"><i></i></div></article>`).join('');
+$$('.rc:not(.pause-card) .rside .lk svg use').forEach(u => u.setAttribute('href', '#i-heart'));
+$$('.rc .sv svg use').forEach(u => u.setAttribute('href', '#i-bookmark-simple'));
+const cards = $$('.rc', rl); let rIdx = 0, subT;
+const reelAmb = () => REELS[rIdx].pause ? I + 'r-fountain-b.webp' : I + 'r-' + REELS[rIdx].img + '-b.webp';
+function place(dy = 0, anim = true) {
+  const h = rl.clientHeight || 874;
+  cards.forEach((c, i) => {
+    const off = (i - rIdx) * h + dy;
+    c.style.transition = anim && !RM ? 'transform .55s cubic-bezier(.2,.9,.25,1)' : 'none';
+    c.style.transform = `translate3d(0,${off}px,0)`;
+    c.style.visibility = Math.abs(i - rIdx) > 1 ? 'hidden' : '';
+  });
+}
+function subsCycle() {
+  clearInterval(subT); const r = REELS[rIdx]; if (r.pause) return;
+  const el = $('.subs span', cards[rIdx]); let k = 0; el.textContent = r.subs[0]; el.classList.remove('out');
+  if (RM) return;
+  subT = setInterval(() => { if (rl.classList.contains('paused')) return; el.classList.add('out'); setTimeout(() => { k = (k + 1) % r.subs.length; el.textContent = r.subs[k]; el.classList.remove('out'); }, 450); }, 3000);
+}
+function reelGo(i) {
+  i = Math.max(0, Math.min(cards.length - 1, i));
+  if (REELS[rIdx].pause && i > rIdx && !pauseOk) { place(0); nudge(); return; }
+  cards[rIdx].classList.remove('on'); rIdx = i; cards[rIdx].classList.add('on'); rl.classList.remove('paused');
+  place(0); subsCycle(); if (TABS[cur] === 'reels') ambient(reelAmb()); buzz(4);
+  rl.style.touchAction = rIdx === cards.length - 1 ? 'pan-y' : 'none';
+}
+function nudge() { const b = $('#pzOk'); b.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-8px)' }, { transform: 'translateX(8px)' }, { transform: 'translateX(0)' }], { duration: 360 }); toast(`${icon('i-moon-f')}Сначала намаз — лента подождёт`); }
+let pauseOk = false;
+rl.addEventListener('click', e => {
+  if (e.target.closest('#pzOk')) { pauseOk = true; toast(`${icon('i-check-circle-f')}Да примет Аллах. Лента снова открыта`); setTimeout(() => reelGo(rIdx + 1), 500); return; }
+  const lk = e.target.closest('.lk'); if (lk) { toggleLike(lk); return; }
+  const sv = e.target.closest('.sv'); if (sv) { const on = sv.getAttribute('aria-pressed') !== 'true'; sv.setAttribute('aria-pressed', on); sv.querySelector('use').setAttribute('href', on ? '#i-bookmark-simple-f' : '#i-bookmark-simple'); buzz(6); return; }
+  const fl = e.target.closest('.fol'); if (fl) { const on = fl.getAttribute('aria-pressed') !== 'true'; fl.setAttribute('aria-pressed', on); fl.textContent = on ? 'Вы подписаны' : 'Подписаться'; return; }
+  if (e.target.closest('button')) return;
+});
+function toggleLike(lk, force) {
+  const on = force || lk.getAttribute('aria-pressed') !== 'true'; if (force && lk.getAttribute('aria-pressed') === 'true') return;
+  lk.setAttribute('aria-pressed', on); lk.querySelector('use').setAttribute('href', on ? '#i-heart-f' : '#i-heart');
+  const r = REELS[+lk.closest('.rc').dataset.i]; r.like += on ? 1 : -1; lk.querySelector('span').textContent = fmtN(r.like);
+  lk.classList.remove('pop'); void lk.offsetWidth; lk.classList.add('pop'); setTimeout(() => lk.classList.remove('pop'), 350); buzz(on ? 10 : 4);
+}
+/* жесты: тянуть, касание — пауза, двойное — лайк, колесо */
+(function () {
+  let y0 = 0, x0 = 0, t0 = 0, dy = 0, drag = false, lastTap = 0, tapT;
+  rl.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; drag = true; y0 = e.clientY; x0 = e.clientX; t0 = performance.now(); dy = 0; rl.setPointerCapture(e.pointerId); });
+  rl.addEventListener('pointermove', e => { if (!drag) return; dy = (e.clientY - y0) / scale(); const edge = (rIdx === 0 && dy > 0) || (rIdx === cards.length - 1 && dy < 0); place(edge ? dy * .3 : dy, false); });
+  const end = e => {
+    if (!drag) return; drag = false; const dt = performance.now() - t0, v = dy / dt;
+    if (Math.abs(dy) > 90 || (Math.abs(dy) > 24 && Math.abs(v) > .45)) { reelGo(rIdx + (dy < 0 ? 1 : -1)); return; }
+    place(0);
+    if (Math.abs(dy) < 8 && Math.abs(e.clientX - x0) < 8 && !REELS[rIdx].pause) {
+      const now = performance.now();
+      if (now - lastTap < 300) { clearTimeout(tapT); lastTap = 0; heart(e); }
+      else { lastTap = now; tapT = setTimeout(() => { rl.classList.toggle('paused'); buzz(5); }, 280); }
+    }
+  };
+  rl.addEventListener('pointerup', end); rl.addEventListener('pointercancel', end);
+  let wl = 0;
+  rl.addEventListener('wheel', e => { e.preventDefault(); const n = performance.now(); if (n - wl < 650 || Math.abs(e.deltaY) < 14) return; wl = n; reelGo(rIdx + (e.deltaY > 0 ? 1 : -1)); }, { passive: false });
+})();
+function heart(e) {
+  const s = scale(), r = scr.getBoundingClientRect();
+  const h = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); h.setAttribute('class', 'burst'); h.innerHTML = '<use href="#i-heart-f"/>';
+  h.style.left = (e.clientX - r.left) / s + 'px'; h.style.top = (e.clientY - r.top) / s + 'px'; h.style.setProperty('--r', (Math.random() * 30 - 15) + 'deg');
+  views.reels.appendChild(h); setTimeout(() => h.remove(), 950);
+  toggleLike($('.lk', cards[rIdx]), true);
+}
+function updatePause() {
+  if (!P) return; const k = P.next === 'fajr' && P.cur === 'isha' ? 'fajr' : P.next;
+  $('#pzT').textContent = hm(P.next === 'dhuhr' && !P.cur ? P.nextAt : P.nextAt);
+  $('#pzP').textContent = `Наступает ${P.nm(k)}. Ролики подождут, пока вы читаете намаз.`;
+  $('#pzB').textContent = 'Прочитал ' + P.acc(k);
+}
+enter.reels = () => { cards[rIdx].classList.add('on'); place(0, false); subsCycle(); };
+leave.reels = () => { clearInterval(subT); rl.classList.remove('paused'); };
+place(0, false);
+
+/* ═════════ 3. УММА ═════════ */
+$$('.post .lk').forEach(b => b.addEventListener('click', () => {
+  const on = b.getAttribute('aria-pressed') !== 'true', s = b.querySelector('span');
+  b.setAttribute('aria-pressed', on); b.querySelector('use').setAttribute('href', on ? '#i-heart-f' : '#i-heart'); s.textContent = +s.textContent + (on ? 1 : -1);
+  b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop'); buzz(on ? 10 : 4);
+}));
+const OMAR = ['В этом месяце начал читать по две страницы Корана после каждого Фаджра. Маленькие шаги, но утро стало совсем другим.', 'This month I started reading two pages of the Quran after every Fajr. Small steps, but my mornings feel completely different.'];
+let omarEn = false;
+$('#omarB').addEventListener('click', () => { omarEn = !omarEn; const p = $('#omar'); p.animate([{ opacity: 0, filter: 'blur(4px)' }, { opacity: 1, filter: 'blur(0)' }], { duration: 400 }); p.textContent = OMAR[+omarEn]; $('#omarL').textContent = omarEn ? 'Оригинал на английском' : 'Переведено с английского'; $('#omarB').textContent = omarEn ? 'Показать перевод' : 'Показать оригинал'; });
+function ripple(btn, e, big) {
+  const r = btn.getBoundingClientRect(), s = scale(), d = Math.max(r.width, r.height) * (big ? 3 : 2.2);
+  const x = e && e.clientX ? (e.clientX - r.left) / s : r.width / s / 2, y = e && e.clientY ? (e.clientY - r.top) / s : r.height / s / 2;
+  const sp = document.createElement('span'); sp.className = 'rip'; sp.style.cssText = `width:${d / s}px;height:${d / s}px;left:${x - d / s / 2}px;top:${y - d / s / 2}px`;
+  btn.appendChild(sp); setTimeout(() => sp.remove(), 820);
+}
+$('#aminPost').addEventListener('click', e => { const b = e.currentTarget, on = b.getAttribute('aria-pressed') !== 'true', n = b.querySelector('span'); b.setAttribute('aria-pressed', on); n.textContent = +n.textContent + (on ? 1 : -1); if (on) { ripple(b, e); buzz(10); } });
+/* Сцена: карточка раскрывается в комнату */
+const room = $('#room'), stageCard = $('#stageCard'), roomCard = $('#roomCard');
+let roomTimer;
+function openRoom() {
+  room.classList.add('on'); over(1); buzz(10);
+  if (!RM) {
+    const s = scale(), a = stageCard.getBoundingClientRect(), b = roomCard.getBoundingClientRect();
+    const dx = (a.left - b.left) / s, dy = (a.top - b.top) / s, k = a.width / b.width, clip = Math.max(0, b.height - a.height / k) / 1;
+    roomCard.animate([{ transform: `translate(${dx}px,${dy}px) scale(${k})`, transformOrigin: '0 0', clipPath: `inset(0 0 ${-clip}px 0 round 24px)` }, { transform: 'none', transformOrigin: '0 0', clipPath: 'inset(0 0 0 0 round 24px)' }], { duration: 600, easing: 'cubic-bezier(.2,.9,.2,1)' });
+    stageCard.style.visibility = 'hidden'; setTimeout(() => { stageCard.style.visibility = ''; }, 700);
+    room.animate([{ backgroundColor: 'rgba(0,0,0,0)' }, { backgroundColor: '#000' }], { duration: 400 });
+    $$('.room-in > :not(#roomCard)', room).forEach((el, k) => el.animate([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }], { duration: 480, delay: 160 + k * 50, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' }));
+  }
+  let m = 14; clearInterval(roomTimer); roomTimer = setInterval(() => { $('#roomMin').textContent = ++m + ' мин'; }, 60000);
+  /* ведущий передаёт слово */
+  const sp = $$('#spk .sp1'); let k = 0; clearInterval(room._t); room._t = setInterval(() => { sp.forEach(x => x.classList.remove('talk')); k = (k + 1) % 3; sp[k === 2 ? 0 : k].classList.add('talk'); }, 2600);
+}
+function closeRoom() {
+  clearInterval(room._t); clearInterval(roomTimer); over(0);
+  if (RM) { room.classList.remove('on'); return; }
+  const an = room.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(40px) scale(.96)' }], { duration: 320, easing: 'cubic-bezier(.4,0,1,1)' });
+  an.onfinish = () => room.classList.remove('on');
+}
+$('#listen').addEventListener('click', openRoom); $('#roomX').addEventListener('click', closeRoom); $('#roomExit').addEventListener('click', closeRoom);
+$('#hand').addEventListener('click', e => { const b = e.currentTarget, on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on); b.querySelector('span').firstChild.textContent = on ? 'Рука поднята' : 'Поднять руку'; if (on) toast(`${icon('i-hand-waving')}Юсуф увидит, что вы просите слово`); buzz(8); });
+$('#aminBig').addEventListener('click', e => {
+  const b = e.currentTarget, n = $('#aminN'); n.textContent = +n.textContent + 1; ripple(b, e, true); buzz(10);
+  if (RM) return;
+  const s = scale(), rr = room.getBoundingClientRect(), br = b.getBoundingClientRect();
+  for (let k = 0; k < 7; k++) {
+    const sp = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); sp.setAttribute('class', 'spark'); sp.innerHTML = `<use href="#${k % 3 ? 'i-sparkle-f' : 'i-moon-f'}"/>`;
+    sp.style.left = ((br.left - rr.left) / s + 20 + Math.random() * (br.width / s - 40)) + 'px'; sp.style.top = ((br.top - rr.top) / s) + 'px';
+    sp.style.setProperty('--dx', (Math.random() * 80 - 40) + 'px'); sp.style.animationDelay = k * 70 + 'ms';
+    room.appendChild(sp); setTimeout(() => sp.remove(), 1800 + k * 70);
+  }
+});
+leave.umma = () => { over(0); if (room.classList.contains('on')) { room.classList.remove('on'); clearInterval(room._t); } };
+
+/* ═════════ 4. СООБЩЕНИЯ ═════════ */
+const myNote = $('#myNote'), myBub = $('#myBub');
+myNote.addEventListener('click', () => {
+  if (myNote._busy) return; myNote._busy = 1; const txt = 'Иду на Иша в мечеть'; myBub.classList.remove('empty'); myBub.textContent = '';
+  let k = 0; const ty = () => { myBub.textContent = txt.slice(0, ++k); if (k < txt.length) setTimeout(ty, RM ? 0 : 45); else { toast(`${icon('i-check-circle-f')}Заметку видят ваши близкие — 24 часа`); myNote._busy = 0; } }; ty();
+});
+const req = $('#req');
+$('#reqChip').addEventListener('click', () => { req.classList.toggle('on'); buzz(6); });
+$('#reqNo').addEventListener('click', () => { req.classList.remove('on'); toast(`${icon('i-shield-check-f')}Запрос отклонён. Ахмед больше не напишет`); });
+$('#reqYes').addEventListener('click', () => { req.classList.remove('on'); toast(`${icon('i-shield-check-f')}Запрос ушёл вашему вали`); });
+/* переписка */
+const CHATS = [
+  { n: 'Фаджр вовремя', av: null, s: 'группа · 6 участников', m: [['in', 'Братья, кто встал? Отметьтесь 🙂', '05:41'], ['in', 'Я уже на ногах, иду в мечеть', '05:44'], ['out', 'Встал, спасибо, что разбудили', '05:46']], reply: 'Отлично, ждём у входа' },
+  { n: 'Амина', av: 'river', s: 'в сети', m: [['in', 'Ас-саляму алейкум! Ты в мечеть на Иша?', '07:38'], ['out', 'Ва алейкум ас-салям. Да, выхожу через 10 минут', '07:40']], reply: 'Подожди меня у входа, пойдём вместе 🤍' },
+  { n: 'Юсуф', av: 'sail', s: 'был недавно', m: [['in', 'Аср вместе? Я у входа в 14:35', 'вчера'], ['out', 'Буду, иншаАллах', 'вчера']], reply: 'Отлично, до встречи' },
+  { n: 'Мама', av: 'lamp', s: 'в сети', m: [['in', 'Не забудь шарф, на улице минус 12', 'вчера'], ['out', 'Не забуду, мам. Ты прочитала Магриб?', 'вчера']], reply: 'Прочитала, сынок. Да благословит тебя Аллах' },
+  { n: 'Али', av: 'lion', s: 'в сети', m: [['in', 'Видел ролик про Гур-Эмир?', 'пн'], ['out', 'Да, сохранил. Красота', 'пн']], reply: 'Поехали летом в Самарканд?' },
+];
+const chat = $('#chat'), msgl = $('#msgl');
+function openChat(k) {
+  const c = CHATS[k]; $('#chatN').textContent = c.n; $('.ch small', chat).textContent = c.s;
+  const av = $('#chatAv'); if (c.av) { av.src = I + 'a-' + c.av + '.webp'; av.style.display = ''; } else av.style.display = 'none';
+  msgl.innerHTML = `<span class="dayp">Сегодня</span>` + c.m.map(([w, t, tm]) => `<div class="m ${w}">${t}<small>${tm}</small></div>`).join('') + '<div class="typing"><i></i><i></i><i></i></div>';
+  chat.classList.add('on'); over(1);
+  const list = $('#mfeed');
+  if (!RM) { chat.animate([{ transform: 'translateX(100%)' }, { transform: 'none' }], { duration: 480, easing: 'cubic-bezier(.2,.9,.2,1)' }); list.animate([{ transform: 'none', opacity: 1 }, { transform: 'translateX(-28%)', opacity: .4 }], { duration: 480, easing: 'cubic-bezier(.2,.9,.2,1)' }); }
+  const ms = $$('.m', msgl); ms.forEach((m, i) => setTimeout(() => m.classList.add('on'), RM ? 0 : 200 + i * 140));
+  const ty = $('.typing', msgl);
+  clearTimeout(chat._a); clearTimeout(chat._b);
+  chat._a = setTimeout(() => ty.classList.add('on'), RM ? 0 : 1100);
+  chat._b = setTimeout(() => { ty.remove(); const m = document.createElement('div'); m.className = 'm in'; m.innerHTML = c.reply + '<small>сейчас</small>'; msgl.appendChild(m); requestAnimationFrame(() => m.classList.add('on')); buzz(6); }, RM ? 0 : 2600);
+}
+function closeChat() {
+  clearTimeout(chat._a); clearTimeout(chat._b); over(0);
+  if (RM) { chat.classList.remove('on'); return; }
+  const an = chat.animate([{ transform: 'none' }, { transform: 'translateX(100%)' }], { duration: 380, easing: 'cubic-bezier(.4,0,.2,1)' });
+  $('#mfeed').animate([{ transform: 'translateX(-28%)', opacity: .4 }, { transform: 'none', opacity: 1 }], { duration: 380, easing: 'cubic-bezier(.4,0,.2,1)' });
+  an.onfinish = () => chat.classList.remove('on');
+}
+$$('[data-chat]').forEach(b => b.addEventListener('click', () => openChat(+b.dataset.chat)));
+$('#chatX').addEventListener('click', closeChat);
+/* Моменты */
+const MOMS = [['samarkand', 'rose', 'Марьям', 'после Аср · 12 мин назад', 'Регистан после дождя'], ['terrace', 'river', 'Амина', 'после Магриба · 40 мин назад', 'Чай на террасе у мечети'], ['caravan', 'lion', 'Али', 'после Иши · 1 ч назад', 'Дорога домой']];
+const inst = $('#inst'), deck = $('#deck');
+function openInst() {
+  deck.innerHTML = MOMS.map((m, i) => `<div class="ic2" data-k="${i}" style="z-index:${10 - i};transform:rotate(${[-2, 5, -7][i]}deg) translateY(${i * 6}px) scale(${1 - i * .04})"><img src="${I}m-${m[0]}-810.webp" alt=""><p class="note">${m[4]}</p><div class="cap2"><img src="${I}a-${m[1]}.webp" alt=""><span>${m[2]}<small>${m[3]}</small></span></div></div>`).join('');
+  $('#iend').classList.remove('on'); $('#ihint').hidden = false; inst.classList.add('on'); over(1);
+  if (!RM) $$('.ic2', deck).forEach((c, i) => c.animate([{ opacity: 0, transform: 'translate(120px,40px) rotate(20deg) scale(.4)' }, { opacity: 1 }], { duration: 600, delay: i * 70, easing: 'cubic-bezier(.2,.9,.2,1)', fill: 'backwards' }));
+  bindTop(); buzz(8);
+}
+function bindTop() {
+  const top = $$('.ic2', deck).find(c => !c._gone); if (!top) { $('#iend').classList.add('on'); $('#ihint').hidden = true; return; }
+  top.style.transform = 'none';
+  let x0 = 0, y0 = 0, dx = 0, dy = 0, on = false;
+  top.onpointerdown = e => { on = true; x0 = e.clientX; y0 = e.clientY; dx = dy = 0; top.setPointerCapture(e.pointerId); top.style.transition = 'none'; };
+  top.onpointermove = e => { if (!on) return; const s = scale(); dx = (e.clientX - x0) / s; dy = (e.clientY - y0) / s; top.style.transform = `translate(${dx}px,${dy}px) rotate(${dx / 14}deg)`; };
+  top.onpointerup = top.onpointercancel = () => {
+    if (!on) return; on = false; top.style.transition = '';
+    if (Math.hypot(dx, dy) > 70 || Math.hypot(dx, dy) < 6) fling(top, Math.hypot(dx, dy) < 6 ? 1 : Math.sign(dx || 1), dy); else top.style.transform = 'none';
+  };
+}
+function fling(c, dir, dy) {
+  c._gone = 1; c.style.transform = `translate(${dir * 420}px,${dy * 1.5 - 40}px) rotate(${dir * 28}deg)`; c.style.opacity = 0; buzz(6);
+  setTimeout(() => { c.remove(); $$('.ic2', deck).forEach((n, i) => { n.style.transform = i ? `rotate(${[5, -7][i - 1] || 0}deg) translateY(${i * 6}px) scale(${1 - i * .04})` : 'none'; }); bindTop(); }, RM ? 0 : 260);
+}
+$('#pile').addEventListener('click', openInst);
+$('#instX').addEventListener('click', () => { inst.classList.remove('on'); over(0); });
+$('#instDone').addEventListener('click', () => { inst.classList.remove('on'); over(0); $('#pile').style.display = 'none'; });
+leave.msgs = () => { over(0); inst.classList.remove('on'); req.classList.remove('on'); if (chat.classList.contains('on')) { chat.classList.remove('on'); } };
+
+/* ═════════ 5. ФОКУС ═════════ */
+const APPS = [['Соцсеть', 'i-camera-f', 'linear-gradient(135deg,#7b4fd6,#d9468f 55%,#f2a14a)'], ['Ролики', 'i-film-strip-f', 'linear-gradient(135deg,#111,#2a2a2a)'], ['Видео', 'i-play-f', 'linear-gradient(135deg,#e5484d,#a8262b)'], ['Игры', 'i-game-controller-f', 'linear-gradient(135deg,#3fb27f,#1f6e4c)'], ['Новости', 'i-newspaper-f', 'linear-gradient(135deg,#3d6fd9,#22408a)'], ['Магазин', 'i-shopping-bag-f', 'linear-gradient(135deg,#f08a3c,#c25a1a)'], ['Стримы', 'i-broadcast-f', 'linear-gradient(135deg,#8b5cf6,#5b2fc0)'], ['Форумы', 'i-chat-circle-f', 'linear-gradient(135deg,#ff6a3d,#e2401f)']];
+$('#apps').innerHTML = APPS.map(([n, ic, bg]) => `<div class="app"><span class="ico" style="background:${bg}">${icon(ic)}</span><span class="lk2">${icon('i-lock-simple-f')}</span>${n}</div>`).join('');
+const fc = views.focus, thumb = $('#thumb'), slide = $('#slide');
+let focusNow = null;
+function updateFocusTimes() {
+  if (!P) return; const k = P.next === 'fajr' ? 'fajr' : P.next;
+  $('#fcS').innerHTML = fc.classList.contains('lock') ? `Откроется, когда прочитаете ${P.acc(k)}` : `Закроет 8 приложений в <b>${P.nm(k)} · ${hm(P.nextAt)}</b>`; $('#fbNext').textContent = `${P.nm(k)} · ${hm(P.nextAt)}`;
+  $('#slAz').textContent = P.nm(k); $('#shT').textContent = hm(P.nextAt); $('#shH').textContent = 'Сначала ' + P.nm(k); $('#shB').textContent = 'Прочитал ' + P.acc(k);
+  focusNow = new Date(P.nextAt.getTime() - 16 * 60000); $('#slNow').innerHTML = `<b>${hm(focusNow)}</b>`;
+}
+(function () {
+  let on = false, x0 = 0, xs = 0, max = 0;
+  const set = (x, anim) => { thumb.style.transition = anim ? 'transform .5s cubic-bezier(.34,1.42,.64,1)' : 'none'; thumb.style.transform = `translateX(${x}px)`; const k = max ? x / max : 0; $('#slGo').style.opacity = Math.max(0, 1 - k * 4); $('#slNow').style.opacity = Math.min(1, k * 4); thumb.setAttribute('aria-valuenow', Math.round(k * 100)); if (focusNow && P) $('#slNow').innerHTML = `<b>${hm(new Date(focusNow.getTime() + k * 16 * 60000))}</b>`; };
+  thumb.addEventListener('pointerdown', e => { if (fc.classList.contains('lock')) return; on = true; x0 = e.clientX; max = slide.clientWidth - thumb.offsetWidth - 12; xs = 0; thumb.setPointerCapture(e.pointerId); buzz(4); });
+  thumb.addEventListener('pointermove', e => { if (!on) return; xs = Math.max(0, Math.min(max, (e.clientX - x0) / scale())); set(xs); });
+  const up = () => { if (!on) return; on = false; if (xs > max * .86) { set(max, true); lockApps(); } else set(0, true); };
+  thumb.addEventListener('pointerup', up); thumb.addEventListener('pointercancel', up);
+  thumb.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') { e.preventDefault(); max = slide.clientWidth - thumb.offsetWidth - 12; set(max, true); lockApps(); } });
+  window._resetSlide = () => set(0, true);
+})();
+function lockApps() {
+  fc.classList.add('lock'); buzz([12, 50, 12, 50, 20]); $('#fcH').textContent = 'Время намаза'; updateFocusTimes();
+  $$('.app', fc).forEach((a, i) => setTimeout(() => a.classList.add('locked'), RM ? 0 : 120 + i * 70));
+}
+$('#shOk').addEventListener('click', () => {
+  fc.classList.remove('lock'); $('#fcH').textContent = 'Да примет Аллах'; updateFocusTimes(); buzz(10);
+  $$('.app', fc).reverse().forEach((a, i) => setTimeout(() => a.classList.remove('locked'), RM ? 0 : i * 60));
+  toast(`${icon('i-shield-check-f')}Всё открыто до следующего азана`);
+  setTimeout(() => { window._resetSlide(); $('#fcH').textContent = 'Фокус включён'; }, 2200);
+});
+leave.focus = () => { if (fc.classList.contains('lock')) { fc.classList.remove('lock'); $$('.app', fc).forEach(a => a.classList.remove('locked')); } window._resetSlide(); $('#fcH').textContent = 'Фокус включён'; updateFocusTimes(); };
+
+/* ═════════ ЦЕНЫ ПО РЕГИОНУ ═════════ */
+const TIERS = {
+  KZ: ['3 790 ₸', '22 990 ₸', '1 916 ₸', '5 390 ₸', '32 990 ₸', 3790, 22990],
+  MID: ['$4.99', '$29.99', '$2.50', '$6.99', '$41.99', 4.99, 29.99],
+  GULF: ['$12.99', '$79.99', '$6.67', '$18.99', '$114.99', 12.99, 79.99],
+  WEST: ['$9.99', '$59.99', '$5.00', '$13.99', '$84.99', 9.99, 59.99],
+  EUR: ['€9.99', '€59.99', '€5.00', '€13.99', '€84.99', 9.99, 59.99],
+  GBP: ['£8.99', '£54.99', '£4.58', '£12.99', '£77.99', 8.99, 54.99],
+};
+(function () {
+  let tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  const cc = city.cc;
+  const known = !!TZ[tz] || !!store.get('v7city');
+  const byCc = { KZ: 'KZ', KG: 'MID', UZ: 'MID', TJ: 'MID', RU: 'MID', AZ: 'MID', TR: 'MID', AE: 'GULF', GB: 'GBP', US: 'WEST' };
+  const tier = known ? (byCc[cc] || 'WEST') : /^Europe\//.test(tz) ? 'EUR' : /^Asia\/(Riyadh|Qatar|Kuwait|Bahrain|Muscat)/.test(tz) ? 'GULF' : 'WEST';
+  const T = TIERS[tier], save = Math.round((1 - T[6] / (T[5] * 12)) * 100);
+  $('[data-pm]').textContent = T[0]; $('[data-py]').textContent = T[1]; $('[data-pym]').textContent = T[2] + ' в месяц';
+  $('[data-save]').textContent = 'выгода ' + save + ' %'; $('[data-prem]').textContent = `${T[3]} в месяц или ${T[4]} в год`;
+  if (tier !== 'KZ') $('[data-fine]').textContent = 'Цены для вашего региона; точную цену в вашей валюте App Store покажет до оплаты. 14 дней бесплатно — у Plus, для новых подписчиков: если не отменить хотя бы за сутки до конца пробы, начнётся подписка по цене выбранного срока.';
+  const after = () => { const y = $('.pl[data-p="y"]').getAttribute('aria-checked') === 'true'; $('[data-after]').textContent = y ? T[1] + ' в год' : T[0] + ' в месяц'; };
+  $$('.pl').forEach(b => b.addEventListener('click', () => { $$('.pl').forEach(x => x.setAttribute('aria-checked', x === b)); after(); buzz(6); }));
+  after();
+})();
+
+/* ═════════ ЛИСТ ОЖИДАНИЯ ═════════ */
+/* ВЫХОД В APP STORE: одна строка. false — кнопки ведут в лист ожидания, true — прямо в App Store. */
+const LAUNCHED = false, STORE = 'https://apps.apple.com/app/id6806738733';
+const SB = 'https://axpoadzhfvxzywotbvug.supabase.co', SBK = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF4cG9hZHpoZnZ4enl3b3RidnVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc4NzQxMzksImV4cCI6MjEwMzQ1MDEzOX0.9Fjf93Ev1a0Yybol90CjKhmC5gQZt6QiTKK-6Xj91T8';
+const dlg = $('#waitlist');
+if (LAUNCHED) {
+  $$('[data-store]').forEach(a => { a.href = STORE; a.rel = 'noopener'; });
+  $$('[data-sl]').forEach(e => e.textContent = e.dataset.sl); $$('[data-pre]').forEach(e => e.hidden = true);
+} else if (dlg && dlg.showModal) {
+  const open = e => { e.preventDefault(); dlg.showModal(); if (!MOB.matches) setTimeout(() => $('#wl-in').focus(), 60); };
+  $$('[data-store]').forEach(a => a.addEventListener('click', open));
+  dlg.addEventListener('click', e => { if (e.target !== dlg) return; const r = dlg.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dlg.close(); });
+  const f = $('[data-wlf]'), inp = $('#wl-in'), btn = $('[data-wlb]'), msg = $('[data-wlm]');
+  const say = (t, err) => { msg.textContent = t; msg.classList.toggle('err', !!err); inp.setAttribute('aria-invalid', err ? 'true' : 'false'); };
+  if (store.get('wl6')) { dlg.classList.add('done'); say('Вы уже в списке ✓ Напишем в день выхода.'); }
+  f.addEventListener('submit', e => {
+    e.preventDefault(); let v = inp.value.trim();
+    if (!v) return say('Впишите почту или Telegram — например, name@mail.ru или @username.', 1);
+    if (/^[A-Za-z0-9_]{5,32}$/.test(v)) v = '@' + v;
+    if (v.indexOf('@') < 0 && !/t(elegram)?\.me\//i.test(v)) return say('Не похоже на почту или Telegram. Проверьте, нет ли опечатки.', 1);
+    btn.disabled = true; btn.textContent = 'Записываем…'; say('');
+    fetch(SB + '/rest/v1/rpc/join_waitlist', { method: 'POST', headers: { apikey: SBK, Authorization: 'Bearer ' + SBK, 'Content-Type': 'application/json' }, body: JSON.stringify({ contact: v, lang: 'ru', source: location.pathname.slice(0, 120) }) })
+      .then(r => r.ok ? r.json() : { ok: false, reason: 'net' })
+      .then(r => {
+        if (r && r.ok) { store.set('wl6', '1'); dlg.classList.add('done'); say('Записали ✓ Напишем в день выхода.'); }
+        else say(r && r.reason === 'format' ? 'Не похоже на почту или Telegram. Проверьте, нет ли опечатки.' : r && r.reason === 'busy' ? 'Сейчас записывается много людей. Попробуйте через минуту.' : 'Не получилось отправить — проверьте интернет или напишите нам: support@firdausly.com', 1);
+      })
+      .catch(() => say('Не получилось отправить — проверьте интернет или напишите нам: support@firdausly.com', 1))
+      .then(() => { btn.disabled = false; btn.textContent = 'Напомнить в день выхода'; });
+  });
+}
+$('.logo').addEventListener('click', e => { e.preventDefault(); $('#price').scrollIntoView({ behavior: RM ? 'auto' : 'smooth' }); });
+
+const start = TABS.indexOf((location.hash || '').slice(1));
+/* ── заставка: открываем Firdausly, как приложение ── */
+(function () {
+  const sp = $('#splash'); let seen = false; try { seen = sessionStorage.getItem('v7s'); sessionStorage.setItem('v7s', '1'); } catch (e) {}
+  if (RM || seen || start > 0) { sp.remove(); return; }
+  const t0 = performance.now(), img = $('#paint img');
+  let done = false;
+  const reveal = () => {
+    if (done) return; done = true; sp.classList.add('out');
+    views.namaz.animate([{ transform: 'scale(1.06)', filter: 'brightness(.6)' }, { transform: 'none', filter: 'brightness(1)' }], { duration: 900, easing: 'cubic-bezier(.16,1,.3,1)' });
+    setTimeout(() => sp.remove(), 800);
+  };
+  const ready = img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+  ready.then(() => setTimeout(reveal, Math.max(0, 650 - (performance.now() - t0))));
+  setTimeout(reveal, 1500); sp.addEventListener('pointerdown', reveal);
+})();
+/* ── старт ── */
+renderPrayer(); tick(); setInterval(tick, 1000);
+/* ── по ссылке-напоминанию: «вам напомнили» ── */
+const QS = new URLSearchParams(location.search), RK = QS.get('r'), RC = QS.get('c');
+if (RK && NAMES[RK] && RK !== 'sunrise') {
+  const c2 = CITIES.find(c => c.slug === RC); if (c2 && !store.get('v7city')) { city = c2; guessed = false; renderPrayer(); tick(); }
+  const t = P ? P.t[RK] : null, name = P ? P.nm(RK) : NAMES[RK];
+  const b = document.createElement('div'); b.className = 'rb2'; b.setAttribute('role', 'status');
+  b.innerHTML = `<span class="mc">${icon('i-moon-f')}</span><p>Вам напоминают о намазе<small>${name}${t ? ' · ' + hm(t) : ''} — близкий человек хочет, чтобы вы успели</small></p><button aria-label="Скрыть">${icon('i-x')}</button>`;
+  views.namaz.appendChild(b); b.querySelector('button').addEventListener('click', () => b.remove());
+}
+ambient(paintAmb());
+lensTo(0, false);
+if (start > 0) go(start, { instant: true, nohash: true, force: true });
+let touched = false; scr.addEventListener('pointerdown', () => { touched = true; }, { once: true });
+setTimeout(() => {
+  if (touched || cur !== 0 || RM) return;
+  const w = tabBtns[1].offsetLeft - 6;
+  lens.animate([{ transform: 'translateX(0)' }, { transform: `translateX(${w}px)`, offset: .35 }, { transform: `translateX(${w}px)`, offset: .6 }, { transform: 'translateX(0)' }], { duration: 1700, easing: 'cubic-bezier(.45,0,.2,1)' });
+  tabBtns[1].animate([{ color: 'rgba(255,255,255,.74)' }, { color: '#D9B95C', offset: .4 }, { color: '#D9B95C', offset: .6 }, { color: 'rgba(255,255,255,.74)' }], { duration: 1700 });
+}, 2800);
+scr.addEventListener('pointerdown', e => { if (!e.target.closest('#tip,#tabs')) hideTip(); });
+});
+</script>
+</body>
+</html>
