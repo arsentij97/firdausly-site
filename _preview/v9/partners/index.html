@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Партнёрская программа Firdausly: 20% с каждой оплаты</title>
+<meta name="description" content="Партнёрская программа Firdausly для исламских авторов и блогеров: 20% чистой выручки с каждой оплаты людей, пришедших по вашему коду, пока они с нами. Вашим людям месяц Plus в подарок. Выплаты раз в месяц в любую страну.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="../i/icon.webp">
+<link rel="preload" as="font" href="../f/inter-600.woff2" type="font/woff2" crossorigin>
+<style>@font-face{font-family:Fi;font-weight:200;font-display:swap;src:url(f/inter-200.woff2) format("woff2")}
+@font-face{font-family:Fi;font-weight:400;font-display:swap;src:url(f/inter-400.woff2) format("woff2")}
+@font-face{font-family:Fi;font-weight:600;font-display:swap;src:url(f/inter-600.woff2) format("woff2")}
+@font-face{font-family:Fi;font-weight:700;font-display:swap;src:url(f/inter-700.woff2) format("woff2")}
+@font-face{font-family:Fs;font-style:italic;font-weight:400;font-display:swap;src:url(f/spectral-i.woff2) format("woff2")}
+
+/* Токены: тёмная тема приложения (mobile/src/theme/tokens.ts). Сайт держит одну тему — ночную, как приложение по умолчанию. */
+:root{
+  color-scheme:dark;
+  --bg:#0A0A0A;--bg2:#0F0E0C;--card:#141311;--card2:#1B1A17;
+  --tx:#F5F3EE;--tx2:rgba(245,243,238,.68);--tx3:rgba(245,243,238,.46);
+  --ln:rgba(255,255,255,.09);--ln2:rgba(255,255,255,.16);
+  --gold:#D9B95C;--gold2:#E8CB78;--goldS:#2A2416;--fill:#F4EFE6;--fillHi:#FFFDF8;--ink:#14120E;
+  --ok:#7BC48A;
+  --r1:14px;--r2:22px;--r3:32px;
+  --w:1200px;--g:clamp(16px,4vw,40px);
+  --e:cubic-bezier(.16,1,.3,1);
+  --sans:Fi,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --serif:Fs,"Iowan Old Style",Georgia,serif;
+}
+:root[data-theme="dark"]{color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 17px/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,svg{display:block;max-width:100%}
+main{overflow-x:clip}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;padding-right:.04em}
+svg.i{width:1em;height:1em;fill:currentColor;flex:none}
+.wrap{width:min(var(--w),100% - 2*var(--g));margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
+
+/* Типографика */
+.h1{font-size:clamp(42px,6.2vw,80px);font-weight:600;line-height:1.02;letter-spacing:-.04em}
+.h2{font-size:clamp(34px,4.6vw,60px);font-weight:600;line-height:1.04;letter-spacing:-.035em}
+.h3{font-size:clamp(22px,2.2vw,28px);font-weight:600;line-height:1.15;letter-spacing:-.02em}
+.lead{font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:var(--tx2);max-width:36em}
+.lead b{color:var(--tx);font-weight:600}
+.note{font-size:14px;color:var(--tx3);line-height:1.45}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--gold)}
+.tag svg{width:22px;height:22px}
+
+/* Кнопки: одна семья — пилюля */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap;transition:transform .2s var(--e),background .2s,box-shadow .3s}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px}
+.btn-p{background:var(--fill);color:var(--ink);box-shadow:0 10px 40px -10px rgba(232,203,120,.45),inset 0 1px 0 #fff}
+.btn-p:hover{background:var(--fillHi)}
+.btn-g{background:rgba(255,255,255,.07);color:var(--tx);box-shadow:inset 0 0 0 1px var(--ln2)}
+.btn-g:hover{background:rgba(255,255,255,.12)}
+
+/* Шапка */
+.top{position:fixed;inset:0 0 auto;z-index:50;height:64px;display:flex;align-items:center;transition:background .3s,box-shadow .3s}
+.top.on{background:rgba(10,10,10,.72);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:0 1px 0 var(--ln)}
+.top .wrap{display:flex;align-items:center;gap:28px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px;letter-spacing:-.02em;text-decoration:none}
+.logo img{width:30px;height:30px;border-radius:8px}
+.nav{display:flex;gap:26px;margin-left:auto;font-size:15px}
+.nav a{text-decoration:none;color:var(--tx2);transition:color .2s}
+.nav a:hover{color:var(--tx)}
+.top .btn{height:40px;padding:0 18px;font-size:15px}
+@media (max-width:900px){.nav{display:none}.top .btn{margin-left:auto}}
+
+
+/* ── 2. ПРОБЛЕМА ── манифест и буря уведомлений */
+.sec{padding:clamp(88px,12vw,160px) 0;position:relative}
+.storm{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.storm .h2{max-width:11em}
+.nstack{position:relative;height:470px;max-width:520px;width:100%;justify-self:center}
+.nt{position:absolute;left:0;right:0;border-radius:22px;padding:14px 16px;display:grid;grid-template-columns:40px 1fr;column-gap:12px;background:rgba(38,37,35,.94);box-shadow:0 10px 30px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.06);font-size:15px;line-height:1.35;transition:transform .7s var(--e),opacity .6s,filter .6s}
+.nt i{grid-row:span 2;width:36px;height:36px;border-radius:9px;display:grid;place-items:center}
+.nt i svg{width:20px;height:20px;fill:#fff}
+.nt b{font-size:13px;display:flex;justify-content:space-between;font-weight:600}
+.nt b small{font-weight:400;color:var(--tx3)}
+.nt p{color:var(--tx2)}
+.nt.gold{background:linear-gradient(135deg,rgba(66,54,24,.96),rgba(34,30,22,.96));box-shadow:0 20px 60px -10px rgba(217,185,92,.35),inset 0 0 0 1px rgba(217,185,92,.45)}
+.nt.gold p{color:var(--tx)}
+.nt.gold i{background:none}
+.nt.gold i img{width:36px;height:36px;border-radius:9px}
+.replay{margin-top:28px}
+@media (max-width:900px){.storm{grid-template-columns:1fr;gap:40px}.nstack{height:400px}}
+
+
+/* ── 12. КАРТИНЫ ── раскрывающиеся полосы */
+.art-s{overflow:hidden}
+.acc{margin-top:56px;display:flex;gap:10px;height:min(600px,70vh)}
+.ac{flex:1;border-radius:var(--r2);overflow:hidden;position:relative;transition:flex .7s var(--e);cursor:pointer;min-width:0;background:#1a1712}
+.ac img{width:100%;height:100%;object-fit:cover}
+.ac::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.75));opacity:0;transition:opacity .5s}
+.ac span{position:absolute;left:20px;bottom:18px;z-index:2;font-size:20px;font-weight:600;opacity:0;transform:translateY(10px);transition:.5s var(--e);white-space:nowrap}
+.ac span small{display:block;font-size:13px;font-weight:400;color:var(--tx2)}
+.ac.on{flex:4.2}
+.ac.on::after,.ac.on span{opacity:1;transform:none}
+.classic{margin-top:28px;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:6px}
+.classic::-webkit-scrollbar{display:none}
+.classic img{height:120px;width:auto;aspect-ratio:auto;border-radius:12px;flex:none;opacity:.85}
+.art-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:22px;font-size:15px;color:var(--tx2)}
+@media (max-width:700px){.acc{height:auto;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}.acc::-webkit-scrollbar{display:none}.ac,.ac.on{flex:none;width:72vw;aspect-ratio:9/14;scroll-snap-align:center}.ac::after,.ac span{opacity:1;transform:none}}
+
+/* ── 13. АВТОРАМ ── */
+.auth{background:linear-gradient(180deg,var(--bg),#0e0d0a 20%,#0e0d0a 80%,var(--bg))}
+.auth .h2{max-width:15em}
+.auth .h2 span{color:var(--tx3)}
+.vs{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.feed{border-radius:var(--r3);height:420px;overflow:hidden;position:relative;box-shadow:inset 0 0 0 1px var(--ln);padding:0 22px}
+.feed h3{position:absolute;top:0;left:0;right:0;z-index:2;padding:20px 22px 30px;font-size:16px;background:linear-gradient(var(--card) 60%,transparent)}
+.feed::after{content:"";position:absolute;left:0;right:0;bottom:0;height:80px;background:linear-gradient(transparent,var(--card));z-index:2}
+.feed.them{background:var(--card)}
+.feed.us{background:radial-gradient(100% 80% at 50% 100%,#2a2416,var(--card))}
+.feed.us::after{display:none}
+.mq{display:flex;flex-direction:column;gap:10px;animation:mq 22s linear infinite;padding-top:64px}
+@keyframes mq{to{transform:translateY(-50%)}}
+.fi{border-radius:14px;padding:12px 14px;background:rgba(255,255,255,.05);font-size:15px;display:flex;gap:10px;align-items:center;color:var(--tx2)}
+.fi svg{width:20px;height:20px;fill:currentColor;opacity:.7}
+.fi.you{background:rgba(217,185,92,.14);color:var(--tx);box-shadow:inset 0 0 0 1px rgba(217,185,92,.4)}
+.fi.you svg{fill:var(--gold);opacity:1}
+.us-col{display:flex;flex-direction:column;gap:12px;padding-top:70px;height:100%}
+.us-col .fi{padding:16px}
+.us-col .fi.you{padding:26px 16px;font-size:17px}
+.perks{margin-top:64px;display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px}
+.pk{display:grid;grid-template-columns:44px 1fr;gap:4px 16px}
+.pk>svg{width:28px;height:28px;fill:var(--gold);grid-row:span 2;margin-top:2px}
+.pk b{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.pk p{color:var(--tx2);font-size:16px}
+.calc{margin-top:64px;border-radius:var(--r3);padding:clamp(22px,4vw,44px);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.calc label{font-size:15px;color:var(--tx2);display:flex;justify-content:space-between}
+.calc label b{color:var(--tx);font-size:22px;font-variant-numeric:tabular-nums}
+.calc .dslider{margin-top:10px}
+.calc .res{font-size:clamp(40px,5vw,64px);font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+.calc .res small{display:block;font-size:15px;font-weight:400;color:var(--tx2);letter-spacing:0;margin-top:10px}
+.calc .note{margin-top:14px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+@media (max-width:900px){.vs,.perks,.calc{grid-template-columns:1fr}.feed{height:360px}}
+
+
+/* ── 15. ЦЕНА ── */
+.price{text-align:center}
+.price .lead{margin-inline:auto}
+.plans{margin-top:56px;display:grid;grid-template-columns:.85fr 1.15fr;gap:20px;text-align:left;align-items:start}
+.plan{border-radius:var(--r3);padding:clamp(24px,3.4vw,40px);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);display:flex;flex-direction:column}
+.plan h3{font-size:22px}
+.plan .pp1{font-size:44px;font-weight:600;letter-spacing:-.03em;margin:14px 0 4px;font-variant-numeric:tabular-nums}
+.plan .pp1 small{display:block;font-size:16px;font-weight:400;color:var(--tx2);letter-spacing:0;margin-top:4px}
+.plan ul{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
+.plan li{display:flex;gap:10px;font-size:15px;color:var(--tx2);line-height:1.4}
+.plan li svg{width:18px;height:18px;fill:var(--gold);flex:none;margin-top:2px}
+.plan.plus{background:radial-gradient(120% 90% at 100% 0%,#2e2715,#15130f 60%);box-shadow:inset 0 0 0 1px rgba(217,185,92,.4),0 30px 80px -30px rgba(217,185,92,.25)}
+.plan.plus ul{grid-template-columns:1fr 1fr;column-gap:20px}
+.per{display:inline-flex;padding:3px;border-radius:99px;background:rgba(255,255,255,.08);margin-top:18px;align-self:flex-start}
+.per button{height:38px;padding:0 18px;border-radius:99px;font-size:14px;font-weight:600;color:var(--tx2)}
+.per button[aria-pressed="true"]{background:var(--fill);color:var(--ink)}
+.per button em{font-style:normal;color:var(--gold);margin-left:6px}
+.per button[aria-pressed="true"] em{color:#7a5a12}
+.trial{margin-top:22px;padding:14px 16px;border-radius:16px;background:rgba(217,185,92,.1);font-size:15px;display:flex;gap:10px;align-items:flex-start}
+.trial svg{width:20px;height:20px;fill:var(--gold);flex:none;margin-top:1px}
+.plan .btn{margin-top:auto;align-self:flex-start}
+.plan .spacer{flex:1;min-height:24px}
+.prem{margin-top:20px;color:var(--tx2);font-size:15px}
+.prem b{color:var(--gold)}
+@media (max-width:900px){.plans{grid-template-columns:1fr}.plan.plus{order:-1}}
+@media (max-width:520px){.plan.plus ul{grid-template-columns:1fr}}
+
+/* ── 16. ДОВЕРИЕ ── */
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:56px 64px;margin-top:56px}
+.tr3{display:grid;gap:12px}
+.tr3 svg{width:34px;height:34px;fill:var(--gold)}
+.tr3 b{font-size:clamp(22px,2.2vw,28px);font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.tr3 p{color:var(--tx2)}
+@media (max-width:800px){.trust{grid-template-columns:1fr;gap:40px}}
+
+/* ── ВОПРОСЫ ── */
+.faq{max-width:860px}
+.faq details{border-bottom:1px solid var(--ln)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font-size:clamp(18px,1.8vw,21px);font-weight:600;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{width:22px;height:22px;fill:var(--tx2);flex:none;transition:transform .3s var(--e);margin-top:2px}
+.faq details[open] summary svg{transform:rotate(45deg)}
+.faq details p{padding:0 0 24px;color:var(--tx2);max-width:44em}
+
+/* ── ФИНАЛ ── */
+.fin{position:relative;min-height:88vh;display:flex;align-items:center;text-align:center;overflow:hidden;isolation:isolate}
+.fin picture,.fin>img{position:absolute;inset:0;z-index:-1}
+.fin img{width:100%;height:100%;object-fit:cover;object-position:50% 78%}
+.fin::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(var(--bg),rgba(10,10,10,.45) 25%,rgba(10,10,10,.62) 60%,var(--bg)),radial-gradient(60% 50% at 50% 50%,rgba(10,10,10,.55),transparent)}
+.fin .h1{text-shadow:0 4px 40px rgba(0,0,0,.6)}
+.fin .h1{max-width:12em;margin-inline:auto}
+.fin .lead{margin:22px auto 0;color:rgba(245,243,238,.85)}
+.fin .cta{margin-top:36px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+
+/* ── ПОДВАЛ ── */
+.foot{padding:56px 0 48px;border-top:1px solid var(--ln);font-size:14px;color:var(--tx3)}
+.foot .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot nav{display:grid;gap:10px}
+.foot a{text-decoration:none;color:var(--tx2)}
+.foot a:hover{color:var(--tx)}
+@media (max-width:700px){.foot .wrap{grid-template-columns:1fr 1fr}.foot .wrap>div:first-child{grid-column:span 2}}
+
+/* ── ЛИСТ ОЖИДАНИЯ ── */
+dialog{border:0;padding:0;background:transparent;color:var(--tx);max-width:min(440px,calc(100vw - 32px));width:100%}
+dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.wl{border-radius:28px;background:#171614;box-shadow:inset 0 0 0 1px var(--ln2),0 40px 100px rgba(0,0,0,.6);padding:32px 28px 28px;position:relative}
+.wl img{width:56px;height:56px;border-radius:14px}
+.wl h2{font-size:26px;letter-spacing:-.02em;margin:18px 0 8px}
+.wl p{color:var(--tx2);font-size:15px}
+.wl label{display:block;font-size:14px;font-weight:600;margin:22px 0 8px}
+.wl input{width:100%;height:52px;border-radius:14px;border:1px solid var(--ln2);background:#0e0e0d;color:var(--tx);font:400 17px var(--sans);padding:0 16px}
+.wl input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.wl .btn{width:100%;margin-top:14px}
+.wl .m{min-height:22px;margin-top:12px;font-size:14px;color:var(--ok)}
+.wl .m.err{color:#FF8A8A}
+.wl .x{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:99px;display:grid;place-items:center}
+.wl .x svg{width:20px;height:20px;fill:var(--tx2)}
+dialog.done form{display:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .mq{animation:none}
+}
+
+
+/* ═══════ v9: все экраны — снимки настоящего приложения (media/*.webp, media/*.mp4) ═══════ */
+.lnk{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 6px;font-weight:600;text-decoration:none;color:var(--tx)}
+.lnk svg{width:18px;height:18px;transition:transform .3s var(--e)}
+.lnk:hover svg{transform:translateX(4px)}
+.h2.xl{font-size:clamp(46px,7vw,100px);line-height:1;letter-spacing:-.045em}
+.plusnote{display:block;font-size:14px;color:var(--tx2);margin-top:28px;line-height:1.5}
+.pchip{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--ink);background:linear-gradient(135deg,#f3dc93,var(--gold));border-radius:99px;padding:3px 9px;margin-right:8px;vertical-align:1px}
+.bigic{width:76px;height:76px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(145deg,#2c2617,#16130c);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 20px 50px -16px rgba(217,185,92,.45)}
+.bigic svg{width:40px;height:40px;fill:var(--gold)}
+
+/* ЭКРАН ПРИЛОЖЕНИЯ. Снимок 402×874 точки (@3x), края скруглены как у iPhone, тонкий торец корпуса — тенью.
+   Строку состояния iOS рисуем поверх (системная, не интерфейс приложения). */
+.dev{--pw:min(var(--w,360px),86vw);position:relative;width:var(--pw);max-width:100%;aspect-ratio:402/874;border-radius:calc(var(--pw)*.135);overflow:hidden;background:#000;flex:none;
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.16),0 0 0 calc(var(--pw)*.024) #141412,0 0 0 calc(var(--pw)*.027) rgba(255,255,255,.14),0 60px 120px -30px rgba(0,0,0,.95);container-type:inline-size;isolation:isolate}
+.dev img,.dev video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dev .sb{position:absolute;z-index:3;top:0;left:0;right:0;height:13cqw;display:flex;justify-content:space-between;align-items:center;padding:1.2cqw 8.5cqw 0 10cqw;font:600 3.9cqw/1 -apple-system,"SF Pro Text",var(--sans);color:#fff;pointer-events:none}
+.dev .sb i{display:flex;gap:1.5cqw;align-items:center}
+.dev .sb s{width:4.2cqw;height:2.7cqw;background:linear-gradient(90deg,#fff 0 18%,transparent 18% 27%,#fff 27% 45%,transparent 45% 54%,#fff 54% 72%,transparent 72% 81%,#fff 81%);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.dev .sb b{width:6.3cqw;height:3cqw;border-radius:1cqw;border:1.5px solid rgba(255,255,255,.55);position:relative}
+.dev .sb b::after{content:"";position:absolute;inset:1.5px;right:28%;border-radius:2px;background:#fff}
+.dev .isl{position:absolute;z-index:4;top:2.7cqw;left:50%;translate:-50% 0;width:30cqw;height:8.8cqw;border-radius:99px;background:#000}
+.dev .snd{position:absolute;z-index:5;right:4cqw;bottom:22cqw;width:11cqw;height:11cqw;border-radius:99px;display:grid;place-items:center;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.dev .snd svg{width:5.4cqw;height:5.4cqw;fill:#fff}
+figure{margin:0}
+figcaption{margin-top:18px;font-size:14px;color:var(--tx3);text-align:center}
+figcaption b{display:block;color:var(--tx);font-size:16px;font-weight:600;margin-bottom:2px}
+
+/* 1. ПЕРВЫЙ ЭКРАН */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;padding:96px 0 56px;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.9) 0%,rgba(10,10,10,.7) 38%,rgba(10,10,10,.25) 70%,rgba(10,10,10,.45)),linear-gradient(180deg,rgba(10,10,10,.5),transparent 25%,transparent 75%,var(--bg))}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.hero .h1{font-size:clamp(40px,4.6vw,70px);margin-bottom:22px}
+.hero .lead{color:rgba(245,243,238,.82);font-size:clamp(18px,1.5vw,21px);max-width:30em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;align-items:center}
+.duo{position:relative;display:flex;align-items:flex-end;padding-right:170px}
+.duo .d-main .dev{--pw:min(var(--w),calc((100dvh - 200px)*.46))}
+.duo .d-side{position:absolute;right:0;bottom:40px}
+.duo .d-side .dev{--pw:min(var(--w),calc((100dvh - 200px)*.3))}
+.duo figcaption{max-width:var(--pw)}
+.d-main figcaption{max-width:340px;margin-inline:auto}
+@media (max-width:980px){
+  .hero{padding:88px 0 64px;min-height:auto}
+  .hero .wrap{grid-template-columns:1fr;gap:48px}
+  .duo{justify-content:center;padding-right:0}
+  .duo .d-main .dev{--pw:min(300px,72vw)}
+  .duo .d-side{right:max(0px,calc(50% - 230px));bottom:60px}
+  .duo .d-side .dev{--pw:min(150px,36vw)}
+  .d-side figcaption{display:none}
+}
+@media (max-width:420px){.duo .d-main{margin-right:70px}.duo .d-side{right:0}}
+
+/* общие сцены: текст + экран(ы) */
+.split{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:72px;align-items:center}
+.split.rev{grid-template-columns:auto minmax(0,1fr)}
+.split.rev>div:last-child{order:-1}
+
+@media (max-width:980px){.split,.split.rev{grid-template-columns:1fr!important;gap:44px}.split.rev>div:last-child{order:0}.split>div:last-child{justify-self:center}}
+.pair{position:relative;display:flex;align-items:flex-end;padding-right:110px}
+.pair .back{position:absolute;right:0;bottom:-30px;--pw:min(var(--w),40vw);box-shadow:0 0 0 1.5px rgba(255,255,255,.16),0 0 0 6px #141412,0 0 0 7px rgba(255,255,255,.14),0 40px 80px -20px rgba(0,0,0,1)}
+@media (max-width:520px){.pair{padding-right:70px}.pair .dev:not(.back){--pw:min(300px,74vw)}.pair .back{--pw:min(150px,38vw)}}
+.stack{display:grid}
+.stack>.dev{grid-area:1/1;transition:opacity .45s var(--e),transform .6s var(--e)}
+.stack>.dev:not(.on){opacity:0;transform:translateY(14px) scale(.98);pointer-events:none}
+.seg3{display:inline-flex;flex-wrap:wrap;margin-top:30px;padding:4px;border-radius:99px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--ln)}
+.seg3 button{height:42px;padding:0 18px;border-radius:99px;font-size:15px;font-weight:600;color:var(--tx2);transition:background .25s,color .25s}
+.seg3 button[aria-selected="true"]{background:var(--fill);color:var(--ink)}
+.ayah{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;max-width:560px}
+.ayah svg{width:30px;height:30px;color:var(--gold)}
+.ayah p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2vw,26px);line-height:1.3}
+.ayah small{display:block;font-family:var(--sans);font-style:normal;font-size:14px;color:var(--tx3);margin-top:8px}
+
+/* 3. БЛИЗКИЕ — на картине «Вместе» */
+.close{overflow:hidden;isolation:isolate}
+.close-bg{position:absolute;inset:0;z-index:-1}
+.close-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;filter:brightness(.7) saturate(1.1)}
+.close-bg i{position:absolute;inset:0;background:linear-gradient(var(--bg),rgba(10,10,10,.35) 20%,rgba(10,10,10,.45) 70%,var(--bg)),linear-gradient(90deg,rgba(10,10,10,.85),rgba(10,10,10,.35) 60%,rgba(10,10,10,.6))}
+
+/* 4. ФАДЖР — предрассветное небо */
+.fajr{overflow:hidden;isolation:isolate}
+.fajr .sky{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#05060c 0%,#0b1020 40%,#1b2238 75%,#3a2a2a 100%)}
+.fajr .sky i{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 18%,#fff8 50%,transparent),radial-gradient(1px 1px at 32% 8%,#fff9 50%,transparent),radial-gradient(1.5px 1.5px at 58% 22%,#fffa 50%,transparent),radial-gradient(1px 1px at 76% 12%,#fff7 50%,transparent),radial-gradient(1px 1px at 88% 30%,#fff8 50%,transparent),radial-gradient(1px 1px at 22% 38%,#fff6 50%,transparent),radial-gradient(1px 1px at 46% 44%,#fff5 50%,transparent)}
+.fajr .sky::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;background:radial-gradient(60% 100% at 50% 100%,rgba(241,184,106,.28),transparent)}
+
+/* 5. ФОКУС */
+.sw{display:inline-flex;align-items:center;gap:14px;height:56px;padding:0 10px 0 22px;border-radius:99px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px var(--ln2);font-weight:600}
+.sw i{width:56px;height:34px;border-radius:99px;background:rgba(255,255,255,.18);position:relative;transition:background .3s}
+.sw i::after{content:"";position:absolute;top:3px;left:3px;width:28px;height:28px;border-radius:99px;background:#fff;transition:transform .35s var(--e);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.sw[aria-checked="true"] i{background:var(--ok)}
+.sw[aria-checked="true"] i::after{transform:translateX(22px)}
+.fctl{margin-top:30px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.fctl .note{font-size:14px}
+
+/* 7. СЦЕНА: полоса во всю ширину, подложка — настоящий ролик @firdausly в размытии */
+.stage{position:relative;overflow:hidden;isolation:isolate;margin-top:clamp(80px,10vw,140px);padding:clamp(64px,8vw,110px) 0;background:radial-gradient(80% 120% at 85% 20%,#2b3d66,#121a2e 55%,#0b0e17)}
+.stage-amb{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;z-index:-1;filter:blur(40px) brightness(.38) saturate(1.2);opacity:0;transition:opacity 1.2s}
+.stage-amb.on{opacity:1}
+.live{display:inline-flex;gap:6px;align-items:center;font-size:12px;font-weight:700;background:#E5484D;color:#fff;border-radius:6px;padding:3px 8px;letter-spacing:.04em}
+.live i{width:6px;height:6px;border-radius:9px;background:#fff;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.3}}
+.stage .st{margin:18px 0 14px;font-size:clamp(30px,3.6vw,50px);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+
+/* 10. ОСНОВА: ряд из четырёх настоящих экранов */
+.row4{margin:56px auto 0;width:min(1320px,100% - 2*var(--g));display:grid;grid-template-columns:repeat(4,1fr);gap:28px;justify-items:center}
+.row4 .dev{--pw:min(var(--w),100%)}
+@media (max-width:1100px){.row4{grid-template-columns:repeat(4,240px);overflow-x:auto;scroll-snap-type:x mandatory;justify-content:start;padding-bottom:12px;scrollbar-width:none}.row4::-webkit-scrollbar{display:none}.row4 figure{scroll-snap-align:center}.row4 .dev{--pw:240px}}
+.also{margin-top:36px;color:var(--tx2);font-size:16px}
+.also b{color:var(--tx)}
+
+/* 12. АВТОРАМ */
+.perks{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.pk b{display:block;font-size:22px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+.pk p{color:var(--tx2);font-size:16px}
+@media (max-width:900px){.perks{grid-template-columns:1fr}}
+
+/* 13. ПАРТНЁРСКАЯ ПРОГРАММА (тизер) */
+.pp-card{border-radius:var(--r3);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;background:radial-gradient(120% 120% at 100% 0%,#2e2715,#15130f 60%);box-shadow:inset 0 0 0 1px rgba(217,185,92,.35),0 40px 100px -40px rgba(217,185,92,.25)}
+.pp-num{display:grid;gap:4px}
+.pp-num b{font-size:clamp(40px,4.6vw,64px);font-weight:600;letter-spacing:-.03em;color:var(--gold);line-height:1}
+.pp-num span{color:var(--tx2);font-size:15px;margin-bottom:18px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;align-items:center}
+.mosq{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:22px 24px;border-radius:var(--r2);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);color:var(--tx2)}
+.mosq svg{width:30px;height:30px;color:var(--gold)}
+.mosq b{color:var(--tx)}
+.mosq a{color:var(--gold)}
+@media (max-width:900px){.pp-card{grid-template-columns:1fr}}
+
+/* 14. ЦЕНА */
+.plans{grid-template-columns:.8fr 1.1fr auto!important}
+.plan-shot{align-self:center;text-align:center}
+.plan-shot .dev{margin:0 auto}
+.plan .pp1 small{display:block;font-size:16px;font-weight:400;color:var(--tx2);letter-spacing:0;margin-top:4px}
+.plan .pp1 small.alt{margin-top:2px;color:var(--tx3);font-size:14px}
+@media (max-width:1100px){.plans{grid-template-columns:1fr 1fr!important}.plan-shot{grid-column:1/-1}}
+@media (max-width:760px){.plans{grid-template-columns:1fr!important}}
+
+/* 15. ДОВЕРИЕ */
+.trust-s .h1{max-width:14em}
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 64px;margin-top:48px}
+.trust p{font-size:clamp(18px,1.7vw,21px);color:var(--tx2);line-height:1.45;padding-top:22px;border-top:1px solid var(--ln)}
+.trust b{color:var(--tx)}
+@media (max-width:700px){.trust{grid-template-columns:1fr;gap:22px}}
+
+/* ФИНАЛ */
+.fin{min-height:100vh;align-items:flex-start;padding-top:clamp(96px,16vh,170px)}
+.fin img{object-position:50% 92%}
+.fin::before{background:linear-gradient(180deg,var(--bg) 0%,rgba(10,10,10,.82) 22%,rgba(10,10,10,.45) 45%,rgba(10,10,10,.05) 64%,rgba(10,10,10,.3) 88%,var(--bg))}
+.fin-d{margin-top:18px;font-size:15px;font-weight:600;color:var(--gold)}
+@media (min-width:901px){
+  .fin{text-align:left;align-items:center;padding-top:0}
+  .fin picture{left:44%}
+  .fin img{object-position:50% 72%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 38%);mask-image:linear-gradient(90deg,transparent,#000 38%)}
+  .fin::before{background:linear-gradient(180deg,var(--bg),transparent 18%,transparent 82%,var(--bg))}
+  .fin .h1{margin-inline:0;max-width:9.5em}
+  .fin .lead{margin-left:0;max-width:21em}
+  .fin .cta{justify-content:flex-start}
+}
+@media (max-width:600px){.nt{font-size:14px}}
+.nt:not(.gold) p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* правки после снимков v9 */
+.pk{display:block}
+.row4 figure{width:100%;display:flex;flex-direction:column;align-items:center}
+.row4 .dev{--pw:min(var(--w),100%);width:100%}
+@media (min-width:981px){
+  .duo{padding-right:190px}
+  .duo .d-main .dev{--pw:min(var(--w),calc((100dvh - 230px)*.46))}
+  .duo .d-side{right:0;bottom:56px}
+  .duo .d-side .dev{--pw:min(var(--w),calc((100dvh - 230px)*.29))}
+}
+.hero-bg::after{background:linear-gradient(90deg,rgba(10,10,10,.82) 0%,rgba(10,10,10,.55) 36%,rgba(10,10,10,.08) 68%,rgba(10,10,10,.25)),linear-gradient(180deg,rgba(10,10,10,.45),transparent 22%,transparent 78%,var(--bg))}
+@media (max-width:980px){.hero-bg::after{background:linear-gradient(180deg,rgba(10,10,10,.55),rgba(10,10,10,.72) 40%,rgba(10,10,10,.35) 70%,var(--bg))}}
+@media (max-width:1100px) and (min-width:981px){.duo{padding-right:120px}}
+.seg3{flex-wrap:nowrap;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.seg3::-webkit-scrollbar{display:none}
+.seg3 button{flex:none;white-space:nowrap}
+@media (max-width:420px){.seg3 button{padding:0 13px;font-size:14px}}
+@media (min-width:981px){.hero-bg::after{background:linear-gradient(90deg,rgba(10,10,10,.78) 0%,rgba(10,10,10,.42) 38%,rgba(10,10,10,0) 66%,rgba(10,10,10,.15)),linear-gradient(180deg,rgba(10,10,10,.4),transparent 22%,transparent 80%,var(--bg))}.hero-bg img{object-position:55% 18%;filter:brightness(1.05) saturate(1.1)}}
+@media (min-width:981px){.duo .d-side figcaption{position:absolute;right:0;top:100%;width:260px;text-align:right;margin-top:12px}.duo .d-main figcaption{text-align:left;margin-left:0}}
+</style>
+<style>
+/* страница партнёров: свои куски поверх общего стиля */
+.p-hero{position:relative;min-height:92dvh;display:flex;align-items:center;padding:110px 0 64px;overflow:hidden;isolation:isolate}
+.p-hero .hero-bg img{object-position:50% 40%}
+.p-hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:64px;align-items:center}
+.p-hero .h1{font-size:clamp(40px,5vw,74px)}
+.p-hero .lead{margin-top:22px;color:rgba(245,243,238,.84)}
+.p-hero .dev{--pw:min(330px,calc((100dvh - 190px)*.46))}
+.facts{margin-top:40px;display:grid;grid-template-columns:repeat(4,auto);gap:10px 40px;justify-content:start}
+.facts b{display:block;font-size:clamp(30px,3.2vw,44px);font-weight:600;color:var(--gold);letter-spacing:-.03em;line-height:1}
+.facts span{font-size:14px;color:var(--tx2)}
+@media (max-width:980px){.p-hero .wrap{grid-template-columns:1fr}.p-hero>.wrap>div:last-child{justify-self:center}.facts{grid-template-columns:repeat(2,auto)}}
+.calc2{margin-top:48px;display:grid;grid-template-columns:1.05fr .95fr;gap:24px}
+.calc2 .box{border-radius:var(--r3);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);padding:clamp(22px,3.4vw,40px)}
+.rng{margin-top:22px}
+.rng label{display:flex;justify-content:space-between;font-size:15px;color:var(--tx2)}
+.rng label b{color:var(--tx);font-size:20px;font-variant-numeric:tabular-nums}
+.rng small{display:block;color:var(--tx3);font-size:13px;margin-top:6px}
+.rng input{width:100%;appearance:none;-webkit-appearance:none;background:transparent;height:40px;margin:0;cursor:grab}
+.rng input::-webkit-slider-runnable-track{height:4px;border-radius:9px;background:linear-gradient(90deg,var(--gold) var(--p,0%),rgba(255,255,255,.14) var(--p,0%))}
+.rng input::-moz-range-track{height:4px;border-radius:9px;background:rgba(255,255,255,.14)}
+.rng input::-moz-range-progress{height:4px;background:var(--gold);border-radius:9px}
+.rng input::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:99px;background:var(--fill);margin-top:-12px;box-shadow:0 4px 16px rgba(0,0,0,.5),0 0 0 6px rgba(217,185,92,.18)}
+.rng input::-moz-range-thumb{width:28px;height:28px;border:0;border-radius:99px;background:var(--fill)}
+.res2{background:radial-gradient(120% 90% at 100% 0%,#2e2715,#15130f 60%)!important;box-shadow:inset 0 0 0 1px rgba(217,185,92,.4)!important}
+.res2 .big{font-size:clamp(44px,5.4vw,72px);font-weight:600;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.res2 .yr{color:var(--gold);font-weight:600;margin-top:10px}
+.res2 dl{margin:28px 0 0;display:grid;grid-template-columns:1fr auto;gap:10px 16px;font-size:15px}
+.res2 dt{color:var(--tx2)}.res2 dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.math{margin-top:22px;padding-top:18px;border-top:1px solid var(--ln);font-size:14px;color:var(--tx2);line-height:1.6}
+.math b{color:var(--tx)}
+@media (max-width:900px){.calc2{grid-template-columns:1fr}}
+.grid2{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.gbox{border-radius:var(--r3);padding:clamp(24px,3.4vw,40px);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln)}
+.gbox h3{font-size:24px;margin-bottom:18px}
+.gbox ul{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.gbox li{display:grid;grid-template-columns:28px 1fr;gap:12px;color:var(--tx2);font-size:16px;line-height:1.45}
+.gbox li svg{width:22px;height:22px;fill:var(--gold);margin-top:1px}
+.gbox li b{color:var(--tx)}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+.steps4{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.steps4 div{counter-increment:s;padding-top:22px;border-top:1px solid var(--ln2)}
+.steps4 div::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:99px;font-weight:700;color:var(--ink);background:linear-gradient(135deg,#f3dc93,var(--gold));margin-bottom:16px}
+.steps4 b{display:block;font-size:19px;margin-bottom:6px}
+.steps4 p{color:var(--tx2);font-size:15px}
+@media (max-width:900px){.steps4{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps4{grid-template-columns:1fr}}
+.apply{border-radius:var(--r3);padding:clamp(24px,4vw,56px);background:radial-gradient(120% 120% at 0% 0%,#22304f,#101626 55%,#0c0f18);display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+.apply form{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.fld{display:grid;gap:6px}
+.fld.w{grid-column:1/-1}
+.fld label{font-size:14px;font-weight:600}
+.fld input,.fld select,.fld textarea{width:100%;min-height:50px;border-radius:14px;border:1px solid var(--ln2);background:rgba(10,10,10,.6);color:var(--tx);font:400 16px var(--sans);padding:12px 14px}
+.fld textarea{min-height:96px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.fld.bad input,.fld.bad select{border-color:#FF8A8A}
+.fld .err{font-size:13px;color:#FF8A8A;display:none}
+.fld.bad .err{display:block}
+.typ{display:flex;flex-wrap:wrap;gap:8px}
+.typ label{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:99px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--ln2);cursor:pointer;font-size:15px;font-weight:600}
+.typ input{position:absolute;opacity:0;pointer-events:none}
+.typ label:has(input:checked){background:var(--fill);color:var(--ink)}
+.typ label:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.apply .btn{grid-column:1/-1;justify-self:start}
+.fmsg{grid-column:1/-1;min-height:22px;font-size:15px;color:var(--ok)}
+.fmsg.err{color:#FF8A8A}
+.apply.sent form{display:none}
+.done{display:none;font-size:20px;line-height:1.5}
+.apply.sent .done{display:block}
+@media (max-width:900px){.apply{grid-template-columns:1fr}.apply form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="p-arrow-right" viewBox="0 0 256 256"><path  d="m221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32"/></symbol><symbol id="p-calendar" viewBox="0 0 256 256"><path  d="M208 32h-24v-8a8 8 0 0 0-16 0v8H88v-8a8 8 0 0 0-16 0v8H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16M72 48v8a8 8 0 0 0 16 0v-8h80v8a8 8 0 0 0 16 0v-8h24v32H48V48Zm136 160H48V96h160zm-96-88v64a8 8 0 0 1-16 0v-51.06l-4.42 2.22a8 8 0 0 1-7.16-14.32l16-8A8 8 0 0 1 112 120m59.16 30.45L152 176h16a8 8 0 0 1 0 16h-32a8 8 0 0 1-6.4-12.8l28.78-38.37a8 8 0 1 0-13.31-8.83a8 8 0 1 1-13.85-8A24 24 0 0 1 176 136a23.76 23.76 0 0 1-4.84 14.45"/></symbol><symbol id="p-chart-bar" viewBox="0 0 256 256"><path  d="M224 200h-8V40a8 8 0 0 0-8-8h-56a8 8 0 0 0-8 8v40H96a8 8 0 0 0-8 8v40H48a8 8 0 0 0-8 8v64h-8a8 8 0 0 0 0 16h192a8 8 0 0 0 0-16M160 48h40v152h-40Zm-56 48h40v104h-40Zm-48 48h32v56H56Z"/></symbol><symbol id="p-chat-circle-dots" viewBox="0 0 256 256"><path  d="M140 128a12 12 0 1 1-12-12a12 12 0 0 1 12 12m-56-12a12 12 0 1 0 12 12a12 12 0 0 0-12-12m88 0a12 12 0 1 0 12 12a12 12 0 0 0-12-12m60 12a104 104 0 0 1-152.88 91.82l-34.05 11.35a16 16 0 0 1-20.24-20.24l11.35-34.05A104 104 0 1 1 232 128m-16 0a88 88 0 1 0-164.19 44.06a8 8 0 0 1 .66 6.54L40 216l37.4-12.47a7.9 7.9 0 0 1 2.53-.42a8 8 0 0 1 4 1.08A88 88 0 0 0 216 128"/></symbol><symbol id="p-clock-countdown" viewBox="0 0 256 256"><path  d="M232 136.66A104.12 104.12 0 1 1 119.34 24a8 8 0 0 1 1.32 16A88.12 88.12 0 1 0 216 135.34a8 8 0 0 1 16 1.32M120 72v56a8 8 0 0 0 8 8h56a8 8 0 0 0 0-16h-48V72a8 8 0 0 0-16 0m40-24a12 12 0 1 0-12-12a12 12 0 0 0 12 12m36 24a12 12 0 1 0-12-12a12 12 0 0 0 12 12m24 36a12 12 0 1 0-12-12a12 12 0 0 0 12 12"/></symbol><symbol id="p-coins" viewBox="0 0 256 256"><path  d="M184 89.57V84c0-25.08-37.83-44-88-44S8 58.92 8 84v40c0 20.89 26.25 37.49 64 42.46V172c0 25.08 37.83 44 88 44s88-18.92 88-44v-40c0-20.7-25.42-37.32-64-42.43M232 132c0 13.22-30.79 28-72 28c-3.73 0-7.43-.13-11.08-.37C170.49 151.77 184 139 184 124v-18.26c29.87 4.45 48 16.53 48 26.26M72 150.25v-23.79A184 184 0 0 0 96 128a184 184 0 0 0 24-1.54v23.79A163 163 0 0 1 96 152a163 163 0 0 1-24-1.75m96-40.32V124c0 8.39-12.41 17.4-32 22.87V123.5c12.91-3.13 23.84-7.79 32-13.57M96 56c41.21 0 72 14.78 72 28s-30.79 28-72 28s-72-14.78-72-28s30.79-28 72-28m-72 68v-14.07c8.16 5.78 19.09 10.44 32 13.57v23.37C36.41 141.4 24 132.39 24 124m64 48v-4.17c2.63.1 5.29.17 8 .17c3.88 0 7.67-.13 11.39-.35a122 122 0 0 0 12.61 3.76v23.46c-19.59-5.47-32-14.48-32-22.87m48 26.25V174.4a179.5 179.5 0 0 0 24 1.6a184 184 0 0 0 24-1.54v23.79a165.5 165.5 0 0 1-48 0m64-3.38V171.5c12.91-3.13 23.84-7.79 32-13.57V172c0 8.39-12.41 17.4-32 22.87"/></symbol><symbol id="p-film-strip" viewBox="0 0 256 256"><path  d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16M40 88h80v80H40Zm96-16V56h32v16Zm-16 0H88V56h32Zm0 112v16H88v-16Zm16 0h32v16h-32Zm0-16V88h80v80Zm80-96h-32V56h32ZM72 56v16H40V56ZM40 184h32v16H40Zm176 16h-32v-16h32z"/></symbol><symbol id="p-game-controller" viewBox="0 0 256 256"><path  d="M176 112h-24a8 8 0 0 1 0-16h24a8 8 0 0 1 0 16m-72-16h-8v-8a8 8 0 0 0-16 0v8h-8a8 8 0 0 0 0 16h8v8a8 8 0 0 0 16 0v-8h8a8 8 0 0 0 0-16m137.48 104.65a36 36 0 0 1-54.94 4.81c-.12-.12-.24-.24-.35-.37L146.48 160h-37l-39.67 45.09l-.35.37A36.08 36.08 0 0 1 44 216a36 36 0 0 1-35.44-42.25a.7.7 0 0 1 0-.14l16.37-84.09A59.88 59.88 0 0 1 83.89 40H172a60.08 60.08 0 0 1 59 49.25v.18l16.37 84.17a.7.7 0 0 1 0 .14a35.74 35.74 0 0 1-5.89 26.91M172 144a44 44 0 0 0 0-88H83.89a43.9 43.9 0 0 0-43.21 36.37v.13L24.3 176.59A20 20 0 0 0 58 194.3l41.92-47.59a8 8 0 0 1 6-2.71Zm59.7 32.59l-8.74-45A60 60 0 0 1 172 160h-4.2l30.2 34.31a20.09 20.09 0 0 0 17.46 5.39a20 20 0 0 0 16.23-23.11Z"/></symbol><symbol id="p-gift" viewBox="0 0 256 256"><path  d="M216 72h-35.08c.39-.33.79-.65 1.17-1A29.53 29.53 0 0 0 192 49.57A32.62 32.62 0 0 0 158.44 16A29.53 29.53 0 0 0 137 25.91a55 55 0 0 0-9 14.48a55 55 0 0 0-9-14.48A29.53 29.53 0 0 0 97.56 16A32.62 32.62 0 0 0 64 49.57A29.53 29.53 0 0 0 73.91 71c.38.33.78.65 1.17 1H40a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16v64a16 16 0 0 0 16 16h144a16 16 0 0 0 16-16v-64a16 16 0 0 0 16-16V88a16 16 0 0 0-16-16m-67-35.49a13.7 13.7 0 0 1 10-4.5h.49A16.62 16.62 0 0 1 176 49.08a13.7 13.7 0 0 1-4.5 10c-9.49 8.4-25.24 11.36-35 12.4c1.2-10.59 4.5-25.98 12.5-34.97m-64.09.36A16.63 16.63 0 0 1 96.59 32h.49a13.7 13.7 0 0 1 10 4.5c8.39 9.48 11.35 25.2 12.39 34.92c-9.72-1-25.44-4-34.92-12.39a13.7 13.7 0 0 1-4.5-10a16.6 16.6 0 0 1 4.82-12.16ZM40 88h80v32H40Zm16 48h64v64H56Zm144 64h-64v-64h64Zm16-80h-80V88h80z"/></symbol><symbol id="p-globe-hemisphere-east" viewBox="0 0 256 256"><path  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m0 16a87.5 87.5 0 0 1 48 14.28V74l-22.17 25.74l-31.47 4.26l-.31-.22l-19.67-12.86a16 16 0 0 0-22.51 4.18l-20.94 31.3a16 16 0 0 0-2.7 8.81L56 171.44l-3.27 2.15A88 88 0 0 1 128 40M62.29 186.47l2.52-1.65A16 16 0 0 0 72 171.53l.21-36.23L93.17 104a4 4 0 0 0 .32.22l19.67 12.87a15.94 15.94 0 0 0 11.35 2.77l31.49-4.27a16 16 0 0 0 10-5.41l22.17-25.76A16 16 0 0 0 192 74v-6.33A87.87 87.87 0 0 1 211.77 155l-16.14-14.76a16 16 0 0 0-16.93-3l-30.46 12.65a16.08 16.08 0 0 0-9.68 12.45l-2.39 16.19a16 16 0 0 0 11.77 17.81L169.4 202l2.36 2.37a87.88 87.88 0 0 1-109.47-17.9M185 195l-4.3-4.31a16 16 0 0 0-7.26-4.18L152 180.85l2.39-16.19L184.84 152L205 170.48A88.4 88.4 0 0 1 185 195"/></symbol><symbol id="p-hand-heart" viewBox="0 0 256 256"><path  d="M230.33 141.06a24.34 24.34 0 0 0-18.61-4.77C230.5 117.33 240 98.48 240 80c0-26.47-21.29-48-47.46-48A47.58 47.58 0 0 0 156 48.75A47.58 47.58 0 0 0 119.46 32C93.29 32 72 53.53 72 80c0 11 3.24 21.69 10.06 33a31.87 31.87 0 0 0-14.75 8.4L44.69 144H16a16 16 0 0 0-16 16v40a16 16 0 0 0 16 16h104a8 8 0 0 0 1.94-.24l64-16a7 7 0 0 0 1.19-.4L226 182.82l.44-.2a24.6 24.6 0 0 0 3.93-41.56ZM119.46 48a31.15 31.15 0 0 1 29.14 19a8 8 0 0 0 14.8 0a31.15 31.15 0 0 1 29.14-19C209.59 48 224 62.65 224 80c0 19.51-15.79 41.58-45.66 63.9l-11.09 2.55A28 28 0 0 0 140 112h-39.32C92.05 100.36 88 90.12 88 80c0-17.35 14.41-32 31.46-32M16 160h24v40H16Zm203.43 8.21l-38 16.18L119 200H56v-44.69l22.63-22.62A15.86 15.86 0 0 1 89.94 128H140a12 12 0 0 1 0 24h-28a8 8 0 0 0 0 16h32a8.3 8.3 0 0 0 1.79-.2l67-15.41l.31-.08a8.6 8.6 0 0 1 6.3 15.9Z"/></symbol><symbol id="p-hand-waving" viewBox="0 0 256 256"><path  d="m220.17 100l-17.31-30a28 28 0 0 0-38.24-10.25a27.7 27.7 0 0 0-9 8.34L138.2 38a28 28 0 0 0-48.48 0a28 28 0 0 0-41.57 36l1.59 2.76A27.7 27.7 0 0 0 38 80.41a28 28 0 0 0-10.24 38.25l40 69.32a87.47 87.47 0 0 0 53.43 41a88.6 88.6 0 0 0 22.92 3a88 88 0 0 0 76.06-132Zm-6.66 62.64A72 72 0 0 1 81.62 180l-40-69.32a12 12 0 0 1 20.78-12L81.63 132a8 8 0 1 0 13.85-8L62 66a12 12 0 1 1 20.78-12L114 108a8 8 0 1 0 13.85-8l-24.28-42a12 12 0 1 1 20.78-12l33.42 57.9a48 48 0 0 0-5.54 60.6a8 8 0 0 0 13.24-9a32 32 0 0 1 7.31-43.5a8 8 0 0 0 2.13-10.4L168.23 90A12 12 0 1 1 189 78l17.31 30a71.56 71.56 0 0 1 7.2 54.62ZM184.25 31.71A8 8 0 0 1 194 26a59.62 59.62 0 0 1 36.53 28l.33.57a8 8 0 1 1-13.85 8l-.33-.57a43.67 43.67 0 0 0-26.8-20.5a8 8 0 0 1-5.63-9.79M80.89 237a8 8 0 0 1-11.23 1.33A119.6 119.6 0 0 1 40.06 204a8 8 0 0 1 13.86-8a103.7 103.7 0 0 0 25.64 29.72A8 8 0 0 1 80.89 237"/></symbol><symbol id="p-heart-fill" viewBox="0 0 256 256"><path  d="M240 102c0 70-103.79 126.66-108.21 129a8 8 0 0 1-7.58 0C119.79 228.66 16 172 16 102a62.07 62.07 0 0 1 62-62c20.65 0 38.73 8.88 50 23.89C139.27 48.88 157.35 40 178 40a62.07 62.07 0 0 1 62 62"/></symbol><symbol id="p-megaphone" viewBox="0 0 256 256"><path  d="M248 120a48.05 48.05 0 0 0-48-48h-39.8c-2.91-.17-53.62-3.74-101.91-44.24A16 16 0 0 0 32 40v160a16 16 0 0 0 26.29 12.25c37.77-31.68 77-40.76 93.71-43.3v31.72a16 16 0 0 0 7.12 13.33l11 7.33A16 16 0 0 0 194.5 212l11.77-44.36A48.07 48.07 0 0 0 248 120M48 199.93V40c42.81 35.91 86.63 45 104 47.24v65.48c-17.35 2.28-61.16 11.35-104 47.21m131 8v.11l-11-7.33V168h21.6ZM200 152h-32V88h32a32 32 0 1 1 0 64"/></symbol><symbol id="p-music-notes" viewBox="0 0 256 256"><path  d="M212.92 17.69a8 8 0 0 0-6.86-1.45l-128 32A8 8 0 0 0 72 56v110.08A36 36 0 1 0 88 196v-85.75l112-28v51.83A36 36 0 1 0 216 164V24a8 8 0 0 0-3.08-6.31M52 216a20 20 0 1 1 20-20a20 20 0 0 1-20 20M88 93.75v-31.5l112-28v31.5ZM180 184a20 20 0 1 1 20-20a20 20 0 0 1-20 20"/></symbol><symbol id="p-plus" viewBox="0 0 256 256"><path  d="M224 128a8 8 0 0 1-8 8h-80v80a8 8 0 0 1-16 0v-80H40a8 8 0 0 1 0-16h80V40a8 8 0 0 1 16 0v80h80a8 8 0 0 1 8 8"/></symbol><symbol id="p-seal-check" viewBox="0 0 256 256"><path  d="M225.86 102.82c-3.77-3.94-7.67-8-9.14-11.57c-1.36-3.27-1.44-8.69-1.52-13.94c-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52c-3.56-1.47-7.63-5.37-11.57-9.14C146.28 23.51 138.44 16 128 16s-18.27 7.51-25.18 14.14c-3.94 3.77-8 7.67-11.57 9.14c-3.25 1.36-8.69 1.44-13.94 1.52c-9.76.15-20.82.31-28.51 8s-7.8 18.75-8 28.51c-.08 5.25-.16 10.67-1.52 13.94c-1.47 3.56-5.37 7.63-9.14 11.57C23.51 109.72 16 117.56 16 128s7.51 18.27 14.14 25.18c3.77 3.94 7.67 8 9.14 11.57c1.36 3.27 1.44 8.69 1.52 13.94c.15 9.76.31 20.82 8 28.51s18.75 7.85 28.51 8c5.25.08 10.67.16 13.94 1.52c3.56 1.47 7.63 5.37 11.57 9.14c6.9 6.63 14.74 14.14 25.18 14.14s18.27-7.51 25.18-14.14c3.94-3.77 8-7.67 11.57-9.14c3.27-1.36 8.69-1.44 13.94-1.52c9.76-.15 20.82-.31 28.51-8s7.85-18.75 8-28.51c.08-5.25.16-10.67 1.52-13.94c1.47-3.56 5.37-7.63 9.14-11.57c6.63-6.9 14.14-14.74 14.14-25.18s-7.51-18.27-14.14-25.18m-11.55 39.29c-4.79 5-9.75 10.17-12.38 16.52c-2.52 6.1-2.63 13.07-2.73 19.82c-.1 7-.21 14.33-3.32 17.43s-10.39 3.22-17.43 3.32c-6.75.1-13.72.21-19.82 2.73c-6.35 2.63-11.52 7.59-16.52 12.38S132 224 128 224s-9.15-4.92-14.11-9.69s-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73c-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82c-2.63-6.35-7.59-11.52-12.38-16.52S32 132 32 128s4.92-9.15 9.69-14.11s9.75-10.17 12.38-16.52c2.52-6.1 2.63-13.07 2.73-19.82c.1-7 .21-14.33 3.32-17.43s10.39-3.22 17.43-3.32c6.75-.1 13.72-.21 19.82-2.73c6.35-2.63 11.52-7.59 16.52-12.38S124 32 128 32s9.15 4.92 14.11 9.69s10.17 9.75 16.52 12.38c6.1 2.52 13.07 2.63 19.82 2.73c7 .1 14.33.21 17.43 3.32s3.22 10.39 3.32 17.43c.1 6.75.21 13.72 2.73 19.82c2.63 6.35 7.59 11.52 12.38 16.52S224 124 224 128s-4.92 9.15-9.69 14.11m-40.65-43.77a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0"/></symbol><symbol id="p-shield-check" viewBox="0 0 256 256"><path  d="M208 40H48a16 16 0 0 0-16 16v56c0 52.72 25.52 84.67 46.93 102.19c23.06 18.86 46 25.26 47 25.53a8 8 0 0 0 4.2 0c1-.27 23.91-6.67 47-25.53C198.48 196.67 224 164.72 224 112V56a16 16 0 0 0-16-16m0 72c0 37.07-13.66 67.16-40.6 89.42a129.3 129.3 0 0 1-39.4 22.2a128.3 128.3 0 0 1-38.92-21.81C61.82 179.51 48 149.3 48 112V56h160ZM82.34 141.66a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32l-56 56a8 8 0 0 1-11.32 0Z"/></symbol><symbol id="p-shopping-bag" viewBox="0 0 256 256"><path  d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16m0 160H40V56h176zM176 88a48 48 0 0 1-96 0a8 8 0 0 1 16 0a32 32 0 0 0 64 0a8 8 0 0 1 16 0"/></symbol><symbol id="p-sparkle" viewBox="0 0 256 256"><path  d="M197.58 129.06L146 110l-19-51.62a15.92 15.92 0 0 0-29.88 0L78 110l-51.62 19a15.92 15.92 0 0 0 0 29.88L78 178l19 51.62a15.92 15.92 0 0 0 29.88 0L146 178l51.62-19a15.92 15.92 0 0 0 0-29.88ZM137 164.22a8 8 0 0 0-4.74 4.74L112 223.85L91.78 169a8 8 0 0 0-4.78-4.78L32.15 144L87 123.78a8 8 0 0 0 4.78-4.78L112 64.15L132.22 119a8 8 0 0 0 4.74 4.74L191.85 144ZM144 40a8 8 0 0 1 8-8h16V16a8 8 0 0 1 16 0v16h16a8 8 0 0 1 0 16h-16v16a8 8 0 0 1-16 0V48h-16a8 8 0 0 1-8-8m104 48a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-16 0v-8h-8a8 8 0 0 1 0-16h8v-8a8 8 0 0 1 16 0v8h8a8 8 0 0 1 8 8"/></symbol><symbol id="p-storefront" viewBox="0 0 256 256"><path  d="M232 96a8 8 0 0 0-.3-2.2l-14.35-50.2A16.07 16.07 0 0 0 202 32H54a16.07 16.07 0 0 0-15.35 11.6L24.31 93.8A8 8 0 0 0 24 96v16a40 40 0 0 0 16 32v72a8 8 0 0 0 8 8h160a8 8 0 0 0 8-8v-72a40 40 0 0 0 16-32zM54 48h148l11.42 40H42.61Zm50 56h48v8a24 24 0 0 1-48 0Zm-16 0v8a24 24 0 0 1-35.12 21.26a8 8 0 0 0-1.82-1.06A24 24 0 0 1 40 112v-8Zm112 104H56v-56.8a40.6 40.6 0 0 0 8 .8a40 40 0 0 0 32-16a40 40 0 0 0 64 0a40 40 0 0 0 32 16a40.6 40.6 0 0 0 8-.8Zm4.93-75.8a8 8 0 0 0-1.8 1.05A24 24 0 0 1 168 112v-8h48v8a24 24 0 0 1-11.07 20.2"/></symbol><symbol id="p-youtube-logo" viewBox="0 0 256 256"><path  d="m164.44 121.34l-48-32A8 8 0 0 0 104 96v64a8 8 0 0 0 12.44 6.66l48-32a8 8 0 0 0 0-13.32M120 145.05V111l25.58 17Zm114.33-75.53a24 24 0 0 0-14.49-16.4C185.56 39.88 131 40 128 40s-57.56-.12-91.84 13.12a24 24 0 0 0-14.49 16.4C19.08 79.5 16 97.74 16 128s3.08 48.5 5.67 58.48a24 24 0 0 0 14.49 16.41C69 215.56 120.4 216 127.34 216h1.32c6.94 0 58.37-.44 91.18-13.11a24 24 0 0 0 14.49-16.41c2.59-10 5.67-28.22 5.67-58.48s-3.08-48.5-5.67-58.48m-15.49 113a8 8 0 0 1-4.77 5.49c-31.65 12.22-85.48 12-86 12H128c-.54 0-54.33.2-86-12a8 8 0 0 1-4.77-5.49C34.8 173.39 32 156.57 32 128s2.8-45.39 5.16-54.47A8 8 0 0 1 41.93 68c30.52-11.79 81.66-12 85.85-12h.27c.54 0 54.38-.18 86 12a8 8 0 0 1 4.77 5.49C221.2 82.61 224 99.43 224 128s-2.8 45.39-5.16 54.47Z"/></symbol><symbol id="t-reminders-f" viewBox="-1.333333333333334 -1.333333333333334 26.666666666666668 26.666666666666668"><path d="M5.25 3A3.25 3.25 0 0 0 2 6.25v11.5C2 19.55 3.46 21 5.25 21h13.5c1.8 0 3.25-1.46 3.25-3.25V6.25C22 4.45 20.54 3 18.75 3H5.25ZM9 9.25a1 1 0 0 1 1.48-.88l5 2.75a1 1 0 0 1 0 1.76l-5 2.75A1 1 0 0 1 9 14.75v-5.5Z"/></symbol></defs></svg>
+<header class="top on" id="top">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../i/icon.webp" alt="" width="30" height="30">Firdausly</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#income">Доход</a><a href="#terms">Условия</a><a href="#start">Как начать</a><a href="#faq">Вопросы</a>
+    </nav>
+    <a class="btn btn-p" href="#apply">Подать заявку</a>
+  </div>
+</header>
+
+<main>
+<section class="p-hero" aria-labelledby="h1">
+  <div class="hero-bg"><picture><source type="image/avif" srcset="../i/road-480.avif 480w, ../i/road-860.avif 860w" sizes="100vw"><img src="../i/road-860.webp" srcset="../i/road-480.webp 480w, ../i/road-860.webp 860w" sizes="100vw" alt="" fetchpriority="high"></picture></div>
+  <div class="wrap">
+    <div>
+      <span class="tag"><svg class="i"><use href="#p-coins"/></svg>Партнёрская программа Firdausly</span>
+      <h1 class="h1" id="h1" style="margin-top:16px">Советуете один раз. Получаете каждый&nbsp;месяц.</h1>
+      <p class="lead">Для исламских авторов и блогеров. 20% чистой выручки с каждой оплаты людей, пришедших по вашему коду, пока они с Firdausly. Вашим людям месяц Plus в подарок.</p>
+      <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;align-items:center"><a class="btn btn-p" href="#apply">Подать заявку</a><a class="lnk" href="#income">Посчитать доход<svg class="i"><use href="#p-arrow-right"/></svg></a></div>
+      <div class="facts"><div><b>20%</b><span>с каждой оплаты</span></div><div><b>30&nbsp;дней</b><span>Plus вашим людям</span></div><div><b>1</b><span>уровень, без пирамид</span></div><div><b>0&nbsp;₸</b><span>за участие</span></div></div>
+    </div>
+    <figure><div class="dev" style="--w:330px" data-slot="home" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/home.webp" srcset="../media/home-s.webp 603w, ../media/home.webp 1206w" sizes="330px" alt="Экран Firdausly" decoding="async"></div><figcaption>Это получат ваши люди: настоящий Firdausly на месяц с Plus</figcaption></figure>
+  </div>
+</section>
+
+<section class="sec" id="income" aria-labelledby="h-inc">
+  <div class="wrap">
+    <h2 class="h2" id="h-inc">Посчитайте честно</h2>
+    <p class="lead" style="margin-top:18px">Двигайте ползунки под свою аудиторию. Ниже видно, из чего складывается каждый тенге.</p>
+    <div class="calc2">
+      <div class="box">
+        <div class="rng"><label for="c-aud">Подписчиков на всех площадках <b id="o-aud">30 000</b></label><input type="range" id="c-aud" min="0" max="100" value="50"><small>Instagram, YouTube, TikTok, Telegram вместе.</small></div>
+        <div class="rng"><label for="c-in">Поставят Firdausly по вашему коду <b id="o-in">2%</b></label><input type="range" id="c-in" min="0.5" max="5" step="0.5" value="2"><small>Наше допущение: 1–3% для одного честного рассказа.</small></div>
+        <div class="rng"><label for="c-pay">Станут платить после подарка <b id="o-pay">10%</b></label><input type="range" id="c-pay" min="2" max="30" step="1" value="10"><small>Из поставивших, кто после месяца Plus оформит подписку.</small></div>
+      </div>
+      <div class="box res2" aria-live="polite">
+        <div class="big" id="o-sum">31 980 ₸</div>
+        <div class="yr" id="o-year">в месяц, пока люди платят</div>
+        <dl><dt>Поставят приложение</dt><dd id="o-inst">600</dd><dt>Станут платить</dt><dd id="o-payers">60</dd><dt>Вам с одной оплаты Plus на месяц</dt><dd>533 ₸</dd></dl>
+        <p class="math"><b>Plus на месяц 3 790 ₸</b> − НДС 16% (523 ₸) − комиссия Apple 15% (490 ₸) − наш налог 4% (111 ₸) = <b>2 666 ₸</b> чистыми → вам 20% = <b>533 ₸</b>. Годовая подписка и Premium дают больше с человека. Оценка, не обещание: сколько людей придёт, зависит от вас и вашей аудитории.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="terms" aria-labelledby="h-terms" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="h2" id="h-terms">Условия без мелкого шрифта</h2>
+    <div class="grid2">
+      <div class="gbox"><h3>Что получаете вы</h3><ul>
+        <li><svg><use href="#p-coins"/></svg><span><b>20% с каждой оплаты и продления</b> людей, пришедших по вашему коду: месяц или год, Plus или Premium. Пока человек платит, вы получаете долю. Только один уровень: за приглашённых авторов не платим, платить за участие не нужно.</span></li>
+        <li><svg><use href="#p-calendar"/></svg><span><b>Выплата раз в месяц, в любую страну.</b> С 10-го числа, когда Apple уже перевёл нам деньги, не раньше 45 дней после оплаты. От 10 000 ₸ (около $20 в вашей валюте). В Казахстане на Kaspi, в других странах банковским переводом. Вернули покупателю деньги, начисление снимается.</span></li>
+        <li><svg><use href="#p-chart-bar"/></svg><span><b>Кабинет партнёра в приложении</b>: сколько пришло, сколько купили, сколько начислено, когда ближайшая выплата, история выплат. И отчёт каждый месяц.</span></li>
+        <li><svg><use href="#p-seal-check"/></svg><span><b>Отметка партнёра в профиле</b> и <b>Firdausly Premium</b> бесплатно, пока работаем вместе.</span></li>
+      </ul></div>
+      <div class="gbox"><h3>Что получают ваши люди</h3><ul>
+        <li><svg><use href="#p-gift"/></svg><span><b>30 дней Firdausly Plus</b> по вашему коду: близкие и напоминания, Фаджр вместе, Фокус, Умма и Сцена, азан муэдзинов.</span></li>
+        <li><svg><use href="#p-clock-countdown"/></svg><span><b>Код вводят в первые 7 дней</b> после регистрации в приложении. Скажите об этом в рассказе.</span></li>
+        <li><svg><use href="#p-hand-heart"/></svg><span><b>Без подвоха.</b> После подарка человек сам решает, платить ли. Основа приложения бесплатна навсегда.</span></li>
+        <li><svg><use href="#p-shield-check"/></svg><span><b>Мы просим взамен:</b> говорить о намазе бережно, без стыда за пропуск и без обещаний награды от Всевышнего; показывать только то, что уже есть в приложении; помечать рекламу так, как требует закон вашей страны.</span></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="start" aria-labelledby="h-start" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="h2" id="h-start">Как начать</h2>
+    <div class="steps4">
+      <div><b>Подаёте заявку</b><p>Две минуты: кто вы, где вас читают, как связаться.</p></div>
+      <div><b>Знакомимся</b><p>Смотрим, о чём вы пишете, и отвечаем лично. Порога по подписчикам нет: важнее, что вам доверяют.</p></div>
+      <div><b>Получаете код</b><p>Короткий и ваш: по нему люди получают подарок, а мы видим, что они пришли от вас.</p></div>
+      <div><b>Рассказываете</b><p>Своими словами, как вам удобно. Доля приходит с каждой оплаты, пока люди с Firdausly.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="apply" aria-labelledby="h-apply" style="padding-top:0">
+  <div class="wrap">
+    <div class="apply" id="applyBox">
+      <div>
+        <h2 class="h2" id="h-apply">Заявка</h2>
+        <p class="lead" style="margin-top:16px">Отвечаем на каждую заявку лично, в Telegram или по почте, которую вы оставите. Мечети и школы тоже пишут сюда.</p>
+        <p class="done" role="status">Заявка у нас. Ответим лично в ближайшие дни, иншаАллах.</p>
+      </div>
+      <form id="pform" novalidate>
+        <div class="fld w"><span style="font-size:14px;font-weight:600">Кто вы</span>
+          <div class="typ" role="radiogroup" aria-label="Кто вы">
+            <label><input type="radio" name="role" value="creator" checked>Автор или блогер</label>
+            <label><input type="radio" name="role" value="mosque">Мечеть или школа</label>
+            <label><input type="radio" name="role" value="other">Другое</label>
+          </div>
+        </div>
+        <div class="fld"><label for="f-name">Имя</label><input id="f-name" name="name" autocomplete="name" maxlength="60"><span class="err">Как к вам обращаться?</span></div>
+        <div class="fld"><label for="f-contact">Telegram, телефон или почта</label><input id="f-contact" name="contact" maxlength="120" placeholder="@username"><span class="err">Куда ответить?</span></div>
+        <div class="fld"><label for="f-handle">Ссылка на канал или профиль</label><input id="f-handle" name="handle" maxlength="80" placeholder="instagram.com/…"><span class="err">Где вас читают?</span></div>
+        <div class="fld"><label for="f-aud">Сколько подписчиков</label><select id="f-aud" name="aud"><option value="">Выберите</option><option>до 5 000</option><option>5 000–30 000</option><option>30 000–100 000</option><option>100 000–500 000</option><option>больше 500 000</option></select></div>
+        <div class="fld w"><label for="f-msg">Пара слов о себе <span style="font-weight:400;color:var(--tx3)">(можно пропустить)</span></label><textarea id="f-msg" name="msg" maxlength="200"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="f-web">Сайт</label><input id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn-p" type="submit" id="f-btn">Отправить заявку</button>
+        <p class="fmsg" id="f-msgout" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="h-faq" style="padding-top:0">
+  <div class="wrap faq">
+    <h2 class="h2" id="h-faq" style="margin-bottom:24px">Вопросы</h2>
+    <details><summary>Сколько нужно подписчиков?<svg class="i"><use href="#p-plus"/></svg></summary><p>Порога нет. Важнее, что вам доверяют и ваши люди молятся. Сто слушающих важнее ста тысяч случайных.</p></details>
+    <details><summary>Как считаются 20%?<svg class="i"><use href="#p-plus"/></svg></summary><p>С чистой выручки каждой оплаты: из цены вычитаются НДС, комиссия Apple и налог 4%. С Firdausly Plus на месяц в Казахстане (3 790 ₸) вы получаете 533 ₸. И так с каждого продления, пока человек платит.</p></details>
+    <details><summary>Есть ли второй уровень?<svg class="i"><use href="#p-plus"/></svg></summary><p>Нет. Платим только с оплат людей, которые пришли по вашему коду. За приглашение других авторов не платим.</p></details>
+    <details><summary>Как приходят выплаты, если я не в Казахстане?<svg class="i"><use href="#p-plus"/></svg></summary><p>Раз в месяц банковским переводом в вашу страну; в Казахстане на Kaspi. Порог 10 000 ₸, это около $20 в вашей валюте. Детали перевода согласуем при подключении.</p></details>
+    <details><summary>Что получают мои люди?<svg class="i"><use href="#p-plus"/></svg></summary><p>30 дней Firdausly Plus по вашему коду. Код вводят в первые 7 дней после регистрации в приложении.</p></details>
+    <details><summary>Нужен ли эксклюзив?<svg class="i"><use href="#p-plus"/></svg></summary><p>Нет. Instagram, TikTok и YouTube остаются с вами. Рассказывайте о Firdausly там, где вас слушают.</p></details>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="logo" href="../"><img src="../i/icon.webp" alt="" width="30" height="30">Firdausly</a><p style="margin-top:14px;max-width:24em">Соцсеть, которая зовёт к намазу. Сделано в Казахстане.</p></div>
+    <nav aria-label="О проекте"><a href="../">Главная</a><a href="/about">О Firdausly</a><a href="/namaz/">Время намаза по городам</a></nav>
+    <nav aria-label="Документы"><a href="/support">Поддержка</a><a href="/privacy">Конфиденциальность</a><a href="/terms">Условия</a></nav>
+  </div>
+</footer>
+
+<script>
+/* Калькулятор (та же модель, что site/assets/partners.js: 533 ₸ с месячной оплаты Plus в Казахстане) и заявка → функция creator-lead → Telegram команды. */
+(function () {
+  var PER = 533, $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return Math.round(n).toLocaleString('ru-RU').replace(/[\s  ]/g, ' '); };
+  var aud = function (v) { var n = Math.pow(10, 3 + 3 * v / 100), st = n < 10000 ? 500 : n < 100000 ? 1000 : 10000; return Math.round(n / st) * st; };
+  var fill = function (el) { el.style.setProperty('--p', (el.value - el.min) / (el.max - el.min) * 100 + '%'); };
+  function calc() {
+    var a = aud(+$('c-aud').value), i = Math.round(a * $('c-in').value / 100), p = Math.round(i * $('c-pay').value / 100);
+    $('o-aud').textContent = fmt(a); $('o-in').textContent = String($('c-in').value).replace('.', ',') + '%'; $('o-pay').textContent = $('c-pay').value + '%';
+    $('o-inst').textContent = fmt(i); $('o-payers').textContent = fmt(p); $('o-sum').textContent = fmt(p * PER) + ' ₸';
+    $('o-year').textContent = 'в месяц, пока люди платят · ≈ ' + fmt(p * PER * 12) + ' ₸ за год';
+    ['c-aud', 'c-in', 'c-pay'].forEach(function (id) { fill($(id)); });
+  }
+  ['c-aud', 'c-in', 'c-pay'].forEach(function (id) { $(id).addEventListener('input', calc); }); calc();
+
+  var FN = 'https://axpoadzhfvxzywotbvug.supabase.co/functions/v1/creator-lead', t0 = Date.now(), form = $('pform'), btn = $('f-btn'), out = $('f-msgout');
+  var q = new URLSearchParams(location.search), tag = function (k) { var v = q.get(k); return v && /^[A-Za-z0-9._~-]{1,60}$/.test(v) ? v : undefined; };
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var bad = false;
+    ['f-name', 'f-contact', 'f-handle'].forEach(function (id) { var el = $(id), ok = el.value.trim().length >= (id === 'f-contact' ? 3 : 2); el.parentElement.classList.toggle('bad', !ok); el.setAttribute('aria-invalid', ok ? 'false' : 'true'); if (!ok && !bad) { el.focus(); bad = true; } });
+    if (bad) return;
+    var role = form.querySelector('input[name=role]:checked').value;
+    var note = ['Партнёрская программа v9', role === 'mosque' ? 'мечеть/школа' : role === 'other' ? 'другое' : 'автор/блогер', $('f-aud').value ? 'аудитория ' + $('f-aud').value : '', $('f-msg').value.trim()].filter(Boolean).join(' · ').slice(0, 300);
+    var body = { kind: 'lead', name: $('f-name').value.trim(), handle: $('f-handle').value.trim(), contact: $('f-contact').value.trim(), role: role, source: note, website: $('f-web').value, elapsed: Date.now() - t0, lang: 'ru', page: location.pathname.slice(0, 79).replace(/[^A-Za-z0-9/_-]/g, ''), utm_source: tag('utm_source'), utm_medium: tag('utm_medium'), utm_campaign: tag('utm_campaign') || 'partners-v9', utm_content: tag('utm_content') };
+    btn.disabled = true; btn.textContent = 'Отправляем…'; out.textContent = ''; out.classList.remove('err');
+    fetch(FN, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { s: r.status, j: j }; }); })
+      .then(function (r) {
+        if (r.j && r.j.ok) { $('applyBox').classList.add('sent'); return; }
+        out.classList.add('err');
+        out.textContent = r.s === 429 ? 'Сейчас много заявок. Попробуйте через несколько минут.' : r.j && r.j.error === 'fields' ? 'Проверьте поля: имя, контакт и ссылку.' : 'Не получилось отправить. Проверьте интернет и попробуйте ещё раз.';
+      })
+      .catch(function () { out.classList.add('err'); out.textContent = 'Не получилось отправить. Проверьте интернет и попробуйте ещё раз.'; })
+      .then(function () { btn.disabled = false; btn.textContent = 'Отправить заявку'; });
+  });
+  if (location.hash === '#mosque') { var m = form.querySelector('input[value=mosque]'); if (m) m.checked = true; }
+})();
+</script>
+</body>
+</html>
