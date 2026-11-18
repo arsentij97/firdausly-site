@@ -1,0 +1,226 @@
+
+/* ═══════ v9: все экраны — снимки настоящего приложения (media/*.webp, media/*.mp4) ═══════ */
+.lnk{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 6px;font-weight:600;text-decoration:none;color:var(--tx)}
+.lnk svg{width:18px;height:18px;transition:transform .3s var(--e)}
+.lnk:hover svg{transform:translateX(4px)}
+.h2.xl{font-size:clamp(46px,7vw,100px);line-height:1;letter-spacing:-.045em}
+.plusnote{display:block;font-size:14px;color:var(--tx2);margin-top:28px;line-height:1.5}
+.pchip{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--ink);background:linear-gradient(135deg,#f3dc93,var(--gold));border-radius:99px;padding:3px 9px;margin-right:8px;vertical-align:1px}
+.bigic{width:76px;height:76px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(145deg,#2c2617,#16130c);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 20px 50px -16px rgba(217,185,92,.45)}
+.bigic svg{width:40px;height:40px;fill:var(--gold)}
+
+/* ЭКРАН ПРИЛОЖЕНИЯ. Снимок 402×874 точки (@3x), края скруглены как у iPhone, тонкий торец корпуса — тенью.
+   Строку состояния iOS рисуем поверх (системная, не интерфейс приложения). */
+.dev{--pw:min(var(--w,360px),86vw);position:relative;width:var(--pw);max-width:100%;aspect-ratio:402/874;border-radius:calc(var(--pw)*.135);overflow:hidden;background:#000;flex:none;
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.16),0 0 0 calc(var(--pw)*.024) #141412,0 0 0 calc(var(--pw)*.027) rgba(255,255,255,.14),0 60px 120px -30px rgba(0,0,0,.95);container-type:inline-size;isolation:isolate}
+.dev img,.dev video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dev .sb{position:absolute;z-index:3;top:0;left:0;right:0;height:13cqw;display:flex;justify-content:space-between;align-items:center;padding:1.2cqw 8.5cqw 0 10cqw;font:600 3.9cqw/1 -apple-system,"SF Pro Text",var(--sans);color:#fff;pointer-events:none}
+.dev .sb i{display:flex;gap:1.5cqw;align-items:center}
+.dev .sb s{width:4.2cqw;height:2.7cqw;background:linear-gradient(90deg,#fff 0 18%,transparent 18% 27%,#fff 27% 45%,transparent 45% 54%,#fff 54% 72%,transparent 72% 81%,#fff 81%);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.dev .sb b{width:6.3cqw;height:3cqw;border-radius:1cqw;border:1.5px solid rgba(255,255,255,.55);position:relative}
+.dev .sb b::after{content:"";position:absolute;inset:1.5px;right:28%;border-radius:2px;background:#fff}
+.dev .isl{position:absolute;z-index:4;top:2.7cqw;left:50%;translate:-50% 0;width:30cqw;height:8.8cqw;border-radius:99px;background:#000}
+.dev .snd{position:absolute;z-index:5;right:4cqw;bottom:22cqw;width:11cqw;height:11cqw;border-radius:99px;display:grid;place-items:center;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.dev .snd svg{width:5.4cqw;height:5.4cqw;fill:#fff}
+figure{margin:0}
+figcaption{margin-top:18px;font-size:14px;color:var(--tx3);text-align:center}
+figcaption b{display:block;color:var(--tx);font-size:16px;font-weight:600;margin-bottom:2px}
+
+/* 1. ПЕРВЫЙ ЭКРАН */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;padding:96px 0 56px;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.9) 0%,rgba(10,10,10,.7) 38%,rgba(10,10,10,.25) 70%,rgba(10,10,10,.45)),linear-gradient(180deg,rgba(10,10,10,.5),transparent 25%,transparent 75%,var(--bg))}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.hero .h1{font-size:clamp(40px,4.6vw,70px);margin-bottom:22px}
+.hero .lead{color:rgba(245,243,238,.82);font-size:clamp(18px,1.5vw,21px);max-width:30em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;align-items:center}
+.duo{position:relative;display:flex;align-items:flex-end;padding-right:170px}
+.duo .d-main .dev{--pw:min(var(--w),calc((100dvh - 200px)*.46))}
+.duo .d-side{position:absolute;right:0;bottom:40px}
+.duo .d-side .dev{--pw:min(var(--w),calc((100dvh - 200px)*.3))}
+.duo figcaption{max-width:var(--pw)}
+.d-main figcaption{max-width:340px;margin-inline:auto}
+@media (max-width:980px){
+  .hero{padding:88px 0 64px;min-height:auto}
+  .hero .wrap{grid-template-columns:1fr;gap:48px}
+  .duo{justify-content:center;padding-right:0}
+  .duo .d-main .dev{--pw:min(300px,72vw)}
+  .duo .d-side{right:max(0px,calc(50% - 230px));bottom:60px}
+  .duo .d-side .dev{--pw:min(150px,36vw)}
+  .d-side figcaption{display:none}
+}
+@media (max-width:420px){.duo .d-main{margin-right:70px}.duo .d-side{right:0}}
+
+/* общие сцены: текст + экран(ы) */
+.split{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:72px;align-items:center}
+.split.rev{grid-template-columns:auto minmax(0,1fr)}
+.split.rev>div:last-child{order:-1}
+
+@media (max-width:980px){.split,.split.rev{grid-template-columns:1fr!important;gap:44px}.split.rev>div:last-child{order:0}.split>div:last-child{justify-self:center}}
+.pair{position:relative;display:flex;align-items:flex-end;padding-right:110px}
+.pair .back{position:absolute;right:0;bottom:-30px;--pw:min(var(--w),40vw);box-shadow:0 0 0 1.5px rgba(255,255,255,.16),0 0 0 6px #141412,0 0 0 7px rgba(255,255,255,.14),0 40px 80px -20px rgba(0,0,0,1)}
+@media (max-width:520px){.pair{padding-right:70px}.pair .dev:not(.back){--pw:min(300px,74vw)}.pair .back{--pw:min(150px,38vw)}}
+.stack{display:grid}
+.stack>.dev{grid-area:1/1;transition:opacity .45s var(--e),transform .6s var(--e)}
+.stack>.dev:not(.on){opacity:0;transform:translateY(14px) scale(.98);pointer-events:none}
+.seg3{display:inline-flex;flex-wrap:wrap;margin-top:30px;padding:4px;border-radius:99px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--ln)}
+.seg3 button{height:42px;padding:0 18px;border-radius:99px;font-size:15px;font-weight:600;color:var(--tx2);transition:background .25s,color .25s}
+.seg3 button[aria-selected="true"]{background:var(--fill);color:var(--ink)}
+.ayah{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;max-width:560px}
+.ayah svg{width:30px;height:30px;color:var(--gold)}
+.ayah p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2vw,26px);line-height:1.3}
+.ayah small{display:block;font-family:var(--sans);font-style:normal;font-size:14px;color:var(--tx3);margin-top:8px}
+
+/* 3. БЛИЗКИЕ — на картине «Вместе» */
+.close{overflow:hidden;isolation:isolate}
+.close-bg{position:absolute;inset:0;z-index:-1}
+.close-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;filter:brightness(.7) saturate(1.1)}
+.close-bg i{position:absolute;inset:0;background:linear-gradient(var(--bg),rgba(10,10,10,.35) 20%,rgba(10,10,10,.45) 70%,var(--bg)),linear-gradient(90deg,rgba(10,10,10,.85),rgba(10,10,10,.35) 60%,rgba(10,10,10,.6))}
+
+/* 4. ФАДЖР — предрассветное небо */
+.fajr{overflow:hidden;isolation:isolate}
+.fajr .sky{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#05060c 0%,#0b1020 40%,#1b2238 75%,#3a2a2a 100%)}
+.fajr .sky i{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 18%,#fff8 50%,transparent),radial-gradient(1px 1px at 32% 8%,#fff9 50%,transparent),radial-gradient(1.5px 1.5px at 58% 22%,#fffa 50%,transparent),radial-gradient(1px 1px at 76% 12%,#fff7 50%,transparent),radial-gradient(1px 1px at 88% 30%,#fff8 50%,transparent),radial-gradient(1px 1px at 22% 38%,#fff6 50%,transparent),radial-gradient(1px 1px at 46% 44%,#fff5 50%,transparent)}
+.fajr .sky::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;background:radial-gradient(60% 100% at 50% 100%,rgba(241,184,106,.28),transparent)}
+
+/* 5. ФОКУС */
+.sw{display:inline-flex;align-items:center;gap:14px;height:56px;padding:0 10px 0 22px;border-radius:99px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px var(--ln2);font-weight:600}
+.sw i{width:56px;height:34px;border-radius:99px;background:rgba(255,255,255,.18);position:relative;transition:background .3s}
+.sw i::after{content:"";position:absolute;top:3px;left:3px;width:28px;height:28px;border-radius:99px;background:#fff;transition:transform .35s var(--e);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.sw[aria-checked="true"] i{background:var(--ok)}
+.sw[aria-checked="true"] i::after{transform:translateX(22px)}
+.fctl{margin-top:30px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.fctl .note{font-size:14px}
+
+/* 7. СЦЕНА: полоса во всю ширину, подложка — настоящий ролик @firdausly в размытии */
+.stage{position:relative;overflow:hidden;isolation:isolate;margin-top:clamp(80px,10vw,140px);padding:clamp(64px,8vw,110px) 0;background:radial-gradient(80% 120% at 85% 20%,#2b3d66,#121a2e 55%,#0b0e17)}
+.stage-amb{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;z-index:-1;filter:blur(40px) brightness(.38) saturate(1.2);opacity:0;transition:opacity 1.2s}
+.stage-amb.on{opacity:1}
+.live{display:inline-flex;gap:6px;align-items:center;font-size:12px;font-weight:700;background:#E5484D;color:#fff;border-radius:6px;padding:3px 8px;letter-spacing:.04em}
+.live i{width:6px;height:6px;border-radius:9px;background:#fff;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.3}}
+.stage .st{margin:18px 0 14px;font-size:clamp(30px,3.6vw,50px);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+
+/* 10. ОСНОВА: ряд из четырёх настоящих экранов */
+.row4{margin:56px auto 0;width:min(1320px,100% - 2*var(--g));display:grid;grid-template-columns:repeat(4,1fr);gap:28px;justify-items:center}
+.row4 .dev{--pw:min(var(--w),100%)}
+@media (max-width:1100px){.row4{grid-template-columns:repeat(4,240px);overflow-x:auto;scroll-snap-type:x mandatory;justify-content:start;padding-bottom:12px;scrollbar-width:none}.row4::-webkit-scrollbar{display:none}.row4 figure{scroll-snap-align:center}.row4 .dev{--pw:240px}}
+.also{margin-top:36px;color:var(--tx2);font-size:16px}
+.also b{color:var(--tx)}
+
+/* 12. АВТОРАМ */
+.perks{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.pk b{display:block;font-size:22px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+.pk p{color:var(--tx2);font-size:16px}
+@media (max-width:900px){.perks{grid-template-columns:1fr}}
+
+/* 13. ПАРТНЁРСКАЯ ПРОГРАММА (тизер) */
+.pp-card{border-radius:var(--r3);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;background:radial-gradient(120% 120% at 100% 0%,#2e2715,#15130f 60%);box-shadow:inset 0 0 0 1px rgba(217,185,92,.35),0 40px 100px -40px rgba(217,185,92,.25)}
+.pp-num{display:grid;gap:4px}
+.pp-num b{font-size:clamp(40px,4.6vw,64px);font-weight:600;letter-spacing:-.03em;color:var(--gold);line-height:1}
+.pp-num span{color:var(--tx2);font-size:15px;margin-bottom:18px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;align-items:center}
+.mosq{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:22px 24px;border-radius:var(--r2);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);color:var(--tx2)}
+.mosq svg{width:30px;height:30px;color:var(--gold)}
+.mosq b{color:var(--tx)}
+.mosq a{color:var(--gold)}
+@media (max-width:900px){.pp-card{grid-template-columns:1fr}}
+
+/* 14. ЦЕНА */
+.plans{grid-template-columns:.8fr 1.1fr auto!important}
+.plan-shot{align-self:center;text-align:center}
+.plan-shot .dev{margin:0 auto}
+.plan .pp1 small{display:block;font-size:16px;font-weight:400;color:var(--tx2);letter-spacing:0;margin-top:4px}
+.plan .pp1 small.alt{margin-top:2px;color:var(--tx3);font-size:14px}
+@media (max-width:1100px){.plans{grid-template-columns:1fr 1fr!important}.plan-shot{grid-column:1/-1}}
+@media (max-width:760px){.plans{grid-template-columns:1fr!important}}
+
+/* 15. ДОВЕРИЕ */
+.trust-s .h1{max-width:14em}
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 64px;margin-top:48px}
+.trust p{font-size:clamp(18px,1.7vw,21px);color:var(--tx2);line-height:1.45;padding-top:22px;border-top:1px solid var(--ln)}
+.trust b{color:var(--tx)}
+@media (max-width:700px){.trust{grid-template-columns:1fr;gap:22px}}
+
+/* ФИНАЛ */
+.fin{min-height:100vh;align-items:flex-start;padding-top:clamp(96px,16vh,170px)}
+.fin img{object-position:50% 92%}
+.fin::before{background:linear-gradient(180deg,var(--bg) 0%,rgba(10,10,10,.82) 22%,rgba(10,10,10,.45) 45%,rgba(10,10,10,.05) 64%,rgba(10,10,10,.3) 88%,var(--bg))}
+.fin-d{margin-top:18px;font-size:15px;font-weight:600;color:var(--gold)}
+@media (min-width:901px){
+  .fin{text-align:left;align-items:center;padding-top:0}
+  .fin picture{left:44%}
+  .fin img{object-position:50% 72%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 38%);mask-image:linear-gradient(90deg,transparent,#000 38%)}
+  .fin::before{background:linear-gradient(180deg,var(--bg),transparent 18%,transparent 82%,var(--bg))}
+  .fin .h1{margin-inline:0;max-width:9.5em}
+  .fin .lead{margin-left:0;max-width:21em}
+  .fin .cta{justify-content:flex-start}
+}
+@media (max-width:600px){.nt{font-size:14px}}
+.nt:not(.gold) p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* правки после снимков v9 */
+.pk{display:block}
+.row4 figure{width:100%;display:flex;flex-direction:column;align-items:center}
+.row4 .dev{--pw:min(var(--w),100%);width:100%}
+@media (min-width:981px){
+  .duo{padding-right:190px}
+  .duo .d-main .dev{--pw:min(var(--w),calc((100dvh - 230px)*.46))}
+  .duo .d-side{right:0;bottom:56px}
+  .duo .d-side .dev{--pw:min(var(--w),calc((100dvh - 230px)*.29))}
+}
+.hero-bg::after{background:linear-gradient(90deg,rgba(10,10,10,.82) 0%,rgba(10,10,10,.55) 36%,rgba(10,10,10,.08) 68%,rgba(10,10,10,.25)),linear-gradient(180deg,rgba(10,10,10,.45),transparent 22%,transparent 78%,var(--bg))}
+@media (max-width:980px){.hero-bg::after{background:linear-gradient(180deg,rgba(10,10,10,.55),rgba(10,10,10,.72) 40%,rgba(10,10,10,.35) 70%,var(--bg))}}
+@media (max-width:1100px) and (min-width:981px){.duo{padding-right:120px}}
+.seg3{flex-wrap:nowrap;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.seg3::-webkit-scrollbar{display:none}
+.seg3 button{flex:none;white-space:nowrap}
+@media (max-width:420px){.seg3 button{padding:0 13px;font-size:14px}}
+@media (min-width:981px){.hero-bg::after{background:linear-gradient(90deg,rgba(10,10,10,.78) 0%,rgba(10,10,10,.42) 38%,rgba(10,10,10,0) 66%,rgba(10,10,10,.15)),linear-gradient(180deg,rgba(10,10,10,.4),transparent 22%,transparent 80%,var(--bg))}.hero-bg img{object-position:55% 18%;filter:brightness(1.05) saturate(1.1)}}
+@media (min-width:981px){.duo .d-side figcaption{position:absolute;right:0;top:100%;width:260px;text-align:right;margin-top:12px}.duo .d-main figcaption{text-align:left;margin-left:0}}
+
+/* круг 2 v9: телефоны рядом, без перекрытия; крупнее текст */
+.lead{font-size:clamp(18px,1.45vw,21px)}
+.plusnote{font-size:15px}
+figcaption{font-size:15px}
+@media (min-width:981px){
+  .duo{display:flex;align-items:flex-end;gap:28px;padding-right:0}
+  .duo .d-side{position:static}
+  .duo .d-side figcaption{position:static;width:auto;text-align:center}
+  .duo .d-main figcaption{text-align:center}
+}
+@media (max-width:980px){.duo .d-side{display:none}}
+.pair{display:flex;align-items:flex-end;gap:24px;padding-right:0}
+.pair .back{position:relative;box-shadow:0 0 0 1.5px rgba(255,255,255,.16),0 0 0 6px #141412,0 0 0 7px rgba(255,255,255,.14),0 40px 80px -20px rgba(0,0,0,1)}
+@media (max-width:520px){.pair{gap:12px;padding-right:0}.pair .dev:not(.back){--pw:58vw}.pair .back{--pw:31vw}}
+@media (min-width:981px){.hero-bg img{filter:blur(3px) brightness(.85) saturate(1.1);transform:scale(1.03)}}
+
+/* круг 3: оба телефона первого экрана в одном масштабе, подписи «Вы» и «Близкий» над ними */
+@media (min-width:981px){
+  .duo{gap:22px}
+  .duo .d-main .dev,.duo .d-side .dev{--pw:min(290px,calc((100dvh - 250px)*.43),19vw)}
+  .duo .d-side{bottom:0}
+  .hero-bg img{filter:blur(1.2px) brightness(.88) saturate(1.1)}
+}
+.who{margin:0 0 12px!important;font-size:13px!important;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)!important;text-align:center}
+@media (max-width:980px){.d-main .who{display:none}}
+@media (max-width:520px){.pair .dev:not(.back){--pw:54vw}.pair .back{--pw:30vw}}
+.lng{margin-left:auto;font-size:14px;font-weight:600;color:var(--tx2);text-decoration:none;padding:10px 12px;border-radius:99px}
+.lng:hover{color:var(--tx);background:rgba(255,255,255,.06)}
+.nav+.lng{margin-left:6px}
+@media (max-width:900px){.top .lng{margin-left:auto}.top .lng+.btn{margin-left:0}}
+
+.row4{grid-template-columns:repeat(3,1fr);max-width:1000px}
+@media (max-width:1100px){.row4{grid-template-columns:repeat(3,240px)}}
+
+/* лунный акцент приложения (сборка 67: #EBDCB2 вместо жёлтого) */
+:root{--gold:#EBDCB2;--gold2:#F4EAD0;--goldS:#26241F}
+.pchip{background:linear-gradient(135deg,#F7EFD9,#E4D3A4)}
+.sw[aria-checked="true"] i{background:#EBDCB2}
+.bigic{background:linear-gradient(145deg,#2a2822,#16150f);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 20px 50px -16px rgba(235,220,178,.35)}
+.pp-card{background:radial-gradient(120% 120% at 100% 0%,#2a2820,#14130f 60%);box-shadow:inset 0 0 0 1px rgba(235,220,178,.3),0 40px 100px -40px rgba(235,220,178,.2)}
+.plan.plus{background:radial-gradient(120% 90% at 100% 0%,#29271f,#15140f 60%);box-shadow:inset 0 0 0 1px rgba(235,220,178,.35),0 30px 80px -30px rgba(235,220,178,.2)}
+.trial{background:rgba(235,220,178,.08)}
+.btn-p{box-shadow:0 10px 40px -10px rgba(235,220,178,.35),inset 0 1px 0 #fff}
+/* телефоны крупнее на широких экранах */
+@media (min-width:1200px){.split>div>.dev,.split .pair>.dev:not(.back),.stack>.dev{--pw:min(calc(var(--w)*1.15),440px)}}

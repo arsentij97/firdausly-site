@@ -1,0 +1,443 @@
+{
+  "home": {
+    "kind": "image",
+    "file": "home.webp",
+    "small": "home-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:13"
+  },
+  "home-many": {
+    "kind": "image",
+    "file": "home-many.webp",
+    "small": "home-many-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:13"
+  },
+  "home-sheet": {
+    "kind": "image",
+    "file": "home-sheet.webp",
+    "small": "home-sheet-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:13"
+  },
+  "umma": {
+    "kind": "image",
+    "file": "umma.webp",
+    "small": "umma-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:13"
+  },
+  "stage": {
+    "kind": "image",
+    "file": "stage.webp",
+    "small": "stage-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:13"
+  },
+  "stage-home": {
+    "kind": "image",
+    "file": "stage-home.webp",
+    "small": "stage-home-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:14"
+  },
+  "msgs": {
+    "kind": "image",
+    "file": "msgs.webp",
+    "small": "msgs-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:23"
+  },
+  "moments": {
+    "kind": "image",
+    "file": "moments.webp",
+    "small": "moments-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:14"
+  },
+  "focus": {
+    "kind": "image",
+    "file": "focus.webp",
+    "small": "focus-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:14"
+  },
+  "focus-open": {
+    "kind": "image",
+    "file": "focus-open.webp",
+    "small": "focus-open-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:14"
+  },
+  "reels": {
+    "kind": "image",
+    "file": "reels.webp",
+    "small": "reels-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:14"
+  },
+  "together": {
+    "kind": "image",
+    "file": "together.webp",
+    "small": "together-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:14"
+  },
+  "qibla": {
+    "kind": "image",
+    "file": "qibla.webp",
+    "small": "qibla-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:15"
+  },
+  "dhikr": {
+    "kind": "image",
+    "file": "dhikr.webp",
+    "small": "dhikr-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:15"
+  },
+  "adhan": {
+    "kind": "image",
+    "file": "adhan.webp",
+    "small": "adhan-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:15"
+  },
+  "fajr": {
+    "kind": "image",
+    "file": "fajr.webp",
+    "small": "fajr-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:15"
+  },
+  "widgets": {
+    "kind": "image",
+    "file": "widgets.webp",
+    "small": "widgets-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:15"
+  },
+  "paywall": {
+    "kind": "image",
+    "file": "paywall.webp",
+    "small": "paywall-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:15"
+  },
+  "invite": {
+    "kind": "image",
+    "file": "invite.webp",
+    "small": "invite-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:16"
+  },
+  "quran": {
+    "kind": "image",
+    "file": "quran.webp",
+    "small": "quran-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:16"
+  },
+  "zov": {
+    "kind": "image",
+    "file": "zov.webp",
+    "small": "zov-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:15"
+  },
+  "requests": {
+    "kind": "image",
+    "file": "requests.webp",
+    "small": "requests-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:23"
+  },
+  "settings": {
+    "kind": "image",
+    "file": "settings.webp",
+    "small": "settings-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:16"
+  },
+  "clip-remind": {
+    "kind": "video",
+    "file": "clip-remind.mp4",
+    "poster": "clip-remind.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:16"
+  },
+  "clip-umma": {
+    "kind": "video",
+    "file": "clip-umma.mp4",
+    "poster": "clip-umma.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:17"
+  },
+  "clip-stage": {
+    "kind": "video",
+    "file": "clip-stage.mp4",
+    "poster": "clip-stage.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:17"
+  },
+  "clip-dhikr": {
+    "kind": "video",
+    "file": "clip-dhikr.mp4",
+    "poster": "clip-dhikr.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:17"
+  },
+  "clip-reels": {
+    "kind": "video",
+    "file": "clip-reels.mp4",
+    "poster": "clip-reels.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:18"
+  },
+  "home.en": {
+    "kind": "image",
+    "file": "home.en.webp",
+    "small": "home.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:18"
+  },
+  "home-many.en": {
+    "kind": "image",
+    "file": "home-many.en.webp",
+    "small": "home-many.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:18"
+  },
+  "home-sheet.en": {
+    "kind": "image",
+    "file": "home-sheet.en.webp",
+    "small": "home-sheet.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:18"
+  },
+  "umma.en": {
+    "kind": "image",
+    "file": "umma.en.webp",
+    "small": "umma.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:18"
+  },
+  "stage.en": {
+    "kind": "image",
+    "file": "stage.en.webp",
+    "small": "stage.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:18"
+  },
+  "msgs.en": {
+    "kind": "image",
+    "file": "msgs.en.webp",
+    "small": "msgs.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:24"
+  },
+  "moments.en": {
+    "kind": "image",
+    "file": "moments.en.webp",
+    "small": "moments.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:19"
+  },
+  "focus.en": {
+    "kind": "image",
+    "file": "focus.en.webp",
+    "small": "focus.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:19"
+  },
+  "focus-open.en": {
+    "kind": "image",
+    "file": "focus-open.en.webp",
+    "small": "focus-open.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:19"
+  },
+  "together.en": {
+    "kind": "image",
+    "file": "together.en.webp",
+    "small": "together.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:19"
+  },
+  "qibla.en": {
+    "kind": "image",
+    "file": "qibla.en.webp",
+    "small": "qibla.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:01"
+  },
+  "dhikr.en": {
+    "kind": "image",
+    "file": "dhikr.en.webp",
+    "small": "dhikr.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:19"
+  },
+  "fajr.en": {
+    "kind": "image",
+    "file": "fajr.en.webp",
+    "small": "fajr.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:19"
+  },
+  "widgets.en": {
+    "kind": "image",
+    "file": "widgets.en.webp",
+    "small": "widgets.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:19"
+  },
+  "paywall.en": {
+    "kind": "image",
+    "file": "paywall.en.webp",
+    "small": "paywall.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:20"
+  },
+  "zov.en": {
+    "kind": "image",
+    "file": "zov.en.webp",
+    "small": "zov.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:01"
+  },
+  "requests.en": {
+    "kind": "image",
+    "file": "requests.en.webp",
+    "small": "requests.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:24"
+  },
+  "quran.en": {
+    "kind": "image",
+    "file": "quran.en.webp",
+    "small": "quran.en-s.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:20"
+  },
+  "clip-remind.en": {
+    "kind": "video",
+    "file": "clip-remind.en.mp4",
+    "poster": "clip-remind.en.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:20"
+  },
+  "clip-umma.en": {
+    "kind": "video",
+    "file": "clip-umma.en.mp4",
+    "poster": "clip-umma.en.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:20"
+  },
+  "clip-stage.en": {
+    "kind": "video",
+    "file": "clip-stage.en.mp4",
+    "poster": "clip-stage.en.webp",
+    "aspect": "402/874",
+    "temp": true,
+    "source": "web",
+    "at": "2026-11-18T16:21"
+  }
+}

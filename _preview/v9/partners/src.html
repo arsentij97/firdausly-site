@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Партнёрская программа Firdausly: 20% с каждой оплаты</title>
+<meta name="description" content="Партнёрская программа Firdausly для исламских авторов и блогеров: 20% чистой выручки с каждой оплаты людей, пришедших по вашему коду, пока они с нами. Вашим людям месяц Plus в подарок. Выплаты раз в месяц в любую страну.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="../i/icon.webp">
+<link rel="preload" as="font" href="../f/inter-600.woff2" type="font/woff2" crossorigin>
+<style><!--CSS--></style>
+<style>
+/* страница партнёров: свои куски поверх общего стиля */
+.p-hero{position:relative;min-height:92dvh;display:flex;align-items:center;padding:110px 0 64px;overflow:hidden;isolation:isolate}
+.p-hero .hero-bg img{object-position:50% 40%}
+.p-hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:64px;align-items:center}
+.p-hero .h1{font-size:clamp(40px,5vw,74px)}
+.p-hero .lead{margin-top:22px;color:rgba(245,243,238,.84)}
+.p-hero .dev{--pw:min(330px,calc((100dvh - 190px)*.46))}
+.facts{margin-top:40px;display:grid;grid-template-columns:repeat(4,auto);gap:10px 40px;justify-content:start}
+.facts b{display:block;font-size:clamp(30px,3.2vw,44px);font-weight:600;color:var(--gold);letter-spacing:-.03em;line-height:1}
+.facts span{font-size:14px;color:var(--tx2)}
+@media (max-width:980px){.p-hero .wrap{grid-template-columns:1fr}.p-hero>.wrap>div:last-child{justify-self:center}.facts{grid-template-columns:repeat(2,auto)}}
+.calc2{margin-top:48px;display:grid;grid-template-columns:1.05fr .95fr;gap:24px}
+.calc2 .box{border-radius:var(--r3);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);padding:clamp(22px,3.4vw,40px)}
+.rng{margin-top:22px}
+.rng label{display:flex;justify-content:space-between;font-size:15px;color:var(--tx2)}
+.rng label b{color:var(--tx);font-size:20px;font-variant-numeric:tabular-nums}
+.rng small{display:block;color:var(--tx3);font-size:13px;margin-top:6px}
+.rng input{width:100%;appearance:none;-webkit-appearance:none;background:transparent;height:40px;margin:0;cursor:grab}
+.rng input::-webkit-slider-runnable-track{height:4px;border-radius:9px;background:linear-gradient(90deg,var(--gold) var(--p,0%),rgba(255,255,255,.14) var(--p,0%))}
+.rng input::-moz-range-track{height:4px;border-radius:9px;background:rgba(255,255,255,.14)}
+.rng input::-moz-range-progress{height:4px;background:var(--gold);border-radius:9px}
+.rng input::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:99px;background:var(--fill);margin-top:-12px;box-shadow:0 4px 16px rgba(0,0,0,.5),0 0 0 6px rgba(217,185,92,.18)}
+.rng input::-moz-range-thumb{width:28px;height:28px;border:0;border-radius:99px;background:var(--fill)}
+.res2{background:radial-gradient(120% 90% at 100% 0%,#2e2715,#15130f 60%)!important;box-shadow:inset 0 0 0 1px rgba(217,185,92,.4)!important}
+.res2 .big{font-size:clamp(44px,5.4vw,72px);font-weight:600;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.res2 .yr{color:var(--gold);font-weight:600;margin-top:10px}
+.res2 dl{margin:28px 0 0;display:grid;grid-template-columns:1fr auto;gap:10px 16px;font-size:15px}
+.res2 dt{color:var(--tx2)}.res2 dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.math{margin-top:22px;padding-top:18px;border-top:1px solid var(--ln);font-size:14px;color:var(--tx2);line-height:1.6}
+.math b{color:var(--tx)}
+@media (max-width:900px){.calc2{grid-template-columns:1fr}}
+.grid2{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.gbox{border-radius:var(--r3);padding:clamp(24px,3.4vw,40px);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln)}
+.gbox h3{font-size:24px;margin-bottom:18px}
+.gbox ul{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.gbox li{display:grid;grid-template-columns:28px 1fr;gap:12px;color:var(--tx2);font-size:16px;line-height:1.45}
+.gbox li svg{width:22px;height:22px;fill:var(--gold);margin-top:1px}
+.gbox li b{color:var(--tx)}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+.steps4{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.steps4 div{counter-increment:s;padding-top:22px;border-top:1px solid var(--ln2)}
+.steps4 div::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:99px;font-weight:700;color:var(--ink);background:linear-gradient(135deg,#f3dc93,var(--gold));margin-bottom:16px}
+.steps4 b{display:block;font-size:19px;margin-bottom:6px}
+.steps4 p{color:var(--tx2);font-size:15px}
+@media (max-width:900px){.steps4{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps4{grid-template-columns:1fr}}
+.mosq2{display:grid;grid-template-columns:auto 1fr;gap:16px;margin-bottom:20px;padding:22px 24px;border-radius:var(--r2);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln)}
+.mosq2 svg{width:30px;height:30px;color:var(--gold)}
+.mosq2 b{font-size:18px}
+.mosq2 p{color:var(--tx2);margin-top:4px}
+.apply{border-radius:var(--r3);padding:clamp(24px,4vw,56px);background:radial-gradient(120% 120% at 0% 0%,#22304f,#101626 55%,#0c0f18);display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+.apply form{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.fld{display:grid;gap:6px}
+.fld.w{grid-column:1/-1}
+.fld label{font-size:14px;font-weight:600}
+.fld input,.fld select,.fld textarea{width:100%;min-height:50px;border-radius:14px;border:1px solid var(--ln2);background:rgba(10,10,10,.6);color:var(--tx);font:400 16px var(--sans);padding:12px 14px}
+.fld textarea{min-height:96px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.fld.bad input,.fld.bad select{border-color:#FF8A8A}
+.fld .err{font-size:13px;color:#FF8A8A;display:none}
+.fld.bad .err{display:block}
+.typ{display:flex;flex-wrap:wrap;gap:8px}
+.typ label{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:99px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--ln2);cursor:pointer;font-size:15px;font-weight:600}
+.typ input{position:absolute;opacity:0;pointer-events:none}
+.typ label:has(input:checked){background:var(--fill);color:var(--ink)}
+.typ label:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.apply .btn{grid-column:1/-1;justify-self:start}
+.fmsg{grid-column:1/-1;min-height:22px;font-size:15px;color:var(--ok)}
+.fmsg.err{color:#FF8A8A}
+.apply.sent form{display:none}
+.done{display:none;font-size:20px;line-height:1.5}
+.apply.sent .done{display:block}
+@media (max-width:900px){.apply{grid-template-columns:1fr}.apply form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<!--SPRITE-->
+<header class="top on" id="top">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../i/icon.webp" alt="" width="30" height="30">Firdausly</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#income">Доход</a><a href="#terms">Условия</a><a href="#start">Как начать</a><a href="#faq">Вопросы</a>
+    </nav>
+    <a class="btn btn-p" href="#apply">Подать заявку</a>
+  </div>
+</header>
+
+<main>
+<section class="p-hero" aria-labelledby="h1">
+  <div class="hero-bg"><picture><source type="image/avif" srcset="../i/road-480.avif 480w, ../i/road-860.avif 860w" sizes="100vw"><img src="../i/road-860.webp" srcset="../i/road-480.webp 480w, ../i/road-860.webp 860w" sizes="100vw" alt="" fetchpriority="high"></picture></div>
+  <div class="wrap">
+    <div>
+      <span class="tag"><svg class="i"><use href="#p-coins"/></svg>Партнёрская программа Firdausly</span>
+      <h1 class="h1" id="h1" style="margin-top:16px">Советуете один раз. Получаете каждый&nbsp;месяц.</h1>
+      <p class="lead">Для исламских авторов и блогеров. 20% чистой выручки с каждой оплаты людей, пришедших по вашему коду, пока они с Firdausly. Вашим людям месяц Plus в подарок.</p>
+      <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;align-items:center"><a class="btn btn-p" href="#apply">Подать заявку</a><a class="lnk" href="#income">Посчитать доход<svg class="i"><use href="#p-arrow-right"/></svg></a></div>
+      <div class="facts"><div><b>20%</b><span>с каждой оплаты</span></div><div><b>30&nbsp;дней</b><span>Plus вашим людям</span></div><div><b>1</b><span>уровень, без пирамид</span></div><div><b>0&nbsp;₸</b><span>за участие</span></div></div>
+    </div>
+    <figure><!--M:home w=330 eager--><figcaption>Это получат ваши люди: настоящий Firdausly на месяц с Plus</figcaption></figure>
+  </div>
+</section>
+
+<section class="sec" id="income" aria-labelledby="h-inc">
+  <div class="wrap">
+    <h2 class="h2" id="h-inc">Посчитайте честно</h2>
+    <p class="lead" style="margin-top:18px">Двигайте ползунки под свою аудиторию. Ниже видно, из чего складывается каждый тенге.</p>
+    <div class="calc2">
+      <div class="box">
+        <div class="rng"><label for="c-aud">Подписчиков на всех площадках <b id="o-aud">30 000</b></label><input type="range" id="c-aud" min="0" max="100" value="50"><small>Instagram, YouTube, TikTok, Telegram вместе.</small></div>
+        <div class="rng"><label for="c-in">Поставят Firdausly по вашему коду <b id="o-in">2%</b></label><input type="range" id="c-in" min="0.5" max="5" step="0.5" value="2"><small>Наше допущение: 1–3% для одного честного рассказа.</small></div>
+        <div class="rng"><label for="c-pay">Станут платить после подарка <b id="o-pay">5 из 100</b></label><input type="range" id="c-pay" min="2" max="30" step="1" value="5"><small>Из поставивших, кто после месяца Plus оформит подписку.</small></div>
+      </div>
+      <div class="box res2" aria-live="polite">
+        <div class="big" id="o-sum">15 990 ₸</div>
+        <div class="yr" id="o-year">в месяц · ≈ 191 880 ₸ за год, если все оплатившие останутся</div>
+        <dl><dt>Поставят приложение</dt><dd id="o-inst">600</dd><dt>Станут платить</dt><dd id="o-payers">30</dd><dt>Вам с одной оплаты Plus на месяц</dt><dd>533 ₸</dd></dl>
+        <p class="math"><b>Plus на месяц 3 790 ₸</b> − НДС 16% (523 ₸) − комиссия Apple 15% (490 ₸) − наш налог 4% (111 ₸) = <b>2 666 ₸</b> чистыми → вам 20% = <b>533 ₸</b>. С Premium доля больше: он дороже Plus. Оценка, не обещание: сколько людей придёт, зависит от вас и вашей аудитории.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="terms" aria-labelledby="h-terms" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="h2" id="h-terms">Условия без мелкого шрифта</h2>
+    <div class="grid2">
+      <div class="gbox"><h3>Что получаете вы</h3><ul>
+        <li><svg><use href="#p-coins"/></svg><span><b>20% с каждой оплаты и продления</b> людей, пришедших по вашему коду: месяц или год, Plus или Premium. Пока человек платит, вы получаете долю. Только один уровень: за приглашённых авторов не платим, платить за участие не нужно.</span></li>
+        <li><svg><use href="#p-calendar"/></svg><span><b>Выплата раз в месяц, в любую страну.</b> С 10-го числа, когда Apple уже перевёл нам деньги, не раньше 45 дней после оплаты. От 10 000 ₸ (около $20 в вашей валюте). В Казахстане на Kaspi, в других странах банковским переводом. Вернули покупателю деньги, начисление снимается. Выплаты производит ИП — владелец Firdausly, по договору-оферте.</span></li>
+        <li><svg><use href="#p-chart-bar"/></svg><span><b>Кабинет партнёра в приложении</b>: сколько пришло, сколько купили, сколько начислено, когда ближайшая выплата, история выплат. И отчёт каждый месяц.</span></li>
+        <li><svg><use href="#p-seal-check"/></svg><span><b>Отметка партнёра в профиле</b> и <b>Firdausly Premium</b> бесплатно, пока работаем вместе.</span></li>
+      </ul></div>
+      <div class="gbox"><h3>Что получают ваши люди</h3><ul>
+        <li><svg><use href="#p-gift"/></svg><span><b>30 дней Firdausly Plus</b> по вашему коду: близкие и напоминания, Фаджр вместе, Фокус, Умма и Сцена, азан муэдзинов.</span></li>
+        <li><svg><use href="#p-clock-countdown"/></svg><span><b>Код вводят в первые 7 дней</b> после регистрации в приложении. Скажите об этом в рассказе.</span></li>
+        <li><svg><use href="#p-hand-heart"/></svg><span><b>Без подвоха.</b> После подарка человек сам решает, платить ли. Основа приложения бесплатна навсегда.</span></li>
+        <li><svg><use href="#p-shield-check"/></svg><span><b>Мы просим взамен:</b> говорить о намазе бережно, без стыда за пропуск и без обещаний награды от Всевышнего; показывать только то, что уже есть в приложении; помечать рекламу так, как требует закон вашей страны.</span></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="start" aria-labelledby="h-start" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="h2" id="h-start">Как начать</h2>
+    <div class="steps4">
+      <div><b>Подаёте заявку</b><p>Две минуты: кто вы, где вас читают, как связаться.</p></div>
+      <div><b>Знакомимся</b><p>Смотрим, о чём вы пишете, и отвечаем лично. Порога по подписчикам нет: важнее, что вам доверяют.</p></div>
+      <div><b>Получаете код</b><p>Короткий и ваш: по нему люди получают подарок, а мы видим, что они пришли от вас.</p></div>
+      <div><b>Рассказываете</b><p>Своими словами, как вам удобно. Доля приходит с каждой оплаты, пока люди с Firdausly.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="apply" aria-labelledby="h-apply" style="padding-top:0">
+  <div class="wrap">
+    <div class="mosq2" id="mosque"><svg class="i"><use href="#p-mosque"/></svg><div><b>Мечетям и школам</b><p>Джума и уроки в прямом эфире на Сцене, ролики в Reminders, отметка проверенного аккаунта. Бесплатно. В заявке выберите «Мечеть или школа».</p></div></div>
+    <div class="apply" id="applyBox">
+      <div>
+        <h2 class="h2" id="h-apply">Заявка</h2>
+        <p class="lead" style="margin-top:16px">Отвечаем на каждую заявку лично, в Telegram или по почте, которую вы оставите. Мечети и школы тоже пишут сюда.</p>
+        <p class="done" role="status">Заявка у нас. Ответим лично в ближайшие дни, иншаАллах.</p>
+      </div>
+      <form id="pform" novalidate>
+        <div class="fld w"><span style="font-size:14px;font-weight:600">Кто вы</span>
+          <div class="typ" role="radiogroup" aria-label="Кто вы">
+            <label><input type="radio" name="role" value="creator" checked>Автор или блогер</label>
+            <label><input type="radio" name="role" value="mosque">Мечеть или школа</label>
+            <label><input type="radio" name="role" value="other">Другое</label>
+          </div>
+        </div>
+        <div class="fld"><label for="f-name">Имя</label><input id="f-name" name="name" autocomplete="name" maxlength="60"><span class="err">Как к вам обращаться?</span></div>
+        <div class="fld"><label for="f-contact">Telegram, телефон или почта</label><input id="f-contact" name="contact" maxlength="120" placeholder="@username"><span class="err">Куда ответить?</span></div>
+        <div class="fld"><label for="f-handle">Ссылка на канал или профиль</label><input id="f-handle" name="handle" maxlength="80" placeholder="instagram.com/…"><span class="err">Где вас читают?</span></div>
+        <div class="fld"><label for="f-aud">Сколько подписчиков</label><select id="f-aud" name="aud"><option value="">Выберите</option><option>до 5 000</option><option>5 000–30 000</option><option>30 000–100 000</option><option>100 000–500 000</option><option>больше 500 000</option></select></div>
+        <div class="fld w"><label for="f-msg">Пара слов о себе <span style="font-weight:400;color:var(--tx3)">(можно пропустить)</span></label><textarea id="f-msg" name="msg" maxlength="200"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="f-web">Сайт</label><input id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn-p" type="submit" id="f-btn">Отправить заявку</button>
+        <p class="fmsg" id="f-msgout" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="h-faq" style="padding-top:0">
+  <div class="wrap faq">
+    <h2 class="h2" id="h-faq" style="margin-bottom:24px">Вопросы</h2>
+    <details><summary>Сколько нужно подписчиков?<svg class="i"><use href="#p-plus"/></svg></summary><p>Порога нет. Важнее, что вам доверяют и ваши люди молятся. Сто слушающих важнее ста тысяч случайных.</p></details>
+    <details><summary>Как считаются 20%?<svg class="i"><use href="#p-plus"/></svg></summary><p>С чистой выручки каждой оплаты: из цены вычитаются НДС, комиссия Apple и налог 4%. С Firdausly Plus на месяц в Казахстане (3 790 ₸) вы получаете 533 ₸. И так с каждого продления, пока человек платит.</p></details>
+    <details><summary>Кто платит?<svg class="i"><use href="#p-plus"/></svg></summary><p>Выплаты производит ИП — владелец Firdausly, по договору-оферте. Оферту пришлём вместе с вашим кодом.</p></details>
+    <details><summary>Есть ли второй уровень?<svg class="i"><use href="#p-plus"/></svg></summary><p>Нет. Платим только с оплат людей, которые пришли по вашему коду. За приглашение других авторов не платим.</p></details>
+    <details><summary>Как приходят выплаты, если я не в Казахстане?<svg class="i"><use href="#p-plus"/></svg></summary><p>Раз в месяц банковским переводом в вашу страну; в Казахстане на Kaspi. Порог 10 000 ₸, это около $20 в вашей валюте. Детали перевода согласуем при подключении.</p></details>
+    <details><summary>Что получают мои люди?<svg class="i"><use href="#p-plus"/></svg></summary><p>30 дней Firdausly Plus по вашему коду. Код вводят в первые 7 дней после регистрации в приложении.</p></details>
+    <details><summary>Когда можно рассказывать?<svg class="i"><use href="#p-plus"/></svg></summary><p>Код начнёт работать с выходом Firdausly в App Store. Подайте заявку заранее, чтобы ваш код был готов к этому дню.</p></details>
+    <details><summary>Нужен ли эксклюзив?<svg class="i"><use href="#p-plus"/></svg></summary><p>Нет. Instagram, TikTok и YouTube остаются с вами. Рассказывайте о Firdausly там, где вас слушают.</p></details>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="logo" href="../"><img src="../i/icon.webp" alt="" width="30" height="30">Firdausly</a><p style="margin-top:14px;max-width:24em">Соцсеть, которая зовёт к намазу. Сделано в Казахстане.</p></div>
+    <nav aria-label="О проекте"><a href="../">Главная</a><a href="/about">О Firdausly</a><a href="/namaz/">Время намаза по городам</a></nav>
+    <nav aria-label="Документы"><a href="/support">Поддержка</a><a href="/privacy">Конфиденциальность</a><a href="/terms">Условия</a></nav>
+  </div>
+</footer>
+
+<script>
+/* Калькулятор (та же модель, что site/assets/partners.js: 533 ₸ с месячной оплаты Plus в Казахстане) и заявка → функция creator-lead → Telegram команды. */
+(function () {
+  var PER = 533, $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return Math.round(n).toLocaleString('ru-RU').replace(/[\s  ]/g, ' '); };
+  var aud = function (v) { var n = Math.pow(10, 3 + 3 * v / 100), st = n < 10000 ? 500 : n < 100000 ? 1000 : 10000; return Math.round(n / st) * st; };
+  var fill = function (el) { el.style.setProperty('--p', (el.value - el.min) / (el.max - el.min) * 100 + '%'); };
+  function calc() {
+    var a = aud(+$('c-aud').value), i = Math.round(a * $('c-in').value / 100), p = Math.round(i * $('c-pay').value / 100);
+    $('o-aud').textContent = fmt(a); $('o-in').textContent = String($('c-in').value).replace('.', ',') + '%'; $('o-pay').textContent = $('c-pay').value + (document.documentElement.lang === 'en' ? ' in 100' : ' из 100');
+    $('o-inst').textContent = fmt(i); $('o-payers').textContent = fmt(p); $('o-sum').textContent = fmt(p * PER) + ' ₸';
+    $('o-year').textContent = 'в месяц · ≈ ' + fmt(p * PER * 12) + ' ₸ за год, если все оплатившие останутся';
+    ['c-aud', 'c-in', 'c-pay'].forEach(function (id) { fill($(id)); });
+  }
+  ['c-aud', 'c-in', 'c-pay'].forEach(function (id) { $(id).addEventListener('input', calc); }); calc();
+
+  var FN = 'https://axpoadzhfvxzywotbvug.supabase.co/functions/v1/creator-lead', t0 = Date.now(), form = $('pform'), btn = $('f-btn'), out = $('f-msgout');
+  var q = new URLSearchParams(location.search), tag = function (k) { var v = q.get(k); return v && /^[A-Za-z0-9._~-]{1,60}$/.test(v) ? v : undefined; };
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var bad = false;
+    ['f-name', 'f-contact', 'f-handle'].forEach(function (id) { var el = $(id), ok = el.value.trim().length >= (id === 'f-contact' ? 3 : 2); el.parentElement.classList.toggle('bad', !ok); el.setAttribute('aria-invalid', ok ? 'false' : 'true'); if (!ok && !bad) { el.focus(); bad = true; } });
+    if (bad) return;
+    var role = form.querySelector('input[name=role]:checked').value;
+    var note = ['Партнёрская программа v9', role === 'mosque' ? 'мечеть/школа' : role === 'other' ? 'другое' : 'автор/блогер', $('f-aud').value ? 'аудитория ' + $('f-aud').value : '', $('f-msg').value.trim()].filter(Boolean).join(' · ').slice(0, 300);
+    var body = { kind: 'lead', name: $('f-name').value.trim(), handle: $('f-handle').value.trim(), contact: $('f-contact').value.trim(), role: role, source: note, website: $('f-web').value, elapsed: Date.now() - t0, lang: 'ru', page: location.pathname.slice(0, 79).replace(/[^A-Za-z0-9/_-]/g, ''), utm_source: tag('utm_source'), utm_medium: tag('utm_medium'), utm_campaign: tag('utm_campaign') || 'partners-v9', utm_content: tag('utm_content') };
+    btn.disabled = true; btn.textContent = 'Отправляем…'; out.textContent = ''; out.classList.remove('err');
+    fetch(FN, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { s: r.status, j: j }; }); })
+      .then(function (r) {
+        if (r.j && r.j.ok) { $('applyBox').classList.add('sent'); return; }
+        out.classList.add('err');
+        out.textContent = r.s === 429 ? 'Сейчас много заявок. Попробуйте через несколько минут.' : r.j && r.j.error === 'fields' ? 'Проверьте поля: имя, контакт и ссылку.' : 'Не получилось отправить. Проверьте интернет и попробуйте ещё раз.';
+      })
+      .catch(function () { out.classList.add('err'); out.textContent = 'Не получилось отправить. Проверьте интернет и попробуйте ещё раз.'; })
+      .then(function () { btn.disabled = false; btn.textContent = 'Отправить заявку'; });
+  });
+  if (location.hash === '#mosque') { var m = form.querySelector('input[value=mosque]'); if (m) m.checked = true; }
+})();
+</script>
+</body>
+</html>

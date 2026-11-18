@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Firdausly: напоминайте своим близким о намазе</title>
+<meta name="description" content="Firdausly: соцсеть, где самое важное уведомление дня приходит от брата. Видно, кто из своих уже прочитал намаз, одно касание напомнит остальным. Фаджр вместе, Фокус, Reminders, Умма и Сцена.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="i/icon.webp">
+<link rel="preload" as="image" href="i/gate-1080.avif" type="image/avif" media="(min-width:701px)">
+<link rel="preload" as="image" href="i/gate-640.avif" type="image/avif" media="(max-width:700px)">
+<link rel="preload" as="font" href="f/inter-600.woff2" type="font/woff2" crossorigin>
+<meta property="og:title" content="Firdausly: напоминайте своим близким о намазе">
+<meta property="og:description" content="Соцсеть, где самое важное уведомление дня приходит от брата. Скоро в App Store.">
+<style><!--CSS--></style>
+</head>
+<body>
+<!--SPRITE-->
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#"><img src="i/icon.webp" alt="" width="30" height="30">Firdausly</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#blizkie">Как это работает</a>
+      <a href="#reminders">Reminders</a>
+      <a href="#umma">Умма и Сцена</a>
+      <a href="partners/">Партнёрам</a>
+      <a href="#price">Цена</a>
+    </nav>
+    <a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Скачать">Скоро в App Store</span></a>
+  </div>
+</header>
+
+<main>
+<!-- 1. ПЕРВЫЙ ЭКРАН: живая главная и экран брата — снимки настоящего приложения -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-bg"><picture><source type="image/avif" srcset="i/gate-640.avif 640w, i/gate-1080.avif 1080w" sizes="100vw"><img src="i/gate-1080.webp" srcset="i/gate-640.webp 640w, i/gate-1080.webp 1080w" sizes="100vw" alt="" fetchpriority="high"></picture></div>
+  <div class="wrap">
+    <div class="hero-txt">
+      <h1 class="h1" id="h1">Напоминайте своим <em class="s">близким</em> о&nbsp;намазе</h1>
+      <p class="lead">Видно, кто из своих уже прочитал. <b>Одно касание напомнит остальным.</b> Соцсеть, где самое важное уведомление дня приходит от своих.</p>
+      <div class="cta">
+        <a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Скачать в App Store">Скоро в App Store</span></a>
+        <a class="lnk" href="#blizkie">Как это работает<svg class="i"><use href="#p-arrow-right"/></svg></a>
+      </div>
+    </div>
+    <div class="duo">
+      <figure class="d-main"><figcaption class="who">Вы</figcaption><!--M:clip-remind|home w=380 eager--><figcaption>Касание по близкому, и он уже позван</figcaption></figure>
+      <figure class="d-side"><figcaption class="who">Все вместе</figcaption><!--M:together w=380 eager--><figcaption>И вот все свои прочитали</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ПРОБЛЕМА -->
+<section class="sec" aria-labelledby="h-storm">
+  <div class="wrap storm">
+    <div>
+      <h2 class="h2" id="h-storm">Телефон зовёт вас сотни раз в день. Ни разу не позвал к&nbsp;намазу.</h2>
+      <p class="lead" style="margin-top:24px">Лайки, распродажи, ролики, чаты. Каждое приложение борется за вашу минуту. Firdausly переворачивает соцсеть: <b>здесь зовут к намазу, и зовут свои.</b></p>
+      <button class="btn btn-g replay" id="replay" type="button"><svg class="i"><use href="#p-repeat"/></svg>Показать ещё раз</button>
+    </div>
+    <div class="nstack" id="nstack" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- 3. БЛИЗКИЕ -->
+<a id="features" aria-hidden="true"></a>
+<section class="sec close" id="blizkie" aria-labelledby="h-close">
+  <div class="close-bg" aria-hidden="true"><picture><source type="image/avif" srcset="i/plus-860.avif"><img src="i/plus-860.webp" alt="" loading="lazy"></picture><i></i></div>
+  <div class="wrap split">
+    <div>
+      <h2 class="h2" id="h-close">Один день вашей семьи на&nbsp;одном экране</h2>
+      <p class="lead" style="margin-top:20px">Отметили намаз, и близкие видят отметку. Кто не успел, получит тихую открытку с аятом и одной кнопкой. Без упрёков и чужих глаз: это видят только ваши.</p>
+      <div class="seg3" role="tablist" aria-label="Экраны близких" data-tabs="closeTabs">
+        <button role="tab" aria-selected="true" data-t="0">Кто прочитал</button><button role="tab" aria-selected="false" data-t="1">Открытка</button><button role="tab" aria-selected="false" data-t="2">Все прочитали</button>
+      </div>
+      <p class="plusnote"><span class="pchip">Plus</span>Близкие и напоминания, 14 дней бесплатно. Принять приглашение и открыть открытку можно без подписки.</p>
+      <div class="ayah"><svg class="i"><use href="#p-quotes"/></svg><p>«И напоминай, ибо напоминание приносит пользу верующим»<small>Коран, сура «Аз-Зарият», 51:55</small></p></div>
+    </div>
+    <div class="stack" id="closeTabs">
+      <!--M:home-many w=360--><!--M:home-sheet w=360--><!--M:together w=360-->
+    </div>
+  </div>
+</section>
+
+<!-- 4. ФАДЖР -->
+<section class="sec fajr" id="fajr" aria-labelledby="h-fajr">
+  <div class="sky" aria-hidden="true"><i></i></div>
+  <div class="wrap split rev">
+    <div>
+      <h2 class="h2 xl" id="h-fajr">Будите друг друга на&nbsp;<em class="s">Фаджр</em></h2>
+      <p class="lead" style="margin-top:20px">Настоящий будильник iPhone: звонит даже в беззвучном режиме. Позовите своих, и утром вы встаёте вместе. Встал один, и остальные видят это сразу.</p>
+      <p class="plusnote" style="margin-top:22px">Будильник на Фаджр бесплатно.&nbsp;<span class="pchip">Plus</span>общий будильник с близкими и звонок азаном, 14 дней бесплатно.</p>
+    </div>
+    <div><!--M:fajr w=380--></div>
+  </div>
+</section>
+
+<!-- 5. ФОКУС -->
+<section class="sec focus" id="focus" aria-labelledby="h-focus">
+  <div class="wrap split">
+    <div>
+      <div class="bigic"><svg><use href="#t-focus-f"/></svg></div>
+      <h2 class="h2" style="margin-top:22px" id="h-focus">Соцсети подождут, пока вы помолитесь</h2>
+      <p class="lead" style="margin-top:20px">Пришло время намаза, и Фокус закрывает Instagram, TikTok и всё, что вы выбрали. Отметили намаз, и всё открылось. Что закрывать, решаете только вы, аварийный выход есть всегда.</p>
+      <div class="fctl"><button class="sw" id="fsw" role="switch" aria-checked="true" type="button">Время Асра<i></i></button></div>
+      <p class="plusnote"><span class="pchip">Plus</span>Работает через «Экранное время» Apple. 14 дней бесплатно.</p>
+    </div>
+    <div class="stack" id="focusTabs"><!--M:focus w=360--><!--M:focus-open w=360--></div>
+  </div>
+</section>
+
+<!-- 6. REMINDERS: настоящий экран Reminders с роликами @firdausly -->
+<section class="sec rem" id="reminders" aria-labelledby="h-rem">
+  <div class="wrap split rev">
+    <div>
+      <span class="tag"><svg class="i"><use href="#t-reminders-f"/></svg>Reminders</span>
+      <h2 class="h2" style="margin-top:14px" id="h-rem">Короткие видео только об&nbsp;исламе</h2>
+      <p class="lead" style="margin-top:20px">Аяты, хадисы, Мекка на закате. Без музыки и без пранков. Пришло время намаза, и лента сама встаёт на паузу. Смотреть может каждый, бесплатно.</p>
+      <p class="note" style="margin-top:16px">Внутри — настоящие ролики @firdausly из приложения.</p>
+    </div>
+    <div><!--M:clip-reels|reels w=380--></div>
+  </div>
+</section>
+
+<!-- 7. УММА И СЦЕНА -->
+<section class="sec" id="umma" aria-labelledby="h-umma">
+  <div class="wrap split">
+    <div>
+      <h2 class="h2" id="h-umma">Умма со всего мира на&nbsp;вашем языке</h2>
+      <p class="lead" style="margin-top:20px">Соцсеть, которая делает ближе к религии: лента и истории о том, что помогает держаться. Запись на английском переводится одним касанием.</p>
+    </div>
+    <div><!--M:clip-umma|umma w=380--></div>
+  </div>
+  <div class="stage" id="stage">
+    <video class="stage-amb" data-amb="i/amb-stage.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+    <div class="wrap split">
+      <div>
+        <span class="live"><i></i>В ЭФИРЕ</span>
+        <p class="st">Сцена: живые хутбы и разговоры с&nbsp;уммой</p>
+        <p class="lead" style="color:rgba(245,243,238,.78)">Заходите, слушайте, поднимайте руку, говорите «Амин» вместе со всеми. Вести эфир могут только проверенные имамы, преподаватели и чтецы.</p>
+      </div>
+      <div><!--M:clip-stage|stage w=380--></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. СООБЩЕНИЯ -->
+<section class="sec msg" id="msgs" aria-labelledby="h-msg">
+  <div class="wrap split rev">
+    <div>
+      <h2 class="h2" id="h-msg">Общайтесь с близкими прямо в&nbsp;Firdausly</h2>
+      <p class="lead" style="margin-top:20px">Не нужно уходить туда, где лента снова затянет. Сообщения, голосовые, заметки над аватаркой и Моменты: один снимок своим сразу после намаза.</p>
+      <p class="note" style="margin-top:16px">«В сети» и «прочитано» видны только взаимно.</p>
+    </div>
+    <div class="pair"><!--M:msgs w=340--><!--M:moments w=250 cls=back--></div>
+  </div>
+</section>
+
+<!-- 9. СЁСТРАМ -->
+<section class="sec" id="sisters" aria-labelledby="h-sis">
+  <div class="wrap split">
+    <div>
+      <h2 class="h2 xl" id="h-sis">Сёстрам спокойно</h2>
+      <p class="lead" style="margin-top:20px">Вы решаете, кто может вам писать: незнакомые приходят запросом, и только вы решаете, принять ли его. Позовите вали, и он увидит запросы от мужчин. Дни, когда намаз не читают, отмечаются тихо и хранятся только на телефоне.</p>
+    </div>
+    <div><!--M:requests w=360--></div>
+  </div>
+</section>
+
+<!-- 10. ОСНОВА -->
+<section class="sec" id="namaz" aria-labelledby="h-ess">
+  <div class="wrap">
+    <h2 class="h2" id="h-ess">Основа для намаза. Бесплатно и&nbsp;навсегда</h2>
+    <p class="lead" style="margin-top:20px">Время по вашему городу (в Казахстане по таблице ДУМК, в Турции по Diyanet), кибла, зикры, Коран с переводом. Без рекламы.</p>
+  </div>
+  <div class="row4">
+    <figure><!--M:clip-dhikr|dhikr w=270--><figcaption><b>Зикры</b>Касайтесь экрана где угодно</figcaption></figure>
+    <figure><!--M:quran w=270--><figcaption><b>Коран</b>Перевод работает без сети</figcaption></figure>
+    <figure><!--M:widgets w=270--><figcaption><b>Виджеты</b>Время намаза на экране «Домой»</figcaption></figure>
+  </div>
+  <p class="wrap also"><b>И ещё бесплатно:</b> напоминание к каждому намазу, будильник на Фаджр, када без упрёков и отметка камерой, чтобы отметка была честной. Снимок разбирается на самом iPhone и никуда не уходит.</p>
+</section>
+
+<!-- 11. КАРТИНЫ -->
+<section class="sec art-s" aria-labelledby="h-art">
+  <div class="wrap">
+    <h2 class="h2" id="h-art">Красота, которую хочется открывать</h2>
+    <p class="lead" style="margin-top:20px">Авторские картины для главного экрана, чата и виджетов. Каждая о том, что помогает держаться: смелость, путь, суджуд, свои рядом.</p>
+    <div class="acc" id="acc"></div>
+    <div class="art-foot"><span>И восемь настоящих полотен XIX века: Самарканд, Каир, Стамбул, Нил.</span><span>Картины с Plus</span></div>
+    <div class="classic" id="classic"></div>
+  </div>
+</section>
+
+<!-- 12. АВТОРАМ (Reminders) -->
+<section class="sec auth" id="authors" aria-labelledby="h-auth">
+  <div class="wrap">
+    <span class="tag"><svg class="i"><use href="#p-video-camera"/></svg>Авторам</span>
+    <h2 class="h2" style="margin-top:14px" id="h-auth">В TikTok ваш аят стоит между пранком и танцем. <span>В Firdausly он стоит между азаном и намазом.</span></h2>
+    <div class="vs">
+      <div class="feed them"><h3>Их лента</h3><div class="mq" id="mq"></div></div>
+      <div class="feed us"><h3>Лента Firdausly</h3>
+        <div class="us-col">
+          <div class="fi"><svg><use href="#p-speaker-high"/></svg>Азан Магриба через 5 минут</div>
+          <div class="fi you"><svg><use href="#t-reminders-f"/></svg>Ваш ролик. Его досматривают</div>
+          <div class="fi"><svg><use href="#p-hands-praying"/></svg>Лента подождёт: время Магриба</div>
+          <div class="fi"><svg><use href="#p-check-circle-fill"/></svg>Зритель встал на намаз</div>
+        </div>
+      </div>
+    </div>
+    <div class="perks">
+      <div class="pk"><b>Без музыки у всех</b><p>Трендовый звук не толкает чужие ролики выше. Решает смысл и то, как досматривают.</p></div>
+      <div class="pk"><b>Алгоритм ищет своих</b><p>Сначала зрители вашего языка, потом шире, потом вся умма. Чтение Корана показываем всем.</p></div>
+      <div class="pk"><b>Сейчас лучшее время</b><p>Мы только запускаемся: авторов в Reminders пока немного, и сильный ролик видит вся лента. Первые три ролика нового автора получают прибавку показов.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. ПАРТНЁРСКАЯ ПРОГРАММА: тизер отдельной страницы -->
+<section class="sec pp" id="partners" aria-labelledby="h-pp">
+  <div class="wrap">
+    <div class="pp-card">
+      <div>
+        <span class="tag"><svg class="i"><use href="#p-coins"/></svg>Партнёрская программа</span>
+        <h2 class="h2" style="margin-top:14px" id="h-pp">Советуете один раз. Получаете каждый&nbsp;месяц.</h2>
+        <p class="lead" style="margin-top:18px">Для исламских авторов и блогеров: 20% чистой выручки с каждой оплаты людей, пришедших по вашему коду, пока они с Firdausly. Вашим людям месяц Plus в подарок.</p>
+        <div class="ctas"><a class="btn btn-p" href="partners/">Всё о программе и калькулятор</a></div>
+      </div>
+      <div class="pp-num"><b>20%</b><span>с каждой оплаты и продления</span><b>30&nbsp;дней</b><span>Plus вашим людям по коду</span><b>10&nbsp;000&nbsp;₸</b><span>порог выплаты, раз в месяц, в любую страну</span></div>
+    </div>
+    <div class="mosq">
+      <svg class="i"><use href="#p-mosque"/></svg>
+      <p><b>Мечетям и школам.</b> Джума и уроки в прямом эфире на Сцене, ролики в Reminders, отметка проверенного аккаунта. Бесплатно. <a href="partners/#mosque">Оставить заявку →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 14. ЦЕНА -->
+<section class="sec price" id="price" aria-labelledby="h-price">
+  <div class="wrap">
+    <h2 class="h2" id="h-price">Намаз бесплатно. Навсегда</h2>
+    <p class="lead" style="margin-top:20px">Всё, без чего не прочитать намаз вовремя, бесплатно. Plus для тех, кто держит намаз вместе со своими.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Бесплатно</h3>
+        <div class="pp1">0 ₸ <small>навсегда</small></div>
+        <ul>
+          <li><svg><use href="#p-check"/></svg>Время намаза, кибла, напоминания</li>
+          <li><svg><use href="#p-check"/></svg>Будильник на Фаджр, даже в беззвучном</li>
+          <li><svg><use href="#p-check"/></svg>Виджеты со временем намаза</li>
+          <li><svg><use href="#p-check"/></svg>Отметка намаза и када</li>
+          <li><svg><use href="#p-check"/></svg>Коран с переводом, зикры</li>
+          <li><svg><use href="#p-check"/></svg>Reminders: смотреть, лайкать, отвечать</li>
+          <li><svg><use href="#p-check"/></svg>Открытки и приглашения от близких</li>
+        </ul>
+      </div>
+      <div class="plan plus">
+        <h3>Firdausly Plus</h3>
+        <div class="per" id="per"><button type="button" aria-pressed="false" data-p="m">Месяц</button><button type="button" aria-pressed="true" data-p="y">Год<em id="save">−49%</em></button></div>
+        <div class="pp1"><span id="pAmt">22 990 ₸</span> <small id="pPer">в год · 1 916 ₸ в месяц</small><small class="alt" id="pAlt">или 3 790 ₸ помесячно</small></div>
+        <div class="trial"><svg class="i"><use href="#p-gift"/></svg><span><b>14 дней бесплатно.</b> По коду друга ещё 7 дней Plus. Отменить можно в любой момент в настройках Apple ID.</span></div>
+        <ul>
+          <li><svg><use href="#p-check"/></svg>Близкие и напоминания</li>
+          <li><svg><use href="#p-check"/></svg>Фаджр вместе</li>
+          <li><svg><use href="#p-check"/></svg>Фокус на время намаза</li>
+          <li><svg><use href="#p-check"/></svg>Азан муэдзинов и звуки природы</li>
+          <li><svg><use href="#p-check"/></svg>Отсчёт в Dynamic Island</li>
+          <li><svg><use href="#p-check"/></svg>Умма, Сцена, сообщения, Моменты</li>
+          <li><svg><use href="#p-check"/></svg>Свои Reminders</li>
+          <li><svg><use href="#p-check"/></svg>Картины для фона и виджетов</li>
+        </ul>
+        <a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Попробовать 14 дней">Скоро в App Store</span></a>
+      </div>
+      <figure class="plan-shot"><!--M:paywall w=300--><figcaption>Экран оплаты в приложении</figcaption></figure>
+    </div>
+    <p class="prem">Есть и <b>Premium</b> для тех, кто поддерживает Firdausly с первых дней: всё из Plus, золотой полумесяц у имени и особые стикеры.</p>
+    <p class="note" style="margin-top:8px" id="fine">Цены для Казахстана. В другой стране App Store покажет цену в вашей валюте до оплаты.</p>
+  </div>
+</section>
+
+<!-- 15. ДОВЕРИЕ -->
+<section class="sec trust-s" aria-labelledby="h-trust" style="padding-top:40px">
+  <div class="wrap">
+    <h2 class="h1" id="h-trust">Рекламы нет. Ваши данные не&nbsp;продаём.</h2>
+    <div class="trust">
+      <p><b>Снимок отметки, координаты и тихие дни</b> не покидают телефон.</p>
+      <p><b>Записи, фото и имена</b> проверяются до показа. Пожаловаться и заблокировать можно отовсюду.</p>
+      <p><b>Ничто не поощряет пропуск намаза.</b> Пропустили: када и мягкая поддержка.</p>
+      <p><b>Сделано в Казахстане.</b> Время по официальным таблицам ДУМК, ДУМ РТ и Diyanet. Аккаунт удаляется в настройках вместе с данными.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ВОПРОСЫ -->
+<section class="sec" id="faq" aria-labelledby="h-faq" style="padding-top:40px">
+  <div class="wrap faq">
+    <h2 class="h2" id="h-faq" style="margin-bottom:24px">Вопросы</h2>
+    <details><summary>Когда выйдет Firdausly?<svg class="i"><use href="#p-plus"/></svg></summary><p>Скоро в App Store для iPhone с iOS 17 и новее. Кнопка «Скоро в App Store» уже ведёт на страницу приложения.</p></details>
+    <details><summary>Будет ли версия для Android?<svg class="i"><use href="#p-plus"/></svg></summary><p>Сначала iPhone. Android в планах; о выходе напишем в Instagram @firdaus.social.</p></details>
+    <details><summary>Мои намазы видят все?<svg class="i"><use href="#p-plus"/></svg></summary><p>Нет. Отметки видят только ваши близкие, которых вы сами добавили.</p></details>
+    <details><summary>А если мои близкие ещё не в Firdausly?<svg class="i"><use href="#p-plus"/></svg></summary><p>Отправьте приглашение ссылкой. Открытка-напоминание и приглашение на совместный намаз откроются и без подписки, а по вашему коду близкий получит ещё 7 дней Plus к пробным 14.</p></details>
+    <details><summary>Как считается время намаза?<svg class="i"><use href="#p-plus"/></svg></summary><p>В Казахстане по официальной таблице ДУМК, в Татарстане по ДУМ РТ, в Турции по Diyanet. В других странах по методу расчёта и мазхабу, которые вы выберете.</p></details>
+    <details><summary>Фокус правда закроет Instagram?<svg class="i"><use href="#p-plus"/></svg></summary><p>Да, через «Экранное время» Apple. Что закрывать, выбираете только вы в окне Apple. Отметили намаз, и приложения открылись. Аварийный выход есть всегда.</p></details>
+    <details><summary>В Reminders есть музыка?<svg class="i"><use href="#p-plus"/></svg></summary><p>Нет. Голос, слово и нашид без инструментов. Каждый ролик до показа проходит проверку кадров, речи и текста.</p></details>
+    <details><summary>Сколько стоит?<svg class="i"><use href="#p-plus"/></svg></summary><p>Основа бесплатна навсегда. Firdausly Plus в Казахстане 3 790 ₸ в месяц или 22 990 ₸ в год, первые 14 дней бесплатно. Подписка продлевается сама, если не отменить её за сутки до конца срока.</p></details>
+  </div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="fin" aria-labelledby="h-fin">
+  <picture><source type="image/avif" srcset="i/plus-480.avif 480w, i/plus-860.avif 860w" sizes="100vw"><img src="i/plus-860.webp" srcset="i/plus-480.webp 480w, i/plus-860.webp 860w" sizes="100vw" alt="" loading="lazy"></picture>
+  <div class="wrap">
+    <h2 class="h1" id="h-fin">Рамадан ближе, чем кажется. Соберите своих заранее.</h2>
+    <p class="fin-d" id="finD"></p>
+    <p class="lead">Будите друг друга на Фаджр, напоминайте о намазе, держитесь вместе. Начните с Firdausly.</p>
+    <div class="cta"><a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Скачать в App Store">Скоро в App Store</span></a></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="logo" href="#"><img src="i/icon.webp" alt="" width="30" height="30">Firdausly</a><p style="margin-top:14px;max-width:24em">Соцсеть, которая зовёт к намазу. Сделано в Казахстане.</p></div>
+    <nav aria-label="О проекте"><a href="/about">О Firdausly</a><a href="partners/">Партнёрская программа</a><a href="/namaz/">Время намаза по городам</a></nav>
+    <nav aria-label="Документы"><a href="/support">Поддержка</a><a href="/privacy">Конфиденциальность</a><a href="/terms">Условия</a><a href="mailto:support@firdausly.com">support@firdausly.com</a></nav>
+  </div>
+</footer>
+
+
+<script><!--JS--></script>
+</body>
+</html>

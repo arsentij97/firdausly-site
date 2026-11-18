@@ -18,7 +18,7 @@ The idea comes from Quran 51:55: «وَذَكِّرْ فَإِنَّ ٱلذِّ�
 - Marking a prayer with one tap. Optional strict prayer check with the camera; the photo is analysed on the phone and never uploaded.
 - Loved ones and reminder cards: send a card with a Quran verse or a kind word; "Delivered" when they prayed after it. Cards can be sent as a link to people who do not have the app yet.
 - Together: agree on a prayer; a lobby shows who is up; for Fajr the app wakes both people.
-- Circle: a group of your people with a shared chat and a shared dhikr count.
+- Close ones: a group of up to eight of your closest people with a shared chat and a shared dhikr count.
 - Quran: Arabic Uthmani text from Tanzil, Russian (Rwwad) and English (Saheeh International) translations offline, more languages from QuranEnc.com; bookmarks, continue where you stopped.
 - Adhkar (morning and evening), tasbih counter, a shared dhikr count across the community.
 - Tahajjud: the app calculates the last third of the night for your city and wakes you with a quiet alarm.

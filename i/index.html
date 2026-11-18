@@ -56,6 +56,8 @@
   .iv-btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;border-radius:999px;border:0;cursor:pointer;
       background:var(--btn);color:var(--on-btn);font:600 17px/1 var(--sans);text-decoration:none;width:100%}
   .iv-btn:hover{background:var(--btn-hi)}
+  .iv-open{display:flex;align-items:center;justify-content:center;min-height:44px;margin-top:-6px;color:var(--moon);font-size:15px;text-align:center;text-decoration:none}
+  .iv-open[hidden]{display:none}
   .iv-ghost{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px var(--line-2)}
   .iv-fine{color:var(--faint);font-size:13px;line-height:1.5;text-align:center;margin:0}
   .iv-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--surface-2);color:var(--text);
@@ -82,6 +84,9 @@
 
     <a class="iv-btn" id="go" href="#">Скачать Firdausly</a>
     <button class="iv-btn iv-ghost" id="copy" type="button">Скопировать код</button>
+    <!-- 155: уже поставил, а приглашение не подхватилось (другая сеть, Private Relay) — своя схема
+         открывает /join/<код> в приложении; ссылка того же домена в Safari приложение не открыла бы. -->
+    <a class="iv-open" id="open" href="#" hidden>Firdausly уже стоит? Открыть приглашение в приложении</a>
     <p class="iv-fine" id="fine"></p>
   </main>
 </div>
@@ -306,7 +311,8 @@ window.FIRDAUS = {
     soon: 'Скоро в App Store',
     copy: 'Скопировать код',
     copied: 'Код скопирован — вставь его в Firdausly',
-    fine: 'Поставь Firdausly и войди через Apple или Google — приглашение подхватится само. Если нет — открой «Код от друга» и вставь код.',
+    open: 'Firdausly уже стоит? Открыть приглашение в приложении',
+    fine: 'Поставь Firdausly и войди через Apple или Google — приглашение подхватится само. Не подхватилось — вернись сюда и нажми «Открыть приглашение в приложении» или вставь код в «Есть код от друга?».',
     fineSoon: 'Firdausly скоро выйдет в App Store. Сохрани код — он подождёт.',
     bad: 'Ссылка без кода. Попроси друга прислать её ещё раз.'
   } : {
@@ -327,7 +333,8 @@ window.FIRDAUS = {
     soon: 'Coming soon to the App Store',
     copy: 'Copy code',
     copied: 'Code copied — paste it in Firdausly',
-    fine: 'Install Firdausly and sign in with Apple or Google — the invitation will be picked up. If not, open “Code from a friend” and paste the code.',
+    open: 'Already have Firdausly? Open the invitation in the app',
+    fine: 'Install Firdausly and sign in with Apple or Google — the invitation will be picked up. If not, come back here and tap “Open the invitation in the app”, or paste the code in “Have a code from a friend?”.',
     fineSoon: 'Firdausly is coming to the App Store soon. Keep the code — it will wait.',
     bad: 'This link has no code. Ask your friend to send it again.'
   };
@@ -367,6 +374,12 @@ window.FIRDAUS = {
     go.setAttribute('aria-disabled', 'true');
     go.style.opacity = '.55';
     $('fine').textContent = T.fineSoon;
+  }
+  if (code) {
+    var open = $('open');
+    open.textContent = T.open;
+    open.href = (C.scheme || 'firdaus://') + 'join/' + code;
+    open.hidden = false;
   }
   if (!code) {
     $('fine').textContent = T.bad;

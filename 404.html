@@ -510,7 +510,7 @@ window.FIRDAUS = {
     h: 'Тебя ждут <em class="warm">в Firdausly</em>',
     r: 'Тебе прислали ролик из Reminders — короткое напоминание о вере и добром. Он откроется в Firdausly.',
     join: 'Встретимся в Фирдаусе: будем напоминать друг другу о намазе, видеть, кто уже прочитал, и вставать на Фаджр вместе.',
-    joinWho: ' зовёт тебя ', joinIn: 'в свой круг',
+    joinWho: ' зовёт тебя ', joinIn: 'к своим близким',
     gift: '14 дней Firdausly Plus — в подарок',
     fineGift: 'Подарок откроется, когда отметишь намаз два дня: его выдаёт App Store. После установки открой эту ссылку ещё раз — приглашение откроется в приложении. Код можно ввести и вручную.',
     together: 'Тебя зовут прочитать намаз вместе, в одно время.',
@@ -526,7 +526,7 @@ window.FIRDAUS = {
     h: 'Someone is <em class="warm">waiting</em> for you',
     r: 'Someone sent you a Reminders video — a short reminder of faith and doing good. It opens in Firdausly.',
     join: 'See you on Firdausly: we’ll remind each other to pray, see who has already prayed, and get up for Fajr together.',
-    joinWho: ' invites you ', joinIn: 'to their circle',
+    joinWho: ' invites you ', joinIn: 'to join their close ones',
     gift: '14 days of Firdausly Plus — a gift',
     fineGift: 'The gift unlocks after you log your prayers on two days; the App Store issues it. After installing, open this link again and the invitation will open in the app. You can also enter the code by hand.',
     together: 'You’re invited to pray together, at the same time.',
@@ -591,8 +591,8 @@ window.FIRDAUS = {
   var pr = P.hasOwnProperty(q.get('p')) ? P[q.get('p')] : '';
   var at = /^([01]?\d|2[0-3]):[0-5]\d$/.test(q.get('t') || '') ? q.get('t') : '';
   /*
-    ПРИГЛАШЕНИЕ В КРУГ С ИМЕНЕМ (сборка 56, docs/105): приложение кладёт в ссылку
-    только имя — `?n=Арсен`. Карточка: «Арсен зовёт тебя в свой круг». Намаза и
+    ПРИГЛАШЕНИЕ К БЛИЗКИМ С ИМЕНЕМ (сборка 56, docs/105): приложение кладёт в ссылку
+    только имя — `?n=Арсен`. Карточка: «Арсен зовёт тебя к своим близким». Намаза и
     времени в ссылке больше нет (Арсен: «а вдруг человек не идёт?»); старые ссылки
     с `p` и `t` по-прежнему встречают зовом на намаз — ветка ниже.
   */

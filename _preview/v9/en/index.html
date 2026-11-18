@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Firdausly: remind your people to pray</title>
+<link rel="canonical" href="https://firdausly.com/en/">
+<link rel="alternate" hreflang="en" href="https://firdausly.com/en/"><link rel="alternate" hreflang="ru" href="https://firdausly.com/"><link rel="alternate" hreflang="x-default" href="https://firdausly.com/">
+<link rel="apple-touch-icon" href="../i/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="../i/favicon-32.png">
+<meta property="og:type" content="website"><meta property="og:url" content="https://firdausly.com/en/"><meta property="og:site_name" content="Firdausly"><meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://firdausly.com/s/og-en.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://firdausly.com/s/og-en.jpg">
+<meta name="apple-itunes-app" content="app-id=6806738733">
+<script>(function(){try{var p=location.pathname,en=/^\/en(\/|$)/.test(p);if(en||localStorage.getItem('lang')||/bot|crawl|spider|slurp|preview|facebookexternalhit/i.test(navigator.userAgent))return;var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'ru'];for(var i=0;i<L.length;i++)if(/^(ru|kk|uk|be|uz|ky|tg|tt|az|hy|ka|mo|ba|ce)\b/i.test(L[i]))return;}catch(e){}})();</script>
+<meta name="description" content="Firdausly: the social network where the most important notification of the day comes from your brother. See which of your people have already prayed, and remind the rest with one tap. Fajr together, Focus, Reminders, Ummah and Stage.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="../i/icon.webp">
+<link rel="preload" as="image" href="../i/gate-1080.avif" type="image/avif" media="(min-width:701px)">
+<link rel="preload" as="image" href="../i/gate-640.avif" type="image/avif" media="(max-width:700px)">
+<link rel="preload" as="font" href="../f/inter-600.woff2" type="font/woff2" crossorigin>
+<meta property="og:title" content="Firdausly: remind your people to pray">
+<meta property="og:description" content="The social network where the most important notification of the day comes from your brother. Coming soon to the App Store.">
+<style>@font-face{font-family:Fi;font-weight:200;font-display:swap;src:url(f/inter-200.woff2) format("woff2")}
+@font-face{font-family:Fi;font-weight:400;font-display:swap;src:url(f/inter-400.woff2) format("woff2")}
+@font-face{font-family:Fi;font-weight:600;font-display:swap;src:url(f/inter-600.woff2) format("woff2")}
+@font-face{font-family:Fi;font-weight:700;font-display:swap;src:url(f/inter-700.woff2) format("woff2")}
+@font-face{font-family:Fs;font-style:italic;font-weight:400;font-display:swap;src:url(f/spectral-i.woff2) format("woff2")}
+
+/* Токены: тёмная тема приложения (mobile/src/theme/tokens.ts). Сайт держит одну тему — ночную, как приложение по умолчанию. */
+:root{
+  color-scheme:dark;
+  --bg:#0A0A0A;--bg2:#0F0E0C;--card:#141311;--card2:#1B1A17;
+  --tx:#F5F3EE;--tx2:rgba(245,243,238,.68);--tx3:rgba(245,243,238,.46);
+  --ln:rgba(255,255,255,.09);--ln2:rgba(255,255,255,.16);
+  --gold:#D9B95C;--gold2:#E8CB78;--goldS:#2A2416;--fill:#F4EFE6;--fillHi:#FFFDF8;--ink:#14120E;
+  --ok:#7BC48A;
+  --r1:14px;--r2:22px;--r3:32px;
+  --w:1200px;--g:clamp(16px,4vw,40px);
+  --e:cubic-bezier(.16,1,.3,1);
+  --sans:Fi,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --serif:Fs,"Iowan Old Style",Georgia,serif;
+}
+:root[data-theme="dark"]{color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 17px/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,svg{display:block;max-width:100%}
+main{overflow-x:clip}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;padding-right:.04em}
+svg.i{width:1em;height:1em;fill:currentColor;flex:none}
+.wrap{width:min(var(--w),100% - 2*var(--g));margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
+
+/* Типографика */
+.h1{font-size:clamp(42px,6.2vw,80px);font-weight:600;line-height:1.02;letter-spacing:-.04em}
+.h2{font-size:clamp(34px,4.6vw,60px);font-weight:600;line-height:1.04;letter-spacing:-.035em}
+.h3{font-size:clamp(22px,2.2vw,28px);font-weight:600;line-height:1.15;letter-spacing:-.02em}
+.lead{font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:var(--tx2);max-width:36em}
+.lead b{color:var(--tx);font-weight:600}
+.note{font-size:14px;color:var(--tx3);line-height:1.45}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--gold)}
+.tag svg{width:22px;height:22px}
+
+/* Кнопки: одна семья — пилюля */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap;transition:transform .2s var(--e),background .2s,box-shadow .3s}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px}
+.btn-p{background:var(--fill);color:var(--ink);box-shadow:0 10px 40px -10px rgba(232,203,120,.45),inset 0 1px 0 #fff}
+.btn-p:hover{background:var(--fillHi)}
+.btn-g{background:rgba(255,255,255,.07);color:var(--tx);box-shadow:inset 0 0 0 1px var(--ln2)}
+.btn-g:hover{background:rgba(255,255,255,.12)}
+
+/* Шапка */
+.top{position:fixed;inset:0 0 auto;z-index:50;height:64px;display:flex;align-items:center;transition:background .3s,box-shadow .3s}
+.top.on{background:rgba(10,10,10,.72);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:0 1px 0 var(--ln)}
+.top .wrap{display:flex;align-items:center;gap:28px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px;letter-spacing:-.02em;text-decoration:none}
+.logo img{width:30px;height:30px;border-radius:8px}
+.nav{display:flex;gap:26px;margin-left:auto;font-size:15px}
+.nav a{text-decoration:none;color:var(--tx2);transition:color .2s}
+.nav a:hover{color:var(--tx)}
+.top .btn{height:40px;padding:0 18px;font-size:15px}
+@media (max-width:900px){.nav{display:none}.top .btn{margin-left:auto}}
+
+
+/* ── 2. ПРОБЛЕМА ── манифест и буря уведомлений */
+.sec{padding:clamp(88px,12vw,160px) 0;position:relative}
+.storm{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.storm .h2{max-width:11em}
+.nstack{position:relative;height:470px;max-width:520px;width:100%;justify-self:center}
+.nt{position:absolute;left:0;right:0;border-radius:22px;padding:14px 16px;display:grid;grid-template-columns:40px 1fr;column-gap:12px;background:rgba(38,37,35,.94);box-shadow:0 10px 30px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.06);font-size:15px;line-height:1.35;transition:transform .7s var(--e),opacity .6s,filter .6s}
+.nt i{grid-row:span 2;width:36px;height:36px;border-radius:9px;display:grid;place-items:center}
+.nt i svg{width:20px;height:20px;fill:#fff}
+.nt b{font-size:13px;display:flex;justify-content:space-between;font-weight:600}
+.nt b small{font-weight:400;color:var(--tx3)}
+.nt p{color:var(--tx2)}
+.nt.gold{background:linear-gradient(135deg,rgba(66,54,24,.96),rgba(34,30,22,.96));box-shadow:0 20px 60px -10px rgba(217,185,92,.35),inset 0 0 0 1px rgba(217,185,92,.45)}
+.nt.gold p{color:var(--tx)}
+.nt.gold i{background:none}
+.nt.gold i img{width:36px;height:36px;border-radius:9px}
+.replay{margin-top:28px}
+@media (max-width:900px){.storm{grid-template-columns:1fr;gap:40px}.nstack{height:400px}}
+
+
+/* ── 12. КАРТИНЫ ── раскрывающиеся полосы */
+.art-s{overflow:hidden}
+.acc{margin-top:56px;display:flex;gap:10px;height:min(600px,70vh)}
+.ac{flex:1;border-radius:var(--r2);overflow:hidden;position:relative;transition:flex .7s var(--e);cursor:pointer;min-width:0;background:#1a1712}
+.ac img{width:100%;height:100%;object-fit:cover}
+.ac::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.75));opacity:0;transition:opacity .5s}
+.ac span{position:absolute;left:20px;bottom:18px;z-index:2;font-size:20px;font-weight:600;opacity:0;transform:translateY(10px);transition:.5s var(--e);white-space:nowrap}
+.ac span small{display:block;font-size:13px;font-weight:400;color:var(--tx2)}
+.ac.on{flex:4.2}
+.ac.on::after,.ac.on span{opacity:1;transform:none}
+.classic{margin-top:28px;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:6px}
+.classic::-webkit-scrollbar{display:none}
+.classic img{height:120px;width:auto;aspect-ratio:auto;border-radius:12px;flex:none;opacity:.85}
+.art-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:22px;font-size:15px;color:var(--tx2)}
+@media (max-width:700px){.acc{height:auto;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}.acc::-webkit-scrollbar{display:none}.ac,.ac.on{flex:none;width:72vw;aspect-ratio:9/14;scroll-snap-align:center}.ac::after,.ac span{opacity:1;transform:none}}
+
+/* ── 13. АВТОРАМ ── */
+.auth{background:linear-gradient(180deg,var(--bg),#0e0d0a 20%,#0e0d0a 80%,var(--bg))}
+.auth .h2{max-width:15em}
+.auth .h2 span{color:var(--tx3)}
+.vs{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.feed{border-radius:var(--r3);height:420px;overflow:hidden;position:relative;box-shadow:inset 0 0 0 1px var(--ln);padding:0 22px}
+.feed h3{position:absolute;top:0;left:0;right:0;z-index:2;padding:20px 22px 30px;font-size:16px;background:linear-gradient(var(--card) 60%,transparent)}
+.feed::after{content:"";position:absolute;left:0;right:0;bottom:0;height:80px;background:linear-gradient(transparent,var(--card));z-index:2}
+.feed.them{background:var(--card)}
+.feed.us{background:radial-gradient(100% 80% at 50% 100%,#2a2416,var(--card))}
+.feed.us::after{display:none}
+.mq{display:flex;flex-direction:column;gap:10px;animation:mq 22s linear infinite;padding-top:64px}
+@keyframes mq{to{transform:translateY(-50%)}}
+.fi{border-radius:14px;padding:12px 14px;background:rgba(255,255,255,.05);font-size:15px;display:flex;gap:10px;align-items:center;color:var(--tx2)}
+.fi svg{width:20px;height:20px;fill:currentColor;opacity:.7}
+.fi.you{background:rgba(217,185,92,.14);color:var(--tx);box-shadow:inset 0 0 0 1px rgba(217,185,92,.4)}
+.fi.you svg{fill:var(--gold);opacity:1}
+.us-col{display:flex;flex-direction:column;gap:12px;padding-top:70px;height:100%}
+.us-col .fi{padding:16px}
+.us-col .fi.you{padding:26px 16px;font-size:17px}
+.perks{margin-top:64px;display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px}
+.pk{display:grid;grid-template-columns:44px 1fr;gap:4px 16px}
+.pk>svg{width:28px;height:28px;fill:var(--gold);grid-row:span 2;margin-top:2px}
+.pk b{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.pk p{color:var(--tx2);font-size:16px}
+.calc{margin-top:64px;border-radius:var(--r3);padding:clamp(22px,4vw,44px);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.calc label{font-size:15px;color:var(--tx2);display:flex;justify-content:space-between}
+.calc label b{color:var(--tx);font-size:22px;font-variant-numeric:tabular-nums}
+.calc .dslider{margin-top:10px}
+.calc .res{font-size:clamp(40px,5vw,64px);font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+.calc .res small{display:block;font-size:15px;font-weight:400;color:var(--tx2);letter-spacing:0;margin-top:10px}
+.calc .note{margin-top:14px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+@media (max-width:900px){.vs,.perks,.calc{grid-template-columns:1fr}.feed{height:360px}}
+
+
+/* ── 15. ЦЕНА ── */
+.price{text-align:center}
+.price .lead{margin-inline:auto}
+.plans{margin-top:56px;display:grid;grid-template-columns:.85fr 1.15fr;gap:20px;text-align:left;align-items:start}
+.plan{border-radius:var(--r3);padding:clamp(24px,3.4vw,40px);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);display:flex;flex-direction:column}
+.plan h3{font-size:22px}
+.plan .pp1{font-size:44px;font-weight:600;letter-spacing:-.03em;margin:14px 0 4px;font-variant-numeric:tabular-nums}
+.plan .pp1 small{display:block;font-size:16px;font-weight:400;color:var(--tx2);letter-spacing:0;margin-top:4px}
+.plan ul{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
+.plan li{display:flex;gap:10px;font-size:15px;color:var(--tx2);line-height:1.4}
+.plan li svg{width:18px;height:18px;fill:var(--gold);flex:none;margin-top:2px}
+.plan.plus{background:radial-gradient(120% 90% at 100% 0%,#2e2715,#15130f 60%);box-shadow:inset 0 0 0 1px rgba(217,185,92,.4),0 30px 80px -30px rgba(217,185,92,.25)}
+.plan.plus ul{grid-template-columns:1fr 1fr;column-gap:20px}
+.per{display:inline-flex;padding:3px;border-radius:99px;background:rgba(255,255,255,.08);margin-top:18px;align-self:flex-start}
+.per button{height:38px;padding:0 18px;border-radius:99px;font-size:14px;font-weight:600;color:var(--tx2)}
+.per button[aria-pressed="true"]{background:var(--fill);color:var(--ink)}
+.per button em{font-style:normal;color:var(--gold);margin-left:6px}
+.per button[aria-pressed="true"] em{color:#7a5a12}
+.trial{margin-top:22px;padding:14px 16px;border-radius:16px;background:rgba(217,185,92,.1);font-size:15px;display:flex;gap:10px;align-items:flex-start}
+.trial svg{width:20px;height:20px;fill:var(--gold);flex:none;margin-top:1px}
+.plan .btn{margin-top:auto;align-self:flex-start}
+.plan .spacer{flex:1;min-height:24px}
+.prem{margin-top:20px;color:var(--tx2);font-size:15px}
+.prem b{color:var(--gold)}
+@media (max-width:900px){.plans{grid-template-columns:1fr}.plan.plus{order:-1}}
+@media (max-width:520px){.plan.plus ul{grid-template-columns:1fr}}
+
+/* ── 16. ДОВЕРИЕ ── */
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:56px 64px;margin-top:56px}
+.tr3{display:grid;gap:12px}
+.tr3 svg{width:34px;height:34px;fill:var(--gold)}
+.tr3 b{font-size:clamp(22px,2.2vw,28px);font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.tr3 p{color:var(--tx2)}
+@media (max-width:800px){.trust{grid-template-columns:1fr;gap:40px}}
+
+/* ── ВОПРОСЫ ── */
+.faq{max-width:860px}
+.faq details{border-bottom:1px solid var(--ln)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font-size:clamp(18px,1.8vw,21px);font-weight:600;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{width:22px;height:22px;fill:var(--tx2);flex:none;transition:transform .3s var(--e);margin-top:2px}
+.faq details[open] summary svg{transform:rotate(45deg)}
+.faq details p{padding:0 0 24px;color:var(--tx2);max-width:44em}
+
+/* ── ФИНАЛ ── */
+.fin{position:relative;min-height:88vh;display:flex;align-items:center;text-align:center;overflow:hidden;isolation:isolate}
+.fin picture,.fin>img{position:absolute;inset:0;z-index:-1}
+.fin img{width:100%;height:100%;object-fit:cover;object-position:50% 78%}
+.fin::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(var(--bg),rgba(10,10,10,.45) 25%,rgba(10,10,10,.62) 60%,var(--bg)),radial-gradient(60% 50% at 50% 50%,rgba(10,10,10,.55),transparent)}
+.fin .h1{text-shadow:0 4px 40px rgba(0,0,0,.6)}
+.fin .h1{max-width:12em;margin-inline:auto}
+.fin .lead{margin:22px auto 0;color:rgba(245,243,238,.85)}
+.fin .cta{margin-top:36px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+
+/* ── ПОДВАЛ ── */
+.foot{padding:56px 0 48px;border-top:1px solid var(--ln);font-size:14px;color:var(--tx3)}
+.foot .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot nav{display:grid;gap:10px}
+.foot a{text-decoration:none;color:var(--tx2)}
+.foot a:hover{color:var(--tx)}
+@media (max-width:700px){.foot .wrap{grid-template-columns:1fr 1fr}.foot .wrap>div:first-child{grid-column:span 2}}
+
+/* ── ЛИСТ ОЖИДАНИЯ ── */
+dialog{border:0;padding:0;background:transparent;color:var(--tx);max-width:min(440px,calc(100vw - 32px));width:100%}
+dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.wl{border-radius:28px;background:#171614;box-shadow:inset 0 0 0 1px var(--ln2),0 40px 100px rgba(0,0,0,.6);padding:32px 28px 28px;position:relative}
+.wl img{width:56px;height:56px;border-radius:14px}
+.wl h2{font-size:26px;letter-spacing:-.02em;margin:18px 0 8px}
+.wl p{color:var(--tx2);font-size:15px}
+.wl label{display:block;font-size:14px;font-weight:600;margin:22px 0 8px}
+.wl input{width:100%;height:52px;border-radius:14px;border:1px solid var(--ln2);background:#0e0e0d;color:var(--tx);font:400 17px var(--sans);padding:0 16px}
+.wl input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.wl .btn{width:100%;margin-top:14px}
+.wl .m{min-height:22px;margin-top:12px;font-size:14px;color:var(--ok)}
+.wl .m.err{color:#FF8A8A}
+.wl .x{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:99px;display:grid;place-items:center}
+.wl .x svg{width:20px;height:20px;fill:var(--tx2)}
+dialog.done form{display:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .mq{animation:none}
+}
+
+
+/* ═══════ v9: все экраны — снимки настоящего приложения (media/*.webp, media/*.mp4) ═══════ */
+.lnk{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 6px;font-weight:600;text-decoration:none;color:var(--tx)}
+.lnk svg{width:18px;height:18px;transition:transform .3s var(--e)}
+.lnk:hover svg{transform:translateX(4px)}
+.h2.xl{font-size:clamp(46px,7vw,100px);line-height:1;letter-spacing:-.045em}
+.plusnote{display:block;font-size:14px;color:var(--tx2);margin-top:28px;line-height:1.5}
+.pchip{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--ink);background:linear-gradient(135deg,#f3dc93,var(--gold));border-radius:99px;padding:3px 9px;margin-right:8px;vertical-align:1px}
+.bigic{width:76px;height:76px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(145deg,#2c2617,#16130c);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 20px 50px -16px rgba(217,185,92,.45)}
+.bigic svg{width:40px;height:40px;fill:var(--gold)}
+
+/* ЭКРАН ПРИЛОЖЕНИЯ. Снимок 402×874 точки (@3x), края скруглены как у iPhone, тонкий торец корпуса — тенью.
+   Строку состояния iOS рисуем поверх (системная, не интерфейс приложения). */
+.dev{--pw:min(var(--w,360px),86vw);position:relative;width:var(--pw);max-width:100%;aspect-ratio:402/874;border-radius:calc(var(--pw)*.135);overflow:hidden;background:#000;flex:none;
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.16),0 0 0 calc(var(--pw)*.024) #141412,0 0 0 calc(var(--pw)*.027) rgba(255,255,255,.14),0 60px 120px -30px rgba(0,0,0,.95);container-type:inline-size;isolation:isolate}
+.dev img,.dev video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dev .sb{position:absolute;z-index:3;top:0;left:0;right:0;height:13cqw;display:flex;justify-content:space-between;align-items:center;padding:1.2cqw 8.5cqw 0 10cqw;font:600 3.9cqw/1 -apple-system,"SF Pro Text",var(--sans);color:#fff;pointer-events:none}
+.dev .sb i{display:flex;gap:1.5cqw;align-items:center}
+.dev .sb s{width:4.2cqw;height:2.7cqw;background:linear-gradient(90deg,#fff 0 18%,transparent 18% 27%,#fff 27% 45%,transparent 45% 54%,#fff 54% 72%,transparent 72% 81%,#fff 81%);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.dev .sb b{width:6.3cqw;height:3cqw;border-radius:1cqw;border:1.5px solid rgba(255,255,255,.55);position:relative}
+.dev .sb b::after{content:"";position:absolute;inset:1.5px;right:28%;border-radius:2px;background:#fff}
+.dev .isl{position:absolute;z-index:4;top:2.7cqw;left:50%;translate:-50% 0;width:30cqw;height:8.8cqw;border-radius:99px;background:#000}
+.dev .snd{position:absolute;z-index:5;right:4cqw;bottom:22cqw;width:11cqw;height:11cqw;border-radius:99px;display:grid;place-items:center;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.dev .snd svg{width:5.4cqw;height:5.4cqw;fill:#fff}
+figure{margin:0}
+figcaption{margin-top:18px;font-size:14px;color:var(--tx3);text-align:center}
+figcaption b{display:block;color:var(--tx);font-size:16px;font-weight:600;margin-bottom:2px}
+
+/* 1. ПЕРВЫЙ ЭКРАН */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;padding:96px 0 56px;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.9) 0%,rgba(10,10,10,.7) 38%,rgba(10,10,10,.25) 70%,rgba(10,10,10,.45)),linear-gradient(180deg,rgba(10,10,10,.5),transparent 25%,transparent 75%,var(--bg))}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.hero .h1{font-size:clamp(40px,4.6vw,70px);margin-bottom:22px}
+.hero .lead{color:rgba(245,243,238,.82);font-size:clamp(18px,1.5vw,21px);max-width:30em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;align-items:center}
+.duo{position:relative;display:flex;align-items:flex-end;padding-right:170px}
+.duo .d-main .dev{--pw:min(var(--w),calc((100dvh - 200px)*.46))}
+.duo .d-side{position:absolute;right:0;bottom:40px}
+.duo .d-side .dev{--pw:min(var(--w),calc((100dvh - 200px)*.3))}
+.duo figcaption{max-width:var(--pw)}
+.d-main figcaption{max-width:340px;margin-inline:auto}
+@media (max-width:980px){
+  .hero{padding:88px 0 64px;min-height:auto}
+  .hero .wrap{grid-template-columns:1fr;gap:48px}
+  .duo{justify-content:center;padding-right:0}
+  .duo .d-main .dev{--pw:min(300px,72vw)}
+  .duo .d-side{right:max(0px,calc(50% - 230px));bottom:60px}
+  .duo .d-side .dev{--pw:min(150px,36vw)}
+  .d-side figcaption{display:none}
+}
+@media (max-width:420px){.duo .d-main{margin-right:70px}.duo .d-side{right:0}}
+
+/* общие сцены: текст + экран(ы) */
+.split{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:72px;align-items:center}
+.split.rev{grid-template-columns:auto minmax(0,1fr)}
+.split.rev>div:last-child{order:-1}
+
+@media (max-width:980px){.split,.split.rev{grid-template-columns:1fr!important;gap:44px}.split.rev>div:last-child{order:0}.split>div:last-child{justify-self:center}}
+.pair{position:relative;display:flex;align-items:flex-end;padding-right:110px}
+.pair .back{position:absolute;right:0;bottom:-30px;--pw:min(var(--w),40vw);box-shadow:0 0 0 1.5px rgba(255,255,255,.16),0 0 0 6px #141412,0 0 0 7px rgba(255,255,255,.14),0 40px 80px -20px rgba(0,0,0,1)}
+@media (max-width:520px){.pair{padding-right:70px}.pair .dev:not(.back){--pw:min(300px,74vw)}.pair .back{--pw:min(150px,38vw)}}
+.stack{display:grid}
+.stack>.dev{grid-area:1/1;transition:opacity .45s var(--e),transform .6s var(--e)}
+.stack>.dev:not(.on){opacity:0;transform:translateY(14px) scale(.98);pointer-events:none}
+.seg3{display:inline-flex;flex-wrap:wrap;margin-top:30px;padding:4px;border-radius:99px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--ln)}
+.seg3 button{height:42px;padding:0 18px;border-radius:99px;font-size:15px;font-weight:600;color:var(--tx2);transition:background .25s,color .25s}
+.seg3 button[aria-selected="true"]{background:var(--fill);color:var(--ink)}
+.ayah{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;max-width:560px}
+.ayah svg{width:30px;height:30px;color:var(--gold)}
+.ayah p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2vw,26px);line-height:1.3}
+.ayah small{display:block;font-family:var(--sans);font-style:normal;font-size:14px;color:var(--tx3);margin-top:8px}
+
+/* 3. БЛИЗКИЕ — на картине «Вместе» */
+.close{overflow:hidden;isolation:isolate}
+.close-bg{position:absolute;inset:0;z-index:-1}
+.close-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;filter:brightness(.7) saturate(1.1)}
+.close-bg i{position:absolute;inset:0;background:linear-gradient(var(--bg),rgba(10,10,10,.35) 20%,rgba(10,10,10,.45) 70%,var(--bg)),linear-gradient(90deg,rgba(10,10,10,.85),rgba(10,10,10,.35) 60%,rgba(10,10,10,.6))}
+
+/* 4. ФАДЖР — предрассветное небо */
+.fajr{overflow:hidden;isolation:isolate}
+.fajr .sky{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#05060c 0%,#0b1020 40%,#1b2238 75%,#3a2a2a 100%)}
+.fajr .sky i{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 18%,#fff8 50%,transparent),radial-gradient(1px 1px at 32% 8%,#fff9 50%,transparent),radial-gradient(1.5px 1.5px at 58% 22%,#fffa 50%,transparent),radial-gradient(1px 1px at 76% 12%,#fff7 50%,transparent),radial-gradient(1px 1px at 88% 30%,#fff8 50%,transparent),radial-gradient(1px 1px at 22% 38%,#fff6 50%,transparent),radial-gradient(1px 1px at 46% 44%,#fff5 50%,transparent)}
+.fajr .sky::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;background:radial-gradient(60% 100% at 50% 100%,rgba(241,184,106,.28),transparent)}
+
+/* 5. ФОКУС */
+.sw{display:inline-flex;align-items:center;gap:14px;height:56px;padding:0 10px 0 22px;border-radius:99px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px var(--ln2);font-weight:600}
+.sw i{width:56px;height:34px;border-radius:99px;background:rgba(255,255,255,.18);position:relative;transition:background .3s}
+.sw i::after{content:"";position:absolute;top:3px;left:3px;width:28px;height:28px;border-radius:99px;background:#fff;transition:transform .35s var(--e);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.sw[aria-checked="true"] i{background:var(--ok)}
+.sw[aria-checked="true"] i::after{transform:translateX(22px)}
+.fctl{margin-top:30px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.fctl .note{font-size:14px}
+
+/* 7. СЦЕНА: полоса во всю ширину, подложка — настоящий ролик @firdausly в размытии */
+.stage{position:relative;overflow:hidden;isolation:isolate;margin-top:clamp(80px,10vw,140px);padding:clamp(64px,8vw,110px) 0;background:radial-gradient(80% 120% at 85% 20%,#2b3d66,#121a2e 55%,#0b0e17)}
+.stage-amb{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;z-index:-1;filter:blur(40px) brightness(.38) saturate(1.2);opacity:0;transition:opacity 1.2s}
+.stage-amb.on{opacity:1}
+.live{display:inline-flex;gap:6px;align-items:center;font-size:12px;font-weight:700;background:#E5484D;color:#fff;border-radius:6px;padding:3px 8px;letter-spacing:.04em}
+.live i{width:6px;height:6px;border-radius:9px;background:#fff;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.3}}
+.stage .st{margin:18px 0 14px;font-size:clamp(30px,3.6vw,50px);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+
+/* 10. ОСНОВА: ряд из четырёх настоящих экранов */
+.row4{margin:56px auto 0;width:min(1320px,100% - 2*var(--g));display:grid;grid-template-columns:repeat(4,1fr);gap:28px;justify-items:center}
+.row4 .dev{--pw:min(var(--w),100%)}
+@media (max-width:1100px){.row4{grid-template-columns:repeat(4,240px);overflow-x:auto;scroll-snap-type:x mandatory;justify-content:start;padding-bottom:12px;scrollbar-width:none}.row4::-webkit-scrollbar{display:none}.row4 figure{scroll-snap-align:center}.row4 .dev{--pw:240px}}
+.also{margin-top:36px;color:var(--tx2);font-size:16px}
+.also b{color:var(--tx)}
+
+/* 12. АВТОРАМ */
+.perks{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.pk b{display:block;font-size:22px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+.pk p{color:var(--tx2);font-size:16px}
+@media (max-width:900px){.perks{grid-template-columns:1fr}}
+
+/* 13. ПАРТНЁРСКАЯ ПРОГРАММА (тизер) */
+.pp-card{border-radius:var(--r3);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;background:radial-gradient(120% 120% at 100% 0%,#2e2715,#15130f 60%);box-shadow:inset 0 0 0 1px rgba(217,185,92,.35),0 40px 100px -40px rgba(217,185,92,.25)}
+.pp-num{display:grid;gap:4px}
+.pp-num b{font-size:clamp(40px,4.6vw,64px);font-weight:600;letter-spacing:-.03em;color:var(--gold);line-height:1}
+.pp-num span{color:var(--tx2);font-size:15px;margin-bottom:18px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;align-items:center}
+.mosq{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:22px 24px;border-radius:var(--r2);background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);color:var(--tx2)}
+.mosq svg{width:30px;height:30px;color:var(--gold)}
+.mosq b{color:var(--tx)}
+.mosq a{color:var(--gold)}
+@media (max-width:900px){.pp-card{grid-template-columns:1fr}}
+
+/* 14. ЦЕНА */
+.plans{grid-template-columns:.8fr 1.1fr auto!important}
+.plan-shot{align-self:center;text-align:center}
+.plan-shot .dev{margin:0 auto}
+.plan .pp1 small{display:block;font-size:16px;font-weight:400;color:var(--tx2);letter-spacing:0;margin-top:4px}
+.plan .pp1 small.alt{margin-top:2px;color:var(--tx3);font-size:14px}
+@media (max-width:1100px){.plans{grid-template-columns:1fr 1fr!important}.plan-shot{grid-column:1/-1}}
+@media (max-width:760px){.plans{grid-template-columns:1fr!important}}
+
+/* 15. ДОВЕРИЕ */
+.trust-s .h1{max-width:14em}
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 64px;margin-top:48px}
+.trust p{font-size:clamp(18px,1.7vw,21px);color:var(--tx2);line-height:1.45;padding-top:22px;border-top:1px solid var(--ln)}
+.trust b{color:var(--tx)}
+@media (max-width:700px){.trust{grid-template-columns:1fr;gap:22px}}
+
+/* ФИНАЛ */
+.fin{min-height:100vh;align-items:flex-start;padding-top:clamp(96px,16vh,170px)}
+.fin img{object-position:50% 92%}
+.fin::before{background:linear-gradient(180deg,var(--bg) 0%,rgba(10,10,10,.82) 22%,rgba(10,10,10,.45) 45%,rgba(10,10,10,.05) 64%,rgba(10,10,10,.3) 88%,var(--bg))}
+.fin-d{margin-top:18px;font-size:15px;font-weight:600;color:var(--gold)}
+@media (min-width:901px){
+  .fin{text-align:left;align-items:center;padding-top:0}
+  .fin picture{left:44%}
+  .fin img{object-position:50% 72%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 38%);mask-image:linear-gradient(90deg,transparent,#000 38%)}
+  .fin::before{background:linear-gradient(180deg,var(--bg),transparent 18%,transparent 82%,var(--bg))}
+  .fin .h1{margin-inline:0;max-width:9.5em}
+  .fin .lead{margin-left:0;max-width:21em}
+  .fin .cta{justify-content:flex-start}
+}
+@media (max-width:600px){.nt{font-size:14px}}
+.nt:not(.gold) p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* правки после снимков v9 */
+.pk{display:block}
+.row4 figure{width:100%;display:flex;flex-direction:column;align-items:center}
+.row4 .dev{--pw:min(var(--w),100%);width:100%}
+@media (min-width:981px){
+  .duo{padding-right:190px}
+  .duo .d-main .dev{--pw:min(var(--w),calc((100dvh - 230px)*.46))}
+  .duo .d-side{right:0;bottom:56px}
+  .duo .d-side .dev{--pw:min(var(--w),calc((100dvh - 230px)*.29))}
+}
+.hero-bg::after{background:linear-gradient(90deg,rgba(10,10,10,.82) 0%,rgba(10,10,10,.55) 36%,rgba(10,10,10,.08) 68%,rgba(10,10,10,.25)),linear-gradient(180deg,rgba(10,10,10,.45),transparent 22%,transparent 78%,var(--bg))}
+@media (max-width:980px){.hero-bg::after{background:linear-gradient(180deg,rgba(10,10,10,.55),rgba(10,10,10,.72) 40%,rgba(10,10,10,.35) 70%,var(--bg))}}
+@media (max-width:1100px) and (min-width:981px){.duo{padding-right:120px}}
+.seg3{flex-wrap:nowrap;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.seg3::-webkit-scrollbar{display:none}
+.seg3 button{flex:none;white-space:nowrap}
+@media (max-width:420px){.seg3 button{padding:0 13px;font-size:14px}}
+@media (min-width:981px){.hero-bg::after{background:linear-gradient(90deg,rgba(10,10,10,.78) 0%,rgba(10,10,10,.42) 38%,rgba(10,10,10,0) 66%,rgba(10,10,10,.15)),linear-gradient(180deg,rgba(10,10,10,.4),transparent 22%,transparent 80%,var(--bg))}.hero-bg img{object-position:55% 18%;filter:brightness(1.05) saturate(1.1)}}
+@media (min-width:981px){.duo .d-side figcaption{position:absolute;right:0;top:100%;width:260px;text-align:right;margin-top:12px}.duo .d-main figcaption{text-align:left;margin-left:0}}
+
+/* круг 2 v9: телефоны рядом, без перекрытия; крупнее текст */
+.lead{font-size:clamp(18px,1.45vw,21px)}
+.plusnote{font-size:15px}
+figcaption{font-size:15px}
+@media (min-width:981px){
+  .duo{display:flex;align-items:flex-end;gap:28px;padding-right:0}
+  .duo .d-side{position:static}
+  .duo .d-side figcaption{position:static;width:auto;text-align:center}
+  .duo .d-main figcaption{text-align:center}
+}
+@media (max-width:980px){.duo .d-side{display:none}}
+.pair{display:flex;align-items:flex-end;gap:24px;padding-right:0}
+.pair .back{position:relative;box-shadow:0 0 0 1.5px rgba(255,255,255,.16),0 0 0 6px #141412,0 0 0 7px rgba(255,255,255,.14),0 40px 80px -20px rgba(0,0,0,1)}
+@media (max-width:520px){.pair{gap:12px;padding-right:0}.pair .dev:not(.back){--pw:58vw}.pair .back{--pw:31vw}}
+@media (min-width:981px){.hero-bg img{filter:blur(3px) brightness(.85) saturate(1.1);transform:scale(1.03)}}
+
+/* круг 3: оба телефона первого экрана в одном масштабе, подписи «Вы» и «Близкий» над ними */
+@media (min-width:981px){
+  .duo{gap:22px}
+  .duo .d-main .dev,.duo .d-side .dev{--pw:min(290px,calc((100dvh - 250px)*.43),19vw)}
+  .duo .d-side{bottom:0}
+  .hero-bg img{filter:blur(1.2px) brightness(.88) saturate(1.1)}
+}
+.who{margin:0 0 12px!important;font-size:13px!important;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)!important;text-align:center}
+@media (max-width:980px){.d-main .who{display:none}}
+@media (max-width:520px){.pair .dev:not(.back){--pw:54vw}.pair .back{--pw:30vw}}
+.lng{margin-left:auto;font-size:14px;font-weight:600;color:var(--tx2);text-decoration:none;padding:10px 12px;border-radius:99px}
+.lng:hover{color:var(--tx);background:rgba(255,255,255,.06)}
+.nav+.lng{margin-left:6px}
+@media (max-width:900px){.top .lng{margin-left:auto}.top .lng+.btn{margin-left:0}}
+
+.row4{grid-template-columns:repeat(3,1fr);max-width:1000px}
+@media (max-width:1100px){.row4{grid-template-columns:repeat(3,240px)}}
+
+/* лунный акцент приложения (сборка 67: #EBDCB2 вместо жёлтого) */
+:root{--gold:#EBDCB2;--gold2:#F4EAD0;--goldS:#26241F}
+.pchip{background:linear-gradient(135deg,#F7EFD9,#E4D3A4)}
+.sw[aria-checked="true"] i{background:#EBDCB2}
+.bigic{background:linear-gradient(145deg,#2a2822,#16150f);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 20px 50px -16px rgba(235,220,178,.35)}
+.pp-card{background:radial-gradient(120% 120% at 100% 0%,#2a2820,#14130f 60%);box-shadow:inset 0 0 0 1px rgba(235,220,178,.3),0 40px 100px -40px rgba(235,220,178,.2)}
+.plan.plus{background:radial-gradient(120% 90% at 100% 0%,#29271f,#15140f 60%);box-shadow:inset 0 0 0 1px rgba(235,220,178,.35),0 30px 80px -30px rgba(235,220,178,.2)}
+.trial{background:rgba(235,220,178,.08)}
+.btn-p{box-shadow:0 10px 40px -10px rgba(235,220,178,.35),inset 0 1px 0 #fff}
+/* телефоны крупнее на широких экранах */
+@media (min-width:1200px){.split>div>.dev,.split .pair>.dev:not(.back),.stack>.dev{--pw:min(calc(var(--w)*1.15),440px)}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="p-apple-logo" viewBox="0 0 256 256"><path  d="M223.3 169.59a8.07 8.07 0 0 0-2.8-3.4C203.53 154.53 200 134.64 200 120c0-17.67 13.47-33.06 21.5-40.67a8 8 0 0 0 0-11.62C208.82 55.74 187.82 48 168 48a72.2 72.2 0 0 0-40 12.13a71.56 71.56 0 0 0-90.71 9.09A74.63 74.63 0 0 0 16 123.4a127.06 127.06 0 0 0 40.14 89.73A39.8 39.8 0 0 0 83.59 224h87.68a39.84 39.84 0 0 0 29.12-12.57a125 125 0 0 0 17.82-24.6c7.02-12.83 6.12-14.83 5.09-17.24m-34.63 30.94a23.76 23.76 0 0 1-17.4 7.47H83.59a23.82 23.82 0 0 1-16.44-6.51A111.14 111.14 0 0 1 32 123a58.5 58.5 0 0 1 16.65-42.53A54.8 54.8 0 0 1 88 64h.78A55.45 55.45 0 0 1 123 76.28a8 8 0 0 0 10 0A55.44 55.44 0 0 1 168 64a70.64 70.64 0 0 1 36 10.35c-13 14.52-20 30.47-20 45.65c0 23.77 7.64 42.73 22.18 55.3a105.8 105.8 0 0 1-17.51 25.23M128.23 30A40 40 0 0 1 167 0h1a8 8 0 0 1 0 16h-1a24 24 0 0 0-23.24 18a8 8 0 1 1-15.5-4Z"/></symbol><symbol id="p-arrow-right" viewBox="0 0 256 256"><path  d="m221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32"/></symbol><symbol id="p-chat-circle-dots" viewBox="0 0 256 256"><path  d="M140 128a12 12 0 1 1-12-12a12 12 0 0 1 12 12m-56-12a12 12 0 1 0 12 12a12 12 0 0 0-12-12m88 0a12 12 0 1 0 12 12a12 12 0 0 0-12-12m60 12a104 104 0 0 1-152.88 91.82l-34.05 11.35a16 16 0 0 1-20.24-20.24l11.35-34.05A104 104 0 1 1 232 128m-16 0a88 88 0 1 0-164.19 44.06a8 8 0 0 1 .66 6.54L40 216l37.4-12.47a7.9 7.9 0 0 1 2.53-.42a8 8 0 0 1 4 1.08A88 88 0 0 0 216 128"/></symbol><symbol id="p-check" viewBox="0 0 256 256"><path  d="m229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69L218.34 66.34a8 8 0 0 1 11.32 11.32"/></symbol><symbol id="p-check-circle-fill" viewBox="0 0 256 256"><path  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"/></symbol><symbol id="p-coins" viewBox="0 0 256 256"><path  d="M184 89.57V84c0-25.08-37.83-44-88-44S8 58.92 8 84v40c0 20.89 26.25 37.49 64 42.46V172c0 25.08 37.83 44 88 44s88-18.92 88-44v-40c0-20.7-25.42-37.32-64-42.43M232 132c0 13.22-30.79 28-72 28c-3.73 0-7.43-.13-11.08-.37C170.49 151.77 184 139 184 124v-18.26c29.87 4.45 48 16.53 48 26.26M72 150.25v-23.79A184 184 0 0 0 96 128a184 184 0 0 0 24-1.54v23.79A163 163 0 0 1 96 152a163 163 0 0 1-24-1.75m96-40.32V124c0 8.39-12.41 17.4-32 22.87V123.5c12.91-3.13 23.84-7.79 32-13.57M96 56c41.21 0 72 14.78 72 28s-30.79 28-72 28s-72-14.78-72-28s30.79-28 72-28m-72 68v-14.07c8.16 5.78 19.09 10.44 32 13.57v23.37C36.41 141.4 24 132.39 24 124m64 48v-4.17c2.63.1 5.29.17 8 .17c3.88 0 7.67-.13 11.39-.35a122 122 0 0 0 12.61 3.76v23.46c-19.59-5.47-32-14.48-32-22.87m48 26.25V174.4a179.5 179.5 0 0 0 24 1.6a184 184 0 0 0 24-1.54v23.79a165.5 165.5 0 0 1-48 0m64-3.38V171.5c12.91-3.13 23.84-7.79 32-13.57V172c0 8.39-12.41 17.4-32 22.87"/></symbol><symbol id="p-film-strip" viewBox="0 0 256 256"><path  d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16M40 88h80v80H40Zm96-16V56h32v16Zm-16 0H88V56h32Zm0 112v16H88v-16Zm16 0h32v16h-32Zm0-16V88h80v80Zm80-96h-32V56h32ZM72 56v16H40V56ZM40 184h32v16H40Zm176 16h-32v-16h32z"/></symbol><symbol id="p-game-controller" viewBox="0 0 256 256"><path  d="M176 112h-24a8 8 0 0 1 0-16h24a8 8 0 0 1 0 16m-72-16h-8v-8a8 8 0 0 0-16 0v8h-8a8 8 0 0 0 0 16h8v8a8 8 0 0 0 16 0v-8h8a8 8 0 0 0 0-16m137.48 104.65a36 36 0 0 1-54.94 4.81c-.12-.12-.24-.24-.35-.37L146.48 160h-37l-39.67 45.09l-.35.37A36.08 36.08 0 0 1 44 216a36 36 0 0 1-35.44-42.25a.7.7 0 0 1 0-.14l16.37-84.09A59.88 59.88 0 0 1 83.89 40H172a60.08 60.08 0 0 1 59 49.25v.18l16.37 84.17a.7.7 0 0 1 0 .14a35.74 35.74 0 0 1-5.89 26.91M172 144a44 44 0 0 0 0-88H83.89a43.9 43.9 0 0 0-43.21 36.37v.13L24.3 176.59A20 20 0 0 0 58 194.3l41.92-47.59a8 8 0 0 1 6-2.71Zm59.7 32.59l-8.74-45A60 60 0 0 1 172 160h-4.2l30.2 34.31a20.09 20.09 0 0 0 17.46 5.39a20 20 0 0 0 16.23-23.11Z"/></symbol><symbol id="p-gift" viewBox="0 0 256 256"><path  d="M216 72h-35.08c.39-.33.79-.65 1.17-1A29.53 29.53 0 0 0 192 49.57A32.62 32.62 0 0 0 158.44 16A29.53 29.53 0 0 0 137 25.91a55 55 0 0 0-9 14.48a55 55 0 0 0-9-14.48A29.53 29.53 0 0 0 97.56 16A32.62 32.62 0 0 0 64 49.57A29.53 29.53 0 0 0 73.91 71c.38.33.78.65 1.17 1H40a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16v64a16 16 0 0 0 16 16h144a16 16 0 0 0 16-16v-64a16 16 0 0 0 16-16V88a16 16 0 0 0-16-16m-67-35.49a13.7 13.7 0 0 1 10-4.5h.49A16.62 16.62 0 0 1 176 49.08a13.7 13.7 0 0 1-4.5 10c-9.49 8.4-25.24 11.36-35 12.4c1.2-10.59 4.5-25.98 12.5-34.97m-64.09.36A16.63 16.63 0 0 1 96.59 32h.49a13.7 13.7 0 0 1 10 4.5c8.39 9.48 11.35 25.2 12.39 34.92c-9.72-1-25.44-4-34.92-12.39a13.7 13.7 0 0 1-4.5-10a16.6 16.6 0 0 1 4.82-12.16ZM40 88h80v32H40Zm16 48h64v64H56Zm144 64h-64v-64h64Zm16-80h-80V88h80z"/></symbol><symbol id="p-globe-hemisphere-east" viewBox="0 0 256 256"><path  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m0 16a87.5 87.5 0 0 1 48 14.28V74l-22.17 25.74l-31.47 4.26l-.31-.22l-19.67-12.86a16 16 0 0 0-22.51 4.18l-20.94 31.3a16 16 0 0 0-2.7 8.81L56 171.44l-3.27 2.15A88 88 0 0 1 128 40M62.29 186.47l2.52-1.65A16 16 0 0 0 72 171.53l.21-36.23L93.17 104a4 4 0 0 0 .32.22l19.67 12.87a15.94 15.94 0 0 0 11.35 2.77l31.49-4.27a16 16 0 0 0 10-5.41l22.17-25.76A16 16 0 0 0 192 74v-6.33A87.87 87.87 0 0 1 211.77 155l-16.14-14.76a16 16 0 0 0-16.93-3l-30.46 12.65a16.08 16.08 0 0 0-9.68 12.45l-2.39 16.19a16 16 0 0 0 11.77 17.81L169.4 202l2.36 2.37a87.88 87.88 0 0 1-109.47-17.9M185 195l-4.3-4.31a16 16 0 0 0-7.26-4.18L152 180.85l2.39-16.19L184.84 152L205 170.48A88.4 88.4 0 0 1 185 195"/></symbol><symbol id="p-hand-waving" viewBox="0 0 256 256"><path  d="m220.17 100l-17.31-30a28 28 0 0 0-38.24-10.25a27.7 27.7 0 0 0-9 8.34L138.2 38a28 28 0 0 0-48.48 0a28 28 0 0 0-41.57 36l1.59 2.76A27.7 27.7 0 0 0 38 80.41a28 28 0 0 0-10.24 38.25l40 69.32a87.47 87.47 0 0 0 53.43 41a88.6 88.6 0 0 0 22.92 3a88 88 0 0 0 76.06-132Zm-6.66 62.64A72 72 0 0 1 81.62 180l-40-69.32a12 12 0 0 1 20.78-12L81.63 132a8 8 0 1 0 13.85-8L62 66a12 12 0 1 1 20.78-12L114 108a8 8 0 1 0 13.85-8l-24.28-42a12 12 0 1 1 20.78-12l33.42 57.9a48 48 0 0 0-5.54 60.6a8 8 0 0 0 13.24-9a32 32 0 0 1 7.31-43.5a8 8 0 0 0 2.13-10.4L168.23 90A12 12 0 1 1 189 78l17.31 30a71.56 71.56 0 0 1 7.2 54.62ZM184.25 31.71A8 8 0 0 1 194 26a59.62 59.62 0 0 1 36.53 28l.33.57a8 8 0 1 1-13.85 8l-.33-.57a43.67 43.67 0 0 0-26.8-20.5a8 8 0 0 1-5.63-9.79M80.89 237a8 8 0 0 1-11.23 1.33A119.6 119.6 0 0 1 40.06 204a8 8 0 0 1 13.86-8a103.7 103.7 0 0 0 25.64 29.72A8 8 0 0 1 80.89 237"/></symbol><symbol id="p-hands-praying" viewBox="0 0 256 256"><path  d="m235.32 180l-36.24-36.25l-36.46-120.29A21.76 21.76 0 0 0 128 12.93a21.76 21.76 0 0 0-34.62 10.53l-36.46 120.3L20.68 180a16 16 0 0 0 0 22.62l32.69 32.69a16 16 0 0 0 22.63 0L124.28 187a41 41 0 0 0 3.72-4.29a41 41 0 0 0 3.72 4.29L180 235.32a16 16 0 0 0 22.63 0l32.69-32.69a16 16 0 0 0 0-22.63M64.68 224L32 191.32l12.69-12.69l32.69 32.69ZM120 158.75a23.85 23.85 0 0 1-7 17L88.68 200L56 167.32l13.65-13.66a8 8 0 0 0 2-3.34l37-122.22A5.78 5.78 0 0 1 120 29.78Zm23 17a23.85 23.85 0 0 1-7-17v-129a5.78 5.78 0 0 1 11.31-1.68l37 122.22a8 8 0 0 0 2 3.34l14.49 14.49l-33.4 32ZM191.32 224l-12.56-12.57l33.39-32L224 191.32Z"/></symbol><symbol id="p-heart-fill" viewBox="0 0 256 256"><path  d="M240 102c0 70-103.79 126.66-108.21 129a8 8 0 0 1-7.58 0C119.79 228.66 16 172 16 102a62.07 62.07 0 0 1 62-62c20.65 0 38.73 8.88 50 23.89C139.27 48.88 157.35 40 178 40a62.07 62.07 0 0 1 62 62"/></symbol><symbol id="p-megaphone" viewBox="0 0 256 256"><path  d="M248 120a48.05 48.05 0 0 0-48-48h-39.8c-2.91-.17-53.62-3.74-101.91-44.24A16 16 0 0 0 32 40v160a16 16 0 0 0 26.29 12.25c37.77-31.68 77-40.76 93.71-43.3v31.72a16 16 0 0 0 7.12 13.33l11 7.33A16 16 0 0 0 194.5 212l11.77-44.36A48.07 48.07 0 0 0 248 120M48 199.93V40c42.81 35.91 86.63 45 104 47.24v65.48c-17.35 2.28-61.16 11.35-104 47.21m131 8v.11l-11-7.33V168h21.6ZM200 152h-32V88h32a32 32 0 1 1 0 64"/></symbol><symbol id="p-mosque" viewBox="0 0 256 256"><path  d="M224 128a23.8 23.8 0 0 0-8 1.38V128c0-41.78-31.07-62.46-53.76-77.56C148.16 41.06 136 33 136 24a8 8 0 0 0-16 0c0 9-12.16 17.06-26.24 26.44C71.07 65.54 40 86.22 40 128v1.38A24 24 0 0 0 8 152v56a8 8 0 0 0 8 8h64a8 8 0 0 0 8-8v-32a8 8 0 0 1 16 0v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 1 16 0v32a8 8 0 0 0 8 8h64a8 8 0 0 0 8-8v-56a24 24 0 0 0-24-24M102.63 63.76c9.67-6.44 19-12.68 25.37-20c6.34 7.35 15.7 13.59 25.37 20c20 13.32 42.48 28.29 46.11 56.24h-143c3.67-27.95 26.12-42.92 46.15-56.24M24 152a8 8 0 0 1 16 0v48H24Zm136 0a24 24 0 0 0-24 24v24h-16v-24a24 24 0 0 0-48 0v24H56v-64h144v64h-16v-24a24 24 0 0 0-24-24m72 48h-16v-48a8 8 0 0 1 16 0Z"/></symbol><symbol id="p-music-notes" viewBox="0 0 256 256"><path  d="M212.92 17.69a8 8 0 0 0-6.86-1.45l-128 32A8 8 0 0 0 72 56v110.08A36 36 0 1 0 88 196v-85.75l112-28v51.83A36 36 0 1 0 216 164V24a8 8 0 0 0-3.08-6.31M52 216a20 20 0 1 1 20-20a20 20 0 0 1-20 20M88 93.75v-31.5l112-28v31.5ZM180 184a20 20 0 1 1 20-20a20 20 0 0 1-20 20"/></symbol><symbol id="p-plus" viewBox="0 0 256 256"><path  d="M224 128a8 8 0 0 1-8 8h-80v80a8 8 0 0 1-16 0v-80H40a8 8 0 0 1 0-16h80V40a8 8 0 0 1 16 0v80h80a8 8 0 0 1 8 8"/></symbol><symbol id="p-quotes" viewBox="0 0 256 256"><path  d="M100 56H40a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h60v8a32 32 0 0 1-32 32a8 8 0 0 0 0 16a48.05 48.05 0 0 0 48-48V72a16 16 0 0 0-16-16m0 80H40V72h60Zm116-80h-60a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h60v8a32 32 0 0 1-32 32a8 8 0 0 0 0 16a48.05 48.05 0 0 0 48-48V72a16 16 0 0 0-16-16m0 80h-60V72h60Z"/></symbol><symbol id="p-repeat" viewBox="0 0 256 256"><path  d="M24 128a72.08 72.08 0 0 1 72-72h108.69l-10.35-10.34a8 8 0 0 1 11.32-11.32l24 24a8 8 0 0 1 0 11.32l-24 24a8 8 0 0 1-11.32-11.32L204.69 72H96a56.06 56.06 0 0 0-56 56a8 8 0 0 1-16 0m200-8a8 8 0 0 0-8 8a56.06 56.06 0 0 1-56 56H51.31l10.35-10.34a8 8 0 0 0-11.32-11.32l-24 24a8 8 0 0 0 0 11.32l24 24a8 8 0 0 0 11.32-11.32L51.31 200H160a72.08 72.08 0 0 0 72-72a8 8 0 0 0-8-8"/></symbol><symbol id="p-shopping-bag" viewBox="0 0 256 256"><path  d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16m0 160H40V56h176zM176 88a48 48 0 0 1-96 0a8 8 0 0 1 16 0a32 32 0 0 0 64 0a8 8 0 0 1 16 0"/></symbol><symbol id="p-sparkle" viewBox="0 0 256 256"><path  d="M197.58 129.06L146 110l-19-51.62a15.92 15.92 0 0 0-29.88 0L78 110l-51.62 19a15.92 15.92 0 0 0 0 29.88L78 178l19 51.62a15.92 15.92 0 0 0 29.88 0L146 178l51.62-19a15.92 15.92 0 0 0 0-29.88ZM137 164.22a8 8 0 0 0-4.74 4.74L112 223.85L91.78 169a8 8 0 0 0-4.78-4.78L32.15 144L87 123.78a8 8 0 0 0 4.78-4.78L112 64.15L132.22 119a8 8 0 0 0 4.74 4.74L191.85 144ZM144 40a8 8 0 0 1 8-8h16V16a8 8 0 0 1 16 0v16h16a8 8 0 0 1 0 16h-16v16a8 8 0 0 1-16 0V48h-16a8 8 0 0 1-8-8m104 48a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-16 0v-8h-8a8 8 0 0 1 0-16h8v-8a8 8 0 0 1 16 0v8h8a8 8 0 0 1 8 8"/></symbol><symbol id="p-speaker-high" viewBox="0 0 256 256"><path  d="M155.51 24.81a8 8 0 0 0-8.42.88L77.25 80H32a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h45.25l69.84 54.31A8 8 0 0 0 160 224V32a8 8 0 0 0-4.49-7.19M32 96h40v64H32Zm112 111.64l-56-43.55V91.91l56-43.55Zm54-106.08a40 40 0 0 1 0 52.88a8 8 0 0 1-12-10.58a24 24 0 0 0 0-31.72a8 8 0 0 1 12-10.58M248 128a79.9 79.9 0 0 1-20.37 53.34a8 8 0 0 1-11.92-10.67a64 64 0 0 0 0-85.33a8 8 0 1 1 11.92-10.67A79.83 79.83 0 0 1 248 128"/></symbol><symbol id="p-storefront" viewBox="0 0 256 256"><path  d="M232 96a8 8 0 0 0-.3-2.2l-14.35-50.2A16.07 16.07 0 0 0 202 32H54a16.07 16.07 0 0 0-15.35 11.6L24.31 93.8A8 8 0 0 0 24 96v16a40 40 0 0 0 16 32v72a8 8 0 0 0 8 8h160a8 8 0 0 0 8-8v-72a40 40 0 0 0 16-32zM54 48h148l11.42 40H42.61Zm50 56h48v8a24 24 0 0 1-48 0Zm-16 0v8a24 24 0 0 1-35.12 21.26a8 8 0 0 0-1.82-1.06A24 24 0 0 1 40 112v-8Zm112 104H56v-56.8a40.6 40.6 0 0 0 8 .8a40 40 0 0 0 32-16a40 40 0 0 0 64 0a40 40 0 0 0 32 16a40.6 40.6 0 0 0 8-.8Zm4.93-75.8a8 8 0 0 0-1.8 1.05A24 24 0 0 1 168 112v-8h48v8a24 24 0 0 1-11.07 20.2"/></symbol><symbol id="p-video-camera" viewBox="0 0 256 256"><path  d="M251.77 73a8 8 0 0 0-8.21.39L208 97.05V72a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16v-25l35.56 23.71A8 8 0 0 0 248 184a8 8 0 0 0 8-8V80a8 8 0 0 0-4.23-7M192 184H32V72h160zm48-22.95l-32-21.33v-23.44L240 95Z"/></symbol><symbol id="p-youtube-logo" viewBox="0 0 256 256"><path  d="m164.44 121.34l-48-32A8 8 0 0 0 104 96v64a8 8 0 0 0 12.44 6.66l48-32a8 8 0 0 0 0-13.32M120 145.05V111l25.58 17Zm114.33-75.53a24 24 0 0 0-14.49-16.4C185.56 39.88 131 40 128 40s-57.56-.12-91.84 13.12a24 24 0 0 0-14.49 16.4C19.08 79.5 16 97.74 16 128s3.08 48.5 5.67 58.48a24 24 0 0 0 14.49 16.41C69 215.56 120.4 216 127.34 216h1.32c6.94 0 58.37-.44 91.18-13.11a24 24 0 0 0 14.49-16.41c2.59-10 5.67-28.22 5.67-58.48s-3.08-48.5-5.67-58.48m-15.49 113a8 8 0 0 1-4.77 5.49c-31.65 12.22-85.48 12-86 12H128c-.54 0-54.33.2-86-12a8 8 0 0 1-4.77-5.49C34.8 173.39 32 156.57 32 128s2.8-45.39 5.16-54.47A8 8 0 0 1 41.93 68c30.52-11.79 81.66-12 85.85-12h.27c.54 0 54.38-.18 86 12a8 8 0 0 1 4.77 5.49C221.2 82.61 224 99.43 224 128s-2.8 45.39-5.16 54.47Z"/></symbol><symbol id="t-focus-f" viewBox="0 0 256 256"><path d="M224,56v56c0,52.72-25.52,84.67-46.93,102.19-23.06,18.86-46,25.27-47,25.53a8,8,0,0,1-4.2,0c-1-.26-23.91-6.67-47-25.53C57.52,196.67,32,164.72,32,112V56A16,16,0,0,1,48,40H208A16,16,0,0,1,224,56Z"/></symbol><symbol id="t-reminders-f" viewBox="-1.333333333333334 -1.333333333333334 26.666666666666668 26.666666666666668"><path d="M5.25 3A3.25 3.25 0 0 0 2 6.25v11.5C2 19.55 3.46 21 5.25 21h13.5c1.8 0 3.25-1.46 3.25-3.25V6.25C22 4.45 20.54 3 18.75 3H5.25ZM9 9.25a1 1 0 0 1 1.48-.88l5 2.75a1 1 0 0 1 0 1.76l-5 2.75A1 1 0 0 1 9 14.75v-5.5Z"/></symbol></defs></svg>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#"><img src="../i/icon.webp" alt="" width="30" height="30">Firdausly</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#blizkie">How it works</a>
+      <a href="#reminders">Reminders</a>
+      <a href="#umma">Ummah &amp; Stage</a>
+      <a href="partners/">Partners</a>
+      <a href="#price">Pricing</a>
+    </nav>
+    <a class="lng" href="/_preview/v9/" data-lang="ru" onclick="try{localStorage.setItem('lang',this.dataset.lang)}catch(e){}">RU</a><a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Download">Coming soon to the App Store</span></a>
+  </div>
+</header>
+
+<main>
+<!-- 1. ПЕРВЫЙ ЭКРАН: живая главная и экран брата — снимки настоящего приложения -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-bg"><picture><source type="image/avif" srcset="../i/gate-640.avif 640w, ../i/gate-1080.avif 1080w" sizes="100vw"><img src="../i/gate-1080.webp" srcset="../i/gate-640.webp 640w, ../i/gate-1080.webp 1080w" sizes="100vw" alt="" fetchpriority="high"></picture></div>
+  <div class="wrap">
+    <div class="hero-txt">
+      <h1 class="h1" id="h1">Remind your <em class="s">people</em> to&nbsp;pray</h1>
+      <p class="lead">See who in your family has already prayed. <b>One tap reminds the rest.</b> A social network where the most important notification of the day comes from someone close.</p>
+      <div class="cta">
+        <a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Download on the App Store">Coming soon to the App Store</span></a>
+        <a class="lnk" href="#blizkie">How it works<svg class="i"><use href="#p-arrow-right"/></svg></a>
+      </div>
+    </div>
+    <div class="duo">
+      <figure class="d-main"><figcaption class="who">You</figcaption><div class="dev" style="--w:380px" data-slot="clip-remind.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><video data-src="../media/clip-remind.en.mp4" poster="../media/clip-remind.en.webp" muted loop playsinline preload="none" aria-label="Firdausly screen recording"></video></div><figcaption>One tap on someone close, and they've been called</figcaption></figure>
+      <figure class="d-side"><figcaption class="who">Together</figcaption><div class="dev" style="--w:380px" data-slot="together.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/together.en.webp" srcset="../media/together.en-s.webp 603w, ../media/together.en.webp 1206w" sizes="380px" alt="Firdausly screen" decoding="async"></div><figcaption>And everyone has prayed</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ПРОБЛЕМА -->
+<section class="sec" aria-labelledby="h-storm">
+  <div class="wrap storm">
+    <div>
+      <h2 class="h2" id="h-storm">Your phone calls you hundreds of times a day. Not once to&nbsp;prayer.</h2>
+      <p class="lead" style="margin-top:24px">Likes, sales, videos, chats. Every app is fighting for your minute. Firdausly turns the social network around: <b>here, the call is to prayer, and it comes from your own.</b></p>
+      <button class="btn btn-g replay" id="replay" type="button"><svg class="i"><use href="#p-repeat"/></svg>Show again</button>
+    </div>
+    <div class="nstack" id="nstack" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- 3. БЛИЗКИЕ -->
+<a id="features" aria-hidden="true"></a>
+<section class="sec close" id="blizkie" aria-labelledby="h-close">
+  <div class="close-bg" aria-hidden="true"><picture><source type="image/avif" srcset="../i/plus-860.avif"><img src="../i/plus-860.webp" alt="" loading="lazy"></picture><i></i></div>
+  <div class="wrap split">
+    <div>
+      <h2 class="h2" id="h-close">Your family's whole day on&nbsp;one screen</h2>
+      <p class="lead" style="margin-top:20px">Check off a prayer, and your people see it. Whoever hasn't prayed yet gets a quiet card with an ayah and a single button. No blame, no outside eyes: only your people see it.</p>
+      <div class="seg3" role="tablist" aria-label="Family screens" data-tabs="closeTabs">
+        <button role="tab" aria-selected="true" data-t="0">Who prayed</button><button role="tab" aria-selected="false" data-t="1">The card</button><button role="tab" aria-selected="false" data-t="2">Everyone prayed</button>
+      </div>
+      <p class="plusnote"><span class="pchip">Plus</span>Your people and reminders, 14 days free. Accepting an invite and opening a card need no subscription.</p>
+      <div class="ayah"><svg class="i"><use href="#p-quotes"/></svg><p>“And remind, for indeed, the reminder benefits the believers”<small>Quran, Surah Adh-Dhariyat, 51:55</small></p></div>
+    </div>
+    <div class="stack" id="closeTabs">
+      <div class="dev" style="--w:360px" data-slot="home-many.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/home-many.en.webp" srcset="../media/home-many.en-s.webp 603w, ../media/home-many.en.webp 1206w" sizes="360px" alt="Firdausly screen" loading="lazy" decoding="async"></div><div class="dev" style="--w:360px" data-slot="home-sheet.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/home-sheet.en.webp" srcset="../media/home-sheet.en-s.webp 603w, ../media/home-sheet.en.webp 1206w" sizes="360px" alt="Firdausly screen" loading="lazy" decoding="async"></div><div class="dev" style="--w:360px" data-slot="together.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/together.en.webp" srcset="../media/together.en-s.webp 603w, ../media/together.en.webp 1206w" sizes="360px" alt="Firdausly screen" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ФАДЖР -->
+<section class="sec fajr" id="fajr" aria-labelledby="h-fajr">
+  <div class="sky" aria-hidden="true"><i></i></div>
+  <div class="wrap split rev">
+    <div>
+      <h2 class="h2 xl" id="h-fajr">Wake each other for&nbsp;<em class="s">Fajr</em></h2>
+      <p class="lead" style="margin-top:20px">A real iPhone alarm: it rings even in silent mode. Invite your people, and you get up together. When one of you is up, the others see it right away.</p>
+      <p class="plusnote" style="margin-top:22px">The Fajr alarm is free.&nbsp;<span class="pchip">Plus</span>a shared alarm with your people and an adhan ringtone, 14 days free.</p>
+    </div>
+    <div><div class="dev" style="--w:380px" data-slot="fajr.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/fajr.en.webp" srcset="../media/fajr.en-s.webp 603w, ../media/fajr.en.webp 1206w" sizes="380px" alt="Firdausly screen" loading="lazy" decoding="async"></div></div>
+  </div>
+</section>
+
+<!-- 5. ФОКУС -->
+<section class="sec focus" id="focus" aria-labelledby="h-focus">
+  <div class="wrap split">
+    <div>
+      <div class="bigic"><svg><use href="#t-focus-f"/></svg></div>
+      <h2 class="h2" style="margin-top:22px" id="h-focus">Social media can wait while you pray</h2>
+      <p class="lead" style="margin-top:20px">When prayer time comes, Focus locks Instagram, TikTok and anything else you choose. Check off your prayer, and everything unlocks. Only you decide what gets locked, and there's always an emergency exit.</p>
+      <div class="fctl"><button class="sw" id="fsw" role="switch" aria-checked="true" type="button">Asr time<i></i></button></div>
+      <p class="plusnote"><span class="pchip">Plus</span>Works through Apple's Screen Time. 14 days free.</p>
+    </div>
+    <div class="stack" id="focusTabs"><div class="dev" style="--w:360px" data-slot="focus.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/focus.en.webp" srcset="../media/focus.en-s.webp 603w, ../media/focus.en.webp 1206w" sizes="360px" alt="Firdausly screen" loading="lazy" decoding="async"></div><div class="dev" style="--w:360px" data-slot="focus-open.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/focus-open.en.webp" srcset="../media/focus-open.en-s.webp 603w, ../media/focus-open.en.webp 1206w" sizes="360px" alt="Firdausly screen" loading="lazy" decoding="async"></div></div>
+  </div>
+</section>
+
+<!-- 6. REMINDERS: настоящий экран Reminders с роликами @firdausly -->
+<section class="sec rem" id="reminders" aria-labelledby="h-rem">
+  <div class="wrap split rev">
+    <div>
+      <span class="tag"><svg class="i"><use href="#t-reminders-f"/></svg>Reminders</span>
+      <h2 class="h2" style="margin-top:14px" id="h-rem">Short videos only about&nbsp;Islam</h2>
+      <p class="lead" style="margin-top:20px">Ayahs, hadith, Makkah at sunset. No music, no pranks. When prayer time comes, the feed pauses itself. Anyone can watch, for free.</p>
+      <p class="note" style="margin-top:16px">Inside: real @firdausly videos from the app.</p>
+    </div>
+    <div><div class="dev" style="--w:380px" data-slot="clip-reels" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><video data-src="../media/clip-reels.mp4" poster="../media/clip-reels.webp" muted loop playsinline preload="none" aria-label="Firdausly screen recording"></video></div></div>
+  </div>
+</section>
+
+<!-- 7. УММА И СЦЕНА -->
+<section class="sec" id="umma" aria-labelledby="h-umma">
+  <div class="wrap split">
+    <div>
+      <h2 class="h2" id="h-umma">The ummah from around the world, in&nbsp;your language</h2>
+      <p class="lead" style="margin-top:20px">A social network that brings you closer to your faith: a feed and stories about what helps you stay steady. A post in another language translates with one tap.</p>
+    </div>
+    <div><div class="dev" style="--w:380px" data-slot="clip-umma.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><video data-src="../media/clip-umma.en.mp4" poster="../media/clip-umma.en.webp" muted loop playsinline preload="none" aria-label="Firdausly screen recording"></video></div></div>
+  </div>
+  <div class="stage" id="stage">
+    <video class="stage-amb" data-amb="../i/amb-stage.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+    <div class="wrap split">
+      <div>
+        <span class="live"><i></i>LIVE</span>
+        <p class="st">Stage: live khutbahs and conversations with the&nbsp;ummah</p>
+        <p class="lead" style="color:rgba(245,243,238,.78)">Drop in, listen, raise your hand, say “Ameen” together with everyone. Only verified imams, teachers and reciters can host.</p>
+      </div>
+      <div><div class="dev" style="--w:380px" data-slot="clip-stage.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><video data-src="../media/clip-stage.en.mp4" poster="../media/clip-stage.en.webp" muted loop playsinline preload="none" aria-label="Firdausly screen recording"></video></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. СООБЩЕНИЯ -->
+<section class="sec msg" id="msgs" aria-labelledby="h-msg">
+  <div class="wrap split rev">
+    <div>
+      <h2 class="h2" id="h-msg">Talk to your people right in&nbsp;Firdausly</h2>
+      <p class="lead" style="margin-top:20px">No need to go where the feed pulls you back in. Messages, voice notes, notes above your profile photo, and Moments: one photo for your people right after prayer.</p>
+      <p class="note" style="margin-top:16px">“Online” and “Read” show only when both of you share them.</p>
+    </div>
+    <div class="pair"><div class="dev" style="--w:340px" data-slot="msgs.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/msgs.en.webp" srcset="../media/msgs.en-s.webp 603w, ../media/msgs.en.webp 1206w" sizes="340px" alt="Firdausly screen" loading="lazy" decoding="async"></div><div class="dev back" style="--w:250px" data-slot="moments.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/moments.en.webp" srcset="../media/moments.en-s.webp 603w, ../media/moments.en.webp 1206w" sizes="250px" alt="Firdausly screen" loading="lazy" decoding="async"></div></div>
+  </div>
+</section>
+
+<!-- 9. СЁСТРАМ -->
+<section class="sec" id="sisters" aria-labelledby="h-sis">
+  <div class="wrap split">
+    <div>
+      <h2 class="h2 xl" id="h-sis">Peace of mind for sisters</h2>
+      <p class="lead" style="margin-top:20px">You decide who can message you: strangers arrive as requests, and only you decide whether to accept. Invite your wali, and he'll see requests from men. Days when you don't pray are marked quietly and stay on your phone only.</p>
+    </div>
+    <div><div class="dev" style="--w:360px" data-slot="requests.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/requests.en.webp" srcset="../media/requests.en-s.webp 603w, ../media/requests.en.webp 1206w" sizes="360px" alt="Firdausly screen" loading="lazy" decoding="async"></div></div>
+  </div>
+</section>
+
+<!-- 10. ОСНОВА -->
+<section class="sec" id="namaz" aria-labelledby="h-ess">
+  <div class="wrap">
+    <h2 class="h2" id="h-ess">Prayer essentials. Free, for&nbsp;good</h2>
+    <p class="lead" style="margin-top:20px">Prayer times for your city (official tables of DUMK in Kazakhstan, DUM RT in Tatarstan, Diyanet in Turkey), qibla, dhikr, and the Quran with translation. No ads.</p>
+  </div>
+  <div class="row4">
+    <figure><div class="dev" style="--w:270px" data-slot="clip-dhikr" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><video data-src="../media/clip-dhikr.mp4" poster="../media/clip-dhikr.webp" muted loop playsinline preload="none" aria-label="Firdausly screen recording"></video></div><figcaption><b>Dhikr</b>Tap anywhere on the screen</figcaption></figure>
+    <figure><div class="dev" style="--w:270px" data-slot="quran.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/quran.en.webp" srcset="../media/quran.en-s.webp 603w, ../media/quran.en.webp 1206w" sizes="270px" alt="Firdausly screen" loading="lazy" decoding="async"></div><figcaption><b>Quran</b>Translation works offline</figcaption></figure>
+    <figure><div class="dev" style="--w:270px" data-slot="widgets.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/widgets.en.webp" srcset="../media/widgets.en-s.webp 603w, ../media/widgets.en.webp 1206w" sizes="270px" alt="Firdausly screen" loading="lazy" decoding="async"></div><figcaption><b>Widgets</b>Prayer times on your Home Screen</figcaption></figure>
+  </div>
+  <p class="wrap also"><b>Also free:</b> a reminder for every prayer, the Fajr alarm, qada without blame, and a camera check-in that keeps your check-ins honest. The photo is processed on your iPhone and never leaves it.</p>
+</section>
+
+<!-- 11. КАРТИНЫ -->
+<section class="sec art-s" aria-labelledby="h-art">
+  <div class="wrap">
+    <h2 class="h2" id="h-art">Beauty you'll want to open</h2>
+    <p class="lead" style="margin-top:20px">Original artwork for your Home Screen, chats and widgets. Each piece is about what helps you hold on: courage, the path, sujud, your people beside you.</p>
+    <div class="acc" id="acc"></div>
+    <div class="art-foot"><span>Plus eight real 19th-century paintings: Samarkand, Cairo, Istanbul, the Nile.</span><span>Artwork with Plus</span></div>
+    <div class="classic" id="classic"></div>
+  </div>
+</section>
+
+<!-- 12. АВТОРАМ (Reminders) -->
+<section class="sec auth" id="authors" aria-labelledby="h-auth">
+  <div class="wrap">
+    <span class="tag"><svg class="i"><use href="#p-video-camera"/></svg>For creators</span>
+    <h2 class="h2" style="margin-top:14px" id="h-auth">On TikTok, your ayah sits between a prank and a dance. <span>On Firdausly, it sits between the adhan and the prayer.</span></h2>
+    <div class="vs">
+      <div class="feed them"><h3>Their feed</h3><div class="mq" id="mq"></div></div>
+      <div class="feed us"><h3>The Firdausly feed</h3>
+        <div class="us-col">
+          <div class="fi"><svg><use href="#p-speaker-high"/></svg>Maghrib adhan in 5 minutes</div>
+          <div class="fi you"><svg><use href="#t-reminders-f"/></svg>Your video. Watched to the end</div>
+          <div class="fi"><svg><use href="#p-hands-praying"/></svg>The feed can wait: it's time for Maghrib</div>
+          <div class="fi"><svg><use href="#p-check-circle-fill"/></svg>A viewer got up to pray</div>
+        </div>
+      </div>
+    </div>
+    <div class="perks">
+      <div class="pk"><b>No music for anyone</b><p>No trending sound pushes someone else's video up. What counts is meaning and how many people watch to the end.</p></div>
+      <div class="pk"><b>The algorithm finds your viewers</b><p>First people who speak your language, then wider, then the whole ummah. Quran recitation is shown to everyone.</p></div>
+      <div class="pk"><b>The best time is now</b><p>We're just launching: there are still few creators in Reminders, so a strong video reaches the whole feed. A new creator's first three videos get extra reach.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. ПАРТНЁРСКАЯ ПРОГРАММА: тизер отдельной страницы -->
+<section class="sec pp" id="partners" aria-labelledby="h-pp">
+  <div class="wrap">
+    <div class="pp-card">
+      <div>
+        <span class="tag"><svg class="i"><use href="#p-coins"/></svg>Partner program</span>
+        <h2 class="h2" style="margin-top:14px" id="h-pp">Recommend once. Earn every&nbsp;month.</h2>
+        <p class="lead" style="margin-top:18px">For Islamic creators and bloggers: 20% of net revenue from every payment by people who came with your code, for as long as they stay with Firdausly. Your audience gets a month of Plus as a gift.</p>
+        <div class="ctas"><a class="btn btn-p" href="partners/">Program details and calculator</a></div>
+      </div>
+      <div class="pp-num"><b>20%</b><span>of every payment and renewal</span><b>30&nbsp;days</b><span>of Plus for your audience with your code</span><b>10,000&nbsp;₸</b><span>minimum payout (about $20), monthly, to any country</span></div>
+    </div>
+    <div class="mosq">
+      <svg class="i"><use href="#p-mosque"/></svg>
+      <p><b>Mosques and schools.</b> Jumu'ah and lessons streamed live on Stage, videos in Reminders, a verified badge. Free. <a href="partners/#mosque">Apply →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 14. ЦЕНА -->
+<section class="sec price" id="price" aria-labelledby="h-price">
+  <div class="wrap">
+    <h2 class="h2" id="h-price">Prayer is free. Forever</h2>
+    <p class="lead" style="margin-top:20px">Everything you need to pray on time is free. Plus is for those who keep their prayers together with their people.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <div class="pp1">$0 <small>forever</small></div>
+        <ul>
+          <li><svg><use href="#p-check"/></svg>Prayer times, qibla, reminders</li>
+          <li><svg><use href="#p-check"/></svg>Fajr alarm, even on silent</li>
+          <li><svg><use href="#p-check"/></svg>Prayer time widgets</li>
+          <li><svg><use href="#p-check"/></svg>Prayer check-ins and qada</li>
+          <li><svg><use href="#p-check"/></svg>Quran with translation, dhikr</li>
+          <li><svg><use href="#p-check"/></svg>Reminders: watch, like, reply</li>
+          <li><svg><use href="#p-check"/></svg>Cards and invites from your people</li>
+        </ul>
+      </div>
+      <div class="plan plus">
+        <h3>Firdausly Plus</h3>
+        <div class="per" id="per"><button type="button" aria-pressed="false" data-p="m">Monthly</button><button type="button" aria-pressed="true" data-p="y">Yearly<em id="save">−50%</em></button></div>
+        <div class="pp1"><span id="pAmt">$59.99</span> <small id="pPer">a year · $5.00 a month</small><small class="alt" id="pAlt">or $9.99 month to month</small></div>
+        <div class="trial"><svg class="i"><use href="#p-gift"/></svg><span><b>14 days free.</b> A friend's code adds 7 more days of Plus. Cancel anytime in your Apple ID settings.</span></div>
+        <ul>
+          <li><svg><use href="#p-check"/></svg>Your people and reminders</li>
+          <li><svg><use href="#p-check"/></svg>Fajr together</li>
+          <li><svg><use href="#p-check"/></svg>Focus at prayer time</li>
+          <li><svg><use href="#p-check"/></svg>Adhan by muezzins and nature sounds</li>
+          <li><svg><use href="#p-check"/></svg>Countdown in the Dynamic Island</li>
+          <li><svg><use href="#p-check"/></svg>Ummah, Stage, messages, Moments</li>
+          <li><svg><use href="#p-check"/></svg>Post your own Reminders</li>
+          <li><svg><use href="#p-check"/></svg>Artwork for backgrounds and widgets</li>
+        </ul>
+        <a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Try 14 days free">Coming soon to the App Store</span></a>
+      </div>
+      <figure class="plan-shot"><div class="dev" style="--w:300px" data-slot="paywall.en" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="../media/paywall.en.webp" srcset="../media/paywall.en-s.webp 603w, ../media/paywall.en.webp 1206w" sizes="300px" alt="Firdausly screen" loading="lazy" decoding="async"></div><figcaption>The payment screen in the app</figcaption></figure>
+    </div>
+    <p class="prem">There's also <b>Premium</b> for those who back Firdausly from day one: everything in Plus, a gold crescent next to your name and special stickers.</p>
+    <p class="note" style="margin-top:8px" id="fine">US prices. Prices for your region are shown in the App Store before you pay.</p>
+  </div>
+</section>
+
+<!-- 15. ДОВЕРИЕ -->
+<section class="sec trust-s" aria-labelledby="h-trust" style="padding-top:40px">
+  <div class="wrap">
+    <h2 class="h1" id="h-trust">No ads. We don't sell your&nbsp;data.</h2>
+    <div class="trust">
+      <p><b>Your check-in photo, location and quiet days</b> never leave your phone.</p>
+      <p><b>Posts, photos and names</b> are reviewed before anyone sees them. You can report and block from anywhere.</p>
+      <p><b>Nothing rewards a missed prayer.</b> Missed one? Qada and gentle support.</p>
+      <p><b>Made in Kazakhstan.</b> Times follow the official tables of DUMK (Kazakhstan), DUM RT (Tatarstan) and Diyanet (Turkey). You can delete your account, with all its data, in settings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ВОПРОСЫ -->
+<section class="sec" id="faq" aria-labelledby="h-faq" style="padding-top:40px">
+  <div class="wrap faq">
+    <h2 class="h2" id="h-faq" style="margin-bottom:24px">Questions</h2>
+    <details><summary>When does Firdausly launch?<svg class="i"><use href="#p-plus"/></svg></summary><p>Coming soon to the App Store for iPhone with iOS 17 or later. The “Coming soon to the App Store” button already leads to the app's page.</p></details>
+    <details><summary>Will there be an Android version?<svg class="i"><use href="#p-plus"/></svg></summary><p>iPhone first. Android is planned; we'll announce it on Instagram @firdaus.social.</p></details>
+    <details><summary>Can everyone see my prayers?<svg class="i"><use href="#p-plus"/></svg></summary><p>No. Your check-ins are visible only to the people you added yourself.</p></details>
+    <details><summary>What if my family isn't on Firdausly yet?<svg class="i"><use href="#p-plus"/></svg></summary><p>Send them an invite link. The reminder card and the invite to pray together open without a subscription, and with your code they get 7 more days of Plus on top of the 14-day trial.</p></details>
+    <details><summary>How are prayer times calculated?<svg class="i"><use href="#p-plus"/></svg></summary><p>In Kazakhstan, by the official DUMK table; in Tatarstan, by DUM RT; in Turkey, by Diyanet. Everywhere else, by the calculation method and madhab you choose.</p></details>
+    <details><summary>Will Focus really lock Instagram?<svg class="i"><use href="#p-plus"/></svg></summary><p>Yes, through Apple's Screen Time. Only you choose what to lock, in Apple's own window. Check off your prayer, and the apps unlock. There's always an emergency exit.</p></details>
+    <details><summary>Is there music in Reminders?<svg class="i"><use href="#p-plus"/></svg></summary><p>No. Voice, words and nasheeds without instruments. Before it's shown, every video is checked: frames, speech and text.</p></details>
+    <details><summary>How much does it cost?<svg class="i"><use href="#p-plus"/></svg></summary><p>The essentials are free forever. Firdausly Plus is $9.99 a month or $59.99 a year in the US, and the first 14 days are free. Prices for your region are shown in the App Store before you pay. The subscription renews automatically unless you cancel at least 24 hours before the end of the period.</p></details>
+  </div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="fin" aria-labelledby="h-fin">
+  <picture><source type="image/avif" srcset="../i/plus-480.avif 480w, ../i/plus-860.avif 860w" sizes="100vw"><img src="../i/plus-860.webp" srcset="../i/plus-480.webp 480w, ../i/plus-860.webp 860w" sizes="100vw" alt="" loading="lazy"></picture>
+  <div class="wrap">
+    <h2 class="h1" id="h-fin">Ramadan is closer than it seems. Gather your people now.</h2>
+    <p class="fin-d" id="finD"></p>
+    <p class="lead">Wake each other for Fajr, remind each other to pray, hold on together. Start with Firdausly.</p>
+    <div class="cta"><a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Download on the App Store">Coming soon to the App Store</span></a></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="logo" href="#"><img src="../i/icon.webp" alt="" width="30" height="30">Firdausly</a><p style="margin-top:14px;max-width:24em">The social network that calls you to prayer. Made in Kazakhstan.</p></div>
+    <nav aria-label="About"><a href="/en/about">About Firdausly</a><a href="partners/">Partner program</a><a href="/en/prayer-times/">Prayer times by city</a></nav>
+    <nav aria-label="Documents"><a href="/en/support">Support</a><a href="/en/privacy">Privacy</a><a href="/en/terms">Terms</a><a href="mailto:support@firdausly.com">support@firdausly.com</a></nav>
+  </div>
+</footer>
+
+
+<script>document.addEventListener('DOMContentLoaded', () => {
+'use strict';
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const buzz = (n = 10) => { try { if (navigator.vibrate && navigator.userActivation && navigator.userActivation.hasBeenActive) navigator.vibrate(n); } catch (e) {} };
+const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+const EN = document.documentElement.lang === 'en', tr = (ru, en) => (EN ? en : ru);
+const BASE = (document.querySelector('.logo img') || { getAttribute: () => 'i/icon.webp' }).getAttribute('src').replace(/i\/icon\.webp$/, '');
+const use = (id, cls = '') => `<svg class="${cls}"><use href="#${id}"/></svg>`;
+const once = (el, fn, th = .35) => { if (!el) return; if (!('IntersectionObserver' in window)) return fn(); const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { io.disconnect(); fn(); } }), { threshold: th }); io.observe(el); };
+const pad = n => String(n).padStart(2, '0');
+const nf = n => Math.round(n).toLocaleString('ru-RU').replace(/ /g, ' ');
+
+/* ── шапка: стекло после первого экрана (наблюдатель, без scroll-слушателя) ── */
+(() => { const top = $('#top'), s = document.createElement('div'); s.style.cssText = 'position:absolute;top:0;height:80px;width:1px'; document.body.prepend(s);
+  new IntersectionObserver(([e]) => top.classList.toggle('on', !e.isIntersecting)).observe(s); })();
+
+/* ═════════ 2. БУРЯ УВЕДОМЛЕНИЙ ═════════ */
+const NOTES = [
+  ['#e1306c', 'p-heart-fill', tr('Соцсеть', 'Social'), tr('Вашу историю посмотрели 48 человек', '48 people viewed your story')],
+  ['#ff7a00', 'p-storefront', tr('Магазин', 'Shop'), tr('Скидки до 70%. Только сегодня до полуночи', 'Up to 70% off. Today only, until midnight')],
+  ['#111', 'p-film-strip', tr('Ролики', 'Shorts'), tr('Вы пропустили 12 новых видео', 'You missed 12 new videos')],
+  ['#5865f2', 'p-game-controller', tr('Игра', 'Game'), tr('Ваша энергия восстановилась. Играть?', 'Your energy is full. Play now?')],
+  ['#2f80ed', 'p-globe-hemisphere-east', tr('Новости', 'News'), tr('Скандал дня: все обсуждают это', 'Everyone is talking about this')],
+  ['#3d6', 'p-chat-circle-dots', tr('Чат', 'Chat'), tr('38 непрочитанных в «Работа и всё такое»', '38 unread in “Work and stuff”')],
+  ['#e5484d', 'p-youtube-logo', tr('Видео', 'Video'), tr('Новая серия уже доступна', 'New episode is out')],
+];
+const ns = $('#nstack');
+function storm() {
+  ns.innerHTML = '';
+  const els = NOTES.map(([c, ic, a, t], i) => { const d = document.createElement('div'); d.className = 'nt'; d.innerHTML = `<i style="background:${c}">${use(ic)}</i><b>${a}<small>${i ? i * 3 + tr(' мин', 'm') : tr('сейчас', 'now')}</small></b><p>${t}</p>`; d.style.opacity = 0; d.style.transform = 'translateY(-30px) scale(.95)'; ns.appendChild(d); return d; });
+  const g = document.createElement('div'); g.className = 'nt gold'; g.innerHTML = `<i><img src="${BASE}i/s-brat.webp" alt=""></i><b>${tr('Юсуф', 'Yusuf')} · Firdausly<small>${tr('сейчас', 'now')}</small></b><p>${tr('Аср через 20 минут. Я уже прочитал, ты как? Встанем вместе.', 'Asr in 20 minutes. I have prayed, how about you? Let’s stand together.')}</p>`; g.style.opacity = 0; g.style.transform = 'translateY(40px) scale(.9)'; ns.appendChild(g);
+  const place = () => els.forEach((d, i) => { const j = els.length - 1 - i; d.style.top = 0; d.style.zIndex = 10 + i; d.style.opacity = j > 3 ? 0 : 1; d.style.transform = `translateY(${j * 66}px) scale(${1 - j * .03})`; });
+  if (RM) { place(); els.forEach(d => { d.style.opacity = .25; d.style.filter = 'blur(1px)'; }); g.style.cssText += ';opacity:1;transform:none;top:160px;z-index:40'; return; }
+  els.forEach((d, i) => setTimeout(() => { d.style.top = 0; d.style.zIndex = 10 + i; const shown = els.slice(0, i + 1); shown.forEach((x, k) => { const j = i - k; x.style.opacity = j > 3 ? 0 : 1 - j * .12; x.style.transform = `translateY(${j * (innerWidth < 600 ? 74 : 66)}px) scale(${1 - j * .03})`; }); }, 260 * i));
+  const T = 260 * els.length + 700;
+  setTimeout(() => els.forEach((d, i) => { d.style.opacity = i > 3 ? .14 : .1; d.style.filter = 'blur(3px) saturate(0)'; d.style.transform = `translateY(${250 + (els.length - i) * 20}px) scale(.86)`; }), T);
+  setTimeout(() => { g.style.top = '120px'; g.style.zIndex = 40; g.style.opacity = 1; g.style.transform = 'none'; buzz(15); }, T + 350);
+}
+once(ns, storm, .45);
+$('#replay').addEventListener('click', storm);
+
+/* ═════════ НАСТОЯЩИЕ ЭКРАНЫ: ролики играют, только когда видны ═════════ */
+(() => {
+  const vids = $$('video[data-src]');
+  const io = new IntersectionObserver(es => es.forEach(e => { const v = e.target;
+    if (e.isIntersecting) { if (!v.src) { v.src = v.dataset.src; } if (!RM) v.play().catch(() => {}); } else v.pause(); }), { threshold: .4, rootMargin: '200px 0px' });
+  vids.forEach(v => io.observe(v));
+  const amb = $('.stage-amb'); if (amb && !RM) once(amb.parentElement, () => { amb.src = amb.dataset.amb; amb.play().then(() => amb.classList.add('on')).catch(() => {}); }, .1);
+})();
+
+/* ═════════ ПЕРЕКЛЮЧАТЕЛИ ЭКРАНОВ (близкие, Фокус) ═════════ */
+const showIn = (stack, i) => $$(':scope > .dev', stack).forEach((d, k) => { d.classList.toggle('on', k === i); const v = d.querySelector('video'); if (v && k === i && !RM) v.play().catch(() => {}); });
+$$('[data-tabs]').forEach(tl => { const st = document.getElementById(tl.dataset.tabs); showIn(st, 0);
+  let auto = setInterval(() => { const cur = +$('[aria-selected="true"]', tl).dataset.t; pick((cur + 1) % 3); }, 4200);
+  const pick = i => { $$('button', tl).forEach(b => b.setAttribute('aria-selected', +b.dataset.t === i)); showIn(st, i); buzz(6); };
+  tl.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; clearInterval(auto); pick(+b.dataset.t); });
+  if (RM) clearInterval(auto);
+});
+(() => { const sw = $('#fsw'), st = $('#focusTabs'); if (!sw || !st) return; showIn(st, 0);
+  sw.addEventListener('click', () => { const on = sw.getAttribute('aria-checked') !== 'true'; sw.setAttribute('aria-checked', on); sw.firstChild.textContent = on ? tr('Время Асра', 'Asr time') : tr('Аср отмечен', 'Asr prayed'); showIn(st, on ? 0 : 1); buzz(8); }); })();
+
+/* ═════════ 12. КАРТИНЫ ═════════ */
+(() => {
+  const A = [['lions', tr('Львы', 'Lions'), tr('Смелость, которая не боится', 'Courage without fear')], ['plus', tr('Вместе', 'Together'), tr('Свои идут рядом', 'Your people walk with you')], ['gate', tr('Врата', 'The Gate'), tr('Хайбар', 'Khaybar')], ['road', tr('Путь', 'The Road'), tr('Дорога домой', 'The way home')], ['sujud', tr('Суджуд', 'Sujud'), tr('Ближе всего к Нему', 'Closest to Him')], ['storm', tr('Буря', 'The Storm'), tr('Зульфикар', 'Zulfiqar')]];
+  const acc = $('#acc');
+  acc.innerHTML = A.map(([k, n, s], i) => `<button class="ac${i === 1 ? ' on' : ''}${i === 1 ? ' first' : ''}" type="button" data-k="${k}" aria-label="${tr("Картина", "Painting")} «${n}»"><picture><source type="image/avif" srcset="${BASE}i/${k}-${k === 'lions' ? 640 : 860}.avif"><img src="${BASE}i/${k}-${k === 'lions' ? 640 : 860}.webp" alt="" loading="lazy"></picture><span>${n}<small>${s}</small></span></button>`).join('');
+  const pick = b => { $$('.ac', acc).forEach(x => x.classList.toggle('on', x === b)); buzz(6); };
+  acc.addEventListener('click', e => { const b = e.target.closest('.ac'); if (b) pick(b); });
+  if (matchMedia('(hover:hover)').matches) acc.addEventListener('mouseover', e => { const b = e.target.closest('.ac'); if (b && !b.classList.contains('on')) $$('.ac', acc).forEach(x => x.classList.toggle('on', x === b)); });
+  $('#classic').innerHTML = ['guremir', 'cairo', 'fountain', 'samarkand', 'nile', 'mutawalli', 'caravan', 'terrace'].map(k => `<img src="${BASE}i/c-${k}-480.webp" alt="" loading="lazy" height="120">`).join('');
+})();
+
+/* ═════════ 13. АВТОРАМ ═════════ */
+(() => {
+  const F = [['p-hand-waving', tr('Пранк в метро', 'Subway prank')], ['p-music-notes', tr('Танец под трендовый звук', 'Dance to a trending sound')], ['p-shopping-bag', tr('Распаковка за 7 секунд', '7-second unboxing')], ['p-coins', tr('Реклама ставок', 'Betting ad')], ['you', tr('Ваш аят', 'Your ayah')], ['p-sparkle', tr('Чужая свадьба', 'A stranger’s wedding')], ['p-megaphone', tr('Скандал дня', 'Drama of the day')], ['p-game-controller', tr('Стрим до трёх ночи', 'Stream until 3 am')]];
+  const html = F.map(([i, t]) => i === 'you' ? `<div class="fi you">${use('t-reminders-f')}${t}</div>` : `<div class="fi">${use(i)}${t}</div>`).join('');
+  $('#mq').innerHTML = html + html;
+})();
+
+/* ═════════ 15. ЦЕНА ═════════ */
+(() => {
+  const TIERS = { KZ: ['3 790 ₸', '22 990 ₸', '1 916 ₸', 3790, 22990], MID: ['$4.99', '$29.99', '$2.50', 4.99, 29.99], GULF: ['$12.99', '$79.99', '$6.67', 12.99, 79.99], WEST: ['$9.99', '$59.99', '$5.00', 9.99, 59.99], EUR: ['€9.99', '€59.99', '€5.00', 9.99, 59.99], GBP: ['£8.99', '£54.99', '£4.58', 8.99, 54.99] };
+  let tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  const byCc = { KZ: 'KZ', KG: 'MID', UZ: 'MID', TJ: 'MID', RU: 'MID', AZ: 'MID', TR: 'MID', AE: 'GULF', GB: 'GBP', US: 'WEST' };
+  const tzCc = { 'Asia/Almaty': 'KZ', 'Asia/Qyzylorda': 'KZ', 'Asia/Aqtobe': 'KZ', 'Asia/Aqtau': 'KZ', 'Asia/Atyrau': 'KZ', 'Asia/Oral': 'KZ', 'Asia/Qostanay': 'KZ', 'Asia/Bishkek': 'KG', 'Asia/Tashkent': 'UZ', 'Asia/Samarkand': 'UZ', 'Asia/Dushanbe': 'TJ', 'Europe/Moscow': 'RU', 'Asia/Yekaterinburg': 'RU', 'Asia/Baku': 'AZ', 'Europe/Istanbul': 'TR', 'Asia/Dubai': 'AE', 'Europe/London': 'GB', 'America/New_York': 'US' }[tz];
+  const tier = tzCc ? (byCc[tzCc] || 'WEST') : /^Europe\//.test(tz) ? 'EUR' : /^Asia\/(Riyadh|Qatar|Kuwait|Bahrain|Muscat|Dubai)/.test(tz) ? 'GULF' : 'WEST';
+  const T = TIERS[tier];
+  $('#save').textContent = '−' + Math.round((1 - T[4] / (T[3] * 12)) * 100) + '%';
+  if (tier !== 'KZ' || EN) $('#fine').textContent = tr('Цены для вашего региона. Точную цену в вашей валюте App Store покажет до оплаты.', 'Prices for your region. The App Store shows the exact price in your currency before you pay.');
+  const show = y => { $('#pAmt').textContent = y ? T[1] : T[0]; $('#pPer').textContent = y ? tr(`в год · ${T[2]} в месяц`, `a year · ${T[2]} a month`) : tr('в месяц', 'a month'); const alt = $('#pAlt'); if (alt) alt.textContent = y ? tr(`или ${T[0]} помесячно`, `or ${T[0]} monthly`) : tr(`или ${T[1]} за год, выгоднее`, `or ${T[1]} a year, better value`); };
+  $('#per').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('#per button').forEach(x => x.setAttribute('aria-pressed', x === b)); show(b.dataset.p === 'y'); buzz(6); });
+  show(true);
+})();
+
+/* ═════════ ФИНАЛ: дней до Рамадана ═════════ */
+(() => { const d = Math.ceil((Date.UTC(2027, 1, 8) - Date.now()) / 864e5); const el = $('#finD'); const pl = n => { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? 'день' : a >= 2 && a <= 4 && (b < 12 || b > 14) ? 'дня' : 'дней'; }; if (d > 1 && d < 200) el.textContent = EN ? `About ${d} days to Ramadan` : `До Рамадана примерно ${d} ${pl(d)}`; else el.remove(); })();
+
+/* ═════════ APP STORE ═════════ */
+/* ВЫХОД В APP STORE: одна строка. Листа ожидания нет: до выхода кнопки «Скоро в App Store» ведут на страницу приложения. */
+const LAUNCHED = false, STORE = 'https://apps.apple.com/app/id6806738733';
+$$('[data-store]').forEach(a => { a.href = STORE; a.target = '_blank'; a.rel = 'noopener'; if (LAUNCHED) { const l = a.querySelector('[data-sl]'); if (l) l.textContent = l.dataset.sl; } });
+});
+</script>
+</body>
+</html>

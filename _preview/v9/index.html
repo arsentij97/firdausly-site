@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Firdausly: напоминайте своим близким о намазе</title>
+<link rel="canonical" href="https://firdausly.com/">
+<link rel="alternate" hreflang="ru" href="https://firdausly.com/"><link rel="alternate" hreflang="en" href="https://firdausly.com/en/"><link rel="alternate" hreflang="x-default" href="https://firdausly.com/">
+<link rel="apple-touch-icon" href="i/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="i/favicon-32.png">
+<meta property="og:type" content="website"><meta property="og:url" content="https://firdausly.com/"><meta property="og:site_name" content="Firdausly"><meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="https://firdausly.com/s/og-ru.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://firdausly.com/s/og-ru.jpg">
+<meta name="apple-itunes-app" content="app-id=6806738733">
+<script>(function(){try{var p=location.pathname,en=/^\/en(\/|$)/.test(p);if(en||localStorage.getItem('lang')||/bot|crawl|spider|slurp|preview|facebookexternalhit/i.test(navigator.userAgent))return;var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'ru'];for(var i=0;i<L.length;i++)if(/^(ru|kk|uk|be|uz|ky|tg|tt|az|hy|ka|mo|ba|ce)\b/i.test(L[i]))return;}catch(e){}})();</script>
 <meta name="description" content="Firdausly: соцсеть, где самое важное уведомление дня приходит от брата. Видно, кто из своих уже прочитал намаз, одно касание напомнит остальным. Фаджр вместе, Фокус, Reminders, Умма и Сцена.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0A0A0A">
@@ -443,6 +451,25 @@ figcaption{font-size:15px}
 .who{margin:0 0 12px!important;font-size:13px!important;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)!important;text-align:center}
 @media (max-width:980px){.d-main .who{display:none}}
 @media (max-width:520px){.pair .dev:not(.back){--pw:54vw}.pair .back{--pw:30vw}}
+.lng{margin-left:auto;font-size:14px;font-weight:600;color:var(--tx2);text-decoration:none;padding:10px 12px;border-radius:99px}
+.lng:hover{color:var(--tx);background:rgba(255,255,255,.06)}
+.nav+.lng{margin-left:6px}
+@media (max-width:900px){.top .lng{margin-left:auto}.top .lng+.btn{margin-left:0}}
+
+.row4{grid-template-columns:repeat(3,1fr);max-width:1000px}
+@media (max-width:1100px){.row4{grid-template-columns:repeat(3,240px)}}
+
+/* лунный акцент приложения (сборка 67: #EBDCB2 вместо жёлтого) */
+:root{--gold:#EBDCB2;--gold2:#F4EAD0;--goldS:#26241F}
+.pchip{background:linear-gradient(135deg,#F7EFD9,#E4D3A4)}
+.sw[aria-checked="true"] i{background:#EBDCB2}
+.bigic{background:linear-gradient(145deg,#2a2822,#16150f);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 20px 50px -16px rgba(235,220,178,.35)}
+.pp-card{background:radial-gradient(120% 120% at 100% 0%,#2a2820,#14130f 60%);box-shadow:inset 0 0 0 1px rgba(235,220,178,.3),0 40px 100px -40px rgba(235,220,178,.2)}
+.plan.plus{background:radial-gradient(120% 90% at 100% 0%,#29271f,#15140f 60%);box-shadow:inset 0 0 0 1px rgba(235,220,178,.35),0 30px 80px -30px rgba(235,220,178,.2)}
+.trial{background:rgba(235,220,178,.08)}
+.btn-p{box-shadow:0 10px 40px -10px rgba(235,220,178,.35),inset 0 1px 0 #fff}
+/* телефоны крупнее на широких экранах */
+@media (min-width:1200px){.split>div>.dev,.split .pair>.dev:not(.back),.stack>.dev{--pw:min(calc(var(--w)*1.15),440px)}}
 </style>
 </head>
 <body>
@@ -458,7 +485,7 @@ figcaption{font-size:15px}
       <a href="partners/">Партнёрам</a>
       <a href="#price">Цена</a>
     </nav>
-    <a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Скачать">Скоро в App Store</span></a>
+    <a class="lng" href="/_preview/v9/en/" data-lang="en" onclick="try{localStorage.setItem('lang',this.dataset.lang)}catch(e){}">EN</a><a class="btn btn-p" href="#" data-store><svg class="i"><use href="#p-apple-logo"/></svg><span data-sl="Скачать">Скоро в App Store</span></a>
   </div>
 </header>
 
@@ -477,7 +504,7 @@ figcaption{font-size:15px}
     </div>
     <div class="duo">
       <figure class="d-main"><figcaption class="who">Вы</figcaption><div class="dev" style="--w:380px" data-slot="clip-remind" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><video data-src="media/clip-remind.mp4" poster="media/clip-remind.webp" muted loop playsinline preload="none" aria-label="Запись экрана Firdausly"></video></div><figcaption>Касание по близкому, и он уже позван</figcaption></figure>
-      <figure class="d-side"><figcaption class="who">Близкий</figcaption><div class="dev" style="--w:380px" data-slot="zov" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/zov.webp" srcset="media/zov-s.webp 603w, media/zov.webp 1206w" sizes="380px" alt="Экран Firdausly" decoding="async"></div><figcaption>«Иду», «Прочитал» или «Позже»</figcaption></figure>
+      <figure class="d-side"><figcaption class="who">Все вместе</figcaption><div class="dev" style="--w:380px" data-slot="together" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/together.webp" srcset="media/together-s.webp 603w, media/together.webp 1206w" sizes="380px" alt="Экран Firdausly" decoding="async"></div><figcaption>И вот все свои прочитали</figcaption></figure>
     </div>
   </div>
 </section>
@@ -495,6 +522,7 @@ figcaption{font-size:15px}
 </section>
 
 <!-- 3. БЛИЗКИЕ -->
+<a id="features" aria-hidden="true"></a>
 <section class="sec close" id="blizkie" aria-labelledby="h-close">
   <div class="close-bg" aria-hidden="true"><picture><source type="image/avif" srcset="i/plus-860.avif"><img src="i/plus-860.webp" alt="" loading="lazy"></picture><i></i></div>
   <div class="wrap split">
@@ -502,13 +530,13 @@ figcaption{font-size:15px}
       <h2 class="h2" id="h-close">Один день вашей семьи на&nbsp;одном экране</h2>
       <p class="lead" style="margin-top:20px">Отметили намаз, и близкие видят отметку. Кто не успел, получит тихую открытку с аятом и одной кнопкой. Без упрёков и чужих глаз: это видят только ваши.</p>
       <div class="seg3" role="tablist" aria-label="Экраны близких" data-tabs="closeTabs">
-        <button role="tab" aria-selected="true" data-t="0">Кто прочитал</button><button role="tab" aria-selected="false" data-t="1">Открытка</button><button role="tab" aria-selected="false" data-t="2">Ответ близкого</button>
+        <button role="tab" aria-selected="true" data-t="0">Кто прочитал</button><button role="tab" aria-selected="false" data-t="1">Открытка</button><button role="tab" aria-selected="false" data-t="2">Все прочитали</button>
       </div>
       <p class="plusnote"><span class="pchip">Plus</span>Близкие и напоминания, 14 дней бесплатно. Принять приглашение и открыть открытку можно без подписки.</p>
       <div class="ayah"><svg class="i"><use href="#p-quotes"/></svg><p>«И напоминай, ибо напоминание приносит пользу верующим»<small>Коран, сура «Аз-Зарият», 51:55</small></p></div>
     </div>
     <div class="stack" id="closeTabs">
-      <div class="dev" style="--w:360px" data-slot="home-many" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/home-many.webp" srcset="media/home-many-s.webp 603w, media/home-many.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><div class="dev" style="--w:360px" data-slot="home-sheet" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/home-sheet.webp" srcset="media/home-sheet-s.webp 603w, media/home-sheet.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><div class="dev" style="--w:360px" data-slot="zov" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/zov.webp" srcset="media/zov-s.webp 603w, media/zov.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div>
+      <div class="dev" style="--w:360px" data-slot="home-many" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/home-many.webp" srcset="media/home-many-s.webp 603w, media/home-many.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><div class="dev" style="--w:360px" data-slot="home-sheet" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/home-sheet.webp" srcset="media/home-sheet-s.webp 603w, media/home-sheet.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><div class="dev" style="--w:360px" data-slot="together" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/together.webp" srcset="media/together-s.webp 603w, media/together.webp 1206w" sizes="360px" alt="Экран Firdausly" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -522,7 +550,7 @@ figcaption{font-size:15px}
       <p class="lead" style="margin-top:20px">Настоящий будильник iPhone: звонит даже в беззвучном режиме. Позовите своих, и утром вы встаёте вместе. Встал один, и остальные видят это сразу.</p>
       <p class="plusnote" style="margin-top:22px">Будильник на Фаджр бесплатно.&nbsp;<span class="pchip">Plus</span>общий будильник с близкими и звонок азаном, 14 дней бесплатно.</p>
     </div>
-    <div class="pair"><div class="dev" style="--w:330px" data-slot="fajr" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/fajr.webp" srcset="media/fajr-s.webp 603w, media/fajr.webp 1206w" sizes="330px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><div class="dev back" style="--w:250px" data-slot="together" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/together.webp" srcset="media/together-s.webp 603w, media/together.webp 1206w" sizes="250px" alt="Экран Firdausly" loading="lazy" decoding="async"></div></div>
+    <div><div class="dev" style="--w:380px" data-slot="fajr" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/fajr.webp" srcset="media/fajr-s.webp 603w, media/fajr.webp 1206w" sizes="380px" alt="Экран Firdausly" loading="lazy" decoding="async"></div></div>
   </div>
 </section>
 
@@ -605,7 +633,6 @@ figcaption{font-size:15px}
     <p class="lead" style="margin-top:20px">Время по вашему городу (в Казахстане по таблице ДУМК, в Турции по Diyanet), кибла, зикры, Коран с переводом. Без рекламы.</p>
   </div>
   <div class="row4">
-    <figure><div class="dev" style="--w:270px" data-slot="qibla" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/qibla.webp" srcset="media/qibla-s.webp 603w, media/qibla.webp 1206w" sizes="270px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><figcaption><b>Кибла</b>Компас и карта</figcaption></figure>
     <figure><div class="dev" style="--w:270px" data-slot="clip-dhikr" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><video data-src="media/clip-dhikr.mp4" poster="media/clip-dhikr.webp" muted loop playsinline preload="none" aria-label="Запись экрана Firdausly"></video></div><figcaption><b>Зикры</b>Касайтесь экрана где угодно</figcaption></figure>
     <figure><div class="dev" style="--w:270px" data-slot="quran" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/quran.webp" srcset="media/quran-s.webp 603w, media/quran.webp 1206w" sizes="270px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><figcaption><b>Коран</b>Перевод работает без сети</figcaption></figure>
     <figure><div class="dev" style="--w:270px" data-slot="widgets" data-temp><div class="sb"><span>9:41</span><i><s></s><b></b></i></div><div class="isl"></div><img src="media/widgets.webp" srcset="media/widgets-s.webp 603w, media/widgets.webp 1206w" sizes="270px" alt="Экран Firdausly" loading="lazy" decoding="async"></div><figcaption><b>Виджеты</b>Время намаза на экране «Домой»</figcaption></figure>
@@ -765,6 +792,8 @@ const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const buzz = (n = 10) => { try { if (navigator.vibrate && navigator.userActivation && navigator.userActivation.hasBeenActive) navigator.vibrate(n); } catch (e) {} };
 const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+const EN = document.documentElement.lang === 'en', tr = (ru, en) => (EN ? en : ru);
+const BASE = (document.querySelector('.logo img') || { getAttribute: () => 'i/icon.webp' }).getAttribute('src').replace(/i\/icon\.webp$/, '');
 const use = (id, cls = '') => `<svg class="${cls}"><use href="#${id}"/></svg>`;
 const once = (el, fn, th = .35) => { if (!el) return; if (!('IntersectionObserver' in window)) return fn(); const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { io.disconnect(); fn(); } }), { threshold: th }); io.observe(el); };
 const pad = n => String(n).padStart(2, '0');
@@ -776,19 +805,19 @@ const nf = n => Math.round(n).toLocaleString('ru-RU').replace(/ /g, ' ');
 
 /* ═════════ 2. БУРЯ УВЕДОМЛЕНИЙ ═════════ */
 const NOTES = [
-  ['#e1306c', 'p-heart-fill', 'Соцсеть', 'Вашу историю посмотрели 48 человек'],
-  ['#ff7a00', 'p-storefront', 'Магазин', 'Скидки до 70%. Только сегодня до полуночи'],
-  ['#111', 'p-film-strip', 'Ролики', 'Вы пропустили 12 новых видео'],
-  ['#5865f2', 'p-game-controller', 'Игра', 'Ваша энергия восстановилась. Играть?'],
-  ['#2f80ed', 'p-globe-hemisphere-east', 'Новости', 'Скандал дня: все обсуждают это'],
-  ['#3d6', 'p-chat-circle-dots', 'Чат', '38 непрочитанных в «Работа и всё такое»'],
-  ['#e5484d', 'p-youtube-logo', 'Видео', 'Новая серия уже доступна'],
+  ['#e1306c', 'p-heart-fill', tr('Соцсеть', 'Social'), tr('Вашу историю посмотрели 48 человек', '48 people viewed your story')],
+  ['#ff7a00', 'p-storefront', tr('Магазин', 'Shop'), tr('Скидки до 70%. Только сегодня до полуночи', 'Up to 70% off. Today only, until midnight')],
+  ['#111', 'p-film-strip', tr('Ролики', 'Shorts'), tr('Вы пропустили 12 новых видео', 'You missed 12 new videos')],
+  ['#5865f2', 'p-game-controller', tr('Игра', 'Game'), tr('Ваша энергия восстановилась. Играть?', 'Your energy is full. Play now?')],
+  ['#2f80ed', 'p-globe-hemisphere-east', tr('Новости', 'News'), tr('Скандал дня: все обсуждают это', 'Everyone is talking about this')],
+  ['#3d6', 'p-chat-circle-dots', tr('Чат', 'Chat'), tr('38 непрочитанных в «Работа и всё такое»', '38 unread in “Work and stuff”')],
+  ['#e5484d', 'p-youtube-logo', tr('Видео', 'Video'), tr('Новая серия уже доступна', 'New episode is out')],
 ];
 const ns = $('#nstack');
 function storm() {
   ns.innerHTML = '';
-  const els = NOTES.map(([c, ic, a, t], i) => { const d = document.createElement('div'); d.className = 'nt'; d.innerHTML = `<i style="background:${c}">${use(ic)}</i><b>${a}<small>${i ? i * 3 + ' мин' : 'сейчас'}</small></b><p>${t}</p>`; d.style.opacity = 0; d.style.transform = 'translateY(-30px) scale(.95)'; ns.appendChild(d); return d; });
-  const g = document.createElement('div'); g.className = 'nt gold'; g.innerHTML = `<i><img src="i/s-brat.webp" alt=""></i><b>Юсуф · Firdausly<small>сейчас</small></b><p>Аср через 20 минут. Я уже прочитал, ты как? Встанем вместе.</p>`; g.style.opacity = 0; g.style.transform = 'translateY(40px) scale(.9)'; ns.appendChild(g);
+  const els = NOTES.map(([c, ic, a, t], i) => { const d = document.createElement('div'); d.className = 'nt'; d.innerHTML = `<i style="background:${c}">${use(ic)}</i><b>${a}<small>${i ? i * 3 + tr(' мин', 'm') : tr('сейчас', 'now')}</small></b><p>${t}</p>`; d.style.opacity = 0; d.style.transform = 'translateY(-30px) scale(.95)'; ns.appendChild(d); return d; });
+  const g = document.createElement('div'); g.className = 'nt gold'; g.innerHTML = `<i><img src="${BASE}i/s-brat.webp" alt=""></i><b>${tr('Юсуф', 'Yusuf')} · Firdausly<small>${tr('сейчас', 'now')}</small></b><p>${tr('Аср через 20 минут. Я уже прочитал, ты как? Встанем вместе.', 'Asr in 20 minutes. I have prayed, how about you? Let’s stand together.')}</p>`; g.style.opacity = 0; g.style.transform = 'translateY(40px) scale(.9)'; ns.appendChild(g);
   const place = () => els.forEach((d, i) => { const j = els.length - 1 - i; d.style.top = 0; d.style.zIndex = 10 + i; d.style.opacity = j > 3 ? 0 : 1; d.style.transform = `translateY(${j * 66}px) scale(${1 - j * .03})`; });
   if (RM) { place(); els.forEach(d => { d.style.opacity = .25; d.style.filter = 'blur(1px)'; }); g.style.cssText += ';opacity:1;transform:none;top:160px;z-index:40'; return; }
   els.forEach((d, i) => setTimeout(() => { d.style.top = 0; d.style.zIndex = 10 + i; const shown = els.slice(0, i + 1); shown.forEach((x, k) => { const j = i - k; x.style.opacity = j > 3 ? 0 : 1 - j * .12; x.style.transform = `translateY(${j * (innerWidth < 600 ? 74 : 66)}px) scale(${1 - j * .03})`; }); }, 260 * i));
@@ -817,22 +846,22 @@ $$('[data-tabs]').forEach(tl => { const st = document.getElementById(tl.dataset.
   if (RM) clearInterval(auto);
 });
 (() => { const sw = $('#fsw'), st = $('#focusTabs'); if (!sw || !st) return; showIn(st, 0);
-  sw.addEventListener('click', () => { const on = sw.getAttribute('aria-checked') !== 'true'; sw.setAttribute('aria-checked', on); sw.firstChild.textContent = on ? 'Время Асра' : 'Аср отмечен'; showIn(st, on ? 0 : 1); buzz(8); }); })();
+  sw.addEventListener('click', () => { const on = sw.getAttribute('aria-checked') !== 'true'; sw.setAttribute('aria-checked', on); sw.firstChild.textContent = on ? tr('Время Асра', 'Asr time') : tr('Аср отмечен', 'Asr prayed'); showIn(st, on ? 0 : 1); buzz(8); }); })();
 
 /* ═════════ 12. КАРТИНЫ ═════════ */
 (() => {
-  const A = [['lions', 'Львы', 'Смелость, которая не боится'], ['plus', 'Вместе', 'Свои идут рядом'], ['gate', 'Врата', 'Хайбар'], ['road', 'Путь', 'Дорога домой'], ['sujud', 'Суджуд', 'Ближе всего к Нему'], ['storm', 'Буря', 'Зульфикар']];
+  const A = [['lions', tr('Львы', 'Lions'), tr('Смелость, которая не боится', 'Courage without fear')], ['plus', tr('Вместе', 'Together'), tr('Свои идут рядом', 'Your people walk with you')], ['gate', tr('Врата', 'The Gate'), tr('Хайбар', 'Khaybar')], ['road', tr('Путь', 'The Road'), tr('Дорога домой', 'The way home')], ['sujud', tr('Суджуд', 'Sujud'), tr('Ближе всего к Нему', 'Closest to Him')], ['storm', tr('Буря', 'The Storm'), tr('Зульфикар', 'Zulfiqar')]];
   const acc = $('#acc');
-  acc.innerHTML = A.map(([k, n, s], i) => `<button class="ac${i === 1 ? ' on' : ''}${i === 1 ? ' first' : ''}" type="button" data-k="${k}" aria-label="Картина «${n}»"><picture><source type="image/avif" srcset="i/${k}-${k === 'lions' ? 640 : 860}.avif"><img src="i/${k}-${k === 'lions' ? 640 : 860}.webp" alt="" loading="lazy"></picture><span>${n}<small>${s}</small></span></button>`).join('');
+  acc.innerHTML = A.map(([k, n, s], i) => `<button class="ac${i === 1 ? ' on' : ''}${i === 1 ? ' first' : ''}" type="button" data-k="${k}" aria-label="${tr("Картина", "Painting")} «${n}»"><picture><source type="image/avif" srcset="${BASE}i/${k}-${k === 'lions' ? 640 : 860}.avif"><img src="${BASE}i/${k}-${k === 'lions' ? 640 : 860}.webp" alt="" loading="lazy"></picture><span>${n}<small>${s}</small></span></button>`).join('');
   const pick = b => { $$('.ac', acc).forEach(x => x.classList.toggle('on', x === b)); buzz(6); };
   acc.addEventListener('click', e => { const b = e.target.closest('.ac'); if (b) pick(b); });
   if (matchMedia('(hover:hover)').matches) acc.addEventListener('mouseover', e => { const b = e.target.closest('.ac'); if (b && !b.classList.contains('on')) $$('.ac', acc).forEach(x => x.classList.toggle('on', x === b)); });
-  $('#classic').innerHTML = ['guremir', 'cairo', 'fountain', 'samarkand', 'nile', 'mutawalli', 'caravan', 'terrace'].map(k => `<img src="i/c-${k}-480.webp" alt="" loading="lazy" height="120">`).join('');
+  $('#classic').innerHTML = ['guremir', 'cairo', 'fountain', 'samarkand', 'nile', 'mutawalli', 'caravan', 'terrace'].map(k => `<img src="${BASE}i/c-${k}-480.webp" alt="" loading="lazy" height="120">`).join('');
 })();
 
 /* ═════════ 13. АВТОРАМ ═════════ */
 (() => {
-  const F = [['p-hand-waving', 'Пранк в метро'], ['p-music-notes', 'Танец под трендовый звук'], ['p-shopping-bag', 'Распаковка за 7 секунд'], ['p-coins', 'Реклама ставок'], ['you', 'Ваш аят'], ['p-sparkle', 'Чужая свадьба'], ['p-megaphone', 'Скандал дня'], ['p-game-controller', 'Стрим до трёх ночи']];
+  const F = [['p-hand-waving', tr('Пранк в метро', 'Subway prank')], ['p-music-notes', tr('Танец под трендовый звук', 'Dance to a trending sound')], ['p-shopping-bag', tr('Распаковка за 7 секунд', '7-second unboxing')], ['p-coins', tr('Реклама ставок', 'Betting ad')], ['you', tr('Ваш аят', 'Your ayah')], ['p-sparkle', tr('Чужая свадьба', 'A stranger’s wedding')], ['p-megaphone', tr('Скандал дня', 'Drama of the day')], ['p-game-controller', tr('Стрим до трёх ночи', 'Stream until 3 am')]];
   const html = F.map(([i, t]) => i === 'you' ? `<div class="fi you">${use('t-reminders-f')}${t}</div>` : `<div class="fi">${use(i)}${t}</div>`).join('');
   $('#mq').innerHTML = html + html;
 })();
@@ -846,14 +875,14 @@ $$('[data-tabs]').forEach(tl => { const st = document.getElementById(tl.dataset.
   const tier = tzCc ? (byCc[tzCc] || 'WEST') : /^Europe\//.test(tz) ? 'EUR' : /^Asia\/(Riyadh|Qatar|Kuwait|Bahrain|Muscat|Dubai)/.test(tz) ? 'GULF' : 'WEST';
   const T = TIERS[tier];
   $('#save').textContent = '−' + Math.round((1 - T[4] / (T[3] * 12)) * 100) + '%';
-  if (tier !== 'KZ') $('#fine').textContent = 'Цены для вашего региона. Точную цену в вашей валюте App Store покажет до оплаты.';
-  const show = y => { $('#pAmt').textContent = y ? T[1] : T[0]; $('#pPer').textContent = y ? `в год · ${T[2]} в месяц` : 'в месяц'; $('#pAlt').textContent = y ? `или ${T[0]} помесячно` : `или ${T[1]} за год, выгоднее`; };
+  if (tier !== 'KZ' || EN) $('#fine').textContent = tr('Цены для вашего региона. Точную цену в вашей валюте App Store покажет до оплаты.', 'Prices for your region. The App Store shows the exact price in your currency before you pay.');
+  const show = y => { $('#pAmt').textContent = y ? T[1] : T[0]; $('#pPer').textContent = y ? tr(`в год · ${T[2]} в месяц`, `a year · ${T[2]} a month`) : tr('в месяц', 'a month'); const alt = $('#pAlt'); if (alt) alt.textContent = y ? tr(`или ${T[0]} помесячно`, `or ${T[0]} monthly`) : tr(`или ${T[1]} за год, выгоднее`, `or ${T[1]} a year, better value`); };
   $('#per').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('#per button').forEach(x => x.setAttribute('aria-pressed', x === b)); show(b.dataset.p === 'y'); buzz(6); });
   show(true);
 })();
 
 /* ═════════ ФИНАЛ: дней до Рамадана ═════════ */
-(() => { const d = Math.ceil((Date.UTC(2027, 1, 8) - Date.now()) / 864e5); const el = $('#finD'); const pl = n => { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? 'день' : a >= 2 && a <= 4 && (b < 12 || b > 14) ? 'дня' : 'дней'; }; if (d > 1 && d < 200) el.textContent = `До Рамадана примерно ${d} ${pl(d)}`; else el.remove(); })();
+(() => { const d = Math.ceil((Date.UTC(2027, 1, 8) - Date.now()) / 864e5); const el = $('#finD'); const pl = n => { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? 'день' : a >= 2 && a <= 4 && (b < 12 || b > 14) ? 'дня' : 'дней'; }; if (d > 1 && d < 200) el.textContent = EN ? `About ${d} days to Ramadan` : `До Рамадана примерно ${d} ${pl(d)}`; else el.remove(); })();
 
 /* ═════════ APP STORE ═════════ */
 /* ВЫХОД В APP STORE: одна строка. Листа ожидания нет: до выхода кнопки «Скоро в App Store» ведут на страницу приложения. */
