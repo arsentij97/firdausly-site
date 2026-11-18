@@ -277,7 +277,7 @@ h1,h2,h3,p{margin:0}
 .rv img{width:100%;height:100%;object-fit:cover;animation:kb 18s ease-in-out infinite alternate}
 @keyframes kb{to{transform:scale(1.14) translate(-3%,2%)}}
 .rv::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),transparent 30%,transparent 60%,rgba(0,0,0,.7))}
-.rv q{position:absolute;z-index:2;left:10%;right:10%;top:42%;text-align:center;font-family:var(--serif);font-style:italic;font-size:clamp(15px,1.35vw,20px);line-height:1.2;text-shadow:0 2px 14px rgba(0,0,0,.7);quotes:none}
+.rv q{position:absolute;z-index:2;left:10%;right:10%;top:42%;text-align:center;font-weight:600;letter-spacing:-.01em;color:rgba(255,255,255,.82);font-size:clamp(13px,1.15vw,17px);line-height:1.22;text-shadow:0 2px 14px rgba(0,0,0,.7);quotes:none}
 .rv u{position:absolute;z-index:2;left:12px;bottom:16px;right:12px;text-decoration:none;font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px}
 .rv u i{width:18px;height:18px;border-radius:50%;background:center/cover;flex:none}
 .rv s{position:absolute;z-index:2;right:10px;top:52%;text-decoration:none;font-size:11px;display:flex;flex-direction:column;align-items:center;gap:2px;font-weight:600}
@@ -401,6 +401,7 @@ h1,h2,h3,p{margin:0}
 .fin picture,.fin picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .fin::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg) 0%,rgba(3,8,6,.35) 30%,rgba(3,8,6,.2) 55%,rgba(3,8,6,.85) 100%)}
 .fin .h2{font-size:clamp(46px,7.5vw,124px)}
+.fin .w{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
 .fin .lead{margin:20px auto 34px;color:rgba(245,242,234,.86)}
 .credit{position:absolute;bottom:18px;right:var(--gut);font-size:12px;color:rgba(245,242,234,.55);text-align:right;max-width:70vw}
 footer{padding:44px 0 60px;border-top:1px solid var(--line);font-size:14px;color:var(--ink3)}
@@ -420,8 +421,8 @@ footer a:hover{color:var(--ink)}
   .nav{height:52px;top:10px}
   .nav .get{margin-left:auto}
   .hero-in{grid-template-columns:1fr;padding-top:92px;gap:30px;text-align:left}
-  .hero h1{font-size:clamp(40px,11.4vw,56px)}
-  .hero .lead{margin-top:18px;font-size:17px}
+  .hero h1{font-size:clamp(34px,9.7vw,50px);letter-spacing:-.045em}
+  .hero .lead{margin-top:16px;font-size:16.5px}
   .hero .cta{margin-top:24px}
   .facts{margin-top:26px;gap:18px 24px}
   .hero-ph .phone{--w:min(300px,78vw)}
@@ -452,7 +453,8 @@ footer a:hover{color:var(--ink)}
   .cols{gap:10px;inset:-10% -30%}
   .col{gap:10px;width:132px}
   .rv{border-radius:16px}
-  .rv q{font-size:13px}
+  .rv q{font-size:12px;opacity:.7}
+  .rem-over{background:radial-gradient(75% 42% at 50% 50%,rgba(3,8,6,.94) 0%,rgba(3,8,6,.8) 55%,rgba(3,8,6,.2) 90%)}
   .rv s{display:none}
   .bento{grid-template-columns:1fr}
   .stg{grid-row:auto;min-height:540px;padding:24px}
@@ -471,7 +473,7 @@ footer a:hover{color:var(--ink)}
   .plan.plus{order:-1}
   .credit{left:var(--gut);right:auto;text-align:left}
 }
-@media (max-width:380px){.hero h1{font-size:38px}}
+@media (max-width:360px){.hero h1{font-size:33px}}
 
 /* ── меньше движения: та же история, кадры без пружин ── */
 @media (prefers-reduced-motion:reduce){
@@ -609,7 +611,7 @@ footer a:hover{color:var(--ink)}
     <div class="wrap split">
       <div>
         <p class="eyebrow">Фаджр вместе</p>
-        <h2 class="h2" id="h-fajr" style="margin-top:14px">Будите друг друга <span class="it">на Фаджр.</span></h2>
+        <h2 class="h2" id="h-fajr" style="margin-top:14px">Будите друг друга на Фаджр.</h2>
         <p class="lead">Настоящий будильник iPhone: с iOS 26 он звонит даже в беззвучном режиме. Позовите братьев — и утро начнётся с намаза, а не с ленты.</p>
         <div class="wake" aria-hidden="true">
           <div class="glass" data-w="1"><i style="background-image:url(/_preview/v6/i/a4.webp)"></i>Умар проснулся <em>05:07</em></div>
@@ -639,7 +641,7 @@ footer a:hover{color:var(--ink)}
 </section>
 
 <!-- 5. Фокус — азан закрывает ленту -->
-<section class="pin focus" id="focus" data-pin="focus" data-rm=".66" style="--len:3.4" aria-labelledby="h-focus">
+<section class="pin focus" id="focus" data-pin="focus" data-rm=".66" style="--len:2.7" aria-labelledby="h-focus">
   <div class="stage">
     <h2 class="big" id="h-focus"><span>Сначала</span> <span class="it gold">намаз.</span></h2>
     <div class="phone" role="img" aria-label="Фокус: в момент азана Instagram, TikTok, YouTube и X закрываются, пока намаз не отмечен">
@@ -701,7 +703,7 @@ footer a:hover{color:var(--ink)}
   <div class="wrap">
     <div class="head rv-in">
       <p class="eyebrow">Умма</p>
-      <h2 class="h2" id="h-umma" style="margin-top:14px">Делитесь мыслями <span class="it">с уммой.</span></h2>
+      <h2 class="h2" id="h-umma" style="margin-top:14px">Делитесь мыслями с уммой.</h2>
       <p class="lead">Лента без гонки за вниманием. Сцена — живые хутбы и разговоры. А с близкими — переписка прямо в Firdausly.</p>
     </div>
     <div class="bento">
@@ -744,7 +746,7 @@ footer a:hover{color:var(--ink)}
   <div class="wrap sis-in">
     <div class="rv-in">
       <p class="eyebrow">Защита сестёр</p>
-      <h2 class="h2" id="h-sis" style="margin-top:14px">Сёстрам — <span class="it">спокойно.</span></h2>
+      <h2 class="h2" id="h-sis" style="margin-top:14px">Сёстрам — спокойно.</h2>
       <p class="lead">Сестра сама решает, кто ей пишет. А если позовёт вали — отца или другого близкого, — запрос сначала посмотрит он.</p>
     </div>
     <div class="flow" data-flow aria-label="Путь запроса на переписку">
@@ -766,7 +768,7 @@ footer a:hover{color:var(--ink)}
   <div class="wrap">
     <div class="head rv-in">
       <p class="eyebrow">Цена</p>
-      <h2 class="h2" id="h-price" style="margin-top:14px">Намаз — бесплатно.<br><span class="it">Всё, что вокруг него, — в Plus.</span></h2>
+      <h2 class="h2" id="h-price" style="margin-top:14px">Намаз — бесплатно.<br><span style="color:var(--ink3)">Всё, что вокруг него, — в Plus.</span></h2>
       <p class="lead">За веру денег не берём. Подписка открывает то, что строится вместе, — на ней Firdausly и живёт, без рекламы и без инвестора.</p>
     </div>
     <div class="plans">
@@ -801,7 +803,7 @@ footer a:hover{color:var(--ink)}
     <img src="/_preview/v6/i/nile-w.webp" alt="Берег Нила на закате, лодки и пальмы" loading="lazy" width="2400" height="1350">
   </picture>
   <div class="wrap rv-in">
-    <h2 class="h2" id="h-fin">Встретимся <span class="it">в Фирдаусе.</span></h2>
+    <h2 class="h2" id="h-fin">Встретимся <span class="w">в Фирдаусе</span>.</h2>
     <p class="lead">Скачайте Firdausly и позовите тех, с кем хотите там встретиться.</p>
     <a class="store" href="https://apps.apple.com/app/id6806738733"><svg aria-hidden="true"><use href="#apple"/></svg><span><small>Загрузите в</small><b>App Store</b></span></a>
   </div>
