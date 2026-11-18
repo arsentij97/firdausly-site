@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#040b08">
+<title>Firdausly — превью C «День намаза»</title>
+<link rel="icon" href="/assets/favicon-48.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap">
+<link rel="stylesheet" href="/_preview/v5-assets/v5.css">
+<style>
+/* ── C «День намаза»: небо сайта идёт за временем человека, отсчёт до его намаза — живой. ── */
+body { --sky-a: #06120e; --sky-b: #0d2a20; --sky-c: #1b3b2c; transition: background 1.2s; }
+body[data-phase="fajr"]    { --sky-a: #050d11; --sky-b: #0e2a30; --sky-c: #2e4c4c; }
+body[data-phase="sunrise"],
+body[data-phase="dhuhr"]   { --sky-a: #0a1a17; --sky-b: #17413a; --sky-c: #4f7a6c; }
+body[data-phase="asr"]     { --sky-a: #08110d; --sky-b: #1c3326; --sky-c: #4d5a3c; }
+body[data-phase="maghrib"] { --sky-a: #0a0d0a; --sky-b: #22261b; --sky-c: #5c4630; }
+body[data-phase="isha"]    { --sky-a: #040b08; --sky-b: #0b1d17; --sky-c: #16332a; }
+.hero { position: relative; min-height: 100svh; isolation: isolate; overflow: hidden;
+  background: radial-gradient(120% 80% at 75% 100%, var(--sky-c) 0%, var(--sky-b) 38%, var(--sky-a) 75%); }
+.hero::after { content: ""; position: absolute; inset: auto 0 0; height: 30%; background: linear-gradient(180deg, transparent, var(--night-0)); z-index: -1; }
+.stars { position: absolute; inset: 0; z-index: -1; opacity: .5; background-image:
+  radial-gradient(1px 1px at 12% 18%, #fff, transparent), radial-gradient(1px 1px at 32% 8%, #fff, transparent),
+  radial-gradient(1px 1px at 54% 22%, #fff, transparent), radial-gradient(1.5px 1.5px at 72% 12%, #fff, transparent),
+  radial-gradient(1px 1px at 88% 30%, #fff, transparent), radial-gradient(1px 1px at 22% 40%, #fff, transparent),
+  radial-gradient(1px 1px at 44% 36%, #fff, transparent), radial-gradient(1px 1px at 8% 60%, #fff, transparent); }
+body[data-phase="dhuhr"] .stars, body[data-phase="asr"] .stars, body[data-phase="sunrise"] .stars { opacity: 0; }
+.hero .in { width: min(1180px, 100% - 40px); margin: 0 auto; min-height: 100svh; padding: 120px 0 64px;
+  display: grid; grid-template-columns: 1fr minmax(360px, 0.9fr); gap: 64px; align-items: center; }
+.where { font-size: 15px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; margin: 0 0 18px; }
+.where svg { opacity: .8; }
+h1, h2, h3 { font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+.hero h1 { font-size: clamp(40px, 4.3vw, 62px); line-height: 1.02; text-wrap: balance; }
+.hero .lead { font-size: clamp(17px, 1.4vw, 20px); color: var(--ink-2); margin: 24px 0 34px; max-width: 32em; text-wrap: pretty; }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+.prayers { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-top: 44px; padding: 6px; border-radius: 22px; max-width: 520px; }
+.prayers div { padding: 10px 4px; border-radius: 16px; text-align: center; transition: background .4s; }
+.prayers small { display: block; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+.prayers b { display: block; font-size: 17px; font-weight: 500; font-variant-numeric: tabular-nums; margin-top: 2px; }
+.prayers .next { background: rgba(70,150,108,0.34); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); }
+
+/* арка-михраб с картиной и живым отсчётом */
+.arch { position: relative; aspect-ratio: 877 / 1300; width: 100%; max-width: 470px; justify-self: center;
+  border-radius: 999px 999px 32px 32px; overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 60px 120px -40px rgba(0,0,0,0.8); }
+.arch img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; }
+.arch::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0) 45%); }
+.clock { position: absolute; z-index: 2; left: 0; right: 0; top: 17%; text-align: center; }
+.clock small { display: block; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,0.86); }
+.clock .t { display: block; font-weight: 200; font-size: clamp(64px, 7.4vw, 104px); letter-spacing: -0.04em; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.arch-wrap { position: relative; justify-self: center; width: 100%; max-width: 470px; }
+.arch-wrap .arch { max-width: none; }
+.note-chip { position: absolute; z-index: 3; display: flex; align-items: center; gap: 12px; padding: 12px 18px 12px 12px; border-radius: 22px; background: rgba(10,26,20,0.55); animation: float 7s ease-in-out infinite; white-space: nowrap; }
+@keyframes float { 50% { transform: translateY(-8px); } }
+.note-chip .av { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-weight: 600; background: linear-gradient(160deg, #2b5a46, #14281f); border: 1px solid rgba(255,255,255,0.16); flex: none; }
+.note-chip b { display: block; font-size: 15px; font-weight: 600; } .note-chip small { display: block; font-size: 13px; color: var(--ink-2); }
+.n1 { left: -64px; top: 52%; }
+.arch-credit { margin: 14px 0 0; text-align: center; }
+.geo { margin-top: 14px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; font: inherit; font-size: 14px; color: var(--ink); cursor: pointer; }
+.arch .ring { position: absolute; z-index: 2; left: 50%; bottom: 22px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border-radius: 999px; white-space: nowrap; font-size: 14px; background: rgba(8,14,11,0.42); }
+.ring .avs { display: flex; }
+.ring .avs i { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 12px; font-weight: 600; background: #1d3a2f; border: 1.5px solid rgba(255,255,255,0.7); margin-left: -8px; }
+.ring .avs i:first-child { margin-left: 0; }
+.ring .avs i.done { background: #2f6a4c; }
+
+/* ── день: пять намазов по горизонтали ── */
+.day { position: relative; height: 520vh; background: var(--night-0); }
+.day .pin { position: sticky; top: 0; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding-top: 72px; }
+.day .pin::before, .day .pin::after { content: ""; position: absolute; z-index: 2; top: 0; bottom: 0; width: max(24px, calc((100vw - 1180px) / 2)); pointer-events: none; }
+.day .pin::before { left: 0; background: linear-gradient(90deg, var(--night-0) 30%, transparent); }
+.day .pin::after { right: 0; background: linear-gradient(-90deg, var(--night-0) 30%, transparent); }
+.day .head { width: min(1180px, 100% - 40px); margin: 0 auto 36px; display: flex; justify-content: space-between; align-items: end; gap: 24px; }
+.day h2 { font-size: clamp(34px, 4vw, 56px); line-height: 1.02; max-width: 15ch; }
+.day .bar { flex: none; width: 220px; height: 2px; background: rgba(255,255,255,0.14); border-radius: 2px; overflow: hidden; }
+.day .bar i { display: block; height: 100%; width: 0; background: var(--ink); }
+.track { display: flex; gap: 20px; padding: 0 max(20px, calc((100vw - 1180px) / 2)); will-change: transform; }
+.card { position: relative; flex: none; width: min(860px, 78vw); height: min(560px, 64svh); border-radius: 36px; overflow: hidden;
+  display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 36px 36px 36px 48px; align-items: center; isolation: isolate;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1); }
+.card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--g); }
+.card[data-p="fajr"]    { --g: radial-gradient(90% 50% at 50% 115%, rgba(241,228,191,0.22), transparent 70%), linear-gradient(170deg, #050f14 0%, #0d2a33 55%, #2a4a4c 100%); }
+.card[data-p="dhuhr"]   { --g: linear-gradient(170deg, #0a211c 0%, #18463a 60%, #3f6e5b 100%); }
+.card[data-p="asr"]     { --g: radial-gradient(70% 50% at 85% 100%, rgba(217,185,92,0.20), transparent 70%), linear-gradient(170deg, #0c1611 0%, #1f3326 55%, #44503a 100%); }
+.card[data-p="maghrib"] { --g: radial-gradient(90% 60% at 50% 110%, rgba(196,120,70,0.32), transparent 70%), linear-gradient(170deg, #0b100c 0%, #1e231a 55%, #3a3324 100%); }
+.card[data-p="isha"]    { --g: radial-gradient(80% 60% at 80% 10%, rgba(241,228,191,0.18), transparent 60%), linear-gradient(170deg, #040b08 0%, #0d241c 60%, #1a3a2d 100%); }
+.card .p { font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.75); font-weight: 600; }
+.card h3 { font-size: clamp(30px, 3.2vw, 46px); line-height: 1.04; margin: 14px 0 16px; text-wrap: balance; }
+.card p { color: rgba(255,255,255,0.78); font-size: 18px; margin: 0; max-width: 24em; }
+.card .iphone { --w: calc((min(560px, 64svh) - 72px) * 0.4614); align-self: center; }
+
+@media (max-width: 860px) {
+  .hero .in { grid-template-columns: 1fr; padding: 92px 0 48px; gap: 28px; }
+  .copy { display: contents; }
+  .where { order: 1; margin: 0 0 -20px; } .hero h1 { order: 2; } .arch-wrap { order: 3; max-width: 100%; }
+  .hero .lead { order: 4; } .cta-row { order: 5; } .geo { order: 6; justify-self: start; margin-top: -16px; } .prayers { order: 7; }
+  .arch { aspect-ratio: 5 / 6; border-radius: 999px 999px 28px 28px; }
+  .clock { top: 16%; }
+  .clock .t { font-size: 72px; }
+  .n1 { left: auto; right: -8px; top: 46%; }
+  .note-chip { padding: 9px 14px 9px 9px; } .note-chip .av { width: 32px; height: 32px; } .note-chip b { font-size: 13.5px; } .note-chip small { font-size: 12px; }
+  .hero h1 { font-size: 34px; }
+  .hero .lead { font-size: 17px; margin: 0; }
+  .prayers { margin-top: 0; }
+  .prayers b { font-size: 15px; }
+  .day { height: auto; padding: 72px 0 96px; }
+  .day .pin { position: static; height: auto; padding-top: 0; }
+  .day .pin::before, .day .pin::after { display: none; }
+  .day .head { margin-bottom: 28px; }
+  .day .bar { display: none; }
+  .track { overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 20px 8px; gap: 12px; scrollbar-width: none; transform: none !important; }
+  .track::-webkit-scrollbar { display: none; }
+  .card { width: 86vw; height: auto; grid-template-columns: 1fr; align-items: start; padding: 30px 26px 28px; scroll-snap-align: center; border-radius: 30px; }
+  .card h3 { font-size: 30px; }
+  .card p { font-size: 16px; }
+  .card .iphone { --w: 200px; justify-self: center; margin: 4px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .day { height: auto; padding: 80px 0; } .day .pin { position: static; height: auto; }
+  .track { overflow-x: auto; scroll-snap-type: x mandatory; } .card { scroll-snap-align: start; }
+}
+</style>
+</head>
+<body data-phase="isha">
+<header class="nav glass">
+  <a class="brand" href="/_preview/v5-c/"><img src="/assets/logo-68.webp" alt="" width="28" height="28">Firdausly</a>
+  <nav class="links" aria-label="Разделы"><a href="#day">Что внутри</a><a href="#">Reminders</a><a href="#">Сёстрам</a><a href="#">Цены</a><a href="#">Авторам</a></nav>
+  <span class="lang">RU · EN · KZ</span>
+  <a class="cta" href="#">Скачать</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="in">
+    <div class="copy">
+      <p class="where"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 3 3 10.5l7.5 2.9L13.4 21 21 3Z"/></svg><span data-city>Алматы</span> · <span data-date>сегодня</span></p>
+      <h1>Совершайте намазы вовремя — и&nbsp;напоминайте братьям</h1>
+      <p class="lead">Firdausly — соцсеть, которая делает ближе к религии. Близкие видят, кто уже совершил намаз, будят друг друга на Фаджр и зовут на совместный намаз.</p>
+      <div class="cta-row">
+        <a class="store" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.97-3.46-1.07-1.57-2.74-1.78-3.33-1.8-1.42-.14-2.77.83-3.49.83-.72 0-1.83-.81-3.01-.79-1.55.02-2.98.9-3.78 2.29-1.61 2.8-.41 6.94 1.16 9.21.77 1.11 1.68 2.36 2.88 2.31 1.16-.05 1.6-.75 2.99-.75 1.4 0 1.79.75 3.01.73 1.24-.02 2.03-1.13 2.79-2.25.88-1.29 1.24-2.53 1.26-2.6-.03-.01-2.42-.93-2.45-3.72zM14.08 5.84c.64-.77 1.07-1.85.95-2.92-.92.04-2.03.61-2.69 1.38-.59.68-1.11 1.78-.97 2.83 1.02.08 2.07-.52 2.71-1.29z"/></svg><span><small>Загрузите в</small><b>App Store</b></span></a>
+        <span class="note">Время намаза — бесплатно.<br>Plus — 14 дней даром.</span>
+      </div>
+      <button class="geo glass" type="button" data-geo><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 3 3 10.5l7.5 2.9L13.4 21 21 3Z"/></svg>Точнее — по моему месту</button>
+      <div class="prayers glass" aria-label="Время намаза сегодня">
+        <div data-k="fajr"><small>Фаджр</small><b>—</b></div>
+        <div data-k="dhuhr"><small>Зухр</small><b>—</b></div>
+        <div data-k="asr"><small>Аср</small><b>—</b></div>
+        <div data-k="maghrib"><small>Магриб</small><b>—</b></div>
+        <div data-k="isha"><small>Иша</small><b>—</b></div>
+      </div>
+    </div>
+    <div class="arch-wrap">
+    <div class="arch">
+      <picture><source type="image/avif" srcset="/_preview/v5-assets/scene-plus-877.avif"><img src="/_preview/v5-assets/scene-plus-877.webp" alt="Картина Firdausly: четверо братьев смотрят на закат" fetchpriority="high"></picture>
+      <p class="clock"><small data-next-name>До намаза</small><span class="t" data-count>—:—</span></p>
+      <div class="ring glass"><span class="avs"><i class="done">Ю</i><i class="done">А</i><i class="done">М</i><i>У</i></span>3 из 4 близких уже совершили</div>
+    </div>
+    <div class="note-chip glass n1"><span class="av">У</span><span><b data-invite>Умар зовёт на намаз вместе</b><small>Ответить: «Иду»</small></span></div>
+    <p class="credit arch-credit">Картина из приложения Firdausly</p>
+    </div>
+  </div>
+</section>
+
+<section class="day" id="day">
+  <div class="pin">
+    <div class="head">
+      <h2>День, собранный вокруг намаза</h2>
+      <div class="bar" aria-hidden="true"><i></i></div>
+    </div>
+    <div class="track">
+      <article class="card" data-p="fajr">
+        <div><p class="p">Фаджр</p><h3>Будите друг друга на Фаджр</h3><p>Настоящий будильник iPhone — звонит даже в беззвучном режиме. Позовите братьев, и встаньте вместе.</p></div>
+        <div class="iphone"><div class="island"></div><div class="screen"><img src="/_preview/v5-assets/shot-fajr.webp" alt="" loading="lazy"></div><div class="shine"></div></div>
+      </article>
+      <article class="card" data-p="dhuhr">
+        <div><p class="p">Зухр</p><h3>Фокус: соцсети закрыты, пока не совершил намаз</h3><p>Instagram и TikTok закрываются с азаном. Подтвердили намаз — открылись.</p></div>
+        <div class="iphone"><div class="island"></div><div class="screen"><img src="/_preview/v5-assets/shot-focus.webp" alt="" loading="lazy"></div><div class="shine"></div></div>
+      </article>
+      <article class="card" data-p="asr">
+        <div><p class="p">Аср</p><h3>Reminders — короткие видео только об&nbsp;исламе</h3><p>Пять минут перерыва, после которых вы ближе к религии, а не дальше.</p></div>
+        <div class="iphone"><div class="island"></div><div class="screen"><img src="/_preview/v5-assets/shot-reminders.webp" alt="" loading="lazy"></div><div class="shine"></div></div>
+      </article>
+      <article class="card" data-p="maghrib">
+        <div><p class="p">Магриб</p><h3>Зовите друзей на совместный намаз</h3><p>Одно касание — и брат знает, что вы ждёте его в мечети.</p></div>
+        <div class="iphone"><div class="island"></div><div class="screen"><img src="/_preview/v5-assets/shot-home.webp" alt="" loading="lazy"></div><div class="shine"></div></div>
+      </article>
+      <article class="card" data-p="isha">
+        <div><p class="p">Иша</p><h3>Общайтесь с братьями и близкими прямо в Firdausly</h3><p>Сообщения, заметки и мгновенные фото — там же, где ваш намаз.</p></div>
+        <div class="iphone"><div class="island"></div><div class="screen"><img src="/_preview/v5-assets/shot-messages.webp" alt="" loading="lazy"></div><div class="shine"></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+<script src="/assets/adhan-4.4.4.min.js"></script>
+<script src="/assets/namaz.js"></script>
+<script src="/_preview/v5-assets/v5.js"></script>
+<script>
+(function () {
+  'use strict';
+  /* Город по поясу браузера — без запроса геопозиции. Неизвестный пояс → Мекка. */
+  var C = function (ru, cc, lat, lon) { return { ru: ru, cc: cc, lat: lat, lon: lon }; };
+  var ALM = C('Алматы', 'KZ', 43.238293, 76.945465), AKT = C('Актобе', 'KZ', 50.300377, 57.154555);
+  var TZ = {
+    'Asia/Almaty': ALM, 'Asia/Qostanay': ALM, 'Etc/GMT-5': C('Астана', 'KZ', 51.133333, 71.433333),
+    'Asia/Aqtobe': AKT, 'Asia/Aqtau': AKT, 'Asia/Atyrau': AKT, 'Asia/Oral': AKT, 'Asia/Qyzylorda': C('Шымкент', 'KZ', 42.368009, 69.612769),
+    'Asia/Bishkek': C('Бишкек', 'KG', 42.8746, 74.5698), 'Asia/Tashkent': C('Ташкент', 'UZ', 41.2995, 69.2401),
+    'Asia/Dushanbe': C('Душанбе', 'TJ', 38.5598, 68.787), 'Europe/Moscow': C('Москва', 'RU', 55.7558, 37.6173),
+    'Asia/Baku': C('Баку', 'AZ', 40.4093, 49.8671), 'Europe/Istanbul': C('Стамбул', 'TR', 41.0082, 28.9784),
+    'Asia/Dubai': C('Дубай', 'AE', 25.2048, 55.2708), 'Europe/London': C('Лондон', 'GB', 51.5074, -0.1278),
+    'America/New_York': C('Нью-Йорк', 'US', 40.7128, -74.006), 'Europe/Berlin': C('Берлин', 'DE', 52.52, 13.405),
+    'Europe/Paris': C('Париж', 'FR', 48.8566, 2.3522), 'Africa/Cairo': C('Каир', 'EG', 30.0444, 31.2357),
+    'Asia/Riyadh': C('Эр-Рияд', 'SA', 24.7136, 46.6753), 'Asia/Kuala_Lumpur': C('Куала-Лумпур', 'MY', 3.139, 101.6869),
+    'Asia/Jakarta': C('Джакарта', 'ID', -6.2088, 106.8456), 'Asia/Karachi': C('Карачи', 'PK', 24.8607, 67.0011)
+  };
+  var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  /* Пояс не узнали — честно показываем Мекку и её часы, а не время Мекки на часах посетителя. */
+  var city = TZ[tz] || C('Мекка', 'SA', 21.4225, 39.8262);
+  var showTz = TZ[tz] ? undefined : 'Asia/Riyadh';
+  var N = window.FirdausNamaz, NAMES = { fajr: 'Фаджр', dhuhr: 'Зухр', asr: 'Аср', maghrib: 'Магриб', isha: 'Иша' };
+  var K = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
+  var $ = function (s) { return document.querySelector(s); };
+  $('[data-city]').textContent = TZ[tz] ? city.ru + ' · ориентир' : 'Мекка';
+  try { $('[data-date]').textContent = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long' }).format(new Date()); } catch (e) {}
+  function times(d) { return N.day(city, d.getFullYear(), d.getMonth() + 1, d.getDate()); }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function hm(d) { return new Intl.DateTimeFormat('ru-RU', { hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZone: showTz }).format(d); }
+  var T;
+  function fill() { T = times(new Date()); K.forEach(function (k) { $('.prayers [data-k="' + k + '"] b').textContent = hm(T[k]); }); }
+  if (N) fill();
+  /* Точнее — по месту: одна кнопка, геопозиция только по касанию. */
+  var KZ_TZ = /^(Asia\/(Almaty|Qostanay|Aqtobe|Aqtau|Atyrau|Oral|Qyzylorda)|Etc\/GMT-5)$/;
+  $('[data-geo]').addEventListener('click', function () {
+    var b = this;
+    if (!navigator.geolocation) return;
+    b.textContent = 'Определяем…';
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      city = { ru: 'Ваше место', cc: KZ_TZ.test(tz) ? 'KZ' : (TZ[tz] ? TZ[tz].cc : ''), lat: pos.coords.latitude, lon: pos.coords.longitude };
+      showTz = undefined; $('[data-city]').textContent = 'По вашему месту'; b.hidden = true; fill(); tick();
+    }, function () { b.textContent = 'Место не дали — показываем ориентир'; }, { timeout: 8000, maximumAge: 6e5 });
+  });
+  function tick() {
+    if (!N) return;
+    var now = new Date(), next = null, phase = 'isha';
+    T = times(now);
+    for (var i = 0; i < K.length; i++) if (T[K[i]] > now) { next = K[i]; break; }
+    var at = next ? T[next] : times(new Date(now.getTime() + 864e5)).fajr;
+    if (!next) next = 'fajr';
+    /* фаза неба: последний наступивший момент */
+    ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'].forEach(function (k) { if (T[k] <= now) phase = k; });
+    if (now < T.fajr) phase = 'isha';
+    document.body.setAttribute('data-phase', phase);
+    var s = Math.max(0, Math.floor((at - now) / 1000)), h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60;
+    $('[data-count]').textContent = (h ? h + ':' + pad(m) : m) + ':' + pad(sec);
+    $('[data-next-name]').textContent = NAMES[next] + ' через';
+    $('[data-invite]').textContent = 'Умар зовёт на ' + NAMES[next] + ' вместе';
+    document.querySelectorAll('.prayers [data-k]').forEach(function (n) { n.classList.toggle('next', n.getAttribute('data-k') === next); });
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* горизонтальный день, ведомый вертикальной прокруткой (только широкий экран) */
+  var day = $('.day'), track = $('.track'), bar = $('.day .bar i');
+  var wide = window.matchMedia('(min-width: 861px)');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function scroll() {
+    if (!wide.matches) { track.style.transform = ''; return; }
+    var r = day.getBoundingClientRect(), total = day.offsetHeight - innerHeight;
+    var lead = innerHeight * 0.15;
+    var p = Math.min(1, Math.max(0, (-r.top - lead) / (total - 2 * lead)));
+    var last = track.lastElementChild, pad = parseFloat(getComputedStyle(track).paddingLeft);
+    var max = Math.max(0, last.offsetLeft + last.offsetWidth + pad - innerWidth);
+    track.style.transform = 'translate3d(' + (-p * max) + 'px,0,0)';
+    bar.style.width = (p * 100) + '%';
+  }
+  if (!reduce.matches) { addEventListener('scroll', scroll, { passive: true }); addEventListener('resize', scroll); scroll(); }
+})();
+</script>
+</body>
+</html>

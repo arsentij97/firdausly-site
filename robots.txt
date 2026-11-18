@@ -5,32 +5,42 @@ Disallow: /r/
 Disallow: /join/
 Disallow: /together/
 Disallow: /gen/
+Disallow: /_preview/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /_preview/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /_preview/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /_preview/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /_preview/
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /_preview/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /_preview/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /_preview/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /_preview/
 
 User-agent: YandexBot
 Allow: /
+Disallow: /_preview/
 
 Sitemap: https://firdausly.com/sitemap.xml

@@ -1,0 +1,129 @@
+/* Firdausly v5 — общая основа трёх направлений (превью 18.11).
+   Токены, рамка iPhone, «жидкое стекло», кнопки, появление при прокрутке.
+   Золото луны — редкий акцент: рамки и служебные тексты нейтральные, как у Apple. */
+:root {
+  --night-0: #040b08;
+  --night-1: #07130f;
+  --night-2: #0b1d17;
+  --night-3: #12291f;
+  --ink: #f5f3ee;
+  --ink-2: rgba(245, 243, 238, 0.72);
+  --ink-3: rgba(245, 243, 238, 0.52);
+  --gold: #d9b95c;
+  --moon: #f1e4bf;
+  --glass: rgba(255, 255, 255, 0.075);
+  --glass-hi: rgba(255, 255, 255, 0.14);
+  --glass-edge: rgba(255, 255, 255, 0.16);
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Roboto, sans-serif;
+  --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --r-lg: 28px;
+  --r-xl: 40px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --gut: max(20px, env(safe-area-inset-left));
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--night-0);
+  color: var(--ink);
+  font: 400 17px/1.5 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+picture { display: contents; }
+
+/* ── стекло ── */
+.glass {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.05));
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  backdrop-filter: blur(28px) saturate(170%);
+  border: 1px solid var(--glass-edge);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.04), 0 24px 60px -20px rgba(0,0,0,0.6);
+}
+
+/* ── верхняя панель ── */
+.nav {
+  position: fixed; z-index: 50; top: 14px; left: 50%; transform: translateX(-50%);
+  width: min(1120px, calc(100% - 24px));
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 7px 7px 18px; border-radius: 999px;
+  background: linear-gradient(180deg, rgba(14,34,27,0.72), rgba(8,22,17,0.62));
+}
+.nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 17px; letter-spacing: -0.01em; }
+.nav .brand img { width: 28px; height: 28px; border-radius: 8px; }
+.nav .links { display: flex; gap: 2px; margin-left: auto; }
+.nav .links a { padding: 10px 14px; border-radius: 999px; font-size: 14.5px; color: var(--ink-2); transition: color .2s, background .2s; }
+.nav .links a:hover { color: var(--ink); background: rgba(255,255,255,0.06); }
+.nav .lang { font-size: 13px; color: var(--ink-3); padding: 10px 10px; letter-spacing: .04em; }
+.nav .cta { padding: 11px 18px; border-radius: 999px; background: var(--ink); color: #0a0a0a; font-weight: 600; font-size: 14.5px; white-space: nowrap; }
+@media (max-width: 860px) { .nav .links { display: none; } .nav .lang { margin-left: auto; } }
+
+/* ── кнопка App Store ── */
+.store {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 56px;
+  padding: 10px 22px 10px 18px; border-radius: 16px;
+  background: #fff; color: #000; transition: transform .25s var(--ease), box-shadow .25s;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6);
+}
+.store:hover { transform: translateY(-1px); }
+.store svg { width: 24px; height: 24px; flex: none; }
+.store b { display: block; font-size: 18px; line-height: 1.1; font-weight: 600; letter-spacing: -0.01em; }
+.store small { display: block; font-size: 11.5px; line-height: 1.1; opacity: .7; }
+.store.dark { background: rgba(0,0,0,0.55); color: #fff; border: 1px solid rgba(255,255,255,0.28); }
+.note { font-size: 14px; color: var(--ink-3); }
+
+/* ── рамка iPhone (16 Pro, 1290×2796 экран) ── */
+.iphone {
+  --w: 300px;
+  position: relative; width: var(--w); aspect-ratio: 1290 / 2796;
+  padding: calc(var(--w) * 0.032);
+  border-radius: calc(var(--w) * 0.175);
+  background:
+    linear-gradient(145deg, #5d5a55 0%, #2b2a28 22%, #1a1918 50%, #3a3936 78%, #67635d 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.18),
+    inset 0 0 0 calc(var(--w) * 0.012) #0b0b0b,
+    0 50px 100px -30px rgba(0,0,0,0.75),
+    0 20px 40px -20px rgba(0,0,0,0.6);
+  flex: none;
+}
+.iphone::before { /* кнопки сбоку */
+  content: ""; position: absolute; right: calc(var(--w) * -0.009); top: 26%; width: calc(var(--w) * 0.012); height: 13%;
+  border-radius: 0 3px 3px 0; background: linear-gradient(90deg, #2a2927, #55524d);
+}
+.iphone .screen {
+  position: relative; width: 100%; height: 100%; overflow: hidden;
+  border-radius: calc(var(--w) * 0.145); background: #000;
+}
+.iphone .screen img { width: 100%; height: 100%; object-fit: cover; }
+.iphone .island {
+  position: absolute; z-index: 2; top: calc(var(--w) * 0.058); left: 50%; transform: translateX(-50%);
+  width: 31%; height: calc(var(--w) * 0.092); border-radius: 999px; background: #000;
+}
+.iphone .shine { position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(115deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 32%); }
+
+/* ── появление при прокрутке ── */
+.rv { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.rv.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .rv { opacity: 1; transform: none; transition: none; }
+  * { animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* ── подпись к картине ── */
+.credit { font-size: 12px; line-height: 1.45; color: var(--ink-3); letter-spacing: .01em; }
+.credit i { font-style: italic; color: var(--ink-2); }
+
+/* ── полоса «превью» ── */
+.pv-bar { background: rgba(8,22,17,0.7); position: fixed; z-index: 60; bottom: 12px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 4px; padding: 5px; border-radius: 999px; font-size: 13px; }
+.pv-bar a { padding: 8px 14px; border-radius: 999px; color: var(--ink-2); }
+.pv-bar a[aria-current] { background: var(--ink); color: #000; font-weight: 600; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

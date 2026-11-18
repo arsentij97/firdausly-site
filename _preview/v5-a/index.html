@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#040b08">
+<title>Firdausly — превью A «Галерея»</title>
+<link rel="icon" href="/assets/favicon-48.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/_preview/v5-assets/v5.css">
+<style>
+/* ── A «Галерея»: музейная живопись XIX века + настоящие экраны. Тихая роскошь. ── */
+.hero { position: relative; min-height: 100svh; display: grid; align-items: end; isolation: isolate; overflow: hidden; }
+.hero .art { position: absolute; inset: 0; z-index: -2; }
+.hero .art img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 60%; transform: scale(1.06); animation: drift 24s var(--ease) forwards; }
+@keyframes drift { to { transform: scale(1); } }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(4,11,8,0.88) 0%, rgba(4,11,8,0.62) 32%, rgba(4,11,8,0.05) 60%, rgba(4,11,8,0.12) 100%),
+    linear-gradient(180deg, rgba(4,11,8,0.5) 0%, rgba(4,11,8,0) 20%, rgba(4,11,8,0) 70%, var(--night-0) 100%); }
+.hero .in { width: min(1180px, 100% - 40px); margin: 0 auto; padding: 140px 0 56px;
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: end; }
+.eyebrow { font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 22px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; margin: 0; }
+.hero h1 { font-size: clamp(46px, 6.4vw, 92px); line-height: 0.98; max-width: 11ch; text-wrap: balance; }
+.hero h1 em { font-style: italic; color: var(--moon); }
+.hero .lead { font-size: clamp(17px, 1.45vw, 20px); line-height: 1.55; color: var(--ink-2); max-width: 34em; margin: 28px 0 36px; text-wrap: pretty; }
+.hero .note { color: var(--ink-2); text-shadow: 0 1px 12px rgba(0,0,0,0.8); }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
+.hero .phone-col { display: flex; justify-content: center; align-self: center; }
+.hero .iphone { --w: clamp(260px, 25vw, 340px); transform: rotate(0deg); }
+.placard { grid-column: 1; margin-top: -8px; display: flex; gap: 14px; align-items: flex-start; max-width: 420px; }
+.placard::before { content: ""; width: 28px; height: 1px; background: rgba(255,255,255,.4); margin-top: 9px; flex: none; }
+
+/* ── «Что внутри» ── */
+.inside { padding: 96px 0 140px; background: var(--night-0); }
+.wrap { width: min(1180px, 100% - 40px); margin: 0 auto; }
+.inside .head { max-width: 760px; margin-bottom: 72px; }
+.inside h2 { font-size: clamp(38px, 4.6vw, 64px); line-height: 1.02; text-wrap: balance; }
+.inside .head p { color: var(--ink-2); font-size: 19px; margin: 22px 0 0; max-width: 36em; }
+.exhibit { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; margin-bottom: 140px; }
+.exhibit:nth-child(even) .frame { order: 2; }
+.frame { position: relative; aspect-ratio: 4 / 5; border-radius: 6px; overflow: visible; }
+.frame .canvas { position: absolute; inset: 0; border-radius: 6px; overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 40px 80px -40px rgba(0,0,0,0.9); }
+.frame .canvas img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.95) brightness(0.86); }
+.frame .canvas::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,11,8,0) 45%, rgba(4,11,8,0.55)); }
+.frame .iphone { --w: clamp(190px, 17vw, 250px); position: absolute; right: -36px; bottom: -48px; }
+.exhibit:nth-child(even) .frame .iphone { right: auto; left: -36px; }
+.frame .credit { position: absolute; left: 0; bottom: -40px; max-width: calc(100% - 200px); }
+.exhibit:nth-child(even) .frame .credit { left: auto; right: 0; text-align: right; }
+.text .num { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink-3); }
+.text h3 { font-size: clamp(34px, 3.4vw, 50px); line-height: 1.04; margin: 10px 0 20px; text-wrap: balance; }
+.text p { color: var(--ink-2); font-size: 18px; line-height: 1.6; margin: 0; max-width: 30em; }
+.more { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.more span { padding: 12px 18px; border-radius: 999px; font-size: 15px; color: var(--ink); }
+
+@media (max-width: 860px) {
+  .hero { align-items: start; }
+  .hero::after { background:
+    linear-gradient(180deg, rgba(4,11,8,0.88) 0%, rgba(4,11,8,0.6) 34%, rgba(4,11,8,0.05) 56%, rgba(4,11,8,0.1) 80%, var(--night-0) 100%); }
+  .hero .art img { object-position: 50% 70%; }
+  .hero .in { grid-template-columns: 1fr; padding: 112px 0 48px; gap: 40px; }
+  .hero h1 { font-size: 44px; }
+  .hero .in { gap: 32px; }
+  .hero .lead { font-size: 17px; margin: 20px 0 28px; }
+  .hero .iphone { --w: 248px; }
+  .placard { margin-top: 0; }
+  .inside { padding: 64px 0 96px; }
+  .inside .head { margin-bottom: 56px; }
+  .exhibit { grid-template-columns: 1fr; gap: 72px; margin-bottom: 104px; }
+  .exhibit:nth-child(even) .frame { order: 0; }
+  .frame { width: calc(100% - 40px); }
+  .frame .iphone { --w: 168px; right: -40px; bottom: -36px; }
+  .exhibit:nth-child(even) .frame .iphone { left: auto; right: -40px; }
+  .exhibit:nth-child(even) .frame .credit { left: 0; right: auto; text-align: left; }
+  .frame .credit { max-width: 58%; }
+}
+</style>
+</head>
+<body>
+<header class="nav glass">
+  <a class="brand" href="/_preview/v5-a/"><img src="/assets/logo-68.webp" alt="" width="28" height="28">Firdausly</a>
+  <nav class="links" aria-label="Разделы"><a href="#inside">Что внутри</a><a href="#">Reminders</a><a href="#">Сёстрам</a><a href="#">Цены</a><a href="#">Авторам</a></nav>
+  <span class="lang">RU · EN · KZ</span>
+  <a class="cta" href="#">Скачать</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="art"><picture>
+    <source media="(max-width: 860px)" type="image/avif" srcset="/_preview/v5-assets/nile-t-720.avif 720w, /_preview/v5-assets/nile-t-1080.avif 1080w" sizes="100vw">
+    <source media="(max-width: 860px)" type="image/webp" srcset="/_preview/v5-assets/nile-t-720.webp 720w, /_preview/v5-assets/nile-t-1080.webp 1080w" sizes="100vw">
+    <source type="image/avif" srcset="/_preview/v5-assets/nile-w-1280.avif 1280w, /_preview/v5-assets/nile-w-2400.avif 2400w" sizes="100vw">
+    <img src="/_preview/v5-assets/nile-w-1280.webp" srcset="/_preview/v5-assets/nile-w-1280.webp 1280w, /_preview/v5-assets/nile-w-2400.webp 2400w" sizes="100vw" alt="" fetchpriority="high">
+  </picture></div>
+  <div class="in">
+    <div>
+      <p class="eyebrow">Firdausly · для iPhone</p>
+      <h1>Соцсеть, которая делает ближе <em>к&nbsp;религии</em></h1>
+      <p class="lead">Совершайте намазы вовремя и напоминайте братьям — вместе с теми, кого любите.</p>
+      <div class="cta-row">
+        <a class="store" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.97-3.46-1.07-1.57-2.74-1.78-3.33-1.8-1.42-.14-2.77.83-3.49.83-.72 0-1.83-.81-3.01-.79-1.55.02-2.98.9-3.78 2.29-1.61 2.8-.41 6.94 1.16 9.21.77 1.11 1.68 2.36 2.88 2.31 1.16-.05 1.6-.75 2.99-.75 1.4 0 1.79.75 3.01.73 1.24-.02 2.03-1.13 2.79-2.25.88-1.29 1.24-2.53 1.26-2.6-.03-.01-2.42-.93-2.45-3.72zM14.08 5.84c.64-.77 1.07-1.85.95-2.92-.92.04-2.03.61-2.69 1.38-.59.68-1.11 1.78-.97 2.83 1.02.08 2.07-.52 2.71-1.29z"/></svg><span><small>Загрузите в</small><b>App Store</b></span></a>
+        <span class="note">Время намаза и кибла — бесплатно.<br>Plus — 14 дней даром.</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="iphone"><div class="island"></div><div class="screen"><img src="/_preview/v5-assets/shot-home.webp" alt="Главный экран Firdausly: отсчёт до намаза, близкие и «Намаз вместе»"></div><div class="shine"></div></div>
+    </div>
+    <p class="placard credit"><span>Герман Корроди, <i>«На берегу Нила на закате»</i>, до 1905. Частное собрание. Общественное достояние.</span></p>
+  </div>
+</section>
+
+<section class="inside" id="inside">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Что внутри</p>
+      <h2>Всё, что приближает к намазу — и к тем, кого любишь</h2>
+      <p>Не ещё одна лента ради ленты. Каждая функция Firdausly ведёт к одному: вовремя встать на намаз и не идти одному.</p>
+    </div>
+
+    <article class="exhibit">
+      <div class="frame rv">
+        <div class="canvas"><picture><source type="image/avif" srcset="/_preview/v5-assets/scene-plus-877.avif"><img src="/_preview/v5-assets/scene-plus-877.webp" alt="" loading="lazy"></picture></div>
+        <div class="iphone"><div class="island"></div><div class="screen"><img src="/_preview/v5-assets/shot-home.webp" alt="" loading="lazy"></div><div class="shine"></div></div>
+        <p class="credit">Картина из приложения Firdausly</p>
+      </div>
+      <div class="text rv">
+        <span class="num">i.</span>
+        <h3>Напоминайте своим близким</h3>
+        <p>Отец, брат, лучший друг — в одном круге. Видно, кто уже совершил Магриб, а кто ещё в пути. Одно касание — и близкий получает тёплое напоминание, а не сухое уведомление.</p>
+      </div>
+    </article>
+
+    <article class="exhibit">
+      <div class="frame rv">
+        <div class="canvas"><picture><source type="image/avif" srcset="/_preview/v5-assets/alatau-t-1080.avif"><img src="/_preview/v5-assets/alatau-t-1080.webp" alt="" loading="lazy"></picture></div>
+        <div class="iphone"><div class="island"></div><div class="screen"><img src="/_preview/v5-assets/shot-fajr.webp" alt="" loading="lazy"></div><div class="shine"></div></div>
+        <p class="credit">Василий Верещагин, <i>«Кочевая дорога в горах Алатау»</i>, 1869–70. Третьяковская галерея.</p>
+      </div>
+      <div class="text rv">
+        <span class="num">ii.</span>
+        <h3>Будите друг друга на Фаджр</h3>
+        <p>Настоящий будильник iPhone: звонит даже в беззвучном режиме, «Стоп» — прямо на экране блокировки. Позовите братьев на Фаджр вместе — и утро начнётся с намаза, а не с ленты.</p>
+      </div>
+    </article>
+
+    <article class="exhibit">
+      <div class="frame rv">
+        <div class="canvas"><picture><source type="image/avif" srcset="/_preview/v5-assets/ghuri-t-1080.avif"><img src="/_preview/v5-assets/ghuri-t-1080.webp" alt="" loading="lazy"></picture></div>
+        <div class="iphone"><div class="island"></div><div class="screen"><img src="/_preview/v5-assets/shot-reminders.webp" alt="" loading="lazy"></div><div class="shine"></div></div>
+        <p class="credit">Дэвид Робертс, литография Луи Хаге, <i>«Мечеть султана аль-Гури, Каир»</i>, 1849. Кливлендский музей искусств.</p>
+      </div>
+      <div class="text rv">
+        <span class="num">iii.</span>
+        <h3>Reminders — короткие видео только об исламе</h3>
+        <p>Листаете, как привыкли, — только каждый ролик делает ближе к религии. Без танцев, без бесконечной гонки за вниманием. Снимать и выкладывать может каждый.</p>
+      </div>
+    </article>
+
+    <div class="more rv">
+      <span class="glass">Фокус: соцсети закрыты, пока не совершил намаз</span>
+      <span class="glass">Сцена — живые хутбы</span>
+      <span class="glass">Сообщения с близкими</span>
+      <span class="glass">Защита сестёр и Вали</span>
+      <span class="glass">Азан муэдзинов</span>
+      <span class="glass">Виджеты с картинами</span>
+    </div>
+  </div>
+</section>
+</main>
+<script src="/_preview/v5-assets/v5.js"></script>
+</body>
+</html>
