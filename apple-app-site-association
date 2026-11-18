@@ -7,7 +7,8 @@
           { "/": "/r/*", "comment": "Reminders video" },
           { "/": "/p/*", "comment": "Umma post (public only)" },
           { "/": "/join/*", "comment": "Invitation to loved ones" },
-          { "/": "/i/*", "comment": "Short invite link, 5-character code (build 66)" },
+          { "/": "/i/", "?": { "c": "?????" }, "comment": "Invite link, code in query: /i/?c=8UA7P (build 66, real page with 200)" },
+          { "/": "/i/*", "comment": "Short invite link, 5-character code (build 66; old /i/8UA7P shares)" },
           { "/": "/together/*", "comment": "Invitation to pray together" },
           { "/": "/creators/apply*", "comment": "Verification and Creator Program application" },
           { "/": "/u/*", "comment": "Profile link" }
