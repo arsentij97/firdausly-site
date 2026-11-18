@@ -428,6 +428,17 @@ figcaption{font-size:15px}
 .pair .back{position:relative;box-shadow:0 0 0 1.5px rgba(255,255,255,.16),0 0 0 6px #141412,0 0 0 7px rgba(255,255,255,.14),0 40px 80px -20px rgba(0,0,0,1)}
 @media (max-width:520px){.pair{gap:12px;padding-right:0}.pair .dev:not(.back){--pw:58vw}.pair .back{--pw:31vw}}
 @media (min-width:981px){.hero-bg img{filter:blur(3px) brightness(.85) saturate(1.1);transform:scale(1.03)}}
+
+/* круг 3: оба телефона первого экрана в одном масштабе, подписи «Вы» и «Близкий» над ними */
+@media (min-width:981px){
+  .duo{gap:22px}
+  .duo .d-main .dev,.duo .d-side .dev{--pw:min(290px,calc((100dvh - 250px)*.43),19vw)}
+  .duo .d-side{bottom:0}
+  .hero-bg img{filter:blur(1.2px) brightness(.88) saturate(1.1)}
+}
+.who{margin:0 0 12px!important;font-size:13px!important;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)!important;text-align:center}
+@media (max-width:980px){.d-main .who{display:none}}
+@media (max-width:520px){.pair .dev:not(.back){--pw:54vw}.pair .back{--pw:30vw}}
 </style>
 <style>
 /* страница партнёров: свои куски поверх общего стиля */
@@ -544,10 +555,10 @@ figcaption{font-size:15px}
         <div class="rng"><label for="c-pay">Станут платить после подарка <b id="o-pay">5%</b></label><input type="range" id="c-pay" min="2" max="30" step="1" value="5"><small>Из поставивших, кто после месяца Plus оформит подписку.</small></div>
       </div>
       <div class="box res2" aria-live="polite">
-        <div class="big" id="o-sum">31 980 ₸</div>
-        <div class="yr" id="o-year">в месяц, пока люди платят</div>
-        <dl><dt>Поставят приложение</dt><dd id="o-inst">600</dd><dt>Станут платить</dt><dd id="o-payers">60</dd><dt>Вам с одной оплаты Plus на месяц</dt><dd>533 ₸</dd></dl>
-        <p class="math"><b>Plus на месяц 3 790 ₸</b> − НДС 16% (523 ₸) − комиссия Apple 15% (490 ₸) − наш налог 4% (111 ₸) = <b>2 666 ₸</b> чистыми → вам 20% = <b>533 ₸</b>. Premium даёт больше с человека. Оценка, не обещание: сколько людей придёт, зависит от вас и вашей аудитории.</p>
+        <div class="big" id="o-sum">15 990 ₸</div>
+        <div class="yr" id="o-year">в месяц · ≈ 191 880 ₸ за год, если все оплатившие останутся</div>
+        <dl><dt>Поставят приложение</dt><dd id="o-inst">600</dd><dt>Станут платить</dt><dd id="o-payers">30</dd><dt>Вам с одной оплаты Plus на месяц</dt><dd>533 ₸</dd></dl>
+        <p class="math"><b>Plus на месяц 3 790 ₸</b> − НДС 16% (523 ₸) − комиссия Apple 15% (490 ₸) − наш налог 4% (111 ₸) = <b>2 666 ₸</b> чистыми → вам 20% = <b>533 ₸</b>. С Premium доля больше: он дороже Plus. Оценка, не обещание: сколько людей придёт, зависит от вас и вашей аудитории.</p>
       </div>
     </div>
   </div>
